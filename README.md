@@ -1,1 +1,1 @@
-# Anity-Jobs
+# The Job posting platform for Africa
