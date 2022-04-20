@@ -12,7 +12,7 @@ jobs:
     steps:
       - checkout
       - ruby/install-deps
-      Store bundle cache
+      # Store bundle cache
       - node/install-packages:
          pkg-manager: yarn
          cache-key: "yarn.lock"
