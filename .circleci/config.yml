@@ -8,7 +8,7 @@ orbs:
 jobs:
   build:
     docker:
-      - image: cimg/ruby-node:3.0.1
+      - image: cimg/ruby-node:3.0.3
     steps:
       - checkout
       - ruby/install-deps
@@ -19,7 +19,7 @@ jobs:
   test:
     parallelism: 3
     docker:
-      - image: cimg/ruby-node:3.0.1
+      - image: cimg/ruby-node:3.0.3
       - image: cimg/postgres:14.2
         environment:
           POSTGRES_USER: anity_jobs
