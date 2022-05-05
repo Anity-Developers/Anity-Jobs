@@ -59,12 +59,12 @@ workflows: # Ref: https://medium.com/@allanmongej/setting-up-ci-cd-to-a-rails-6-
       - test:
           requires:
             - build
-  heroku_deploy:
-    jobs:
-      - build
-      - heroku/deploy-via-git: # Use the pre-configured job, deploy-via-git
-          requires:
-            - build # only run deploy-via-git job if the build job has completed
-          filters:
-            branches:
-              only: main # only run deploy-via-git job on main branch
+  # heroku_deploy:
+  #   jobs:
+  #     - build
+  #     - heroku/deploy-via-git: # Use the pre-configured job, deploy-via-git
+  #         requires:
+  #           - build # only run deploy-via-git job if the build job has completed
+  #         filters:
+  #           branches:
+  #             only: main # only run deploy-via-git job on main branch
