@@ -1,5 +1,15 @@
+<div class="w-full bg-slate-300">
+  <h1 class="font-bold ">Welcome to Anity jobs</h1>
+</div>
+
+<div class="w-full bg-slate-300">
+<%= link_to 'create Company', new_company_path %>
+</div>
+
+<div>
 <% if current_user%>
   <%= link_to t('layouts.application.sign_out'), sign_out_path, method: :delete %>
 <%else%>
   <%= link_to t('layouts.application.sign_in'), sign_in_path %>
 <%end%>
+</div>

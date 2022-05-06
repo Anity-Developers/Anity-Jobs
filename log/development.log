@@ -31,3 +31,319 @@ Migrating to CreateRoles (20220506095706)
   [1m[36mRole Exists? (7.2ms)[0m  [1m[34mSELECT 1 AS one FROM "roles" WHERE "roles"."name" = $1 LIMIT $2[0m  [["name", 0], ["LIMIT", 1]]
   [1m[36mRole Create (1.4ms)[0m  [1m[32mINSERT INTO "roles" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", 0], ["created_at", "2022-05-06 10:12:58.499804"], ["updated_at", "2022-05-06 10:12:58.499804"]]
   [1m[36mTRANSACTION (3.5ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/" for 127.0.0.1 at 2022-05-06 12:21:07 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (6.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["remember_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/views/users/index.html.erb:1
+  Rendered users/index.html.erb within layouts/application (Duration: 38.1ms | Allocations: 12784)
+  Rendered application/_flashes.html.erb (Duration: 0.5ms | Allocations: 263)
+  Rendered layout layouts/application.html.erb (Duration: 94.5ms | Allocations: 66046)
+Completed 200 OK in 101ms (Views: 83.7ms | ActiveRecord: 12.7ms | Allocations: 71915)
+
+
+Started GET "/" for ::1 at 2022-05-06 12:22:31 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  Rendered users/index.html.erb within layouts/application (Duration: 2.6ms | Allocations: 1740)
+  Rendered application/_flashes.html.erb (Duration: 0.4ms | Allocations: 262)
+  Rendered layout layouts/application.html.erb (Duration: 67.5ms | Allocations: 55184)
+Completed 200 OK in 73ms (Views: 69.3ms | ActiveRecord: 0.0ms | Allocations: 61054)
+
+
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(4306644712149207435)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateCompanies (20220506102840)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (36.0ms)[0m  [1m[35mCREATE TABLE "companies" ("id" bigserial primary key, "name" character varying NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (3.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220506102840"]]
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(4306644712149207435)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for ::1 at 2022-05-06 12:32:25 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  Rendered users/index.html.erb within layouts/application (Duration: 0.6ms | Allocations: 457)
+  Rendered application/_flashes.html.erb (Duration: 0.3ms | Allocations: 230)
+  Rendered layout layouts/application.html.erb (Duration: 13.5ms | Allocations: 21750)
+Completed 200 OK in 15ms (Views: 14.7ms | ActiveRecord: 0.0ms | Allocations: 23012)
+
+
+Started GET "/" for ::1 at 2022-05-06 12:32:46 +0200
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  Rendered users/index.html.erb within layouts/application (Duration: 1.0ms | Allocations: 458)
+  Rendered application/_flashes.html.erb (Duration: 0.6ms | Allocations: 230)
+  Rendered layout layouts/application.html.erb (Duration: 13.0ms | Allocations: 8002)
+Completed 200 OK in 17ms (Views: 15.2ms | ActiveRecord: 0.0ms | Allocations: 9190)
+
+
+Started GET "/" for ::1 at 2022-05-06 12:32:47 +0200
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  Rendered users/index.html.erb within layouts/application (Duration: 0.9ms | Allocations: 167)
+  Rendered application/_flashes.html.erb (Duration: 0.1ms | Allocations: 28)
+  Rendered layout layouts/application.html.erb (Duration: 8.0ms | Allocations: 6875)
+Completed 200 OK in 10ms (Views: 9.0ms | ActiveRecord: 0.0ms | Allocations: 7227)
+
+
+Started GET "/" for ::1 at 2022-05-06 12:32:49 +0200
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  Rendered users/index.html.erb within layouts/application (Duration: 0.2ms | Allocations: 161)
+  Rendered application/_flashes.html.erb (Duration: 0.0ms | Allocations: 28)
+  Rendered layout layouts/application.html.erb (Duration: 4.3ms | Allocations: 6869)
+Completed 200 OK in 5ms (Views: 4.5ms | ActiveRecord: 0.0ms | Allocations: 7201)
+
+
+Started GET "/" for ::1 at 2022-05-06 12:33:07 +0200
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  Rendered users/index.html.erb within layouts/application (Duration: 5.3ms | Allocations: 489)
+  Rendered application/_flashes.html.erb (Duration: 0.9ms | Allocations: 230)
+  Rendered layout layouts/application.html.erb (Duration: 19.6ms | Allocations: 8033)
+Completed 200 OK in 24ms (Views: 22.7ms | ActiveRecord: 0.0ms | Allocations: 9205)
+
+
+Started GET "/" for ::1 at 2022-05-06 12:33:08 +0200
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  Rendered users/index.html.erb within layouts/application (Duration: 0.5ms | Allocations: 183)
+  Rendered application/_flashes.html.erb (Duration: 0.1ms | Allocations: 28)
+  Rendered layout layouts/application.html.erb (Duration: 15.7ms | Allocations: 6891)
+Completed 200 OK in 17ms (Views: 16.3ms | ActiveRecord: 0.0ms | Allocations: 7242)
+
+
+Started GET "/" for ::1 at 2022-05-06 12:33:09 +0200
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["remember_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/views/users/index.html.erb:5
+  Rendered users/index.html.erb within layouts/application (Duration: 51.2ms | Allocations: 11981)
+  Rendered application/_flashes.html.erb (Duration: 0.0ms | Allocations: 35)
+  Rendered layout layouts/application.html.erb (Duration: 54.6ms | Allocations: 18819)
+Completed 200 OK in 56ms (Views: 46.5ms | ActiveRecord: 8.6ms | Allocations: 19169)
+
+
+Started GET "/" for ::1 at 2022-05-06 12:33:28 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["remember_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/views/users/index.html.erb:6
+  Rendered users/index.html.erb within layouts/application (Duration: 13.7ms | Allocations: 7926)
+  Rendered application/_flashes.html.erb (Duration: 0.4ms | Allocations: 263)
+  Rendered layout layouts/application.html.erb (Duration: 80.3ms | Allocations: 61443)
+Completed 200 OK in 85ms (Views: 75.9ms | ActiveRecord: 5.9ms | Allocations: 67307)
+
+
+Started GET "/" for ::1 at 2022-05-06 12:34:08 +0200
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["remember_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/views/users/index.html.erb:6
+  Rendered users/index.html.erb within layouts/application (Duration: 5.9ms | Allocations: 1484)
+  Rendered application/_flashes.html.erb (Duration: 0.4ms | Allocations: 231)
+  Rendered layout layouts/application.html.erb (Duration: 45.2ms | Allocations: 13317)
+Completed 200 OK in 49ms (Views: 47.1ms | ActiveRecord: 0.8ms | Allocations: 14540)
+
+
+Started GET "/" for ::1 at 2022-05-06 12:34:44 +0200
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["remember_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/views/users/index.html.erb:6
+  Rendered users/index.html.erb within layouts/application (Duration: 6.7ms | Allocations: 1454)
+  Rendered application/_flashes.html.erb (Duration: 0.7ms | Allocations: 230)
+  Rendered layout layouts/application.html.erb (Duration: 18.5ms | Allocations: 8998)
+Completed 200 OK in 22ms (Views: 20.5ms | ActiveRecord: 0.5ms | Allocations: 10188)
+
+
+Started GET "/" for ::1 at 2022-05-06 12:34:53 +0200
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["remember_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/views/users/index.html.erb:6
+  Rendered users/index.html.erb within layouts/application (Duration: 6.4ms | Allocations: 1472)
+  Rendered application/_flashes.html.erb (Duration: 0.7ms | Allocations: 230)
+  Rendered layout layouts/application.html.erb (Duration: 16.5ms | Allocations: 9016)
+Completed 200 OK in 21ms (Views: 16.2ms | ActiveRecord: 2.0ms | Allocations: 10206)
+
+
+Started GET "/" for ::1 at 2022-05-06 12:35:39 +0200
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["remember_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/views/users/index.html.erb:8
+  Rendered users/index.html.erb within layouts/application (Duration: 7.1ms | Allocations: 1464)
+  Rendered application/_flashes.html.erb (Duration: 0.3ms | Allocations: 230)
+  Rendered layout layouts/application.html.erb (Duration: 14.5ms | Allocations: 9007)
+Completed 200 OK in 19ms (Views: 17.0ms | ActiveRecord: 0.4ms | Allocations: 10197)
+
+
+Started GET "/" for ::1 at 2022-05-06 12:36:36 +0200
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["remember_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/views/users/index.html.erb:7
+  Rendered users/index.html.erb within layouts/application (Duration: 2.5ms | Allocations: 1457)
+  Rendered application/_flashes.html.erb (Duration: 0.5ms | Allocations: 230)
+  Rendered layout layouts/application.html.erb (Duration: 15.8ms | Allocations: 11353)
+Completed 200 OK in 24ms (Views: 21.8ms | ActiveRecord: 0.4ms | Allocations: 12533)
+
+
+Started GET "/" for ::1 at 2022-05-06 12:36:46 +0200
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["remember_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/views/users/index.html.erb:7
+  Rendered users/index.html.erb within layouts/application (Duration: 3.4ms | Allocations: 1436)
+  Rendered application/_flashes.html.erb (Duration: 0.5ms | Allocations: 230)
+  Rendered layout layouts/application.html.erb (Duration: 13.0ms | Allocations: 8979)
+Completed 200 OK in 18ms (Views: 15.8ms | ActiveRecord: 0.2ms | Allocations: 10159)
+
+
+Started GET "/" for ::1 at 2022-05-06 12:37:18 +0200
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["remember_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/views/users/index.html.erb:7
+  Rendered users/index.html.erb within layouts/application (Duration: 4.3ms | Allocations: 1451)
+  Rendered application/_flashes.html.erb (Duration: 0.5ms | Allocations: 230)
+  Rendered layout layouts/application.html.erb (Duration: 20.6ms | Allocations: 10848)
+Completed 200 OK in 27ms (Views: 23.0ms | ActiveRecord: 0.4ms | Allocations: 12028)
+
+
+Started GET "/" for ::1 at 2022-05-06 12:38:14 +0200
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["remember_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/views/users/index.html.erb:7
+  Rendered users/index.html.erb within layouts/application (Duration: 3.1ms | Allocations: 1472)
+  Rendered application/_flashes.html.erb (Duration: 0.5ms | Allocations: 230)
+  Rendered layout layouts/application.html.erb (Duration: 19.1ms | Allocations: 10868)
+Completed 200 OK in 22ms (Views: 21.2ms | ActiveRecord: 0.2ms | Allocations: 12048)
+
+
+Started GET "/" for ::1 at 2022-05-06 12:38:53 +0200
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["remember_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/views/users/index.html.erb:7
+  Rendered users/index.html.erb within layouts/application (Duration: 6.5ms | Allocations: 1448)
+  Rendered application/_flashes.html.erb (Duration: 0.5ms | Allocations: 230)
+  Rendered layout layouts/application.html.erb (Duration: 17.4ms | Allocations: 8992)
+Completed 200 OK in 23ms (Views: 20.3ms | ActiveRecord: 0.3ms | Allocations: 10172)
+
+
+Started GET "/" for ::1 at 2022-05-06 12:39:31 +0200
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["remember_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/views/users/index.html.erb:7
+  Rendered users/index.html.erb within layouts/application (Duration: 4.4ms | Allocations: 1453)
+  Rendered application/_flashes.html.erb (Duration: 0.7ms | Allocations: 230)
+  Rendered layout layouts/application.html.erb (Duration: 18.2ms | Allocations: 8997)
+Completed 200 OK in 23ms (Views: 20.9ms | ActiveRecord: 0.4ms | Allocations: 10177)
+
+
+Started GET "/" for ::1 at 2022-05-06 12:39:47 +0200
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["remember_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/views/users/index.html.erb:7
+  Rendered users/index.html.erb within layouts/application (Duration: 4.7ms | Allocations: 1444)
+  Rendered application/_flashes.html.erb (Duration: 0.4ms | Allocations: 233)
+  Rendered layout layouts/application.html.erb (Duration: 24.3ms | Allocations: 11398)
+Completed 200 OK in 27ms (Views: 25.4ms | ActiveRecord: 0.4ms | Allocations: 12578)
+
+
+Started GET "/" for ::1 at 2022-05-06 12:48:23 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (3.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["remember_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/views/users/index.html.erb:10
+  Rendered users/index.html.erb within layouts/application (Duration: 23.4ms | Allocations: 8016)
+  Rendered application/_flashes.html.erb (Duration: 0.3ms | Allocations: 260)
+  Rendered layout layouts/application.html.erb (Duration: 74.1ms | Allocations: 69470)
+Completed 200 OK in 81ms (Views: 62.0ms | ActiveRecord: 14.1ms | Allocations: 75340)
+
+
+Started GET "/companies/new" for ::1 at 2022-05-06 12:48:25 +0200
+Processing by CompaniesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering companies/new.html.erb within layouts/application
+  Rendered companies/_form.html.erb (Duration: 6.1ms | Allocations: 5859)
+  Rendered companies/new.html.erb within layouts/application (Duration: 6.7ms | Allocations: 6184)
+  Rendered application/_flashes.html.erb (Duration: 0.0ms | Allocations: 35)
+  Rendered layout layouts/application.html.erb (Duration: 10.7ms | Allocations: 13055)
+Completed 200 OK in 23ms (Views: 11.5ms | ActiveRecord: 3.6ms | Allocations: 18582)
+
+
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(4306644712149207435)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateActiveStorageTables (20220506105011)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (25.2ms)[0m  [1m[35mCREATE TABLE "active_storage_blobs" ("id" bigserial primary key, "key" character varying NOT NULL, "filename" character varying NOT NULL, "content_type" character varying, "metadata" text, "service_name" character varying NOT NULL, "byte_size" bigint NOT NULL, "checksum" character varying, "created_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_blobs_on_key" ON "active_storage_blobs" ("key")[0m
+  [1m[35m (14.3ms)[0m  [1m[35mCREATE TABLE "active_storage_attachments" ("id" bigserial primary key, "name" character varying NOT NULL, "record_type" character varying NOT NULL, "record_id" bigint NOT NULL, "blob_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_c3b3935057"
+FOREIGN KEY ("blob_id")
+  REFERENCES "active_storage_blobs" ("id")
+)[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE INDEX "index_active_storage_attachments_on_blob_id" ON "active_storage_attachments" ("blob_id")[0m
+  [1m[35m (2.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_attachments_uniqueness" ON "active_storage_attachments" ("record_type", "record_id", "name", "blob_id")[0m
+  [1m[35m (10.5ms)[0m  [1m[35mCREATE TABLE "active_storage_variant_records" ("id" bigserial primary key, "blob_id" bigint NOT NULL, "variation_digest" character varying NOT NULL, CONSTRAINT "fk_rails_993965df05"
+FOREIGN KEY ("blob_id")
+  REFERENCES "active_storage_blobs" ("id")
+)[0m
+  [1m[35m (3.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_variant_records_uniqueness" ON "active_storage_variant_records" ("blob_id", "variation_digest")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220506105011"]]
+  [1m[36mTRANSACTION (5.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateActionTextTables (20220506105012)
+  [1m[36mTRANSACTION (8.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (21.5ms)[0m  [1m[35mCREATE TABLE "action_text_rich_texts" ("id" bigserial primary key, "name" character varying NOT NULL, "body" text, "record_type" character varying NOT NULL, "record_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_action_text_rich_texts_uniqueness" ON "action_text_rich_texts" ("record_type", "record_id", "name")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220506105012"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(4306644712149207435)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/companies/new" for ::1 at 2022-05-06 12:52:09 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by CompaniesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering companies/new.html.erb within layouts/application
+  Rendered companies/_form.html.erb (Duration: 2.2ms | Allocations: 3905)
+  Rendered companies/new.html.erb within layouts/application (Duration: 2.8ms | Allocations: 4202)
+  Rendered application/_flashes.html.erb (Duration: 0.3ms | Allocations: 227)
+  Rendered layout layouts/application.html.erb (Duration: 41.8ms | Allocations: 67113)
+Completed 200 OK in 61ms (Views: 43.3ms | ActiveRecord: 10.7ms | Allocations: 72249)
+
+
