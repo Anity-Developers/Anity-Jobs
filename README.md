@@ -1,2 +1,2 @@
-# The Job posting platform for Africa
+# The Job posting platform for Africa.
 
