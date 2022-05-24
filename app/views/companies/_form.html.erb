@@ -1,0 +1,13 @@
+<%= form_with model: @company do |form| %>
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.rich_text_area :description %>
+  </div>
+  <div class="field">
+    <%= form.submit%>
+  </div>
+<% end %>

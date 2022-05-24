@@ -17,3 +17,1363 @@ Migrating to CreateUsers (20220416125241)
   [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
   [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(4306644712149207435)[0m
   [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT pg_try_advisory_lock(4306644712149207435)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateRoles (20220506095706)
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (36.2ms)[0m  [1m[35mCREATE TABLE "roles" ("id" bigserial primary key, "name" integer NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220506095706"]]
+  [1m[36mTRANSACTION (4.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (5.0ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (5.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(4306644712149207435)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mRole Exists? (7.2ms)[0m  [1m[34mSELECT 1 AS one FROM "roles" WHERE "roles"."name" = $1 LIMIT $2[0m  [["name", 0], ["LIMIT", 1]]
+  [1m[36mRole Create (1.4ms)[0m  [1m[32mINSERT INTO "roles" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", 0], ["created_at", "2022-05-06 10:12:58.499804"], ["updated_at", "2022-05-06 10:12:58.499804"]]
+  [1m[36mTRANSACTION (3.5ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/" for 127.0.0.1 at 2022-05-06 12:21:07 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (6.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["remember_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/views/users/index.html.erb:1
+  Rendered users/index.html.erb within layouts/application (Duration: 38.1ms | Allocations: 12784)
+  Rendered application/_flashes.html.erb (Duration: 0.5ms | Allocations: 263)
+  Rendered layout layouts/application.html.erb (Duration: 94.5ms | Allocations: 66046)
+Completed 200 OK in 101ms (Views: 83.7ms | ActiveRecord: 12.7ms | Allocations: 71915)
+
+
+Started GET "/" for ::1 at 2022-05-06 12:22:31 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  Rendered users/index.html.erb within layouts/application (Duration: 2.6ms | Allocations: 1740)
+  Rendered application/_flashes.html.erb (Duration: 0.4ms | Allocations: 262)
+  Rendered layout layouts/application.html.erb (Duration: 67.5ms | Allocations: 55184)
+Completed 200 OK in 73ms (Views: 69.3ms | ActiveRecord: 0.0ms | Allocations: 61054)
+
+
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(4306644712149207435)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateCompanies (20220506102840)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (36.0ms)[0m  [1m[35mCREATE TABLE "companies" ("id" bigserial primary key, "name" character varying NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (3.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220506102840"]]
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(4306644712149207435)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for ::1 at 2022-05-06 12:32:25 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  Rendered users/index.html.erb within layouts/application (Duration: 0.6ms | Allocations: 457)
+  Rendered application/_flashes.html.erb (Duration: 0.3ms | Allocations: 230)
+  Rendered layout layouts/application.html.erb (Duration: 13.5ms | Allocations: 21750)
+Completed 200 OK in 15ms (Views: 14.7ms | ActiveRecord: 0.0ms | Allocations: 23012)
+
+
+Started GET "/" for ::1 at 2022-05-06 12:32:46 +0200
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  Rendered users/index.html.erb within layouts/application (Duration: 1.0ms | Allocations: 458)
+  Rendered application/_flashes.html.erb (Duration: 0.6ms | Allocations: 230)
+  Rendered layout layouts/application.html.erb (Duration: 13.0ms | Allocations: 8002)
+Completed 200 OK in 17ms (Views: 15.2ms | ActiveRecord: 0.0ms | Allocations: 9190)
+
+
+Started GET "/" for ::1 at 2022-05-06 12:32:47 +0200
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  Rendered users/index.html.erb within layouts/application (Duration: 0.9ms | Allocations: 167)
+  Rendered application/_flashes.html.erb (Duration: 0.1ms | Allocations: 28)
+  Rendered layout layouts/application.html.erb (Duration: 8.0ms | Allocations: 6875)
+Completed 200 OK in 10ms (Views: 9.0ms | ActiveRecord: 0.0ms | Allocations: 7227)
+
+
+Started GET "/" for ::1 at 2022-05-06 12:32:49 +0200
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  Rendered users/index.html.erb within layouts/application (Duration: 0.2ms | Allocations: 161)
+  Rendered application/_flashes.html.erb (Duration: 0.0ms | Allocations: 28)
+  Rendered layout layouts/application.html.erb (Duration: 4.3ms | Allocations: 6869)
+Completed 200 OK in 5ms (Views: 4.5ms | ActiveRecord: 0.0ms | Allocations: 7201)
+
+
+Started GET "/" for ::1 at 2022-05-06 12:33:07 +0200
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  Rendered users/index.html.erb within layouts/application (Duration: 5.3ms | Allocations: 489)
+  Rendered application/_flashes.html.erb (Duration: 0.9ms | Allocations: 230)
+  Rendered layout layouts/application.html.erb (Duration: 19.6ms | Allocations: 8033)
+Completed 200 OK in 24ms (Views: 22.7ms | ActiveRecord: 0.0ms | Allocations: 9205)
+
+
+Started GET "/" for ::1 at 2022-05-06 12:33:08 +0200
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  Rendered users/index.html.erb within layouts/application (Duration: 0.5ms | Allocations: 183)
+  Rendered application/_flashes.html.erb (Duration: 0.1ms | Allocations: 28)
+  Rendered layout layouts/application.html.erb (Duration: 15.7ms | Allocations: 6891)
+Completed 200 OK in 17ms (Views: 16.3ms | ActiveRecord: 0.0ms | Allocations: 7242)
+
+
+Started GET "/" for ::1 at 2022-05-06 12:33:09 +0200
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["remember_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/views/users/index.html.erb:5
+  Rendered users/index.html.erb within layouts/application (Duration: 51.2ms | Allocations: 11981)
+  Rendered application/_flashes.html.erb (Duration: 0.0ms | Allocations: 35)
+  Rendered layout layouts/application.html.erb (Duration: 54.6ms | Allocations: 18819)
+Completed 200 OK in 56ms (Views: 46.5ms | ActiveRecord: 8.6ms | Allocations: 19169)
+
+
+Started GET "/" for ::1 at 2022-05-06 12:33:28 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["remember_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/views/users/index.html.erb:6
+  Rendered users/index.html.erb within layouts/application (Duration: 13.7ms | Allocations: 7926)
+  Rendered application/_flashes.html.erb (Duration: 0.4ms | Allocations: 263)
+  Rendered layout layouts/application.html.erb (Duration: 80.3ms | Allocations: 61443)
+Completed 200 OK in 85ms (Views: 75.9ms | ActiveRecord: 5.9ms | Allocations: 67307)
+
+
+Started GET "/" for ::1 at 2022-05-06 12:34:08 +0200
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["remember_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/views/users/index.html.erb:6
+  Rendered users/index.html.erb within layouts/application (Duration: 5.9ms | Allocations: 1484)
+  Rendered application/_flashes.html.erb (Duration: 0.4ms | Allocations: 231)
+  Rendered layout layouts/application.html.erb (Duration: 45.2ms | Allocations: 13317)
+Completed 200 OK in 49ms (Views: 47.1ms | ActiveRecord: 0.8ms | Allocations: 14540)
+
+
+Started GET "/" for ::1 at 2022-05-06 12:34:44 +0200
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["remember_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/views/users/index.html.erb:6
+  Rendered users/index.html.erb within layouts/application (Duration: 6.7ms | Allocations: 1454)
+  Rendered application/_flashes.html.erb (Duration: 0.7ms | Allocations: 230)
+  Rendered layout layouts/application.html.erb (Duration: 18.5ms | Allocations: 8998)
+Completed 200 OK in 22ms (Views: 20.5ms | ActiveRecord: 0.5ms | Allocations: 10188)
+
+
+Started GET "/" for ::1 at 2022-05-06 12:34:53 +0200
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["remember_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/views/users/index.html.erb:6
+  Rendered users/index.html.erb within layouts/application (Duration: 6.4ms | Allocations: 1472)
+  Rendered application/_flashes.html.erb (Duration: 0.7ms | Allocations: 230)
+  Rendered layout layouts/application.html.erb (Duration: 16.5ms | Allocations: 9016)
+Completed 200 OK in 21ms (Views: 16.2ms | ActiveRecord: 2.0ms | Allocations: 10206)
+
+
+Started GET "/" for ::1 at 2022-05-06 12:35:39 +0200
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["remember_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/views/users/index.html.erb:8
+  Rendered users/index.html.erb within layouts/application (Duration: 7.1ms | Allocations: 1464)
+  Rendered application/_flashes.html.erb (Duration: 0.3ms | Allocations: 230)
+  Rendered layout layouts/application.html.erb (Duration: 14.5ms | Allocations: 9007)
+Completed 200 OK in 19ms (Views: 17.0ms | ActiveRecord: 0.4ms | Allocations: 10197)
+
+
+Started GET "/" for ::1 at 2022-05-06 12:36:36 +0200
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["remember_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/views/users/index.html.erb:7
+  Rendered users/index.html.erb within layouts/application (Duration: 2.5ms | Allocations: 1457)
+  Rendered application/_flashes.html.erb (Duration: 0.5ms | Allocations: 230)
+  Rendered layout layouts/application.html.erb (Duration: 15.8ms | Allocations: 11353)
+Completed 200 OK in 24ms (Views: 21.8ms | ActiveRecord: 0.4ms | Allocations: 12533)
+
+
+Started GET "/" for ::1 at 2022-05-06 12:36:46 +0200
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["remember_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/views/users/index.html.erb:7
+  Rendered users/index.html.erb within layouts/application (Duration: 3.4ms | Allocations: 1436)
+  Rendered application/_flashes.html.erb (Duration: 0.5ms | Allocations: 230)
+  Rendered layout layouts/application.html.erb (Duration: 13.0ms | Allocations: 8979)
+Completed 200 OK in 18ms (Views: 15.8ms | ActiveRecord: 0.2ms | Allocations: 10159)
+
+
+Started GET "/" for ::1 at 2022-05-06 12:37:18 +0200
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["remember_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/views/users/index.html.erb:7
+  Rendered users/index.html.erb within layouts/application (Duration: 4.3ms | Allocations: 1451)
+  Rendered application/_flashes.html.erb (Duration: 0.5ms | Allocations: 230)
+  Rendered layout layouts/application.html.erb (Duration: 20.6ms | Allocations: 10848)
+Completed 200 OK in 27ms (Views: 23.0ms | ActiveRecord: 0.4ms | Allocations: 12028)
+
+
+Started GET "/" for ::1 at 2022-05-06 12:38:14 +0200
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["remember_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/views/users/index.html.erb:7
+  Rendered users/index.html.erb within layouts/application (Duration: 3.1ms | Allocations: 1472)
+  Rendered application/_flashes.html.erb (Duration: 0.5ms | Allocations: 230)
+  Rendered layout layouts/application.html.erb (Duration: 19.1ms | Allocations: 10868)
+Completed 200 OK in 22ms (Views: 21.2ms | ActiveRecord: 0.2ms | Allocations: 12048)
+
+
+Started GET "/" for ::1 at 2022-05-06 12:38:53 +0200
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["remember_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/views/users/index.html.erb:7
+  Rendered users/index.html.erb within layouts/application (Duration: 6.5ms | Allocations: 1448)
+  Rendered application/_flashes.html.erb (Duration: 0.5ms | Allocations: 230)
+  Rendered layout layouts/application.html.erb (Duration: 17.4ms | Allocations: 8992)
+Completed 200 OK in 23ms (Views: 20.3ms | ActiveRecord: 0.3ms | Allocations: 10172)
+
+
+Started GET "/" for ::1 at 2022-05-06 12:39:31 +0200
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["remember_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/views/users/index.html.erb:7
+  Rendered users/index.html.erb within layouts/application (Duration: 4.4ms | Allocations: 1453)
+  Rendered application/_flashes.html.erb (Duration: 0.7ms | Allocations: 230)
+  Rendered layout layouts/application.html.erb (Duration: 18.2ms | Allocations: 8997)
+Completed 200 OK in 23ms (Views: 20.9ms | ActiveRecord: 0.4ms | Allocations: 10177)
+
+
+Started GET "/" for ::1 at 2022-05-06 12:39:47 +0200
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["remember_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/views/users/index.html.erb:7
+  Rendered users/index.html.erb within layouts/application (Duration: 4.7ms | Allocations: 1444)
+  Rendered application/_flashes.html.erb (Duration: 0.4ms | Allocations: 233)
+  Rendered layout layouts/application.html.erb (Duration: 24.3ms | Allocations: 11398)
+Completed 200 OK in 27ms (Views: 25.4ms | ActiveRecord: 0.4ms | Allocations: 12578)
+
+
+Started GET "/" for ::1 at 2022-05-06 12:48:23 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (3.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["remember_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/views/users/index.html.erb:10
+  Rendered users/index.html.erb within layouts/application (Duration: 23.4ms | Allocations: 8016)
+  Rendered application/_flashes.html.erb (Duration: 0.3ms | Allocations: 260)
+  Rendered layout layouts/application.html.erb (Duration: 74.1ms | Allocations: 69470)
+Completed 200 OK in 81ms (Views: 62.0ms | ActiveRecord: 14.1ms | Allocations: 75340)
+
+
+Started GET "/companies/new" for ::1 at 2022-05-06 12:48:25 +0200
+Processing by CompaniesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering companies/new.html.erb within layouts/application
+  Rendered companies/_form.html.erb (Duration: 6.1ms | Allocations: 5859)
+  Rendered companies/new.html.erb within layouts/application (Duration: 6.7ms | Allocations: 6184)
+  Rendered application/_flashes.html.erb (Duration: 0.0ms | Allocations: 35)
+  Rendered layout layouts/application.html.erb (Duration: 10.7ms | Allocations: 13055)
+Completed 200 OK in 23ms (Views: 11.5ms | ActiveRecord: 3.6ms | Allocations: 18582)
+
+
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(4306644712149207435)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateActiveStorageTables (20220506105011)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (25.2ms)[0m  [1m[35mCREATE TABLE "active_storage_blobs" ("id" bigserial primary key, "key" character varying NOT NULL, "filename" character varying NOT NULL, "content_type" character varying, "metadata" text, "service_name" character varying NOT NULL, "byte_size" bigint NOT NULL, "checksum" character varying, "created_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_blobs_on_key" ON "active_storage_blobs" ("key")[0m
+  [1m[35m (14.3ms)[0m  [1m[35mCREATE TABLE "active_storage_attachments" ("id" bigserial primary key, "name" character varying NOT NULL, "record_type" character varying NOT NULL, "record_id" bigint NOT NULL, "blob_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_c3b3935057"
+FOREIGN KEY ("blob_id")
+  REFERENCES "active_storage_blobs" ("id")
+)[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE INDEX "index_active_storage_attachments_on_blob_id" ON "active_storage_attachments" ("blob_id")[0m
+  [1m[35m (2.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_attachments_uniqueness" ON "active_storage_attachments" ("record_type", "record_id", "name", "blob_id")[0m
+  [1m[35m (10.5ms)[0m  [1m[35mCREATE TABLE "active_storage_variant_records" ("id" bigserial primary key, "blob_id" bigint NOT NULL, "variation_digest" character varying NOT NULL, CONSTRAINT "fk_rails_993965df05"
+FOREIGN KEY ("blob_id")
+  REFERENCES "active_storage_blobs" ("id")
+)[0m
+  [1m[35m (3.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_variant_records_uniqueness" ON "active_storage_variant_records" ("blob_id", "variation_digest")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220506105011"]]
+  [1m[36mTRANSACTION (5.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateActionTextTables (20220506105012)
+  [1m[36mTRANSACTION (8.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (21.5ms)[0m  [1m[35mCREATE TABLE "action_text_rich_texts" ("id" bigserial primary key, "name" character varying NOT NULL, "body" text, "record_type" character varying NOT NULL, "record_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_action_text_rich_texts_uniqueness" ON "action_text_rich_texts" ("record_type", "record_id", "name")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220506105012"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(4306644712149207435)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/companies/new" for ::1 at 2022-05-06 12:52:09 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by CompaniesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering companies/new.html.erb within layouts/application
+  Rendered companies/_form.html.erb (Duration: 2.2ms | Allocations: 3905)
+  Rendered companies/new.html.erb within layouts/application (Duration: 2.8ms | Allocations: 4202)
+  Rendered application/_flashes.html.erb (Duration: 0.3ms | Allocations: 227)
+  Rendered layout layouts/application.html.erb (Duration: 41.8ms | Allocations: 67113)
+Completed 200 OK in 61ms (Views: 43.3ms | ActiveRecord: 10.7ms | Allocations: 72249)
+
+
+  [1m[36mCompany Load (1.2ms)[0m  [1m[34mSELECT "companies".* FROM "companies"[0m
+  [1m[36mCompany Load (0.8ms)[0m  [1m[34mSELECT "companies".* FROM "companies"[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCompany Create (6.4ms)[0m  [1m[32mINSERT INTO "companies" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", nil], ["created_at", "2022-05-07 06:30:10.281562"], ["updated_at", "2022-05-07 06:30:10.281562"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCompany Create (8.8ms)[0m  [1m[32mINSERT INTO "companies" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "FB"], ["created_at", "2022-05-07 06:30:20.272184"], ["updated_at", "2022-05-07 06:30:20.272184"]]
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mCompany Load (1.0ms)[0m  [1m[34mSELECT "companies".* FROM "companies"[0m
+  [1m[36mCompany Load (0.4ms)[0m  [1m[34mSELECT "companies".* FROM "companies" ORDER BY "companies"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCompany Load (1.2ms)[0m  [1m[34mSELECT "companies".* FROM "companies" ORDER BY "companies"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mActionText::RichText Load (6.4ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = $1 AND "action_text_rich_texts"."record_type" = $2 AND "action_text_rich_texts"."name" = $3 LIMIT $4[0m  [["record_id", 2], ["record_type", "Company"], ["name", "description"], ["LIMIT", 1]]
+Started GET "/" for ::1 at 2022-05-07 08:32:25 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (3.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["remember_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/views/users/index.html.erb:10
+  Rendered users/index.html.erb within layouts/application (Duration: 24.1ms | Allocations: 13368)
+  Rendered application/_flashes.html.erb (Duration: 0.6ms | Allocations: 263)
+  Rendered layout layouts/application.html.erb (Duration: 67.6ms | Allocations: 71122)
+Completed 200 OK in 73ms (Views: 57.9ms | ActiveRecord: 11.6ms | Allocations: 77005)
+
+
+Started GET "/companies/new" for ::1 at 2022-05-07 08:32:26 +0200
+Processing by CompaniesController#new as HTML
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["remember_token", "[FILTERED]"], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering companies/new.html.erb within layouts/application
+  Rendered companies/_form.html.erb (Duration: 17.3ms | Allocations: 17380)
+  Rendered companies/new.html.erb within layouts/application (Duration: 18.3ms | Allocations: 17707)
+  Rendered application/_flashes.html.erb (Duration: 0.1ms | Allocations: 35)
+  Rendered layout layouts/application.html.erb (Duration: 42.8ms | Allocations: 25208)
+Completed 200 OK in 67ms (Views: 41.9ms | ActiveRecord: 7.2ms | Allocations: 32546)
+
+
+Started POST "/companies" for ::1 at 2022-05-07 08:32:34 +0200
+Processing by CompaniesController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "company"=>{"name"=>"Google", "description"=>"<div>hello</div>"}, "commit"=>"Create Company"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["remember_token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/companies_controller.rb:13:in `create'
+  [1m[36mCompany Create (1.8ms)[0m  [1m[32mINSERT INTO "companies" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Google"], ["created_at", "2022-05-07 06:32:34.413120"], ["updated_at", "2022-05-07 06:32:34.413120"]]
+  ↳ app/controllers/companies_controller.rb:13:in `create'
+  [1m[36mActionText::RichText Create (5.8ms)[0m  [1m[32mINSERT INTO "action_text_rich_texts" ("name", "body", "record_type", "record_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "description"], ["body", "<div>hello</div>"], ["record_type", "Company"], ["record_id", 3], ["created_at", "2022-05-07 06:32:34.445585"], ["updated_at", "2022-05-07 06:32:34.445585"]]
+  ↳ app/controllers/companies_controller.rb:13:in `create'
+  [1m[36mActiveStorage::Attachment Load (3.7ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3[0m  [["record_id", 1], ["record_type", "ActionText::RichText"], ["name", "embeds"]]
+  ↳ app/controllers/companies_controller.rb:13:in `create'
+  [1m[36mCompany Update (1.4ms)[0m  [1m[33mUPDATE "companies" SET "updated_at" = $1 WHERE "companies"."id" = $2[0m  [["updated_at", "2022-05-07 06:32:34.452612"], ["id", 3]]
+  ↳ app/controllers/companies_controller.rb:13:in `create'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/companies_controller.rb:13:in `create'
+Redirected to http://localhost:3000/companies
+Completed 302 Found in 78ms (ActiveRecord: 15.1ms | Allocations: 35694)
+
+
+Started GET "/companies" for ::1 at 2022-05-07 08:32:34 +0200
+Processing by CompaniesController#index as TURBO_STREAM
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["remember_token", "[FILTERED]"], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering companies/index.html.erb within layouts/application
+  [1m[36mCompany Load (0.2ms)[0m  [1m[34mSELECT "companies".* FROM "companies"[0m
+  ↳ app/views/companies/index.html.erb:2
+  Rendered companies/index.html.erb within layouts/application (Duration: 1.3ms | Allocations: 949)
+  Rendered application/_flashes.html.erb (Duration: 0.1ms | Allocations: 48)
+  Rendered layout layouts/application.html.erb (Duration: 6.0ms | Allocations: 8595)
+Completed 200 OK in 8ms (Views: 6.1ms | ActiveRecord: 0.4ms | Allocations: 10472)
+
+
+Started GET "/companies" for ::1 at 2022-05-07 08:32:38 +0200
+Processing by CompaniesController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["remember_token", "[FILTERED]"], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering companies/index.html.erb within layouts/application
+  [1m[36mCompany Load (3.2ms)[0m  [1m[34mSELECT "companies".* FROM "companies"[0m
+  ↳ app/views/companies/index.html.erb:2
+  Rendered companies/index.html.erb within layouts/application (Duration: 4.9ms | Allocations: 656)
+  Rendered application/_flashes.html.erb (Duration: 0.1ms | Allocations: 28)
+  Rendered layout layouts/application.html.erb (Duration: 15.1ms | Allocations: 7993)
+Completed 200 OK in 23ms (Views: 12.6ms | ActiveRecord: 3.5ms | Allocations: 9630)
+
+
+Started GET "/companies" for ::1 at 2022-05-07 08:33:31 +0200
+Processing by CompaniesController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["remember_token", "[FILTERED]"], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering companies/index.html.erb within layouts/application
+  [1m[36mCompany Load (14.0ms)[0m  [1m[34mSELECT "companies".* FROM "companies"[0m
+  ↳ app/views/companies/index.html.erb:2
+  Rendered companies/index.html.erb within layouts/application (Duration: 17.6ms | Allocations: 1006)
+  Rendered application/_flashes.html.erb (Duration: 0.9ms | Allocations: 229)
+  Rendered layout layouts/application.html.erb (Duration: 29.7ms | Allocations: 9177)
+Completed 200 OK in 41ms (Views: 18.7ms | ActiveRecord: 14.6ms | Allocations: 11653)
+
+
+Started GET "/companies/3" for ::1 at 2022-05-07 08:40:07 +0200
+Processing by CompaniesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["remember_token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mCompany Load (0.4ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/companies_controller.rb:23:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering companies/show.html.erb within layouts/application
+  [1m[36mActionText::RichText Load (8.4ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = $1 AND "action_text_rich_texts"."record_type" = $2 AND "action_text_rich_texts"."name" = $3 LIMIT $4[0m  [["record_id", 3], ["record_type", "Company"], ["name", "description"], ["LIMIT", 1]]
+  ↳ app/views/companies/show.html.erb:3
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/actiontext-7.0.2.3/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 1.6ms | Allocations: 622)
+  Rendered companies/show.html.erb within layouts/application (Duration: 14.7ms | Allocations: 2673)
+  Rendered application/_flashes.html.erb (Duration: 0.9ms | Allocations: 233)
+  Rendered layout layouts/application.html.erb (Duration: 37.3ms | Allocations: 10859)
+Completed 200 OK in 89ms (Views: 33.9ms | ActiveRecord: 23.2ms | Allocations: 16961)
+
+
+Started GET "/companies/2" for ::1 at 2022-05-07 08:40:13 +0200
+Processing by CompaniesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["remember_token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mCompany Load (0.2ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/companies_controller.rb:23:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering companies/show.html.erb within layouts/application
+  [1m[36mActionText::RichText Load (0.7ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = $1 AND "action_text_rich_texts"."record_type" = $2 AND "action_text_rich_texts"."name" = $3 LIMIT $4[0m  [["record_id", 2], ["record_type", "Company"], ["name", "description"], ["LIMIT", 1]]
+  ↳ app/views/companies/show.html.erb:3
+  Rendered companies/show.html.erb within layouts/application (Duration: 4.4ms | Allocations: 1050)
+  Rendered application/_flashes.html.erb (Duration: 0.1ms | Allocations: 28)
+  Rendered layout layouts/application.html.erb (Duration: 13.7ms | Allocations: 8453)
+Completed 200 OK in 19ms (Views: 13.8ms | ActiveRecord: 1.6ms | Allocations: 10601)
+
+
+Started GET "/companies/new" for ::1 at 2022-05-07 08:40:15 +0200
+Processing by CompaniesController#new as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["remember_token", "[FILTERED]"], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering companies/new.html.erb within layouts/application
+  Rendered companies/_form.html.erb (Duration: 2.3ms | Allocations: 1606)
+  Rendered companies/new.html.erb within layouts/application (Duration: 3.1ms | Allocations: 1866)
+  Rendered application/_flashes.html.erb (Duration: 0.1ms | Allocations: 27)
+  Rendered layout layouts/application.html.erb (Duration: 7.9ms | Allocations: 9075)
+Completed 200 OK in 20ms (Views: 8.2ms | ActiveRecord: 0.7ms | Allocations: 10751)
+
+
+Started POST "/companies" for ::1 at 2022-05-07 08:40:35 +0200
+Processing by CompaniesController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "company"=>{"name"=>"Google", "description"=>"<ul><li>a</li><li>a</li><li>a</li><li>a</li><li><h1>aasdasdasdasdasd</h1></li><li>adssaddasd<strong>asdasdadsasdasdasdasdasd</strong></li></ul>"}, "commit"=>"Create Company"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["remember_token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/companies_controller.rb:13:in `create'
+  [1m[36mCompany Create (3.9ms)[0m  [1m[32mINSERT INTO "companies" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Google"], ["created_at", "2022-05-07 06:40:35.677960"], ["updated_at", "2022-05-07 06:40:35.677960"]]
+  ↳ app/controllers/companies_controller.rb:13:in `create'
+  [1m[36mActionText::RichText Create (0.5ms)[0m  [1m[32mINSERT INTO "action_text_rich_texts" ("name", "body", "record_type", "record_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "description"], ["body", "<ul><li>a</li><li>a</li><li>a</li><li>a</li><li><h1>aasdasdasdasdasd</h1></li><li>adssaddasd<strong>asdasdadsasdasdasdasdasd</strong></li></ul>"], ["record_type", "Company"], ["record_id", 4], ["created_at", "2022-05-07 06:40:35.686685"], ["updated_at", "2022-05-07 06:40:35.686685"]]
+  ↳ app/controllers/companies_controller.rb:13:in `create'
+  [1m[36mActiveStorage::Attachment Load (0.9ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3[0m  [["record_id", 2], ["record_type", "ActionText::RichText"], ["name", "embeds"]]
+  ↳ app/controllers/companies_controller.rb:13:in `create'
+  [1m[36mCompany Update (0.3ms)[0m  [1m[33mUPDATE "companies" SET "updated_at" = $1 WHERE "companies"."id" = $2[0m  [["updated_at", "2022-05-07 06:40:35.688569"], ["id", 4]]
+  ↳ app/controllers/companies_controller.rb:13:in `create'
+  [1m[36mTRANSACTION (2.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/companies_controller.rb:13:in `create'
+Redirected to http://localhost:3000/companies
+Completed 302 Found in 30ms (ActiveRecord: 9.0ms | Allocations: 7636)
+
+
+Started GET "/companies" for ::1 at 2022-05-07 08:40:35 +0200
+Processing by CompaniesController#index as TURBO_STREAM
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["remember_token", "[FILTERED]"], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering companies/index.html.erb within layouts/application
+  [1m[36mCompany Load (0.3ms)[0m  [1m[34mSELECT "companies".* FROM "companies"[0m
+  ↳ app/views/companies/index.html.erb:2
+  Rendered companies/index.html.erb within layouts/application (Duration: 2.4ms | Allocations: 886)
+  Rendered application/_flashes.html.erb (Duration: 0.1ms | Allocations: 44)
+  Rendered layout layouts/application.html.erb (Duration: 13.5ms | Allocations: 8381)
+Completed 200 OK in 18ms (Views: 13.6ms | ActiveRecord: 1.3ms | Allocations: 10119)
+
+
+Started GET "/companies/4" for ::1 at 2022-05-07 08:40:37 +0200
+Processing by CompaniesController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["remember_token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mCompany Load (0.2ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/companies_controller.rb:23:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering companies/show.html.erb within layouts/application
+  [1m[36mActionText::RichText Load (0.3ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = $1 AND "action_text_rich_texts"."record_type" = $2 AND "action_text_rich_texts"."name" = $3 LIMIT $4[0m  [["record_id", 4], ["record_type", "Company"], ["name", "description"], ["LIMIT", 1]]
+  ↳ app/views/companies/show.html.erb:3
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/actiontext-7.0.2.3/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 5.0ms | Allocations: 573)
+  Rendered companies/show.html.erb within layouts/application (Duration: 9.6ms | Allocations: 1855)
+  Rendered application/_flashes.html.erb (Duration: 0.1ms | Allocations: 28)
+  Rendered layout layouts/application.html.erb (Duration: 16.5ms | Allocations: 9180)
+Completed 200 OK in 35ms (Views: 16.8ms | ActiveRecord: 1.1ms | Allocations: 11275)
+
+
+Started GET "/companies/3" for ::1 at 2022-05-07 08:41:14 +0200
+Processing by CompaniesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["remember_token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mCompany Load (0.3ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/companies_controller.rb:23:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering companies/show.html.erb within layouts/application
+  [1m[36mActionText::RichText Load (0.4ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = $1 AND "action_text_rich_texts"."record_type" = $2 AND "action_text_rich_texts"."name" = $3 LIMIT $4[0m  [["record_id", 3], ["record_type", "Company"], ["name", "description"], ["LIMIT", 1]]
+  ↳ app/views/companies/show.html.erb:3
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/actiontext-7.0.2.3/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 0.5ms | Allocations: 286)
+  Rendered companies/show.html.erb within layouts/application (Duration: 4.5ms | Allocations: 1566)
+  Rendered application/_flashes.html.erb (Duration: 0.1ms | Allocations: 28)
+  Rendered layout layouts/application.html.erb (Duration: 16.0ms | Allocations: 8894)
+Completed 200 OK in 31ms (Views: 16.5ms | ActiveRecord: 1.4ms | Allocations: 11001)
+
+
+Started GET "/companies/4" for ::1 at 2022-05-07 08:41:16 +0200
+Processing by CompaniesController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["remember_token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mCompany Load (1.2ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/companies_controller.rb:23:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering companies/show.html.erb within layouts/application
+  [1m[36mActionText::RichText Load (0.5ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = $1 AND "action_text_rich_texts"."record_type" = $2 AND "action_text_rich_texts"."name" = $3 LIMIT $4[0m  [["record_id", 4], ["record_type", "Company"], ["name", "description"], ["LIMIT", 1]]
+  ↳ app/views/companies/show.html.erb:3
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/actiontext-7.0.2.3/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 0.4ms | Allocations: 573)
+  Rendered companies/show.html.erb within layouts/application (Duration: 3.5ms | Allocations: 1854)
+  Rendered application/_flashes.html.erb (Duration: 0.0ms | Allocations: 28)
+  Rendered layout layouts/application.html.erb (Duration: 8.6ms | Allocations: 9179)
+Completed 200 OK in 14ms (Views: 8.7ms | ActiveRecord: 2.2ms | Allocations: 11288)
+
+
+Started POST "/rails/active_storage/direct_uploads" for ::1 at 2022-05-07 08:41:47 +0200
+Processing by ActiveStorage::DirectUploadsController#create as JSON
+  Parameters: {"blob"=>{"filename"=>"download_chad.jpeg", "content_type"=>"image/jpeg", "byte_size"=>6344, "checksum"=>"4JAEG9Yrl55VsNUssN1AAw=="}, "direct_upload"=>{"blob"=>{"filename"=>"download_chad.jpeg", "content_type"=>"image/jpeg", "byte_size"=>6344, "checksum"=>"4JAEG9Yrl55VsNUssN1AAw=="}}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveStorage::Blob Create (9.0ms)[0m  [1m[32mINSERT INTO "active_storage_blobs" ("key", "filename", "content_type", "metadata", "service_name", "byte_size", "checksum", "created_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["key", "xh9q59ofh5huwgg9btv075wspkmn"], ["filename", "download_chad.jpeg"], ["content_type", "image/jpeg"], ["metadata", nil], ["service_name", "local"], ["byte_size", 6344], ["checksum", "4JAEG9Yrl55VsNUssN1AAw=="], ["created_at", "2022-05-07 06:41:47.427517"]]
+  [1m[36mTRANSACTION (3.1ms)[0m  [1m[35mCOMMIT[0m
+[36m  Disk Storage (0.5ms) [0m[34mGenerated URL for file at key: xh9q59ofh5huwgg9btv075wspkmn (http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDam9JYTJWNVNTSWhlR2c1Y1RVNWIyWm9OV2gxZDJkbk9XSjBkakEzTlhkemNHdHRiZ1k2QmtWVU9oRmpiMjUwWlc1MFgzUjVjR1ZKSWc5cGJXRm5aUzlxY0dWbkJqc0dWRG9UWTI5dWRHVnVkRjlzWlc1bmRHaHBBc2dZT2cxamFHVmphM04xYlVraUhUUktRVVZIT1ZseWJEVTFWbk5PVlhOelRqRkJRWGM5UFFZN0JsUTZFWE5sY25acFkyVmZibUZ0WlRvS2JHOWpZV3c9IiwiZXhwIjoiMjAyMi0wNS0wN1QwNjo0Njo0Ny40NDVaIiwicHVyIjoiYmxvYl90b2tlbiJ9fQ==--8e00700afc1922dea9213a54d392b59c536b7b00)[0m
+Completed 200 OK in 42ms (Views: 0.3ms | ActiveRecord: 26.0ms | Allocations: 10848)
+
+
+Started PUT "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDam9JYTJWNVNTSWhlR2c1Y1RVNWIyWm9OV2gxZDJkbk9XSjBkakEzTlhkemNHdHRiZ1k2QmtWVU9oRmpiMjUwWlc1MFgzUjVjR1ZKSWc5cGJXRm5aUzlxY0dWbkJqc0dWRG9UWTI5dWRHVnVkRjlzWlc1bmRHaHBBc2dZT2cxamFHVmphM04xYlVraUhUUktRVVZIT1ZseWJEVTFWbk5PVlhOelRqRkJRWGM5UFFZN0JsUTZFWE5sY25acFkyVmZibUZ0WlRvS2JHOWpZV3c9IiwiZXhwIjoiMjAyMi0wNS0wN1QwNjo0Njo0Ny40NDVaIiwicHVyIjoiYmxvYl90b2tlbiJ9fQ==--8e00700afc1922dea9213a54d392b59c536b7b00" for ::1 at 2022-05-07 08:41:47 +0200
+Processing by ActiveStorage::DiskController#update as */*
+  Parameters: {"encoded_token"=>"[FILTERED]"}
+[36m  Disk Storage (0.5ms) [0m[32mUploaded file to key: xh9q59ofh5huwgg9btv075wspkmn (checksum: 4JAEG9Yrl55VsNUssN1AAw==)[0m
+Completed 204 No Content in 1ms (ActiveRecord: 0.0ms | Allocations: 762)
+
+
+Started GET "/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--7891944872a0bc632ef11186775a163d8fa53768/download_chad.jpeg" for ::1 at 2022-05-07 08:41:47 +0200
+Processing by ActiveStorage::Blobs::RedirectController#show as JPEG
+  Parameters: {"signed_id"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--7891944872a0bc632ef11186775a163d8fa53768", "filename"=>"download_chad"}
+  [1m[36mActiveStorage::Blob Load (0.5ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[36m  Disk Storage (0.5ms) [0m[34mGenerated URL for file at key: xh9q59ofh5huwgg9btv075wspkmn (http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhlR2c1Y1RVNWIyWm9OV2gxZDJkbk9XSjBkakEzTlhkemNHdHRiZ1k2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpVDJsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SW1SdmQyNXNiMkZrWDJOb1lXUXVhbkJsWnlJN0lHWnBiR1Z1WVcxbEtqMVZWRVl0T0NjblpHOTNibXh2WVdSZlkyaGhaQzVxY0dWbkJqc0dWRG9SWTI5dWRHVnVkRjkwZVhCbFNTSVBhVzFoWjJVdmFuQmxad1k3QmxRNkVYTmxjblpwWTJWZmJtRnRaVG9LYkc5allXdz0iLCJleHAiOiIyMDIyLTA1LTA3VDA2OjQ2OjQ3LjQ5NloiLCJwdXIiOiJibG9iX2tleSJ9fQ==--a5c1e0ca89f7dbf3c77632c727626d796a63e297/download_chad.jpeg)[0m
+Redirected to http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhlR2c1Y1RVNWIyWm9OV2gxZDJkbk9XSjBkakEzTlhkemNHdHRiZ1k2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpVDJsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SW1SdmQyNXNiMkZrWDJOb1lXUXVhbkJsWnlJN0lHWnBiR1Z1WVcxbEtqMVZWRVl0T0NjblpHOTNibXh2WVdSZlkyaGhaQzVxY0dWbkJqc0dWRG9SWTI5dWRHVnVkRjkwZVhCbFNTSVBhVzFoWjJVdmFuQmxad1k3QmxRNkVYTmxjblpwWTJWZmJtRnRaVG9LYkc5allXdz0iLCJleHAiOiIyMDIyLTA1LTA3VDA2OjQ2OjQ3LjQ5NloiLCJwdXIiOiJibG9iX2tleSJ9fQ==--a5c1e0ca89f7dbf3c77632c727626d796a63e297/download_chad.jpeg
+Completed 302 Found in 23ms (ActiveRecord: 7.9ms | Allocations: 4741)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhlR2c1Y1RVNWIyWm9OV2gxZDJkbk9XSjBkakEzTlhkemNHdHRiZ1k2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpVDJsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SW1SdmQyNXNiMkZrWDJOb1lXUXVhbkJsWnlJN0lHWnBiR1Z1WVcxbEtqMVZWRVl0T0NjblpHOTNibXh2WVdSZlkyaGhaQzVxY0dWbkJqc0dWRG9SWTI5dWRHVnVkRjkwZVhCbFNTSVBhVzFoWjJVdmFuQmxad1k3QmxRNkVYTmxjblpwWTJWZmJtRnRaVG9LYkc5allXdz0iLCJleHAiOiIyMDIyLTA1LTA3VDA2OjQ2OjQ3LjQ5NloiLCJwdXIiOiJibG9iX2tleSJ9fQ==--a5c1e0ca89f7dbf3c77632c727626d796a63e297/download_chad.jpeg" for ::1 at 2022-05-07 08:41:47 +0200
+Processing by ActiveStorage::DiskController#show as JPEG
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"download_chad"}
+Completed 200 OK in 0ms (ActiveRecord: 0.0ms | Allocations: 228)
+
+
+Started POST "/rails/active_storage/direct_uploads" for ::1 at 2022-05-07 08:42:00 +0200
+Processing by ActiveStorage::DirectUploadsController#create as JSON
+  Parameters: {"blob"=>{"filename"=>"download_chad.jpeg", "content_type"=>"image/jpeg", "byte_size"=>6344, "checksum"=>"4JAEG9Yrl55VsNUssN1AAw=="}, "direct_upload"=>{"blob"=>{"filename"=>"download_chad.jpeg", "content_type"=>"image/jpeg", "byte_size"=>6344, "checksum"=>"4JAEG9Yrl55VsNUssN1AAw=="}}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveStorage::Blob Create (4.7ms)[0m  [1m[32mINSERT INTO "active_storage_blobs" ("key", "filename", "content_type", "metadata", "service_name", "byte_size", "checksum", "created_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["key", "y5778gx0qtjmk3y8t9i2p63oh0ig"], ["filename", "download_chad.jpeg"], ["content_type", "image/jpeg"], ["metadata", nil], ["service_name", "local"], ["byte_size", 6344], ["checksum", "4JAEG9Yrl55VsNUssN1AAw=="], ["created_at", "2022-05-07 06:42:00.736719"]]
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+[36m  Disk Storage (0.5ms) [0m[34mGenerated URL for file at key: y5778gx0qtjmk3y8t9i2p63oh0ig (http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDam9JYTJWNVNTSWhlVFUzTnpobmVEQnhkR3B0YXpONU9IUTVhVEp3TmpOdmFEQnBad1k2QmtWVU9oRmpiMjUwWlc1MFgzUjVjR1ZKSWc5cGJXRm5aUzlxY0dWbkJqc0dWRG9UWTI5dWRHVnVkRjlzWlc1bmRHaHBBc2dZT2cxamFHVmphM04xYlVraUhUUktRVVZIT1ZseWJEVTFWbk5PVlhOelRqRkJRWGM5UFFZN0JsUTZFWE5sY25acFkyVmZibUZ0WlRvS2JHOWpZV3c9IiwiZXhwIjoiMjAyMi0wNS0wN1QwNjo0NzowMC43NDdaIiwicHVyIjoiYmxvYl90b2tlbiJ9fQ==--ba3e2a5abe1dc13f6b4a8d71e7c6cdc6adce0866)[0m
+Completed 200 OK in 37ms (Views: 0.4ms | ActiveRecord: 12.0ms | Allocations: 5826)
+
+
+Started PUT "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDam9JYTJWNVNTSWhlVFUzTnpobmVEQnhkR3B0YXpONU9IUTVhVEp3TmpOdmFEQnBad1k2QmtWVU9oRmpiMjUwWlc1MFgzUjVjR1ZKSWc5cGJXRm5aUzlxY0dWbkJqc0dWRG9UWTI5dWRHVnVkRjlzWlc1bmRHaHBBc2dZT2cxamFHVmphM04xYlVraUhUUktRVVZIT1ZseWJEVTFWbk5PVlhOelRqRkJRWGM5UFFZN0JsUTZFWE5sY25acFkyVmZibUZ0WlRvS2JHOWpZV3c9IiwiZXhwIjoiMjAyMi0wNS0wN1QwNjo0NzowMC43NDdaIiwicHVyIjoiYmxvYl90b2tlbiJ9fQ==--ba3e2a5abe1dc13f6b4a8d71e7c6cdc6adce0866" for ::1 at 2022-05-07 08:42:00 +0200
+Processing by ActiveStorage::DiskController#update as */*
+  Parameters: {"encoded_token"=>"[FILTERED]"}
+[36m  Disk Storage (0.5ms) [0m[32mUploaded file to key: y5778gx0qtjmk3y8t9i2p63oh0ig (checksum: 4JAEG9Yrl55VsNUssN1AAw==)[0m
+Completed 204 No Content in 1ms (ActiveRecord: 0.0ms | Allocations: 588)
+
+
+Started GET "/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--3c0060c2c17ac0dc5addcd3e5b3e4a183dbdaefa/download_chad.jpeg" for ::1 at 2022-05-07 08:42:00 +0200
+Processing by ActiveStorage::Blobs::RedirectController#show as JPEG
+  Parameters: {"signed_id"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--3c0060c2c17ac0dc5addcd3e5b3e4a183dbdaefa", "filename"=>"download_chad"}
+  [1m[36mActiveStorage::Blob Load (0.4ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[36m  Disk Storage (0.5ms) [0m[34mGenerated URL for file at key: y5778gx0qtjmk3y8t9i2p63oh0ig (http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhlVFUzTnpobmVEQnhkR3B0YXpONU9IUTVhVEp3TmpOdmFEQnBad1k2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpVDJsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SW1SdmQyNXNiMkZrWDJOb1lXUXVhbkJsWnlJN0lHWnBiR1Z1WVcxbEtqMVZWRVl0T0NjblpHOTNibXh2WVdSZlkyaGhaQzVxY0dWbkJqc0dWRG9SWTI5dWRHVnVkRjkwZVhCbFNTSVBhVzFoWjJVdmFuQmxad1k3QmxRNkVYTmxjblpwWTJWZmJtRnRaVG9LYkc5allXdz0iLCJleHAiOiIyMDIyLTA1LTA3VDA2OjQ3OjAwLjgxM1oiLCJwdXIiOiJibG9iX2tleSJ9fQ==--ef1b0533983f56968aac1c31e4924244498285d2/download_chad.jpeg)[0m
+Redirected to http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhlVFUzTnpobmVEQnhkR3B0YXpONU9IUTVhVEp3TmpOdmFEQnBad1k2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpVDJsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SW1SdmQyNXNiMkZrWDJOb1lXUXVhbkJsWnlJN0lHWnBiR1Z1WVcxbEtqMVZWRVl0T0NjblpHOTNibXh2WVdSZlkyaGhaQzVxY0dWbkJqc0dWRG9SWTI5dWRHVnVkRjkwZVhCbFNTSVBhVzFoWjJVdmFuQmxad1k3QmxRNkVYTmxjblpwWTJWZmJtRnRaVG9LYkc5allXdz0iLCJleHAiOiIyMDIyLTA1LTA3VDA2OjQ3OjAwLjgxM1oiLCJwdXIiOiJibG9iX2tleSJ9fQ==--ef1b0533983f56968aac1c31e4924244498285d2/download_chad.jpeg
+Completed 302 Found in 41ms (ActiveRecord: 5.2ms | Allocations: 3352)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhlVFUzTnpobmVEQnhkR3B0YXpONU9IUTVhVEp3TmpOdmFEQnBad1k2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpVDJsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SW1SdmQyNXNiMkZrWDJOb1lXUXVhbkJsWnlJN0lHWnBiR1Z1WVcxbEtqMVZWRVl0T0NjblpHOTNibXh2WVdSZlkyaGhaQzVxY0dWbkJqc0dWRG9SWTI5dWRHVnVkRjkwZVhCbFNTSVBhVzFoWjJVdmFuQmxad1k3QmxRNkVYTmxjblpwWTJWZmJtRnRaVG9LYkc5allXdz0iLCJleHAiOiIyMDIyLTA1LTA3VDA2OjQ3OjAwLjgxM1oiLCJwdXIiOiJibG9iX2tleSJ9fQ==--ef1b0533983f56968aac1c31e4924244498285d2/download_chad.jpeg" for ::1 at 2022-05-07 08:42:00 +0200
+Processing by ActiveStorage::DiskController#show as JPEG
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"download_chad"}
+Completed 200 OK in 1ms (ActiveRecord: 0.0ms | Allocations: 194)
+
+
+Started POST "/companies" for ::1 at 2022-05-07 08:42:11 +0200
+Processing by CompaniesController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "company"=>{"name"=>"Anity", "description"=>"<ul><li><h1><em>dsfsdfsdf</em></h1></li><li><figure data-trix-attachment=\"{&quot;contentType&quot;:&quot;image/jpeg&quot;,&quot;filename&quot;:&quot;download_chad.jpeg&quot;,&quot;filesize&quot;:6344,&quot;height&quot;:225,&quot;sgid&quot;:&quot;BAh7CEkiCGdpZAY6BkVUSSI2Z2lkOi8vYW5pdHktam9icy9BY3RpdmVTdG9yYWdlOjpCbG9iLzI_ZXhwaXJlc19pbgY7AFRJIgxwdXJwb3NlBjsAVEkiD2F0dGFjaGFibGUGOwBUSSIPZXhwaXJlc19hdAY7AFQw--1ac6fa9ae50af77fc8e9c3f2cb08a7255c8707dd&quot;,&quot;url&quot;:&quot;http://localhost:3000/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--3c0060c2c17ac0dc5addcd3e5b3e4a183dbdaefa/download_chad.jpeg&quot;,&quot;width&quot;:225}\" data-trix-content-type=\"image/jpeg\" data-trix-attributes=\"{&quot;presentation&quot;:&quot;gallery&quot;}\" class=\"attachment attachment--preview attachment--jpeg\"><img src=\"http://localhost:3000/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--3c0060c2c17ac0dc5addcd3e5b3e4a183dbdaefa/download_chad.jpeg\" width=\"225\" height=\"225\"><figcaption class=\"attachment__caption\"><span class=\"attachment__name\">download_chad.jpeg</span> <span class=\"attachment__size\">6.2 KB</span></figcaption></figure></li></ul>"}, "commit"=>"Create Company"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["remember_token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/companies_controller.rb:13:in `create'
+  [1m[36mCompany Create (1.2ms)[0m  [1m[32mINSERT INTO "companies" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Anity"], ["created_at", "2022-05-07 06:42:11.605879"], ["updated_at", "2022-05-07 06:42:11.605879"]]
+  ↳ app/controllers/companies_controller.rb:13:in `create'
+  [1m[36mActiveStorage::Blob Load (3.0ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/companies_controller.rb:13:in `create'
+  [1m[36mCACHE ActiveStorage::Blob Load (0.0ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/companies_controller.rb:13:in `create'
+  [1m[36mActionText::RichText Create (0.8ms)[0m  [1m[32mINSERT INTO "action_text_rich_texts" ("name", "body", "record_type", "record_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "description"], ["body", "<ul><li><h1><em>dsfsdfsdf</em></h1></li><li><action-text-attachment sgid=\"BAh7CEkiCGdpZAY6BkVUSSI2Z2lkOi8vYW5pdHktam9icy9BY3RpdmVTdG9yYWdlOjpCbG9iLzI_ZXhwaXJlc19pbgY7AFRJIgxwdXJwb3NlBjsAVEkiD2F0dGFjaGFibGUGOwBUSSIPZXhwaXJlc19hdAY7AFQw--1ac6fa9ae50af77fc8e9c3f2cb08a7255c8707dd\" content-type=\"image/jpeg\" url=\"http://localhost:3000/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--3c0060c2c17ac0dc5addcd3e5b3e4a183dbdaefa/download_chad.jpeg\" filename=\"download_chad.jpeg\" filesize=\"6344\" width=\"225\" height=\"225\" presentation=\"gallery\"></action-text-attachment></li></ul>"], ["record_type", "Company"], ["record_id", 5], ["created_at", "2022-05-07 06:42:11.651555"], ["updated_at", "2022-05-07 06:42:11.651555"]]
+  ↳ app/controllers/companies_controller.rb:13:in `create'
+  [1m[36mActiveStorage::Blob Load (0.3ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/companies_controller.rb:13:in `create'
+  [1m[36mActiveStorage::Blob Update (0.7ms)[0m  [1m[33mUPDATE "active_storage_blobs" SET "metadata" = $1 WHERE "active_storage_blobs"."id" = $2[0m  [["metadata", "{\"identified\":true}"], ["id", 2]]
+  ↳ app/controllers/companies_controller.rb:13:in `create'
+  [1m[36mActiveStorage::Attachment Create (3.2ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("name", "record_type", "record_id", "blob_id", "created_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "embeds"], ["record_type", "ActionText::RichText"], ["record_id", 3], ["blob_id", 2], ["created_at", "2022-05-07 06:42:11.665232"]]
+  ↳ app/controllers/companies_controller.rb:13:in `create'
+  [1m[36mCompany Update (11.0ms)[0m  [1m[33mUPDATE "companies" SET "updated_at" = $1 WHERE "companies"."id" = $2[0m  [["updated_at", "2022-05-07 06:42:11.670552"], ["id", 5]]
+  ↳ app/controllers/companies_controller.rb:13:in `create'
+  [1m[36mActionText::RichText Update (0.4ms)[0m  [1m[33mUPDATE "action_text_rich_texts" SET "updated_at" = $1 WHERE "action_text_rich_texts"."id" = $2[0m  [["updated_at", "2022-05-07 06:42:11.670220"], ["id", 3]]
+  ↳ app/controllers/companies_controller.rb:13:in `create'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/companies_controller.rb:13:in `create'
+[ActiveJob] Enqueued ActiveStorage::AnalyzeJob (Job ID: b46d5e29-9eac-4321-8045-ad3c64c130ae) to Async(default) with arguments: #<GlobalID:0x00000001105bc988 @uri=#<URI::GID gid://anity-jobs/ActiveStorage::Blob/2>>
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/companies_controller.rb:14:in `create'
+  [1m[36mCompany Update (0.5ms)[0m  [1m[33mUPDATE "companies" SET "updated_at" = $1 WHERE "companies"."id" = $2[0m  [["updated_at", "2022-05-07 06:42:11.690377"], ["id", 5]]
+  ↳ app/controllers/companies_controller.rb:14:in `create'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/companies_controller.rb:14:in `create'
+Redirected to http://localhost:3000/companies
+Completed 302 Found in 161ms (ActiveRecord: 51.4ms | Allocations: 34390)
+
+
+Started GET "/companies" for ::1 at 2022-05-07 08:42:11 +0200
+[ActiveJob] [ActiveStorage::AnalyzeJob] [b46d5e29-9eac-4321-8045-ad3c64c130ae]   [1m[36mActiveStorage::Blob Load (0.3ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [b46d5e29-9eac-4321-8045-ad3c64c130ae] Performing ActiveStorage::AnalyzeJob (Job ID: b46d5e29-9eac-4321-8045-ad3c64c130ae) from Async(default) enqueued at 2022-05-07T06:42:11Z with arguments: #<GlobalID:0x00000001040c8d98 @uri=#<URI::GID gid://anity-jobs/ActiveStorage::Blob/2>>
+[ActiveJob] [ActiveStorage::AnalyzeJob] [b46d5e29-9eac-4321-8045-ad3c64c130ae] [36m  Disk Storage (0.1ms) [0m[34mDownloaded file from key: y5778gx0qtjmk3y8t9i2p63oh0ig[0m
+Processing by CompaniesController#index as TURBO_STREAM
+  [1m[36mUser Load (4.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["remember_token", "[FILTERED]"], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering companies/index.html.erb within layouts/application
+[ActiveJob] [ActiveStorage::AnalyzeJob] [b46d5e29-9eac-4321-8045-ad3c64c130ae] Skipping image analysis because the ruby-vips gem isn't installed
+  [1m[36mCompany Load (2.0ms)[0m  [1m[34mSELECT "companies".* FROM "companies"[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [b46d5e29-9eac-4321-8045-ad3c64c130ae]   [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/views/companies/index.html.erb:2
+  Rendered companies/index.html.erb within layouts/application (Duration: 5.2ms | Allocations: 3306)
+[ActiveJob] [ActiveStorage::AnalyzeJob] [b46d5e29-9eac-4321-8045-ad3c64c130ae]   [1m[36mActiveStorage::Blob Update (3.8ms)[0m  [1m[33mUPDATE "active_storage_blobs" SET "metadata" = $1 WHERE "active_storage_blobs"."id" = $2[0m  [["metadata", "{\"identified\":true,\"analyzed\":true}"], ["id", 2]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [b46d5e29-9eac-4321-8045-ad3c64c130ae]   [1m[36mTRANSACTION (5.0ms)[0m  [1m[35mCOMMIT[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [b46d5e29-9eac-4321-8045-ad3c64c130ae] Performed ActiveStorage::AnalyzeJob (Job ID: b46d5e29-9eac-4321-8045-ad3c64c130ae) from Async(default) in 1606.35ms
+  Rendered application/_flashes.html.erb (Duration: 0.1ms | Allocations: 50)
+  Rendered layout layouts/application.html.erb (Duration: 18.7ms | Allocations: 12539)
+Completed 200 OK in 870ms (Views: 18.3ms | ActiveRecord: 337.3ms | Allocations: 32348)
+
+
+Started GET "/companies/5" for ::1 at 2022-05-07 08:42:14 +0200
+Processing by CompaniesController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (4.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["remember_token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mCompany Load (1.3ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/companies_controller.rb:23:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering companies/show.html.erb within layouts/application
+  [1m[36mActionText::RichText Load (3.4ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = $1 AND "action_text_rich_texts"."record_type" = $2 AND "action_text_rich_texts"."name" = $3 LIMIT $4[0m  [["record_id", 5], ["record_type", "Company"], ["name", "description"], ["LIMIT", 1]]
+  ↳ app/views/companies/show.html.erb:3
+  [1m[36mActiveStorage::Blob Load (0.7ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/companies/show.html.erb:3
+  Rendered active_storage/blobs/_blob.html.erb (Duration: 10.6ms | Allocations: 5134)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/actiontext-7.0.2.3/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 35.3ms | Allocations: 9203)
+  Rendered companies/show.html.erb within layouts/application (Duration: 57.0ms | Allocations: 10727)
+  Rendered application/_flashes.html.erb (Duration: 0.1ms | Allocations: 34)
+  Rendered layout layouts/application.html.erb (Duration: 62.7ms | Allocations: 18439)
+Completed 200 OK in 89ms (Views: 59.8ms | ActiveRecord: 9.9ms | Allocations: 20659)
+
+
+Started GET "/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--3c0060c2c17ac0dc5addcd3e5b3e4a183dbdaefa/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBTU0lKYW5CbFp3WTZCa1ZVT2hSeVpYTnBlbVZmZEc5ZmJHbHRhWFJiQjJrQ0FBUnBBZ0FEIiwiZXhwIjpudWxsLCJwdXIiOiJ2YXJpYXRpb24ifX0=--7fc1113501b5a9b12c6df1d3b37bf19586a04ea9/download_chad.jpeg" for ::1 at 2022-05-07 08:42:14 +0200
+Processing by ActiveStorage::Representations::RedirectController#show as JPEG
+  Parameters: {"signed_blob_id"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--3c0060c2c17ac0dc5addcd3e5b3e4a183dbdaefa", "variation_key"=>"[FILTERED]", "filename"=>"download_chad"}
+  [1m[36mActiveStorage::Blob Load (0.3ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mActiveStorage::VariantRecord Load (1.6ms)[0m  [1m[34mSELECT "active_storage_variant_records".* FROM "active_storage_variant_records" WHERE "active_storage_variant_records"."blob_id" = $1 AND "active_storage_variant_records"."variation_digest" = $2 LIMIT $3[0m  [["blob_id", 2], ["variation_digest", "W5beMOUItX5imtE3xaUe79gjUbU="], ["LIMIT", 1]]
+[36m  Disk Storage (1.4ms) [0m[34mDownloaded file from key: y5778gx0qtjmk3y8t9i2p63oh0ig[0m
+Completed 500 Internal Server Error in 26ms (ActiveRecord: 4.7ms | Allocations: 15331)
+
+
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(4306644712149207435)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddRoleReferenceToUser (20220507073241)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (8.5ms)[0m  [1m[35mALTER TABLE "users" ADD "role_id" bigint NOT NULL[0m
+  [1m[36mTRANSACTION (4.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(4306644712149207435)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (5.9ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (8688.6ms)[0m  [1m[35mDROP DATABASE IF EXISTS "Anity_Jobs_development"[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (2.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (38.6ms)[0m  [1m[35mDROP DATABASE IF EXISTS "Anity_Jobs_development"[0m
+  [1m[35m (31.1ms)[0m  [1m[35mDROP DATABASE IF EXISTS "Anity_Jobs_test"[0m
+  [1m[35m (96.5ms)[0m  [1m[35mCREATE DATABASE "Anity_Jobs_development" ENCODING = 'unicode'[0m
+  [1m[35m (41.7ms)[0m  [1m[35mCREATE DATABASE "Anity_Jobs_test" ENCODING = 'unicode'[0m
+  [1m[35m (16.3ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (4.9ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_try_advisory_lock(4306644712149207435)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUsers (20220416125241)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (13.6ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, "email" character varying NOT NULL, "encrypted_password" character varying(128) NOT NULL, "confirmation_token" character varying(128), "remember_token" character varying(128) NOT NULL)[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE INDEX "index_users_on_remember_token" ON "users" ("remember_token")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (1.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220416125241"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateRoles (20220506095706)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (8.2ms)[0m  [1m[35mCREATE TABLE "roles" ("id" bigserial primary key, "name" integer NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220506095706"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateCompanies (20220506102840)
+  [1m[36mTRANSACTION (5.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (4.1ms)[0m  [1m[35mCREATE TABLE "companies" ("id" bigserial primary key, "name" character varying NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (1.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220506102840"]]
+  [1m[36mTRANSACTION (12.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateActiveStorageTables (20220506105011)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (4.2ms)[0m  [1m[35mCREATE TABLE "active_storage_blobs" ("id" bigserial primary key, "key" character varying NOT NULL, "filename" character varying NOT NULL, "content_type" character varying, "metadata" text, "service_name" character varying NOT NULL, "byte_size" bigint NOT NULL, "checksum" character varying, "created_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_blobs_on_key" ON "active_storage_blobs" ("key")[0m
+  [1m[35m (8.4ms)[0m  [1m[35mCREATE TABLE "active_storage_attachments" ("id" bigserial primary key, "name" character varying NOT NULL, "record_type" character varying NOT NULL, "record_id" bigint NOT NULL, "blob_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_c3b3935057"
+FOREIGN KEY ("blob_id")
+  REFERENCES "active_storage_blobs" ("id")
+)[0m
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE INDEX "index_active_storage_attachments_on_blob_id" ON "active_storage_attachments" ("blob_id")[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_attachments_uniqueness" ON "active_storage_attachments" ("record_type", "record_id", "name", "blob_id")[0m
+  [1m[35m (6.5ms)[0m  [1m[35mCREATE TABLE "active_storage_variant_records" ("id" bigserial primary key, "blob_id" bigint NOT NULL, "variation_digest" character varying NOT NULL, CONSTRAINT "fk_rails_993965df05"
+FOREIGN KEY ("blob_id")
+  REFERENCES "active_storage_blobs" ("id")
+)[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_variant_records_uniqueness" ON "active_storage_variant_records" ("blob_id", "variation_digest")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (2.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220506105011"]]
+  [1m[36mTRANSACTION (23.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateActionTextTables (20220506105012)
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (9.7ms)[0m  [1m[35mCREATE TABLE "action_text_rich_texts" ("id" bigserial primary key, "name" character varying NOT NULL, "body" text, "record_type" character varying NOT NULL, "record_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_action_text_rich_texts_uniqueness" ON "action_text_rich_texts" ("record_type", "record_id", "name")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220506105012"]]
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddRoleReferenceToUser (20220507073241)
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "users" ADD "role_id" bigint NOT NULL[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE INDEX "index_users_on_role_id" ON "users" ("role_id")[0m
+  [1m[35m (1.7ms)[0m  [1m[35mALTER TABLE "users" ADD CONSTRAINT "fk_rails_642f17018b"
+FOREIGN KEY ("role_id")
+  REFERENCES "roles" ("id")
+[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220507073241"]]
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (1.6ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-05-07 07:34:06.973376"], ["updated_at", "2022-05-07 07:34:06.973376"]]
+  [1m[36mTRANSACTION (18.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(4306644712149207435)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (26.0ms)[0m  [1m[35mDROP DATABASE IF EXISTS "Anity_Jobs_development"[0m
+  [1m[35m (18.4ms)[0m  [1m[35mDROP DATABASE IF EXISTS "Anity_Jobs_test"[0m
+  [1m[35m (130.2ms)[0m  [1m[35mCREATE DATABASE "Anity_Jobs_development" ENCODING = 'unicode'[0m
+  [1m[35m (51.6ms)[0m  [1m[35mCREATE DATABASE "Anity_Jobs_test" ENCODING = 'unicode'[0m
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE DATABASE "Anity_Jobs_development" ENCODING = 'unicode'[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE DATABASE "Anity_Jobs_test" ENCODING = 'unicode'[0m
+  [1m[35m (12.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (2.4ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(4306644712149207435)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUsers (20220416125241)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (8.7ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, "email" character varying NOT NULL, "encrypted_password" character varying(128) NOT NULL, "confirmation_token" character varying(128), "remember_token" character varying(128) NOT NULL)[0m
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (7.0ms)[0m  [1m[35mCREATE INDEX "index_users_on_remember_token" ON "users" ("remember_token")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220416125241"]]
+  [1m[36mTRANSACTION (3.1ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateRoles (20220506095706)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (6.6ms)[0m  [1m[35mCREATE TABLE "roles" ("id" bigserial primary key, "name" integer NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220506095706"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateCompanies (20220506102840)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.6ms)[0m  [1m[35mCREATE TABLE "companies" ("id" bigserial primary key, "name" character varying NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220506102840"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateActiveStorageTables (20220506105011)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (4.9ms)[0m  [1m[35mCREATE TABLE "active_storage_blobs" ("id" bigserial primary key, "key" character varying NOT NULL, "filename" character varying NOT NULL, "content_type" character varying, "metadata" text, "service_name" character varying NOT NULL, "byte_size" bigint NOT NULL, "checksum" character varying, "created_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (14.3ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_blobs_on_key" ON "active_storage_blobs" ("key")[0m
+  [1m[35m (7.9ms)[0m  [1m[35mCREATE TABLE "active_storage_attachments" ("id" bigserial primary key, "name" character varying NOT NULL, "record_type" character varying NOT NULL, "record_id" bigint NOT NULL, "blob_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_c3b3935057"
+FOREIGN KEY ("blob_id")
+  REFERENCES "active_storage_blobs" ("id")
+)[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE INDEX "index_active_storage_attachments_on_blob_id" ON "active_storage_attachments" ("blob_id")[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_attachments_uniqueness" ON "active_storage_attachments" ("record_type", "record_id", "name", "blob_id")[0m
+  [1m[35m (8.3ms)[0m  [1m[35mCREATE TABLE "active_storage_variant_records" ("id" bigserial primary key, "blob_id" bigint NOT NULL, "variation_digest" character varying NOT NULL, CONSTRAINT "fk_rails_993965df05"
+FOREIGN KEY ("blob_id")
+  REFERENCES "active_storage_blobs" ("id")
+)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_variant_records_uniqueness" ON "active_storage_variant_records" ("blob_id", "variation_digest")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220506105011"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateActionTextTables (20220506105012)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (18.1ms)[0m  [1m[35mCREATE TABLE "action_text_rich_texts" ("id" bigserial primary key, "name" character varying NOT NULL, "body" text, "record_type" character varying NOT NULL, "record_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_action_text_rich_texts_uniqueness" ON "action_text_rich_texts" ("record_type", "record_id", "name")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220506105012"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddRoleReferenceToUser (20220507073241)
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "users" ADD "role_id" bigint DEFAULT NULL[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE INDEX "index_users_on_role_id" ON "users" ("role_id")[0m
+  [1m[35m (8.1ms)[0m  [1m[35mALTER TABLE "users" ADD CONSTRAINT "fk_rails_642f17018b"
+FOREIGN KEY ("role_id")
+  REFERENCES "roles" ("id")
+[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220507073241"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (1.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-05-07 07:36:12.264190"], ["updated_at", "2022-05-07 07:36:12.264190"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(4306644712149207435)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (1.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test@gmail.com"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test@gmail.com"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mRole Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "roles" WHERE "roles"."name" = $1 LIMIT $2[0m  [["name", 2], ["LIMIT", 1]]
+  [1m[36mRole Create (8.2ms)[0m  [1m[32mINSERT INTO "roles" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", 2], ["created_at", "2022-05-07 07:38:17.893804"], ["updated_at", "2022-05-07 07:38:17.893804"]]
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (1.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test@gmail.com"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mRole Load (0.9ms)[0m  [1m[34mSELECT "roles".* FROM "roles"[0m
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test@gmail.com"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (44.4ms)[0m  [1m[35mDROP DATABASE IF EXISTS "Anity_Jobs_development"[0m
+  [1m[35m (18.9ms)[0m  [1m[35mDROP DATABASE IF EXISTS "Anity_Jobs_test"[0m
+  [1m[35m (107.5ms)[0m  [1m[35mCREATE DATABASE "Anity_Jobs_development" ENCODING = 'unicode'[0m
+  [1m[35m (49.5ms)[0m  [1m[35mCREATE DATABASE "Anity_Jobs_test" ENCODING = 'unicode'[0m
+  [1m[35m (9.0ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (4.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(4306644712149207435)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUsers (20220416125241)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (3.7ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, "email" character varying NOT NULL, "encrypted_password" character varying(128) NOT NULL, "confirmation_token" character varying(128), "remember_token" character varying(128) NOT NULL)[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE INDEX "index_users_on_remember_token" ON "users" ("remember_token")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220416125241"]]
+  [1m[36mTRANSACTION (5.1ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateRoles (20220506095706)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (4.4ms)[0m  [1m[35mCREATE TABLE "roles" ("id" bigserial primary key, "name" integer NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220506095706"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateCompanies (20220506102840)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (8.6ms)[0m  [1m[35mCREATE TABLE "companies" ("id" bigserial primary key, "name" character varying NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (1.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220506102840"]]
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateActiveStorageTables (20220506105011)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (3.8ms)[0m  [1m[35mCREATE TABLE "active_storage_blobs" ("id" bigserial primary key, "key" character varying NOT NULL, "filename" character varying NOT NULL, "content_type" character varying, "metadata" text, "service_name" character varying NOT NULL, "byte_size" bigint NOT NULL, "checksum" character varying, "created_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (4.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_blobs_on_key" ON "active_storage_blobs" ("key")[0m
+  [1m[35m (5.4ms)[0m  [1m[35mCREATE TABLE "active_storage_attachments" ("id" bigserial primary key, "name" character varying NOT NULL, "record_type" character varying NOT NULL, "record_id" bigint NOT NULL, "blob_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_c3b3935057"
+FOREIGN KEY ("blob_id")
+  REFERENCES "active_storage_blobs" ("id")
+)[0m
+  [1m[35m (7.6ms)[0m  [1m[35mCREATE INDEX "index_active_storage_attachments_on_blob_id" ON "active_storage_attachments" ("blob_id")[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_attachments_uniqueness" ON "active_storage_attachments" ("record_type", "record_id", "name", "blob_id")[0m
+  [1m[35m (3.6ms)[0m  [1m[35mCREATE TABLE "active_storage_variant_records" ("id" bigserial primary key, "blob_id" bigint NOT NULL, "variation_digest" character varying NOT NULL, CONSTRAINT "fk_rails_993965df05"
+FOREIGN KEY ("blob_id")
+  REFERENCES "active_storage_blobs" ("id")
+)[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_variant_records_uniqueness" ON "active_storage_variant_records" ("blob_id", "variation_digest")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220506105011"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateActionTextTables (20220506105012)
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (4.5ms)[0m  [1m[35mCREATE TABLE "action_text_rich_texts" ("id" bigserial primary key, "name" character varying NOT NULL, "body" text, "record_type" character varying NOT NULL, "record_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_action_text_rich_texts_uniqueness" ON "action_text_rich_texts" ("record_type", "record_id", "name")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220506105012"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddRoleReferenceToUser (20220507073241)
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "users" ADD "role_id" bigint[0m
+  [1m[35m (2.3ms)[0m  [1m[35mCREATE INDEX "index_users_on_role_id" ON "users" ("role_id")[0m
+  [1m[35m (1.6ms)[0m  [1m[35mALTER TABLE "users" ADD CONSTRAINT "fk_rails_642f17018b"
+FOREIGN KEY ("role_id")
+  REFERENCES "roles" ("id")
+[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220507073241"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-05-07 07:40:20.672141"], ["updated_at", "2022-05-07 07:40:20.672141"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(4306644712149207435)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test@gmail.com"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test@gmail.com"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mRole Exists? (1.1ms)[0m  [1m[34mSELECT 1 AS one FROM "roles" WHERE "roles"."name" = $1 LIMIT $2[0m  [["name", 2], ["LIMIT", 1]]
+  [1m[36mRole Create (4.8ms)[0m  [1m[32mINSERT INTO "roles" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", 2], ["created_at", "2022-05-07 07:42:08.942529"], ["updated_at", "2022-05-07 07:42:08.942529"]]
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mRole Load (4.5ms)[0m  [1m[34mSELECT "roles".* FROM "roles"[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mRole Load (0.3ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (5.5ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "email", "encrypted_password", "confirmation_token", "remember_token", "role_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["created_at", "2022-05-07 07:42:46.734594"], ["updated_at", "2022-05-07 07:42:46.734594"], ["email", "test@gmail.com"], ["encrypted_password", "[FILTERED]"], ["confirmation_token", "[FILTERED]"], ["remember_token", "[FILTERED]"], ["role_id", 1]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mRole Load (0.3ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mRole Load (6.9ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mRole Load (3.8ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mRole Load (0.6ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (2.8ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mRole Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "roles" WHERE "roles"."name" = $1 LIMIT $2[0m  [["name", 0], ["LIMIT", 1]]
+  [1m[36mRole Create (0.6ms)[0m  [1m[32mINSERT INTO "roles" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", 0], ["created_at", "2022-05-07 07:46:22.306310"], ["updated_at", "2022-05-07 07:46:22.306310"]]
+  [1m[36mTRANSACTION (10.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mRole Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "roles" WHERE "roles"."name" = $1 LIMIT $2[0m  [["name", 1], ["LIMIT", 1]]
+  [1m[36mRole Create (0.4ms)[0m  [1m[32mINSERT INTO "roles" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", 1], ["created_at", "2022-05-07 07:46:32.432098"], ["updated_at", "2022-05-07 07:46:32.432098"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mRole Load (0.4ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Exists? (1.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "test@gmail.com"], ["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Update (9.2ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = $1, "role_id" = $2 WHERE "users"."id" = $3[0m  [["updated_at", "2022-05-07 07:47:15.099547"], ["role_id", 2], ["id", 1]]
+  [1m[36mTRANSACTION (3.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mRole Load (0.5ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mRole Load (0.3ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mRole Load (0.2ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mRole Load (0.8ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+  [1m[36mRole Load (0.5ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."name" = $1[0m  [["name", 0]]
+  [1m[36mRole Load (0.8ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."name" = $1[0m  [["name", 2]]
+  [1m[36mRole Load (0.8ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."name" = $1 /* loading for inspect */ LIMIT $2[0m  [["name", 2], ["LIMIT", 11]]
+  [1m[36mRole Load (2.7ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."name" = $1 /* loading for inspect */ LIMIT $2[0m  [["name", 2], ["LIMIT", 11]]
+Started GET "/" for ::1 at 2022-05-24 08:02:25 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  Rendered users/index.html.erb within layouts/application (Duration: 4.5ms | Allocations: 1882)
+  Rendered application/_flashes.html.erb (Duration: 0.3ms | Allocations: 261)
+  Rendered layout layouts/application.html.erb (Duration: 38.9ms | Allocations: 59074)
+Completed 200 OK in 44ms (Views: 40.6ms | ActiveRecord: 0.0ms | Allocations: 64958)
+
+
+Started GET "/sign_in" for ::1 at 2022-05-24 08:02:28 +0200
+Processing by Clearance::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/_form.html.erb (Duration: 3.3ms | Allocations: 2223)
+  Rendered sessions/new.html.erb within layouts/application (Duration: 4.3ms | Allocations: 2621)
+  Rendered application/_flashes.html.erb (Duration: 0.0ms | Allocations: 35)
+  Rendered layout layouts/application.html.erb (Duration: 10.1ms | Allocations: 10229)
+Completed 200 OK in 13ms (Views: 11.6ms | ActiveRecord: 0.0ms | Allocations: 11588)
+
+
+Started GET "/sign_up" for ::1 at 2022-05-24 08:02:30 +0200
+Processing by Clearance::UsersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 0.6ms | Allocations: 679)
+  Rendered users/new.html.erb within layouts/application (Duration: 2.2ms | Allocations: 2093)
+  Rendered application/_flashes.html.erb (Duration: 0.1ms | Allocations: 35)
+  Rendered layout layouts/application.html.erb (Duration: 7.0ms | Allocations: 9809)
+Completed 200 OK in 23ms (Views: 8.0ms | ActiveRecord: 6.6ms | Allocations: 20897)
+
+
+Started POST "/users" for ::1 at 2022-05-24 08:02:45 +0200
+Processing by Clearance::UsersController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"q@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (3.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "q@gmail.com"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 0.3ms | Allocations: 347)
+  Rendered users/new.html.erb within layouts/application (Duration: 0.8ms | Allocations: 905)
+  Rendered application/_flashes.html.erb (Duration: 0.0ms | Allocations: 33)
+  Rendered layout layouts/application.html.erb (Duration: 4.1ms | Allocations: 8239)
+Completed 200 OK in 280ms (Views: 4.4ms | ActiveRecord: 3.6ms | Allocations: 20578)
+
+
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(4306644712149207435)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddRoleReferenceToUser (20220507073241)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (5.6ms)[0m  [1m[35mALTER TABLE "users" DROP CONSTRAINT "fk_rails_642f17018b"[0m
+  [1m[35m (1.5ms)[0m  [1m[35mALTER TABLE "users" DROP COLUMN "role_id"[0m
+  [1m[36mActiveRecord::SchemaMigration Delete All (0.3ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20220507073241"]]
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(4306644712149207435)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(4306644712149207435)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddRoleReferenceToUser (20220507073241)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.9ms)[0m  [1m[35mALTER TABLE "users" ADD "role_id" bigint DEFAULT 1[0m
+  [1m[35m (3.8ms)[0m  [1m[35mCREATE INDEX "index_users_on_role_id" ON "users" ("role_id")[0m
+  [1m[35m (4.2ms)[0m  [1m[35mALTER TABLE "users" ADD CONSTRAINT "fk_rails_642f17018b"
+FOREIGN KEY ("role_id")
+  REFERENCES "roles" ("id")
+[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220507073241"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_advisory_unlock(4306644712149207435)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(4306644712149207435)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddRoleReferenceToUser (20220507073241)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "users" DROP CONSTRAINT "fk_rails_642f17018b"[0m
+  [1m[35m (1.5ms)[0m  [1m[35mALTER TABLE "users" DROP COLUMN "role_id"[0m
+  [1m[36mActiveRecord::SchemaMigration Delete All (0.3ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20220507073241"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(4306644712149207435)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (8260.0ms)[0m  [1m[35mDROP DATABASE IF EXISTS "Anity_Jobs_development"[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (43.3ms)[0m  [1m[35mDROP DATABASE IF EXISTS "Anity_Jobs_development"[0m
+  [1m[35m (25.4ms)[0m  [1m[35mDROP DATABASE IF EXISTS "Anity_Jobs_test"[0m
+  [1m[35m (140.6ms)[0m  [1m[35mCREATE DATABASE "Anity_Jobs_development" ENCODING = 'unicode'[0m
+  [1m[35m (50.3ms)[0m  [1m[35mCREATE DATABASE "Anity_Jobs_test" ENCODING = 'unicode'[0m
+  [1m[35m (7.0ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (4.9ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(4306644712149207435)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUsers (20220416125241)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (4.9ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, "email" character varying NOT NULL, "encrypted_password" character varying(128) NOT NULL, "confirmation_token" character varying(128), "remember_token" character varying(128) NOT NULL)[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE INDEX "index_users_on_remember_token" ON "users" ("remember_token")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220416125241"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateRoles (20220506095706)
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.3ms)[0m  [1m[35mCREATE TABLE "roles" ("id" bigserial primary key, "name" integer DEFAULT 0 NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE INDEX "index_roles_on_name" ON "roles" ("name")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220506095706"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateCompanies (20220506102840)
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (4.2ms)[0m  [1m[35mCREATE TABLE "companies" ("id" bigserial primary key, "name" character varying NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220506102840"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateActiveStorageTables (20220506105011)
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (3.2ms)[0m  [1m[35mCREATE TABLE "active_storage_blobs" ("id" bigserial primary key, "key" character varying NOT NULL, "filename" character varying NOT NULL, "content_type" character varying, "metadata" text, "service_name" character varying NOT NULL, "byte_size" bigint NOT NULL, "checksum" character varying, "created_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_blobs_on_key" ON "active_storage_blobs" ("key")[0m
+  [1m[35m (7.2ms)[0m  [1m[35mCREATE TABLE "active_storage_attachments" ("id" bigserial primary key, "name" character varying NOT NULL, "record_type" character varying NOT NULL, "record_id" bigint NOT NULL, "blob_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_c3b3935057"
+FOREIGN KEY ("blob_id")
+  REFERENCES "active_storage_blobs" ("id")
+)[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE INDEX "index_active_storage_attachments_on_blob_id" ON "active_storage_attachments" ("blob_id")[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_attachments_uniqueness" ON "active_storage_attachments" ("record_type", "record_id", "name", "blob_id")[0m
+  [1m[35m (4.5ms)[0m  [1m[35mCREATE TABLE "active_storage_variant_records" ("id" bigserial primary key, "blob_id" bigint NOT NULL, "variation_digest" character varying NOT NULL, CONSTRAINT "fk_rails_993965df05"
+FOREIGN KEY ("blob_id")
+  REFERENCES "active_storage_blobs" ("id")
+)[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_variant_records_uniqueness" ON "active_storage_variant_records" ("blob_id", "variation_digest")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220506105011"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateActionTextTables (20220506105012)
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (3.0ms)[0m  [1m[35mCREATE TABLE "action_text_rich_texts" ("id" bigserial primary key, "name" character varying NOT NULL, "body" text, "record_type" character varying NOT NULL, "record_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_action_text_rich_texts_uniqueness" ON "action_text_rich_texts" ("record_type", "record_id", "name")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220506105012"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddRoleReferenceToUser (20220507073241)
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "users" ADD "role_id" bigint[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE INDEX "index_users_on_role_id" ON "users" ("role_id")[0m
+  [1m[35m (1.3ms)[0m  [1m[35mALTER TABLE "users" ADD CONSTRAINT "fk_rails_642f17018b"
+FOREIGN KEY ("role_id")
+  REFERENCES "roles" ("id")
+[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220507073241"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-05-24 06:10:19.628495"], ["updated_at", "2022-05-24 06:10:19.628495"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(4306644712149207435)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/sign_up" for ::1 at 2022-05-24 08:20:08 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Clearance::UsersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 1.7ms | Allocations: 1671)
+  Rendered users/new.html.erb within layouts/application (Duration: 7.2ms | Allocations: 4620)
+  Rendered application/_flashes.html.erb (Duration: 0.5ms | Allocations: 253)
+  Rendered layout layouts/application.html.erb (Duration: 45.0ms | Allocations: 62386)
+Completed 200 OK in 64ms (Views: 48.3ms | ActiveRecord: 4.5ms | Allocations: 78460)
+
+
+Started POST "/users" for ::1 at 2022-05-24 08:20:21 +0200
+Processing by Clearance::UsersController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"a@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (1.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "a@gmail.com"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+Completed 500 Internal Server Error in 276ms (ActiveRecord: 1.7ms | Allocations: 9191)
+
+
+  
+SyntaxError (/Users/tresorbireke/My-Codes/Anity-Jobs/app/models/role.rb:8: syntax error, unexpected local variable or method, expecting '}'
+    super_admin: 3
+    ^~~~~~~~~~~
+):
+  
+app/models/role.rb:8: syntax error, unexpected local variable or method, expecting '}'
+app/models/role.rb:8: syntax error, unexpected local variable or method, expecting '}'
+app/models/role.rb:8: syntax error, unexpected local variable or method, expecting '}'
+Started GET "/sign_up" for ::1 at 2022-05-24 08:20:39 +0200
+Processing by Clearance::UsersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 0.4ms | Allocations: 367)
+  Rendered users/new.html.erb within layouts/application (Duration: 1.1ms | Allocations: 1120)
+  Rendered application/_flashes.html.erb (Duration: 0.1ms | Allocations: 35)
+  Rendered layout layouts/application.html.erb (Duration: 12.1ms | Allocations: 24882)
+Completed 200 OK in 32ms (Views: 13.1ms | ActiveRecord: 15.2ms | Allocations: 30051)
+
+
+Started POST "/users" for ::1 at 2022-05-24 08:20:50 +0200
+Processing by Clearance::UsersController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"a@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "a@gmail.com"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 0.2ms | Allocations: 348)
+  Rendered users/new.html.erb within layouts/application (Duration: 0.7ms | Allocations: 907)
+  Rendered application/_flashes.html.erb (Duration: 0.0ms | Allocations: 33)
+  Rendered layout layouts/application.html.erb (Duration: 4.4ms | Allocations: 8458)
+Completed 200 OK in 287ms (Views: 8.4ms | ActiveRecord: 0.6ms | Allocations: 23260)
+
+
+Started GET "/sign_up" for ::1 at 2022-05-24 08:23:48 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Clearance::UsersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 1.1ms | Allocations: 1671)
+  Rendered users/new.html.erb within layouts/application (Duration: 4.8ms | Allocations: 4620)
+  Rendered application/_flashes.html.erb (Duration: 0.4ms | Allocations: 253)
+  Rendered layout layouts/application.html.erb (Duration: 36.0ms | Allocations: 61780)
+Completed 200 OK in 52ms (Views: 38.2ms | ActiveRecord: 6.1ms | Allocations: 77846)
+
+
+Started POST "/users" for ::1 at 2022-05-24 08:23:57 +0200
+Processing by Clearance::UsersController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"a@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "a@gmail.com"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 0.3ms | Allocations: 348)
+  Rendered users/new.html.erb within layouts/application (Duration: 0.8ms | Allocations: 907)
+  Rendered application/_flashes.html.erb (Duration: 0.0ms | Allocations: 33)
+  Rendered layout layouts/application.html.erb (Duration: 4.2ms | Allocations: 8242)
+Completed 200 OK in 282ms (Views: 4.5ms | ActiveRecord: 1.1ms | Allocations: 20952)
+
+
+Started POST "/users" for ::1 at 2022-05-24 08:23:59 +0200
+Processing by Clearance::UsersController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"a@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "a@gmail.com"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (2.6ms)[0m  [1m[31mROLLBACK[0m
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 0.2ms | Allocations: 310)
+  Rendered users/new.html.erb within layouts/application (Duration: 3.2ms | Allocations: 740)
+  Rendered application/_flashes.html.erb (Duration: 0.0ms | Allocations: 27)
+  Rendered layout layouts/application.html.erb (Duration: 25.8ms | Allocations: 8008)
+Completed 200 OK in 294ms (Views: 26.1ms | ActiveRecord: 3.2ms | Allocations: 12413)
+
+
+Started POST "/users" for ::1 at 2022-05-24 08:23:59 +0200
+Processing by Clearance::UsersController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"a@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "a@gmail.com"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 0.2ms | Allocations: 311)
+  Rendered users/new.html.erb within layouts/application (Duration: 0.6ms | Allocations: 742)
+  Rendered application/_flashes.html.erb (Duration: 0.0ms | Allocations: 27)
+  Rendered layout layouts/application.html.erb (Duration: 3.9ms | Allocations: 8042)
+Completed 200 OK in 254ms (Views: 4.2ms | ActiveRecord: 0.6ms | Allocations: 12233)
+
+
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (1.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test@gmail.com"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test@gmail.com"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (1.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test@gmail.com"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mRole Load (0.8ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."name" = $1 LIMIT $2[0m  [["name", 0], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mRole Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "roles" WHERE "roles"."name" = $1 LIMIT $2[0m  [["name", 0], ["LIMIT", 1]]
+  [1m[36mRole Create (3.5ms)[0m  [1m[32mINSERT INTO "roles" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", 0], ["created_at", "2022-05-24 06:25:42.046085"], ["updated_at", "2022-05-24 06:25:42.046085"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mRole Load (0.6ms)[0m  [1m[34mSELECT "roles".* FROM "roles"[0m
+  [1m[36mRole Load (0.9ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."name" = $1 LIMIT $2[0m  [["name", 0], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test@gmail.com"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mRole Load (0.7ms)[0m  [1m[34mSELECT "roles".* FROM "roles"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mRole Destroy (0.8ms)[0m  [1m[31mDELETE FROM "roles" WHERE "roles"."id" = $1[0m  [["id", 1]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mRole Load (0.6ms)[0m  [1m[34mSELECT "roles".* FROM "roles"[0m
+  [1m[36mRole Load (0.2ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."name" = $1 LIMIT $2[0m  [["name", 0], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mRole Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "roles" WHERE "roles"."name" = $1 LIMIT $2[0m  [["name", 0], ["LIMIT", 1]]
+  [1m[36mRole Create (0.2ms)[0m  [1m[32mINSERT INTO "roles" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", 0], ["created_at", "2022-05-24 06:28:49.483855"], ["updated_at", "2022-05-24 06:28:49.483855"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (1.9ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "email", "encrypted_password", "confirmation_token", "remember_token", "role_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["created_at", "2022-05-24 06:28:49.486388"], ["updated_at", "2022-05-24 06:28:49.486388"], ["email", "test@gmail.com"], ["encrypted_password", "[FILTERED]"], ["confirmation_token", "[FILTERED]"], ["remember_token", "[FILTERED]"], ["role_id", 2]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+Started POST "/users" for ::1 at 2022-05-24 08:29:11 +0200
+Processing by Clearance::UsersController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"a@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mRole Load (0.7ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."name" = $1 LIMIT $2[0m  [["name", 0], ["LIMIT", 1]]
+  ↳ app/models/user.rb:14:in `set_default_role'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "a@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (1.1ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "email", "encrypted_password", "confirmation_token", "remember_token", "role_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["created_at", "2022-05-24 06:29:11.581432"], ["updated_at", "2022-05-24 06:29:11.581432"], ["email", "a@gmail.com"], ["encrypted_password", "[FILTERED]"], ["confirmation_token", "[FILTERED]"], ["remember_token", "[FILTERED]"], ["role_id", 2]]
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://[::1]:3000/
+Completed 302 Found in 271ms (ActiveRecord: 12.7ms | Allocations: 17865)
+
+
+Started GET "/" for ::1 at 2022-05-24 08:29:11 +0200
+Processing by UsersController#index as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["remember_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/views/users/index.html.erb:10
+  [1m[36mRole Load (0.2ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."name" = $1 LIMIT $2[0m  [["name", 0], ["LIMIT", 1]]
+  ↳ app/models/user.rb:14:in `set_default_role'
+  Rendered users/index.html.erb within layouts/application (Duration: 3.0ms | Allocations: 2734)
+  Rendered application/_flashes.html.erb (Duration: 0.0ms | Allocations: 38)
+  Rendered layout layouts/application.html.erb (Duration: 34.8ms | Allocations: 26494)
+Completed 200 OK in 36ms (Views: 35.2ms | ActiveRecord: 0.5ms | Allocations: 27602)
+
+
+  [1m[36mRole Load (1.5ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."name" = $1 LIMIT $2[0m  [["name", 0], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "testa@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "email", "encrypted_password", "confirmation_token", "remember_token", "role_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["created_at", "2022-05-24 06:40:17.830102"], ["updated_at", "2022-05-24 06:40:17.830102"], ["email", "testa@gmail.com"], ["encrypted_password", "[FILTERED]"], ["confirmation_token", "[FILTERED]"], ["remember_token", "[FILTERED]"], ["role_id", 2]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mRole Load (0.8ms)[0m  [1m[34mSELECT "roles".* FROM "roles"[0m
