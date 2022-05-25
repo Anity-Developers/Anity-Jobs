@@ -6,9 +6,9 @@ module Features
       click_on I18n.t("helpers.submit.password.submit")
     end
 
-    def sign_in
+    def sign_in(user = FactoryBot.create(:user))
       password = "password"
-      user = FactoryBot.create(:user, password: password)
+      user.update!(password: password)
       sign_in_with user.email, password
     end
 

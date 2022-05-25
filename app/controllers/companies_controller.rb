@@ -7,13 +7,14 @@ class CompaniesController < ApplicationController
 
   def new
     @company = Company.new
+    authorize @company
   end
 
   def create
     @company = Company.create(company_params)
     if @company.save
       flash[:notice] = "Company created successfully."
-      redirect_to companies_path
+      redirect_to @company
     else
       render :new
     end
