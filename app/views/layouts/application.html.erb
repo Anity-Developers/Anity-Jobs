@@ -12,8 +12,19 @@
   </head>
 
   <body>
+    <div class="nav-container flex">
+      <div class="logo">
+        Anity
+      </div>
+
+      <div class="links">
+        <a href="/">Home</a>
+        <a href="/companies">Companies</a>
+        <a href="/users">Jobs</a>
+      </div>
+    </div>
     <%= render "flashes" -%>
-    <main class="container mx-auto mt-10 px-5">
+    <main class="container mx-auto mt-10">
       <%= yield %>
     </main>
   </body>

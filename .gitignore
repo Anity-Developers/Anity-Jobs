@@ -10,6 +10,7 @@
 /db/*.sqlite3-journal
 /log/*
 /node_modules
+/log
 /public/assets
 /public/packs
 /public/packs-test

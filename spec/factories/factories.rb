@@ -1,16 +1,26 @@
 FactoryBot.define do
-  sequence :email do |n|
-    "user#{n}@example.com"
-  end
 
   factory :role do
-    name { "user" }
+    name { Role.names.keys.sample }
+
+    to_create do |instance|
+      instance.id = Role.find_or_create_by(name: instance.name).id
+      instance.reload
+    end
   end
 
   factory :user do
-    email
+    sequence :email do |n|
+      "person#{n}@example.com"
+    end
+
     password { "password" }
-    role
+
+    association :role, factory: :role, name: 'user'
+
+    trait :admin do
+      association :role, factory: :role, name: 'admin'
+    end
   end
 
   factory :company do
