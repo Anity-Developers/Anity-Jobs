@@ -1,0 +1,21 @@
+<%= form_with model: @job do |form| %>
+  <div class="field my-2">
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+  <div class="field flex flex-col w-1/2 my-2">
+    <%= form.label :application_url , class: "font-bold" %>
+    <%= form.text_field :application_url, class: "w" %>
+  </div>
+  <div class="field my-2">
+    <%= form.label :company_id, "Company",class:"font-bold"%>
+    <%= form.select :company_id, [["select Company",nil]]+Company.pluck(:name,:id), {}, class: "multiple" %>
+  </div>
+  <div class="field my-2">
+    <%= form.label :description %>
+    <%= form.rich_text_area :description %>
+  </div>
+  <div class="field my-2">
+    <%= form.submit class:"bg-blue-300 rounded p-2 font-bold"%>
+  </div>
+<% end %>

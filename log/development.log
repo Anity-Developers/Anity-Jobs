@@ -2936,3 +2936,1789 @@ Processing by CompaniesController#new as HTML
 Completed 200 OK in 54ms (Views: 21.0ms | ActiveRecord: 1.5ms | Allocations: 13476)
 
 
+Started GET "/" for ::1 at 2022-05-26 08:10:10 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (2.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["remember_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/views/users/index.html.erb:10
+  [1m[36mRole Load (8.5ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/user.rb:27:in `set_default_role'
+  Rendered users/index.html.erb within layouts/application (Duration: 60.1ms | Allocations: 26921)
+  Rendered application/_flashes.html.erb (Duration: 0.5ms | Allocations: 264)
+  Rendered layout layouts/application.html.erb (Duration: 257.2ms | Allocations: 183658)
+Completed 200 OK in 264ms (Views: 228.7ms | ActiveRecord: 30.6ms | Allocations: 189533)
+
+
+Started GET "/" for ::1 at 2022-05-26 08:18:34 +0200
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["remember_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/views/users/index.html.erb:10
+  [1m[36mRole Load (0.6ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/user.rb:27:in `set_default_role'
+  Rendered users/index.html.erb within layouts/application (Duration: 35.3ms | Allocations: 4702)
+  Rendered application/_flashes.html.erb (Duration: 0.1ms | Allocations: 35)
+  Rendered layout layouts/application.html.erb (Duration: 47.3ms | Allocations: 11951)
+Completed 200 OK in 50ms (Views: 48.3ms | ActiveRecord: 8.2ms | Allocations: 12340)
+
+
+Started GET "/companies/new" for ::1 at 2022-05-26 08:26:41 +0200
+Processing by CompaniesController#new as HTML
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["remember_token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mRole Load (0.5ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/user.rb:27:in `set_default_role'
+Redirected to http://localhost:3000/
+Completed 302 Found in 83ms (ActiveRecord: 19.7ms | Allocations: 9243)
+
+
+Started GET "/" for ::1 at 2022-05-26 08:26:41 +0200
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["remember_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/views/users/index.html.erb:10
+  [1m[36mRole Load (0.1ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/user.rb:27:in `set_default_role'
+  Rendered users/index.html.erb within layouts/application (Duration: 2.7ms | Allocations: 2197)
+  Rendered application/_flashes.html.erb (Duration: 0.1ms | Allocations: 49)
+  Rendered layout layouts/application.html.erb (Duration: 10.3ms | Allocations: 9668)
+Completed 200 OK in 11ms (Views: 10.2ms | ActiveRecord: 0.3ms | Allocations: 10049)
+
+
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(4306644712149207435)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateJobs (20220526062910)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (56.6ms)[0m  [1m[35mCREATE TABLE "jobs" ("id" bigserial primary key, "title" character varying, "company_id" bigint, "application_url" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_b34da78090"
+FOREIGN KEY ("company_id")
+  REFERENCES "companies" ("id")
+)[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE INDEX "index_jobs_on_company_id" ON "jobs" ("company_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (2.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220526062910"]]
+  [1m[36mTRANSACTION (2.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (6.6ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(4306644712149207435)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/jobs/new" for ::1 at 2022-05-26 08:48:53 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by JobsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/new.html.erb within layouts/application
+  Rendered companies/_form.html.erb (Duration: 32.3ms | Allocations: 7087)
+  Rendered jobs/new.html.erb within layouts/application (Duration: 33.1ms | Allocations: 7742)
+  Rendered application/_flashes.html.erb (Duration: 0.4ms | Allocations: 256)
+  Rendered layout layouts/application.html.erb (Duration: 201.2ms | Allocations: 165274)
+Completed 200 OK in 221ms (Views: 203.2ms | ActiveRecord: 6.9ms | Allocations: 180181)
+
+
+Started GET "/jobs/new" for ::1 at 2022-05-26 08:49:17 +0200
+Processing by JobsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/new.html.erb within layouts/application
+  Rendered jobs/_form.html.erb (Duration: 32.4ms | Allocations: 15932)
+  Rendered jobs/new.html.erb within layouts/application (Duration: 33.3ms | Allocations: 16239)
+  Rendered application/_flashes.html.erb (Duration: 0.8ms | Allocations: 229)
+  Rendered layout layouts/application.html.erb (Duration: 43.6ms | Allocations: 24279)
+Completed 200 OK in 49ms (Views: 39.0ms | ActiveRecord: 7.2ms | Allocations: 25541)
+
+
+Started GET "/jobs/new" for ::1 at 2022-05-26 08:51:59 +0200
+Processing by JobsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/new.html.erb within layouts/application
+  Rendered jobs/_form.html.erb (Duration: 6.9ms | Allocations: 2255)
+  Rendered jobs/new.html.erb within layouts/application (Duration: 8.0ms | Allocations: 2550)
+  Rendered application/_flashes.html.erb (Duration: 1.0ms | Allocations: 227)
+  Rendered layout layouts/application.html.erb (Duration: 31.8ms | Allocations: 11776)
+Completed 200 OK in 38ms (Views: 35.2ms | ActiveRecord: 0.0ms | Allocations: 12990)
+
+
+Started GET "/jobs/new" for ::1 at 2022-05-26 08:52:34 +0200
+Processing by JobsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/new.html.erb within layouts/application
+  Rendered jobs/_form.html.erb (Duration: 8.2ms | Allocations: 2261)
+  Rendered jobs/new.html.erb within layouts/application (Duration: 10.1ms | Allocations: 2556)
+  Rendered application/_flashes.html.erb (Duration: 0.5ms | Allocations: 227)
+  Rendered layout layouts/application.html.erb (Duration: 38.7ms | Allocations: 12402)
+Completed 200 OK in 47ms (Views: 43.4ms | ActiveRecord: 0.0ms | Allocations: 13619)
+
+
+Started GET "/jobs/new" for ::1 at 2022-05-26 08:53:13 +0200
+Processing by JobsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/new.html.erb within layouts/application
+  Rendered jobs/_form.html.erb (Duration: 7.9ms | Allocations: 2264)
+  Rendered jobs/new.html.erb within layouts/application (Duration: 9.2ms | Allocations: 2559)
+  Rendered application/_flashes.html.erb (Duration: 0.7ms | Allocations: 227)
+  Rendered layout layouts/application.html.erb (Duration: 31.6ms | Allocations: 12379)
+Completed 200 OK in 47ms (Views: 35.5ms | ActiveRecord: 0.0ms | Allocations: 13596)
+
+
+Started GET "/jobs/new" for ::1 at 2022-05-26 08:53:21 +0200
+Processing by JobsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/new.html.erb within layouts/application
+  Rendered jobs/_form.html.erb (Duration: 8.6ms | Allocations: 2260)
+  Rendered jobs/new.html.erb within layouts/application (Duration: 10.1ms | Allocations: 2555)
+  Rendered application/_flashes.html.erb (Duration: 0.6ms | Allocations: 227)
+  Rendered layout layouts/application.html.erb (Duration: 75.8ms | Allocations: 12399)
+Completed 200 OK in 93ms (Views: 90.2ms | ActiveRecord: 0.0ms | Allocations: 13602)
+
+
+Started GET "/jobs/new" for ::1 at 2022-05-26 08:54:07 +0200
+Processing by JobsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/new.html.erb within layouts/application
+  Rendered jobs/_form.html.erb (Duration: 5.0ms | Allocations: 2272)
+  Rendered jobs/new.html.erb within layouts/application (Duration: 8.6ms | Allocations: 2567)
+  Rendered application/_flashes.html.erb (Duration: 0.6ms | Allocations: 227)
+  Rendered layout layouts/application.html.erb (Duration: 18.6ms | Allocations: 10533)
+Completed 200 OK in 23ms (Views: 20.9ms | ActiveRecord: 0.0ms | Allocations: 11736)
+
+
+Started GET "/jobs/new" for ::1 at 2022-05-26 08:58:04 +0200
+Processing by JobsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/new.html.erb within layouts/application
+  Rendered jobs/_form.html.erb (Duration: 28.5ms | Allocations: 13047)
+  Rendered jobs/new.html.erb within layouts/application (Duration: 29.4ms | Allocations: 13360)
+  Rendered layout layouts/application.html.erb (Duration: 29.5ms | Allocations: 13449)
+Completed 500 Internal Server Error in 39ms (ActiveRecord: 0.0ms | Allocations: 14654)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `f' for #<ActionView::Base:0x0000000000e038>):
+    12:     <%= form.rich_text_area :description %>
+    13:   </div>
+    14:   <div class="field">
+    15:     <%= f.label :company_id, "Company",class:"font-bold"%>
+    16:     <%= f.select :company_id, [["select Company",nil]]+Company.pluck(:name,:id), {}, class: "multiple" %>
+    17:   </div>
+    18:   <div class="field my-2">
+  
+app/views/jobs/_form.html.erb:15
+app/views/jobs/_form.html.erb:1
+app/views/jobs/new.html.erb:3
+Started GET "/jobs/new" for ::1 at 2022-05-26 08:58:27 +0200
+Processing by JobsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/new.html.erb within layouts/application
+  [1m[36mCompany Pluck (2.4ms)[0m  [1m[34mSELECT "companies"."name", "companies"."id" FROM "companies"[0m
+  ↳ app/views/jobs/_form.html.erb:16
+  Rendered jobs/_form.html.erb (Duration: 33.8ms | Allocations: 6593)
+  Rendered jobs/new.html.erb within layouts/application (Duration: 35.0ms | Allocations: 6898)
+  Rendered application/_flashes.html.erb (Duration: 0.8ms | Allocations: 229)
+  Rendered layout layouts/application.html.erb (Duration: 50.7ms | Allocations: 15085)
+Completed 200 OK in 56ms (Views: 40.5ms | ActiveRecord: 13.8ms | Allocations: 16298)
+
+
+Started GET "/jobs/new" for ::1 at 2022-05-26 09:00:45 +0200
+Processing by JobsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/new.html.erb within layouts/application
+  [1m[36mCompany Pluck (0.6ms)[0m  [1m[34mSELECT "companies"."name", "companies"."id" FROM "companies"[0m
+  ↳ app/views/jobs/_form.html.erb:12
+  Rendered jobs/_form.html.erb (Duration: 10.7ms | Allocations: 3099)
+  Rendered jobs/new.html.erb within layouts/application (Duration: 12.8ms | Allocations: 3394)
+  Rendered application/_flashes.html.erb (Duration: 0.8ms | Allocations: 227)
+  Rendered layout layouts/application.html.erb (Duration: 28.7ms | Allocations: 11358)
+Completed 200 OK in 37ms (Views: 32.0ms | ActiveRecord: 0.6ms | Allocations: 12569)
+
+
+Started GET "/jobs/new" for ::1 at 2022-05-26 09:08:16 +0200
+Processing by JobsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/new.html.erb within layouts/application
+  [1m[36mCompany Pluck (0.6ms)[0m  [1m[34mSELECT "companies"."name", "companies"."id" FROM "companies"[0m
+  ↳ app/views/jobs/_form.html.erb:12
+  Rendered jobs/_form.html.erb (Duration: 45.8ms | Allocations: 5453)
+  Rendered jobs/new.html.erb within layouts/application (Duration: 47.0ms | Allocations: 5748)
+  Rendered application/_flashes.html.erb (Duration: 0.5ms | Allocations: 227)
+  Rendered layout layouts/application.html.erb (Duration: 59.7ms | Allocations: 13712)
+Completed 200 OK in 65ms (Views: 62.8ms | ActiveRecord: 17.7ms | Allocations: 14907)
+
+
+Started POST "/jobs" for ::1 at 2022-05-26 09:09:47 +0200
+Processing by JobsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "job"=>{"title"=>"Remote Senior DevOps Engineer", "application_url"=>"fdfdfdf", "company_id"=>"1", "description"=>"<div>dfdfd</div>"}, "commit"=>"Create Job"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/jobs_controller.rb:11:in `create'
+  [1m[36mCompany Load (0.2ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/jobs_controller.rb:11:in `create'
+  [1m[36mJob Create (7.8ms)[0m  [1m[32mINSERT INTO "jobs" ("title", "company_id", "application_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Remote Senior DevOps Engineer"], ["company_id", 1], ["application_url", "fdfdfdf"], ["created_at", "2022-05-26 07:09:47.295264"], ["updated_at", "2022-05-26 07:09:47.295264"]]
+  ↳ app/controllers/jobs_controller.rb:11:in `create'
+  [1m[36mActionText::RichText Create (7.5ms)[0m  [1m[32mINSERT INTO "action_text_rich_texts" ("name", "body", "record_type", "record_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "description"], ["body", "<div>dfdfd</div>"], ["record_type", "Job"], ["record_id", 1], ["created_at", "2022-05-26 07:09:47.336911"], ["updated_at", "2022-05-26 07:09:47.336911"]]
+  ↳ app/controllers/jobs_controller.rb:11:in `create'
+  [1m[36mActiveStorage::Attachment Load (1.0ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3[0m  [["record_id", 2], ["record_type", "ActionText::RichText"], ["name", "embeds"]]
+  ↳ app/controllers/jobs_controller.rb:11:in `create'
+  [1m[36mJob Update (0.9ms)[0m  [1m[33mUPDATE "jobs" SET "updated_at" = $1 WHERE "jobs"."id" = $2[0m  [["updated_at", "2022-05-26 07:09:47.345857"], ["id", 1]]
+  ↳ app/controllers/jobs_controller.rb:11:in `create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/jobs_controller.rb:11:in `create'
+Redirected to http://localhost:3000/jobs/1
+Completed 302 Found in 101ms (ActiveRecord: 35.8ms | Allocations: 36009)
+
+
+Started GET "/jobs/1" for ::1 at 2022-05-26 09:09:47 +0200
+Processing by JobsController#show as TURBO_STREAM
+  Parameters: {"id"=>"1"}
+  [1m[36mJob Load (0.2ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/jobs_controller.rb:21:in `show'
+No template found for JobsController#show, rendering head :no_content
+Completed 204 No Content in 3ms (ActiveRecord: 0.2ms | Allocations: 1644)
+
+
+Started GET "/" for ::1 at 2022-05-26 09:18:25 +0200
+Processing by JobsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (0.6ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs"[0m
+  ↳ app/views/jobs/index.html.erb:2
+  Rendered collection of jobs/_job_preview.html.erb [1 times] (Duration: 4.0ms | Allocations: 4825)
+  Rendered jobs/index.html.erb within layouts/application (Duration: 25.1ms | Allocations: 9542)
+  Rendered layout layouts/application.html.erb (Duration: 25.2ms | Allocations: 9630)
+Completed 500 Internal Server Error in 32ms (ActiveRecord: 8.2ms | Allocations: 13782)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `job' for #<ActionView::Base:0x00000000013f38>
+Did you mean?  @jobs):
+    1: <div class = "job-prev">
+    2:   <div>
+    3:     <h1 class="font-bold "><%= job.title%></h1>
+    4:   </div>
+    5: </div>
+  
+app/views/jobs/_job_preview.html.erb:3
+app/views/jobs/index.html.erb:2
+Started GET "/" for ::1 at 2022-05-26 09:19:01 +0200
+Processing by JobsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (0.4ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs"[0m
+  ↳ app/views/jobs/index.html.erb:2
+  Rendered collection of jobs/_job_preview.html.erb [1 times] (Duration: 0.6ms | Allocations: 169)
+  Rendered jobs/index.html.erb within layouts/application (Duration: 5.5ms | Allocations: 1220)
+  Rendered application/_flashes.html.erb (Duration: 0.6ms | Allocations: 249)
+  Rendered layout layouts/application.html.erb (Duration: 34.8ms | Allocations: 25895)
+Completed 200 OK in 40ms (Views: 38.1ms | ActiveRecord: 0.4ms | Allocations: 27087)
+
+
+Started GET "/" for ::1 at 2022-05-26 09:23:06 +0200
+Processing by JobsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (0.5ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs"[0m
+  ↳ app/views/jobs/index.html.erb:2
+  Rendered collection of jobs/_job_preview.html.erb [1 times] (Duration: 0.5ms | Allocations: 158)
+  Rendered jobs/index.html.erb within layouts/application (Duration: 5.5ms | Allocations: 1203)
+  Rendered application/_flashes.html.erb (Duration: 0.6ms | Allocations: 231)
+  Rendered layout layouts/application.html.erb (Duration: 26.1ms | Allocations: 11922)
+Completed 200 OK in 32ms (Views: 29.1ms | ActiveRecord: 0.5ms | Allocations: 13121)
+
+
+Started GET "/" for ::1 at 2022-05-26 09:23:16 +0200
+Processing by JobsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (0.6ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs"[0m
+  ↳ app/views/jobs/index.html.erb:2
+  Rendered collection of jobs/_job_preview.html.erb [1 times] (Duration: 0.4ms | Allocations: 158)
+  Rendered jobs/index.html.erb within layouts/application (Duration: 3.3ms | Allocations: 1202)
+  Rendered application/_flashes.html.erb (Duration: 0.8ms | Allocations: 231)
+  Rendered layout layouts/application.html.erb (Duration: 11.5ms | Allocations: 9609)
+Completed 200 OK in 16ms (Views: 13.2ms | ActiveRecord: 0.6ms | Allocations: 10808)
+
+
+Started GET "/" for ::1 at 2022-05-26 09:23:25 +0200
+Processing by JobsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (0.3ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs"[0m
+  ↳ app/views/jobs/index.html.erb:2
+  Rendered collection of jobs/_job_preview.html.erb [1 times] (Duration: 0.4ms | Allocations: 158)
+  Rendered jobs/index.html.erb within layouts/application (Duration: 3.3ms | Allocations: 1202)
+  Rendered application/_flashes.html.erb (Duration: 0.4ms | Allocations: 231)
+  Rendered layout layouts/application.html.erb (Duration: 16.8ms | Allocations: 10863)
+Completed 200 OK in 21ms (Views: 19.6ms | ActiveRecord: 0.3ms | Allocations: 12062)
+
+
+Started GET "/" for ::1 at 2022-05-26 09:28:17 +0200
+Processing by JobsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (0.4ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs"[0m
+  ↳ app/views/jobs/index.html.erb:2
+  [1m[36mCompany Load (1.3ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  Rendered collection of jobs/_job_preview.html.erb [1 times] (Duration: 34.0ms | Allocations: 13256)
+  Rendered jobs/index.html.erb within layouts/application (Duration: 53.3ms | Allocations: 14307)
+  Rendered application/_flashes.html.erb (Duration: 0.6ms | Allocations: 231)
+  Rendered layout layouts/application.html.erb (Duration: 81.7ms | Allocations: 22886)
+Completed 200 OK in 85ms (Views: 81.6ms | ActiveRecord: 1.9ms | Allocations: 24086)
+
+
+Started GET "/" for ::1 at 2022-05-26 09:29:21 +0200
+Processing by JobsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (0.6ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs"[0m
+  ↳ app/views/jobs/index.html.erb:2
+  [1m[36mCompany Load (0.4ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  Rendered collection of jobs/_job_preview.html.erb [1 times] (Duration: 3.6ms | Allocations: 1073)
+  Rendered jobs/index.html.erb within layouts/application (Duration: 7.8ms | Allocations: 2122)
+  Rendered application/_flashes.html.erb (Duration: 0.7ms | Allocations: 231)
+  Rendered layout layouts/application.html.erb (Duration: 17.9ms | Allocations: 10511)
+Completed 200 OK in 23ms (Views: 19.6ms | ActiveRecord: 1.0ms | Allocations: 11712)
+
+
+Started GET "/jobs/1" for ::1 at 2022-05-26 09:29:33 +0200
+Processing by JobsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mJob Load (4.4ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/jobs_controller.rb:21:in `show'
+Completed 406 Not Acceptable in 29ms (ActiveRecord: 4.4ms | Allocations: 1822)
+
+
+  
+ActionController::MissingExactTemplate (JobsController#show is missing a template for request formats: text/html):
+  
+actionpack (7.0.2.3) lib/action_controller/metal/implicit_render.rb:45:in `default_render'
+actionpack (7.0.2.3) lib/action_controller/metal/basic_implicit_render.rb:6:in `block in send_action'
+<internal:kernel>:90:in `tap'
+actionpack (7.0.2.3) lib/action_controller/metal/basic_implicit_render.rb:6:in `send_action'
+actionpack (7.0.2.3) lib/abstract_controller/base.rb:214:in `process_action'
+actionpack (7.0.2.3) lib/action_controller/metal/rendering.rb:53:in `process_action'
+actionpack (7.0.2.3) lib/abstract_controller/callbacks.rb:234:in `block in process_action'
+activesupport (7.0.2.3) lib/active_support/callbacks.rb:118:in `block in run_callbacks'
+actiontext (7.0.2.3) lib/action_text/rendering.rb:20:in `with_renderer'
+actiontext (7.0.2.3) lib/action_text/engine.rb:69:in `block (4 levels) in <class:Engine>'
+activesupport (7.0.2.3) lib/active_support/callbacks.rb:127:in `instance_exec'
+activesupport (7.0.2.3) lib/active_support/callbacks.rb:127:in `block in run_callbacks'
+activesupport (7.0.2.3) lib/active_support/callbacks.rb:138:in `run_callbacks'
+actionpack (7.0.2.3) lib/abstract_controller/callbacks.rb:233:in `process_action'
+actionpack (7.0.2.3) lib/action_controller/metal/rescue.rb:22:in `process_action'
+actionpack (7.0.2.3) lib/action_controller/metal/instrumentation.rb:67:in `block in process_action'
+activesupport (7.0.2.3) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.0.2.3) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (7.0.2.3) lib/active_support/notifications.rb:206:in `instrument'
+actionpack (7.0.2.3) lib/action_controller/metal/instrumentation.rb:66:in `process_action'
+actionpack (7.0.2.3) lib/action_controller/metal/params_wrapper.rb:259:in `process_action'
+activerecord (7.0.2.3) lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+actionpack (7.0.2.3) lib/abstract_controller/base.rb:151:in `process'
+actionview (7.0.2.3) lib/action_view/rendering.rb:39:in `process'
+actionpack (7.0.2.3) lib/action_controller/metal.rb:188:in `dispatch'
+actionpack (7.0.2.3) lib/action_controller/metal.rb:251:in `dispatch'
+actionpack (7.0.2.3) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.0.2.3) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.0.2.3) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (7.0.2.3) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (7.0.2.3) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.0.2.3) lib/action_dispatch/routing/route_set.rb:850:in `call'
+clearance (2.5.0) lib/clearance/rack_session.rb:23:in `call'
+rack (2.2.3) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.3) lib/rack/etag.rb:27:in `call'
+rack (2.2.3) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.3) lib/rack/head.rb:12:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/http/permissions_policy.rb:22:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.2.3) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.3) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/cookies.rb:693:in `call'
+activerecord (7.0.2.3) lib/active_record/migration.rb:603:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.2.3) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+web-console (4.2.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/show_exceptions.rb:26:in `call'
+railties (7.0.2.3) lib/rails/rack/logger.rb:36:in `call_app'
+railties (7.0.2.3) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.2.3) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.2.3) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.2.3) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.2.3) lib/rails/rack/logger.rb:25:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/server_timing.rb:20:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/host_authorization.rb:137:in `call'
+railties (7.0.2.3) lib/rails/engine.rb:530:in `call'
+puma (5.6.4) lib/puma/configuration.rb:252:in `call'
+puma (5.6.4) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.4) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.4) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.4) lib/puma/server.rb:441:in `process_client'
+puma (5.6.4) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started GET "/" for ::1 at 2022-05-26 09:29:35 +0200
+Processing by JobsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (0.3ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs"[0m
+  ↳ app/views/jobs/index.html.erb:2
+  [1m[36mCompany Load (3.8ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  Rendered collection of jobs/_job_preview.html.erb [1 times] (Duration: 5.9ms | Allocations: 772)
+  Rendered jobs/index.html.erb within layouts/application (Duration: 9.4ms | Allocations: 1501)
+  Rendered application/_flashes.html.erb (Duration: 0.0ms | Allocations: 28)
+  Rendered layout layouts/application.html.erb (Duration: 14.6ms | Allocations: 9203)
+Completed 200 OK in 16ms (Views: 11.6ms | ActiveRecord: 4.1ms | Allocations: 9558)
+
+
+Started GET "/" for ::1 at 2022-05-26 09:30:48 +0200
+Processing by JobsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (0.6ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs"[0m
+  ↳ app/views/jobs/index.html.erb:2
+  [1m[36mCompany Load (0.6ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  Rendered collection of jobs/_job_preview.html.erb [1 times] (Duration: 6.3ms | Allocations: 1055)
+  Rendered jobs/index.html.erb within layouts/application (Duration: 11.8ms | Allocations: 2098)
+  Rendered application/_flashes.html.erb (Duration: 0.6ms | Allocations: 231)
+  Rendered layout layouts/application.html.erb (Duration: 22.2ms | Allocations: 10504)
+Completed 200 OK in 47ms (Views: 25.3ms | ActiveRecord: 1.2ms | Allocations: 11676)
+
+
+Started GET "/" for ::1 at 2022-05-26 09:33:12 +0200
+Processing by JobsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (0.4ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs"[0m
+  ↳ app/views/jobs/index.html.erb:2
+  [1m[36mCompany Load (0.3ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  Rendered collection of jobs/_job_preview.html.erb [1 times] (Duration: 4.4ms | Allocations: 1115)
+  Rendered jobs/index.html.erb within layouts/application (Duration: 9.5ms | Allocations: 2158)
+  Rendered application/_flashes.html.erb (Duration: 1.0ms | Allocations: 231)
+  Rendered layout layouts/application.html.erb (Duration: 28.0ms | Allocations: 10554)
+Completed 200 OK in 34ms (Views: 30.4ms | ActiveRecord: 0.7ms | Allocations: 11750)
+
+
+Started GET "/" for ::1 at 2022-05-26 09:33:34 +0200
+Processing by JobsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (0.3ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs"[0m
+  ↳ app/views/jobs/index.html.erb:2
+  [1m[36mCompany Load (0.2ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  Rendered collection of jobs/_job_preview.html.erb [1 times] (Duration: 1.8ms | Allocations: 1108)
+  Rendered jobs/index.html.erb within layouts/application (Duration: 3.9ms | Allocations: 2151)
+  Rendered application/_flashes.html.erb (Duration: 0.5ms | Allocations: 236)
+  Rendered layout layouts/application.html.erb (Duration: 25.7ms | Allocations: 10704)
+Completed 200 OK in 28ms (Views: 26.9ms | ActiveRecord: 0.4ms | Allocations: 11901)
+
+
+Started GET "/" for ::1 at 2022-05-26 09:33:58 +0200
+Processing by JobsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (0.3ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs"[0m
+  ↳ app/views/jobs/index.html.erb:2
+  [1m[36mCompany Load (0.1ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  Rendered collection of jobs/_job_preview.html.erb [1 times] (Duration: 2.2ms | Allocations: 1108)
+  Rendered jobs/index.html.erb within layouts/application (Duration: 4.4ms | Allocations: 2152)
+  Rendered application/_flashes.html.erb (Duration: 0.4ms | Allocations: 231)
+  Rendered layout layouts/application.html.erb (Duration: 13.7ms | Allocations: 10661)
+Completed 200 OK in 17ms (Views: 15.4ms | ActiveRecord: 0.5ms | Allocations: 11858)
+
+
+Started GET "/" for ::1 at 2022-05-26 09:34:14 +0200
+Processing by JobsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (0.3ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs"[0m
+  ↳ app/views/jobs/index.html.erb:2
+  [1m[36mCompany Load (0.2ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  Rendered collection of jobs/_job_preview.html.erb [1 times] (Duration: 2.2ms | Allocations: 1108)
+  Rendered jobs/index.html.erb within layouts/application (Duration: 4.5ms | Allocations: 2151)
+  Rendered application/_flashes.html.erb (Duration: 0.6ms | Allocations: 231)
+  Rendered layout layouts/application.html.erb (Duration: 12.5ms | Allocations: 10559)
+Completed 200 OK in 19ms (Views: 17.0ms | ActiveRecord: 0.5ms | Allocations: 11755)
+
+
+Started GET "/" for ::1 at 2022-05-26 09:34:15 +0200
+Processing by JobsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (1.0ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs"[0m
+  ↳ app/views/jobs/index.html.erb:2
+  [1m[36mCompany Load (0.7ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  Rendered collection of jobs/_job_preview.html.erb [1 times] (Duration: 4.4ms | Allocations: 785)
+  Rendered jobs/index.html.erb within layouts/application (Duration: 11.1ms | Allocations: 1514)
+  Rendered application/_flashes.html.erb (Duration: 0.2ms | Allocations: 28)
+  Rendered layout layouts/application.html.erb (Duration: 19.6ms | Allocations: 9059)
+Completed 200 OK in 21ms (Views: 18.6ms | ActiveRecord: 1.8ms | Allocations: 9417)
+
+
+Started GET "/" for ::1 at 2022-05-26 09:34:15 +0200
+Processing by JobsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (0.6ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs"[0m
+  ↳ app/views/jobs/index.html.erb:2
+  [1m[36mCompany Load (0.4ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  Rendered collection of jobs/_job_preview.html.erb [1 times] (Duration: 2.8ms | Allocations: 784)
+  Rendered jobs/index.html.erb within layouts/application (Duration: 8.9ms | Allocations: 1513)
+  Rendered application/_flashes.html.erb (Duration: 0.1ms | Allocations: 28)
+  Rendered layout layouts/application.html.erb (Duration: 18.3ms | Allocations: 9082)
+Completed 200 OK in 20ms (Views: 17.8ms | ActiveRecord: 1.0ms | Allocations: 9422)
+
+
+Started GET "/" for ::1 at 2022-05-26 09:34:41 +0200
+Processing by JobsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (0.4ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs"[0m
+  ↳ app/views/jobs/index.html.erb:2
+  [1m[36mCompany Load (0.6ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  Rendered collection of jobs/_job_preview.html.erb [1 times] (Duration: 3.1ms | Allocations: 1106)
+  Rendered jobs/index.html.erb within layouts/application (Duration: 7.1ms | Allocations: 2149)
+  Rendered application/_flashes.html.erb (Duration: 0.9ms | Allocations: 231)
+  Rendered layout layouts/application.html.erb (Duration: 23.1ms | Allocations: 10563)
+Completed 200 OK in 32ms (Views: 29.7ms | ActiveRecord: 1.0ms | Allocations: 11741)
+
+
+Started GET "/" for ::1 at 2022-05-26 09:35:00 +0200
+Processing by JobsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (0.4ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs"[0m
+  ↳ app/views/jobs/index.html.erb:2
+  [1m[36mCompany Load (0.2ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  Rendered collection of jobs/_job_preview.html.erb [1 times] (Duration: 2.6ms | Allocations: 1107)
+  Rendered jobs/index.html.erb within layouts/application (Duration: 6.2ms | Allocations: 2150)
+  Rendered application/_flashes.html.erb (Duration: 0.5ms | Allocations: 231)
+  Rendered layout layouts/application.html.erb (Duration: 21.8ms | Allocations: 12862)
+Completed 200 OK in 27ms (Views: 23.9ms | ActiveRecord: 0.6ms | Allocations: 14058)
+
+
+Started GET "/" for ::1 at 2022-05-26 09:35:16 +0200
+Processing by JobsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (0.3ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs"[0m
+  ↳ app/views/jobs/index.html.erb:2
+  [1m[36mCompany Load (7.1ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  Rendered collection of jobs/_job_preview.html.erb [1 times] (Duration: 9.3ms | Allocations: 1108)
+  Rendered jobs/index.html.erb within layouts/application (Duration: 11.8ms | Allocations: 2151)
+  Rendered application/_flashes.html.erb (Duration: 0.5ms | Allocations: 231)
+  Rendered layout layouts/application.html.erb (Duration: 21.2ms | Allocations: 10556)
+Completed 200 OK in 24ms (Views: 15.5ms | ActiveRecord: 7.4ms | Allocations: 11752)
+
+
+Started GET "/" for ::1 at 2022-05-26 09:36:34 +0200
+Processing by JobsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (0.5ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs"[0m
+  ↳ app/views/jobs/index.html.erb:2
+  [1m[36mCompany Load (0.2ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  Rendered collection of jobs/_job_preview.html.erb [1 times] (Duration: 2.8ms | Allocations: 1112)
+  Rendered jobs/index.html.erb within layouts/application (Duration: 9.1ms | Allocations: 2155)
+  Rendered application/_flashes.html.erb (Duration: 0.5ms | Allocations: 231)
+  Rendered layout layouts/application.html.erb (Duration: 25.7ms | Allocations: 10542)
+Completed 200 OK in 35ms (Views: 27.8ms | ActiveRecord: 0.7ms | Allocations: 11738)
+
+
+Started GET "/" for ::1 at 2022-05-26 09:36:55 +0200
+Processing by JobsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (0.3ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs"[0m
+  ↳ app/views/jobs/index.html.erb:2
+  [1m[36mCompany Load (0.2ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  Rendered collection of jobs/_job_preview.html.erb [1 times] (Duration: 1.8ms | Allocations: 1114)
+  Rendered jobs/index.html.erb within layouts/application (Duration: 4.8ms | Allocations: 2157)
+  Rendered application/_flashes.html.erb (Duration: 0.5ms | Allocations: 232)
+  Rendered layout layouts/application.html.erb (Duration: 12.0ms | Allocations: 10548)
+Completed 200 OK in 16ms (Views: 14.0ms | ActiveRecord: 0.5ms | Allocations: 11745)
+
+
+Started GET "/" for ::1 at 2022-05-26 09:37:51 +0200
+Processing by JobsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (0.9ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs"[0m
+  ↳ app/views/jobs/index.html.erb:2
+  [1m[36mCompany Load (0.4ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  Rendered collection of jobs/_job_preview.html.erb [1 times] (Duration: 3.3ms | Allocations: 1105)
+  Rendered jobs/index.html.erb within layouts/application (Duration: 7.8ms | Allocations: 2148)
+  Rendered application/_flashes.html.erb (Duration: 0.6ms | Allocations: 231)
+  Rendered layout layouts/application.html.erb (Duration: 22.4ms | Allocations: 10661)
+Completed 200 OK in 30ms (Views: 27.5ms | ActiveRecord: 1.2ms | Allocations: 11857)
+
+
+Started GET "/" for ::1 at 2022-05-26 09:38:40 +0200
+Processing by JobsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (0.3ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs"[0m
+  ↳ app/views/jobs/index.html.erb:2
+  [1m[36mCompany Load (0.2ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  Rendered collection of jobs/_job_preview.html.erb [1 times] (Duration: 2.5ms | Allocations: 1111)
+  Rendered jobs/index.html.erb within layouts/application (Duration: 8.3ms | Allocations: 2154)
+  Rendered application/_flashes.html.erb (Duration: 0.7ms | Allocations: 234)
+  Rendered layout layouts/application.html.erb (Duration: 32.7ms | Allocations: 10563)
+Completed 200 OK in 42ms (Views: 39.8ms | ActiveRecord: 0.5ms | Allocations: 11760)
+
+
+Started GET "/" for ::1 at 2022-05-26 09:38:59 +0200
+Processing by JobsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (0.6ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs"[0m
+  ↳ app/views/jobs/index.html.erb:2
+  [1m[36mCompany Load (0.3ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  Rendered collection of jobs/_job_preview.html.erb [1 times] (Duration: 1.8ms | Allocations: 1112)
+  Rendered jobs/index.html.erb within layouts/application (Duration: 4.3ms | Allocations: 2156)
+  Rendered application/_flashes.html.erb (Duration: 0.7ms | Allocations: 232)
+  Rendered layout layouts/application.html.erb (Duration: 13.9ms | Allocations: 10694)
+Completed 200 OK in 19ms (Views: 16.8ms | ActiveRecord: 0.9ms | Allocations: 11891)
+
+
+Started GET "/" for ::1 at 2022-05-26 09:40:12 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by JobsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (1.3ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs"[0m
+  ↳ app/views/jobs/index.html.erb:2
+  [1m[36mCompany Load (0.3ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  Rendered collection of jobs/_job_preview.html.erb [1 times] (Duration: 13.5ms | Allocations: 13471)
+  Rendered jobs/index.html.erb within layouts/application (Duration: 32.9ms | Allocations: 19660)
+  Rendered application/_flashes.html.erb (Duration: 0.4ms | Allocations: 263)
+  Rendered layout layouts/application.html.erb (Duration: 247.5ms | Allocations: 175957)
+Completed 200 OK in 258ms (Views: 230.5ms | ActiveRecord: 19.0ms | Allocations: 186198)
+
+
+Started GET "/" for ::1 at 2022-05-26 09:40:15 +0200
+Processing by JobsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (1.0ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs"[0m
+  ↳ app/views/jobs/index.html.erb:2
+  [1m[36mCompany Load (0.6ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  Rendered collection of jobs/_job_preview.html.erb [1 times] (Duration: 2.9ms | Allocations: 907)
+  Rendered jobs/index.html.erb within layouts/application (Duration: 13.9ms | Allocations: 1718)
+  Rendered application/_flashes.html.erb (Duration: 0.1ms | Allocations: 34)
+  Rendered layout layouts/application.html.erb (Duration: 24.0ms | Allocations: 9342)
+Completed 200 OK in 26ms (Views: 23.1ms | ActiveRecord: 1.6ms | Allocations: 9755)
+
+
+Started GET "/" for ::1 at 2022-05-26 09:41:22 +0200
+Processing by JobsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (0.4ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs"[0m
+  ↳ app/views/jobs/index.html.erb:2
+  [1m[36mCompany Load (0.2ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  Rendered collection of jobs/_job_preview.html.erb [1 times] (Duration: 3.0ms | Allocations: 1052)
+  Rendered jobs/index.html.erb within layouts/application (Duration: 7.1ms | Allocations: 2104)
+  Rendered application/_flashes.html.erb (Duration: 0.7ms | Allocations: 231)
+  Rendered layout layouts/application.html.erb (Duration: 23.7ms | Allocations: 10489)
+Completed 200 OK in 33ms (Views: 27.3ms | ActiveRecord: 0.7ms | Allocations: 11702)
+
+
+Started GET "/" for ::1 at 2022-05-26 09:42:25 +0200
+Processing by JobsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (0.4ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs"[0m
+  ↳ app/views/jobs/index.html.erb:2
+  [1m[36mCompany Load (0.4ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  Rendered collection of jobs/_job_preview.html.erb [1 times] (Duration: 6.3ms | Allocations: 1105)
+  Rendered jobs/index.html.erb within layouts/application (Duration: 9.6ms | Allocations: 2148)
+  Rendered application/_flashes.html.erb (Duration: 0.6ms | Allocations: 231)
+  Rendered layout layouts/application.html.erb (Duration: 21.3ms | Allocations: 10544)
+Completed 200 OK in 27ms (Views: 23.9ms | ActiveRecord: 0.9ms | Allocations: 11740)
+
+
+Started GET "/" for ::1 at 2022-05-26 09:42:52 +0200
+Processing by JobsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (0.3ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs"[0m
+  ↳ app/views/jobs/index.html.erb:2
+  [1m[36mCompany Load (0.6ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  Rendered collection of jobs/_job_preview.html.erb [1 times] (Duration: 2.2ms | Allocations: 1107)
+  Rendered jobs/index.html.erb within layouts/application (Duration: 4.5ms | Allocations: 2159)
+  Rendered application/_flashes.html.erb (Duration: 0.5ms | Allocations: 231)
+  Rendered layout layouts/application.html.erb (Duration: 16.4ms | Allocations: 10540)
+Completed 200 OK in 21ms (Views: 17.5ms | ActiveRecord: 0.9ms | Allocations: 11750)
+
+
+Started GET "/" for ::1 at 2022-05-26 09:43:36 +0200
+Processing by JobsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (0.6ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs"[0m
+  ↳ app/views/jobs/index.html.erb:2
+  [1m[36mCompany Load (0.3ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  Rendered collection of jobs/_job_preview.html.erb [1 times] (Duration: 2.4ms | Allocations: 1108)
+  Rendered jobs/index.html.erb within layouts/application (Duration: 7.0ms | Allocations: 2151)
+  Rendered application/_flashes.html.erb (Duration: 0.6ms | Allocations: 231)
+  Rendered layout layouts/application.html.erb (Duration: 22.2ms | Allocations: 10550)
+Completed 200 OK in 31ms (Views: 27.7ms | ActiveRecord: 0.9ms | Allocations: 11746)
+
+
+Started GET "/" for ::1 at 2022-05-26 09:45:20 +0200
+Processing by JobsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (0.5ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs"[0m
+  ↳ app/views/jobs/index.html.erb:2
+  [1m[36mCompany Load (0.2ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  Rendered collection of jobs/_job_preview.html.erb [1 times] (Duration: 2.8ms | Allocations: 1110)
+  Rendered jobs/index.html.erb within layouts/application (Duration: 13.0ms | Allocations: 2162)
+  Rendered application/_flashes.html.erb (Duration: 4.2ms | Allocations: 231)
+  Rendered layout layouts/application.html.erb (Duration: 36.8ms | Allocations: 12450)
+Completed 200 OK in 42ms (Views: 39.1ms | ActiveRecord: 0.7ms | Allocations: 13660)
+
+
+Started GET "/" for ::1 at 2022-05-26 09:48:37 +0200
+Processing by JobsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (0.4ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs"[0m
+  ↳ app/views/jobs/index.html.erb:2
+  [1m[36mCompany Load (0.2ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  Rendered collection of jobs/_job_preview.html.erb [1 times] (Duration: 2.9ms | Allocations: 1111)
+  Rendered jobs/index.html.erb within layouts/application (Duration: 7.5ms | Allocations: 2154)
+  Rendered application/_flashes.html.erb (Duration: 0.5ms | Allocations: 231)
+  Rendered layout layouts/application.html.erb (Duration: 20.2ms | Allocations: 10547)
+Completed 200 OK in 28ms (Views: 25.3ms | ActiveRecord: 0.6ms | Allocations: 11743)
+
+
+Started GET "/" for ::1 at 2022-05-26 09:48:57 +0200
+Processing by JobsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (0.3ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs"[0m
+  ↳ app/views/jobs/index.html.erb:2
+  [1m[36mCompany Load (11.2ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  Rendered collection of jobs/_job_preview.html.erb [1 times] (Duration: 14.2ms | Allocations: 1108)
+  Rendered jobs/index.html.erb within layouts/application (Duration: 17.1ms | Allocations: 2151)
+  Rendered application/_flashes.html.erb (Duration: 0.6ms | Allocations: 231)
+  Rendered layout layouts/application.html.erb (Duration: 34.6ms | Allocations: 12372)
+Completed 200 OK in 39ms (Views: 26.3ms | ActiveRecord: 11.4ms | Allocations: 13568)
+
+
+Started GET "/" for ::1 at 2022-05-26 09:49:05 +0200
+Processing by JobsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (0.4ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs"[0m
+  ↳ app/views/jobs/index.html.erb:2
+  [1m[36mCompany Load (0.2ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  Rendered collection of jobs/_job_preview.html.erb [1 times] (Duration: 2.0ms | Allocations: 1108)
+  Rendered jobs/index.html.erb within layouts/application (Duration: 5.0ms | Allocations: 2152)
+  Rendered application/_flashes.html.erb (Duration: 0.5ms | Allocations: 231)
+  Rendered layout layouts/application.html.erb (Duration: 20.6ms | Allocations: 12817)
+Completed 200 OK in 27ms (Views: 23.4ms | ActiveRecord: 0.6ms | Allocations: 14013)
+
+
+Started GET "/" for ::1 at 2022-05-26 09:49:12 +0200
+Processing by JobsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (0.3ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs"[0m
+  ↳ app/views/jobs/index.html.erb:2
+  [1m[36mCompany Load (0.2ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  Rendered collection of jobs/_job_preview.html.erb [1 times] (Duration: 2.2ms | Allocations: 1108)
+  Rendered jobs/index.html.erb within layouts/application (Duration: 4.1ms | Allocations: 2151)
+  Rendered application/_flashes.html.erb (Duration: 0.5ms | Allocations: 231)
+  Rendered layout layouts/application.html.erb (Duration: 21.2ms | Allocations: 12847)
+Completed 200 OK in 27ms (Views: 23.5ms | ActiveRecord: 0.5ms | Allocations: 14047)
+
+
+Started GET "/" for ::1 at 2022-05-26 09:50:24 +0200
+Processing by JobsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (0.5ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs"[0m
+  ↳ app/views/jobs/index.html.erb:2
+  [1m[36mCompany Load (0.2ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  Rendered collection of jobs/_job_preview.html.erb [1 times] (Duration: 2.3ms | Allocations: 788)
+  Rendered jobs/index.html.erb within layouts/application (Duration: 5.7ms | Allocations: 1517)
+  Rendered application/_flashes.html.erb (Duration: 0.1ms | Allocations: 28)
+  Rendered layout layouts/application.html.erb (Duration: 25.1ms | Allocations: 9053)
+Completed 200 OK in 32ms (Views: 29.5ms | ActiveRecord: 0.7ms | Allocations: 9411)
+
+
+Started GET "/" for ::1 at 2022-05-26 09:51:13 +0200
+Processing by JobsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (0.4ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs"[0m
+  ↳ app/views/jobs/index.html.erb:2
+  [1m[36mCompany Load (0.2ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  Rendered collection of jobs/_job_preview.html.erb [1 times] (Duration: 4.6ms | Allocations: 1110)
+  Rendered jobs/index.html.erb within layouts/application (Duration: 41.0ms | Allocations: 2154)
+  Rendered application/_flashes.html.erb (Duration: 0.6ms | Allocations: 231)
+  Rendered layout layouts/application.html.erb (Duration: 52.1ms | Allocations: 10675)
+Completed 200 OK in 62ms (Views: 60.2ms | ActiveRecord: 0.6ms | Allocations: 11854)
+
+
+Started GET "/" for ::1 at 2022-05-26 09:51:44 +0200
+Processing by JobsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (0.4ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs"[0m
+  ↳ app/views/jobs/index.html.erb:2
+  [1m[36mCompany Load (0.3ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  Rendered collection of jobs/_job_preview.html.erb [1 times] (Duration: 3.1ms | Allocations: 1107)
+  Rendered jobs/index.html.erb within layouts/application (Duration: 7.6ms | Allocations: 2152)
+  Rendered application/_flashes.html.erb (Duration: 0.5ms | Allocations: 231)
+  Rendered layout layouts/application.html.erb (Duration: 22.0ms | Allocations: 10571)
+Completed 200 OK in 32ms (Views: 24.5ms | ActiveRecord: 0.7ms | Allocations: 11768)
+
+
+Started GET "/" for ::1 at 2022-05-26 09:51:55 +0200
+Processing by JobsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (0.3ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs"[0m
+  ↳ app/views/jobs/index.html.erb:2
+  [1m[36mCompany Load (0.3ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  Rendered collection of jobs/_job_preview.html.erb [1 times] (Duration: 5.0ms | Allocations: 1107)
+  Rendered jobs/index.html.erb within layouts/application (Duration: 8.4ms | Allocations: 2152)
+  Rendered application/_flashes.html.erb (Duration: 0.5ms | Allocations: 231)
+  Rendered layout layouts/application.html.erb (Duration: 20.2ms | Allocations: 10542)
+Completed 200 OK in 26ms (Views: 24.0ms | ActiveRecord: 0.6ms | Allocations: 11738)
+
+
+Started GET "/" for ::1 at 2022-05-26 09:53:18 +0200
+Processing by JobsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (0.5ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs"[0m
+  ↳ app/views/jobs/index.html.erb:2
+  [1m[36mCompany Load (0.2ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  Rendered collection of jobs/_job_preview.html.erb [1 times] (Duration: 2.8ms | Allocations: 1108)
+  Rendered jobs/index.html.erb within layouts/application (Duration: 14.7ms | Allocations: 2157)
+  Rendered application/_flashes.html.erb (Duration: 0.5ms | Allocations: 231)
+  Rendered layout layouts/application.html.erb (Duration: 33.1ms | Allocations: 13345)
+Completed 200 OK in 44ms (Views: 36.2ms | ActiveRecord: 0.8ms | Allocations: 14541)
+
+
+Started GET "/" for ::1 at 2022-05-26 09:57:04 +0200
+Processing by JobsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (0.4ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs"[0m
+  ↳ app/views/jobs/index.html.erb:2
+  [1m[36mCompany Load (0.4ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  Rendered collection of jobs/_job_preview.html.erb [1 times] (Duration: 3.5ms | Allocations: 1108)
+  Rendered jobs/index.html.erb within layouts/application (Duration: 8.4ms | Allocations: 2152)
+  Rendered application/_flashes.html.erb (Duration: 0.8ms | Allocations: 231)
+  Rendered layout layouts/application.html.erb (Duration: 35.0ms | Allocations: 11803)
+Completed 200 OK in 40ms (Views: 37.1ms | ActiveRecord: 0.8ms | Allocations: 12999)
+
+
+Started GET "/" for ::1 at 2022-05-26 09:58:12 +0200
+Processing by JobsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (0.7ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs"[0m
+  ↳ app/views/jobs/index.html.erb:2
+  [1m[36mCompany Load (0.2ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  Rendered collection of jobs/_job_preview.html.erb [1 times] (Duration: 5.7ms | Allocations: 1108)
+  Rendered jobs/index.html.erb within layouts/application (Duration: 11.9ms | Allocations: 2152)
+  Rendered application/_flashes.html.erb (Duration: 0.6ms | Allocations: 231)
+  Rendered layout layouts/application.html.erb (Duration: 35.5ms | Allocations: 12522)
+Completed 200 OK in 42ms (Views: 37.7ms | ActiveRecord: 0.9ms | Allocations: 13718)
+
+
+Started GET "/" for ::1 at 2022-05-26 09:58:30 +0200
+Processing by JobsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (0.6ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs"[0m
+  ↳ app/views/jobs/index.html.erb:2
+  [1m[36mCompany Load (3.0ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  Rendered collection of jobs/_job_preview.html.erb [1 times] (Duration: 6.8ms | Allocations: 1108)
+  Rendered jobs/index.html.erb within layouts/application (Duration: 10.5ms | Allocations: 2152)
+  Rendered application/_flashes.html.erb (Duration: 1.4ms | Allocations: 231)
+  Rendered layout layouts/application.html.erb (Duration: 25.3ms | Allocations: 12460)
+Completed 200 OK in 35ms (Views: 24.9ms | ActiveRecord: 3.6ms | Allocations: 13656)
+
+
+Started GET "/" for ::1 at 2022-05-26 09:58:54 +0200
+Processing by JobsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (0.5ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs"[0m
+  ↳ app/views/jobs/index.html.erb:2
+  [1m[36mCompany Load (0.2ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  Rendered collection of jobs/_job_preview.html.erb [1 times] (Duration: 8.3ms | Allocations: 1108)
+  Rendered jobs/index.html.erb within layouts/application (Duration: 14.9ms | Allocations: 2152)
+  Rendered application/_flashes.html.erb (Duration: 1.0ms | Allocations: 231)
+  Rendered layout layouts/application.html.erb (Duration: 33.6ms | Allocations: 12380)
+Completed 200 OK in 39ms (Views: 36.1ms | ActiveRecord: 0.8ms | Allocations: 13576)
+
+
+Started GET "/" for ::1 at 2022-05-26 09:59:33 +0200
+Processing by JobsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (0.5ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs"[0m
+  ↳ app/views/jobs/index.html.erb:2
+  [1m[36mCompany Load (0.3ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  Rendered collection of jobs/_job_preview.html.erb [1 times] (Duration: 8.7ms | Allocations: 1108)
+  Rendered jobs/index.html.erb within layouts/application (Duration: 17.2ms | Allocations: 2152)
+  Rendered application/_flashes.html.erb (Duration: 0.6ms | Allocations: 231)
+  Rendered layout layouts/application.html.erb (Duration: 32.7ms | Allocations: 12413)
+Completed 200 OK in 41ms (Views: 35.2ms | ActiveRecord: 0.8ms | Allocations: 13609)
+
+
+Started GET "/" for ::1 at 2022-05-26 09:59:44 +0200
+Processing by JobsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (1.2ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs"[0m
+  ↳ app/views/jobs/index.html.erb:2
+  [1m[36mCompany Load (1.3ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  Rendered collection of jobs/_job_preview.html.erb [1 times] (Duration: 3.4ms | Allocations: 788)
+  Rendered jobs/index.html.erb within layouts/application (Duration: 7.0ms | Allocations: 1517)
+  Rendered application/_flashes.html.erb (Duration: 0.2ms | Allocations: 28)
+  Rendered layout layouts/application.html.erb (Duration: 15.8ms | Allocations: 9068)
+Completed 200 OK in 17ms (Views: 14.1ms | ActiveRecord: 2.5ms | Allocations: 9426)
+
+
+Started GET "/companies/new" for ::1 at 2022-05-26 09:59:55 +0200
+Processing by CompaniesController#new as HTML
+  [1m[36mUser Load (6.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["remember_token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mRole Load (0.4ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/user.rb:27:in `set_default_role'
+Redirected to http://localhost:3000/
+Completed 302 Found in 64ms (ActiveRecord: 31.5ms | Allocations: 17088)
+
+
+Started GET "/" for ::1 at 2022-05-26 09:59:56 +0200
+Processing by JobsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (0.2ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs"[0m
+  ↳ app/views/jobs/index.html.erb:2
+  [1m[36mCompany Load (0.1ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  Rendered collection of jobs/_job_preview.html.erb [1 times] (Duration: 0.9ms | Allocations: 877)
+  Rendered jobs/index.html.erb within layouts/application (Duration: 2.0ms | Allocations: 1678)
+  Rendered application/_flashes.html.erb (Duration: 0.1ms | Allocations: 47)
+  Rendered layout layouts/application.html.erb (Duration: 6.8ms | Allocations: 9389)
+Completed 200 OK in 8ms (Views: 7.0ms | ActiveRecord: 0.3ms | Allocations: 9781)
+
+
+Started GET "/sign_in" for ::1 at 2022-05-26 10:00:12 +0200
+Processing by Clearance::SessionsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["remember_token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mRole Load (0.1ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/user.rb:27:in `set_default_role'
+Redirected to http://localhost:3000/
+Filter chain halted as :redirect_signed_in_users rendered or redirected
+Completed 302 Found in 4ms (ActiveRecord: 0.5ms | Allocations: 2454)
+
+
+Started GET "/" for ::1 at 2022-05-26 10:00:12 +0200
+Processing by JobsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (0.3ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs"[0m
+  ↳ app/views/jobs/index.html.erb:2
+  [1m[36mCompany Load (0.1ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  Rendered collection of jobs/_job_preview.html.erb [1 times] (Duration: 1.2ms | Allocations: 821)
+  Rendered jobs/index.html.erb within layouts/application (Duration: 15.1ms | Allocations: 1559)
+  Rendered application/_flashes.html.erb (Duration: 0.1ms | Allocations: 33)
+  Rendered layout layouts/application.html.erb (Duration: 23.5ms | Allocations: 9258)
+Completed 200 OK in 24ms (Views: 23.4ms | ActiveRecord: 0.4ms | Allocations: 9640)
+
+
+Started GET "/jobs/new" for ::1 at 2022-05-26 10:07:23 +0200
+Processing by JobsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/new.html.erb within layouts/application
+  [1m[36mCompany Pluck (0.6ms)[0m  [1m[34mSELECT "companies"."name", "companies"."id" FROM "companies"[0m
+  ↳ app/views/jobs/_form.html.erb:12
+  Rendered jobs/_form.html.erb (Duration: 95.9ms | Allocations: 25170)
+  Rendered jobs/new.html.erb within layouts/application (Duration: 97.4ms | Allocations: 25459)
+  Rendered application/_flashes.html.erb (Duration: 0.1ms | Allocations: 33)
+  Rendered layout layouts/application.html.erb (Duration: 106.0ms | Allocations: 32919)
+Completed 200 OK in 114ms (Views: 110.9ms | ActiveRecord: 31.3ms | Allocations: 33381)
+
+
+Started GET "/jobs/new" for ::1 at 2022-05-26 10:08:51 +0200
+Processing by JobsController#new as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["remember_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/controllers/jobs_controller.rb:8:in `new'
+  [1m[36mRole Load (0.6ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/user.rb:27:in `set_default_role'
+Redirected to http://localhost:3000/
+Completed 302 Found in 43ms (ActiveRecord: 13.6ms | Allocations: 17162)
+
+
+Started GET "/" for ::1 at 2022-05-26 10:08:51 +0200
+Processing by JobsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (0.6ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs"[0m
+  ↳ app/views/jobs/index.html.erb:2
+  [1m[36mCompany Load (0.4ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  Rendered collection of jobs/_job_preview.html.erb [1 times] (Duration: 12.9ms | Allocations: 6440)
+  Rendered jobs/index.html.erb within layouts/application (Duration: 14.6ms | Allocations: 7336)
+  Rendered application/_flashes.html.erb (Duration: 0.1ms | Allocations: 53)
+  Rendered layout layouts/application.html.erb (Duration: 32.6ms | Allocations: 31403)
+Completed 200 OK in 34ms (Views: 28.2ms | ActiveRecord: 5.6ms | Allocations: 32335)
+
+
+Started GET "/" for ::1 at 2022-05-26 10:08:56 +0200
+Processing by JobsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (0.5ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs"[0m
+  ↳ app/views/jobs/index.html.erb:2
+  [1m[36mCompany Load (0.2ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  Rendered collection of jobs/_job_preview.html.erb [1 times] (Duration: 6.1ms | Allocations: 791)
+  Rendered jobs/index.html.erb within layouts/application (Duration: 7.6ms | Allocations: 1526)
+  Rendered application/_flashes.html.erb (Duration: 0.0ms | Allocations: 28)
+  Rendered layout layouts/application.html.erb (Duration: 14.5ms | Allocations: 9108)
+Completed 200 OK in 15ms (Views: 14.0ms | ActiveRecord: 0.7ms | Allocations: 9481)
+
+
+Started GET "/jobs/new" for ::1 at 2022-05-26 10:09:26 +0200
+Processing by JobsController#new as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["remember_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/controllers/jobs_controller.rb:8:in `new'
+  [1m[36mRole Load (4.1ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/models/user.rb:27:in `set_default_role'
+Redirected to http://localhost:3000/
+Completed 302 Found in 22ms (ActiveRecord: 5.0ms | Allocations: 2277)
+
+
+Started GET "/" for ::1 at 2022-05-26 10:09:27 +0200
+Processing by JobsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (0.2ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs"[0m
+  ↳ app/views/jobs/index.html.erb:2
+  [1m[36mCompany Load (0.2ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  Rendered collection of jobs/_job_preview.html.erb [1 times] (Duration: 1.9ms | Allocations: 788)
+  Rendered jobs/index.html.erb within layouts/application (Duration: 3.0ms | Allocations: 1517)
+  Rendered application/_flashes.html.erb (Duration: 0.1ms | Allocations: 41)
+  Rendered layout layouts/application.html.erb (Duration: 12.0ms | Allocations: 9104)
+Completed 200 OK in 13ms (Views: 12.0ms | ActiveRecord: 0.4ms | Allocations: 9444)
+
+
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mRole Load (0.4ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mRole Load (4.0ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mRole Load (0.2ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mRole Load (0.2ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."name" = $1 LIMIT $2[0m  [["name", 2], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (1.9ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "test@gmail.com"], ["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Update (3.0ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = $1, "role_id" = $2 WHERE "users"."id" = $3[0m  [["updated_at", "2022-05-26 08:11:04.103106"], ["role_id", 3], ["id", 1]]
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/" for ::1 at 2022-05-26 10:11:06 +0200
+Processing by JobsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (0.4ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs"[0m
+  ↳ app/views/jobs/index.html.erb:2
+  [1m[36mCompany Load (0.3ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  Rendered collection of jobs/_job_preview.html.erb [1 times] (Duration: 3.0ms | Allocations: 788)
+  Rendered jobs/index.html.erb within layouts/application (Duration: 6.1ms | Allocations: 1517)
+  Rendered application/_flashes.html.erb (Duration: 0.1ms | Allocations: 28)
+  Rendered layout layouts/application.html.erb (Duration: 27.4ms | Allocations: 9062)
+Completed 200 OK in 30ms (Views: 27.5ms | ActiveRecord: 0.7ms | Allocations: 9402)
+
+
+Started GET "/jobs/new" for ::1 at 2022-05-26 10:11:11 +0200
+Processing by JobsController#new as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["remember_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/controllers/jobs_controller.rb:8:in `new'
+  [1m[36mRole Load (0.4ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/models/user.rb:27:in `set_default_role'
+Redirected to http://localhost:3000/
+Completed 302 Found in 19ms (ActiveRecord: 1.1ms | Allocations: 2222)
+
+
+Started GET "/" for ::1 at 2022-05-26 10:11:11 +0200
+Processing by JobsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (0.3ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs"[0m
+  ↳ app/views/jobs/index.html.erb:2
+  [1m[36mCompany Load (0.2ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  Rendered collection of jobs/_job_preview.html.erb [1 times] (Duration: 1.6ms | Allocations: 788)
+  Rendered jobs/index.html.erb within layouts/application (Duration: 3.4ms | Allocations: 1517)
+  Rendered application/_flashes.html.erb (Duration: 0.1ms | Allocations: 41)
+  Rendered layout layouts/application.html.erb (Duration: 17.6ms | Allocations: 9089)
+Completed 200 OK in 19ms (Views: 17.6ms | ActiveRecord: 0.5ms | Allocations: 9429)
+
+
+Started GET "/" for ::1 at 2022-05-26 10:11:54 +0200
+Processing by JobsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["remember_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/views/jobs/index.html.erb:3
+  [1m[36mRole Load (0.2ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/models/user.rb:27:in `set_default_role'
+  [1m[36mJob Load (0.2ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs"[0m
+  ↳ app/views/jobs/index.html.erb:9
+  [1m[36mCompany Load (0.2ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  Rendered collection of jobs/_job_preview.html.erb [1 times] (Duration: 2.1ms | Allocations: 989)
+  Rendered jobs/index.html.erb within layouts/application (Duration: 17.8ms | Allocations: 4303)
+  Rendered application/_flashes.html.erb (Duration: 0.6ms | Allocations: 229)
+  Rendered layout layouts/application.html.erb (Duration: 29.1ms | Allocations: 12280)
+Completed 200 OK in 35ms (Views: 31.9ms | ActiveRecord: 1.2ms | Allocations: 13475)
+
+
+Started DELETE "/sign_out" for ::1 at 2022-05-26 10:11:55 +0200
+Processing by Clearance::SessionsController#destroy as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["remember_token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mRole Load (0.1ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/models/user.rb:27:in `set_default_role'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Update (1.0ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = $1, "remember_token" = $2 WHERE "users"."id" = $3[0m  [["updated_at", "2022-05-26 08:11:55.998965"], ["remember_token", "[FILTERED]"], ["id", 4]]
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/sign_in
+Completed 302 Found in 9ms (ActiveRecord: 2.5ms | Allocations: 6451)
+
+
+Started GET "/sign_in" for ::1 at 2022-05-26 10:11:56 +0200
+Processing by Clearance::SessionsController#new as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/_form.html.erb (Duration: 2.0ms | Allocations: 1322)
+  Rendered sessions/new.html.erb within layouts/application (Duration: 18.1ms | Allocations: 1766)
+  Rendered application/_flashes.html.erb (Duration: 0.0ms | Allocations: 35)
+  Rendered layout layouts/application.html.erb (Duration: 24.0ms | Allocations: 9357)
+Completed 200 OK in 26ms (Views: 25.3ms | ActiveRecord: 0.0ms | Allocations: 10760)
+
+
+Started POST "/session" for ::1 at 2022-05-26 10:12:03 +0200
+Processing by Clearance::SessionsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "session"=>{"email"=>"test@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Sign in"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test@gmail.com"], ["LIMIT", 1]]
+  [1m[36mRole Load (0.2ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/models/user.rb:27:in `set_default_role'
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/_form.html.erb (Duration: 0.6ms | Allocations: 501)
+  Rendered sessions/new.html.erb within layouts/application (Duration: 0.7ms | Allocations: 609)
+  Rendered application/_flashes.html.erb (Duration: 0.0ms | Allocations: 30)
+  Rendered layout layouts/application.html.erb (Duration: 4.6ms | Allocations: 7820)
+Completed 401 Unauthorized in 280ms (Views: 5.2ms | ActiveRecord: 0.9ms | Allocations: 10598)
+
+
+Started POST "/session" for ::1 at 2022-05-26 10:12:22 +0200
+Processing by Clearance::SessionsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "session"=>{"email"=>"t@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Sign in"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "t@gmail.com"], ["LIMIT", 1]]
+  [1m[36mRole Load (0.1ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/models/user.rb:27:in `set_default_role'
+Redirected to http://localhost:3000/
+Completed 302 Found in 252ms (ActiveRecord: 0.8ms | Allocations: 2211)
+
+
+Started GET "/" for ::1 at 2022-05-26 10:12:22 +0200
+Processing by JobsController#index as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["remember_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/views/jobs/index.html.erb:3
+  [1m[36mRole Load (0.1ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/models/user.rb:27:in `set_default_role'
+  [1m[36mJob Load (0.5ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs"[0m
+  ↳ app/views/jobs/index.html.erb:9
+  [1m[36mCompany Load (0.1ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  Rendered collection of jobs/_job_preview.html.erb [1 times] (Duration: 0.7ms | Allocations: 790)
+  Rendered jobs/index.html.erb within layouts/application (Duration: 4.2ms | Allocations: 3444)
+  Rendered application/_flashes.html.erb (Duration: 0.0ms | Allocations: 28)
+  Rendered layout layouts/application.html.erb (Duration: 9.3ms | Allocations: 10780)
+Completed 200 OK in 10ms (Views: 8.2ms | ActiveRecord: 1.3ms | Allocations: 11129)
+
+
+Started GET "/jobs/new" for ::1 at 2022-05-26 10:12:30 +0200
+Processing by JobsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["remember_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/controllers/jobs_controller.rb:8:in `new'
+  [1m[36mRole Load (0.1ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/models/user.rb:27:in `set_default_role'
+Redirected to http://localhost:3000/
+Completed 302 Found in 6ms (ActiveRecord: 0.4ms | Allocations: 2246)
+
+
+Started GET "/" for ::1 at 2022-05-26 10:12:30 +0200
+Processing by JobsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["remember_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/views/jobs/index.html.erb:3
+  [1m[36mRole Load (0.1ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/models/user.rb:27:in `set_default_role'
+  [1m[36mJob Load (0.3ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs"[0m
+  ↳ app/views/jobs/index.html.erb:9
+  [1m[36mCompany Load (0.1ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  Rendered collection of jobs/_job_preview.html.erb [1 times] (Duration: 0.9ms | Allocations: 773)
+  Rendered jobs/index.html.erb within layouts/application (Duration: 4.6ms | Allocations: 3417)
+  Rendered application/_flashes.html.erb (Duration: 0.1ms | Allocations: 44)
+  Rendered layout layouts/application.html.erb (Duration: 12.8ms | Allocations: 10767)
+Completed 200 OK in 14ms (Views: 12.5ms | ActiveRecord: 0.6ms | Allocations: 11107)
+
+
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mRole Load (0.2ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mRole Load (0.2ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+Started GET "/" for ::1 at 2022-05-26 10:13:54 +0200
+Processing by JobsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["remember_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/views/jobs/index.html.erb:3
+  [1m[36mRole Load (0.2ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/models/user.rb:27:in `set_default_role'
+  [1m[36mJob Load (0.6ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs"[0m
+  ↳ app/views/jobs/index.html.erb:9
+  [1m[36mCompany Load (0.2ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  Rendered collection of jobs/_job_preview.html.erb [1 times] (Duration: 8.2ms | Allocations: 6272)
+  Rendered jobs/index.html.erb within layouts/application (Duration: 39.1ms | Allocations: 20829)
+  Rendered application/_flashes.html.erb (Duration: 0.1ms | Allocations: 37)
+  Rendered layout layouts/application.html.erb (Duration: 56.1ms | Allocations: 44440)
+Completed 200 OK in 62ms (Views: 37.2ms | ActiveRecord: 20.3ms | Allocations: 48267)
+
+
+Started GET "/jobs/new" for ::1 at 2022-05-26 10:13:57 +0200
+Processing by JobsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["remember_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/controllers/jobs_controller.rb:8:in `new'
+  [1m[36mRole Load (1.2ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/models/user.rb:27:in `set_default_role'
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/new.html.erb within layouts/application
+  [1m[36mCompany Pluck (0.3ms)[0m  [1m[34mSELECT "companies"."name", "companies"."id" FROM "companies"[0m
+  ↳ app/views/jobs/_form.html.erb:12
+  Rendered jobs/_form.html.erb (Duration: 4.9ms | Allocations: 3680)
+  Rendered jobs/new.html.erb within layouts/application (Duration: 15.2ms | Allocations: 3983)
+  Rendered application/_flashes.html.erb (Duration: 0.0ms | Allocations: 33)
+  Rendered layout layouts/application.html.erb (Duration: 20.8ms | Allocations: 11322)
+Completed 200 OK in 33ms (Views: 21.1ms | ActiveRecord: 1.7ms | Allocations: 13859)
+
+
+Started GET "/jobs/new" for ::1 at 2022-05-26 10:14:00 +0200
+Processing by JobsController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["remember_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/controllers/jobs_controller.rb:8:in `new'
+  [1m[36mRole Load (0.2ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/models/user.rb:27:in `set_default_role'
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/new.html.erb within layouts/application
+  [1m[36mCompany Pluck (0.2ms)[0m  [1m[34mSELECT "companies"."name", "companies"."id" FROM "companies"[0m
+  ↳ app/views/jobs/_form.html.erb:12
+  Rendered jobs/_form.html.erb (Duration: 2.2ms | Allocations: 2133)
+  Rendered jobs/new.html.erb within layouts/application (Duration: 2.3ms | Allocations: 2214)
+  Rendered application/_flashes.html.erb (Duration: 0.0ms | Allocations: 27)
+  Rendered layout layouts/application.html.erb (Duration: 6.0ms | Allocations: 9409)
+Completed 200 OK in 12ms (Views: 6.0ms | ActiveRecord: 0.8ms | Allocations: 11405)
+
+
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mRole Load (0.2ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mRole Load (0.2ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."name" = $1 LIMIT $2[0m  [["name", 0], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (1.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "test@gmail.com"], ["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Update (12.8ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = $1, "role_id" = $2 WHERE "users"."id" = $3[0m  [["updated_at", "2022-05-26 08:14:09.193926"], ["role_id", 2], ["id", 1]]
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/jobs/new" for ::1 at 2022-05-26 10:14:12 +0200
+Processing by JobsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["remember_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/controllers/jobs_controller.rb:8:in `new'
+  [1m[36mRole Load (0.4ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/models/user.rb:27:in `set_default_role'
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/new.html.erb within layouts/application
+  [1m[36mCompany Pluck (0.2ms)[0m  [1m[34mSELECT "companies"."name", "companies"."id" FROM "companies"[0m
+  ↳ app/views/jobs/_form.html.erb:12
+  Rendered jobs/_form.html.erb (Duration: 7.2ms | Allocations: 6337)
+  Rendered jobs/new.html.erb within layouts/application (Duration: 7.4ms | Allocations: 6434)
+  Rendered application/_flashes.html.erb (Duration: 0.1ms | Allocations: 35)
+  Rendered layout layouts/application.html.erb (Duration: 31.3ms | Allocations: 30025)
+Completed 200 OK in 65ms (Views: 30.2ms | ActiveRecord: 17.5ms | Allocations: 47281)
+
+
+Started GET "/jobs/new" for ::1 at 2022-05-26 10:14:13 +0200
+Processing by JobsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["remember_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/controllers/jobs_controller.rb:8:in `new'
+  [1m[36mRole Load (0.1ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/models/user.rb:27:in `set_default_role'
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/new.html.erb within layouts/application
+  [1m[36mCompany Pluck (0.2ms)[0m  [1m[34mSELECT "companies"."name", "companies"."id" FROM "companies"[0m
+  ↳ app/views/jobs/_form.html.erb:12
+  Rendered jobs/_form.html.erb (Duration: 2.5ms | Allocations: 2147)
+  Rendered jobs/new.html.erb within layouts/application (Duration: 2.6ms | Allocations: 2228)
+  Rendered application/_flashes.html.erb (Duration: 0.0ms | Allocations: 27)
+  Rendered layout layouts/application.html.erb (Duration: 6.8ms | Allocations: 9558)
+Completed 200 OK in 10ms (Views: 6.8ms | ActiveRecord: 0.5ms | Allocations: 11602)
+
+
+Started GET "/" for ::1 at 2022-05-26 10:14:16 +0200
+Processing by JobsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["remember_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/views/jobs/index.html.erb:3
+  [1m[36mRole Load (0.3ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/models/user.rb:27:in `set_default_role'
+  [1m[36mJob Load (1.2ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs"[0m
+  ↳ app/views/jobs/index.html.erb:9
+  [1m[36mCompany Load (8.5ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  Rendered collection of jobs/_job_preview.html.erb [1 times] (Duration: 15.0ms | Allocations: 3224)
+  Rendered jobs/index.html.erb within layouts/application (Duration: 21.2ms | Allocations: 5961)
+  Rendered application/_flashes.html.erb (Duration: 0.0ms | Allocations: 28)
+  Rendered layout layouts/application.html.erb (Duration: 26.9ms | Allocations: 13161)
+Completed 200 OK in 29ms (Views: 15.3ms | ActiveRecord: 12.1ms | Allocations: 13542)
+
+
+Started GET "/jobs/new" for ::1 at 2022-05-26 10:14:20 +0200
+Processing by JobsController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["remember_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/controllers/jobs_controller.rb:8:in `new'
+  [1m[36mRole Load (0.2ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/models/user.rb:27:in `set_default_role'
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/new.html.erb within layouts/application
+  [1m[36mCompany Pluck (0.3ms)[0m  [1m[34mSELECT "companies"."name", "companies"."id" FROM "companies"[0m
+  ↳ app/views/jobs/_form.html.erb:12
+  Rendered jobs/_form.html.erb (Duration: 4.1ms | Allocations: 2133)
+  Rendered jobs/new.html.erb within layouts/application (Duration: 4.7ms | Allocations: 2214)
+  Rendered application/_flashes.html.erb (Duration: 0.1ms | Allocations: 27)
+  Rendered layout layouts/application.html.erb (Duration: 10.0ms | Allocations: 9410)
+Completed 200 OK in 16ms (Views: 10.0ms | ActiveRecord: 1.0ms | Allocations: 11358)
+
+
+Started DELETE "/sign_out" for ::1 at 2022-05-26 10:14:23 +0200
+Processing by Clearance::SessionsController#destroy as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["remember_token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mRole Load (0.1ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/models/user.rb:27:in `set_default_role'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Update (1.1ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = $1, "remember_token" = $2 WHERE "users"."id" = $3[0m  [["updated_at", "2022-05-26 08:14:23.810599"], ["remember_token", "[FILTERED]"], ["id", 4]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/sign_in
+Completed 302 Found in 8ms (ActiveRecord: 2.1ms | Allocations: 5724)
+
+
+Started GET "/sign_in" for ::1 at 2022-05-26 10:14:23 +0200
+Processing by Clearance::SessionsController#new as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/_form.html.erb (Duration: 0.9ms | Allocations: 782)
+  Rendered sessions/new.html.erb within layouts/application (Duration: 1.1ms | Allocations: 927)
+  Rendered application/_flashes.html.erb (Duration: 0.0ms | Allocations: 35)
+  Rendered layout layouts/application.html.erb (Duration: 5.0ms | Allocations: 8339)
+Completed 200 OK in 7ms (Views: 6.3ms | ActiveRecord: 0.0ms | Allocations: 9458)
+
+
+Started POST "/session" for ::1 at 2022-05-26 10:14:35 +0200
+Processing by Clearance::SessionsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "session"=>{"email"=>"t@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Sign in"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "t@gmail.com"], ["LIMIT", 1]]
+  [1m[36mRole Load (8.5ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/models/user.rb:27:in `set_default_role'
+Redirected to http://localhost:3000/
+Completed 302 Found in 279ms (ActiveRecord: 9.1ms | Allocations: 2499)
+
+
+Started GET "/" for ::1 at 2022-05-26 10:14:35 +0200
+Processing by JobsController#index as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["remember_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/views/jobs/index.html.erb:3
+  [1m[36mRole Load (0.1ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/models/user.rb:27:in `set_default_role'
+  [1m[36mJob Load (0.2ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs"[0m
+  ↳ app/views/jobs/index.html.erb:9
+  [1m[36mCompany Load (0.2ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  Rendered collection of jobs/_job_preview.html.erb [1 times] (Duration: 1.1ms | Allocations: 790)
+  Rendered jobs/index.html.erb within layouts/application (Duration: 4.6ms | Allocations: 3450)
+  Rendered application/_flashes.html.erb (Duration: 0.1ms | Allocations: 28)
+  Rendered layout layouts/application.html.erb (Duration: 22.7ms | Allocations: 10723)
+Completed 200 OK in 24ms (Views: 22.6ms | ActiveRecord: 0.7ms | Allocations: 11085)
+
+
+Started GET "/jobs/new" for ::1 at 2022-05-26 10:14:46 +0200
+Processing by JobsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["remember_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/controllers/jobs_controller.rb:8:in `new'
+  [1m[36mRole Load (1.0ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/models/user.rb:27:in `set_default_role'
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/new.html.erb within layouts/application
+  [1m[36mCompany Pluck (0.3ms)[0m  [1m[34mSELECT "companies"."name", "companies"."id" FROM "companies"[0m
+  ↳ app/views/jobs/_form.html.erb:12
+  Rendered jobs/_form.html.erb (Duration: 5.7ms | Allocations: 2207)
+  Rendered jobs/new.html.erb within layouts/application (Duration: 6.0ms | Allocations: 2288)
+  Rendered application/_flashes.html.erb (Duration: 0.1ms | Allocations: 27)
+  Rendered layout layouts/application.html.erb (Duration: 13.6ms | Allocations: 9492)
+Completed 200 OK in 19ms (Views: 13.5ms | ActiveRecord: 1.6ms | Allocations: 11444)
+
+
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mRole Load (0.2ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mRole Load (0.1ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mRole Load (0.1ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mRole Load (0.1ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."name" = $1 LIMIT $2[0m  [["name", 0], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "t@gmail.com"], ["id", 4], ["LIMIT", 1]]
+  [1m[36mUser Update (0.4ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = $1, "role_id" = $2 WHERE "users"."id" = $3[0m  [["updated_at", "2022-05-26 08:15:16.986608"], ["role_id", 2], ["id", 4]]
+  [1m[36mTRANSACTION (8.2ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/jobs/new" for ::1 at 2022-05-26 10:15:19 +0200
+Processing by JobsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["remember_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/controllers/jobs_controller.rb:8:in `new'
+  [1m[36mRole Load (0.1ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/user.rb:27:in `set_default_role'
+Redirected to http://localhost:3000/
+Completed 302 Found in 34ms (ActiveRecord: 11.4ms | Allocations: 17049)
+
+
+Started GET "/" for ::1 at 2022-05-26 10:15:20 +0200
+Processing by JobsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["remember_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/views/jobs/index.html.erb:3
+  [1m[36mRole Load (0.1ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/user.rb:27:in `set_default_role'
+  [1m[36mJob Load (0.2ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs"[0m
+  ↳ app/views/jobs/index.html.erb:9
+  [1m[36mCompany Load (2.3ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  Rendered collection of jobs/_job_preview.html.erb [1 times] (Duration: 14.2ms | Allocations: 6397)
+  Rendered jobs/index.html.erb within layouts/application (Duration: 18.5ms | Allocations: 9487)
+  Rendered application/_flashes.html.erb (Duration: 0.1ms | Allocations: 53)
+  Rendered layout layouts/application.html.erb (Duration: 43.2ms | Allocations: 33089)
+Completed 200 OK in 45ms (Views: 37.0ms | ActiveRecord: 7.4ms | Allocations: 34022)
+
+
+Started GET "/" for ::1 at 2022-05-26 10:15:23 +0200
+Processing by JobsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["remember_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/views/jobs/index.html.erb:3
+  [1m[36mRole Load (10.0ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/user.rb:27:in `set_default_role'
+  [1m[36mJob Load (0.3ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs"[0m
+  ↳ app/views/jobs/index.html.erb:9
+  [1m[36mCompany Load (8.0ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  Rendered collection of jobs/_job_preview.html.erb [1 times] (Duration: 10.9ms | Allocations: 775)
+  Rendered jobs/index.html.erb within layouts/application (Duration: 61.8ms | Allocations: 3534)
+  Rendered application/_flashes.html.erb (Duration: 0.1ms | Allocations: 28)
+  Rendered layout layouts/application.html.erb (Duration: 86.3ms | Allocations: 10835)
+Completed 200 OK in 105ms (Views: 85.6ms | ActiveRecord: 18.5ms | Allocations: 11209)
+
+
+Started GET "/jobs/new" for ::1 at 2022-05-26 10:15:27 +0200
+Processing by JobsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["remember_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/controllers/jobs_controller.rb:8:in `new'
+  [1m[36mRole Load (0.1ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/user.rb:27:in `set_default_role'
+Redirected to http://localhost:3000/
+Completed 302 Found in 3ms (ActiveRecord: 0.3ms | Allocations: 2245)
+
+
+Started GET "/" for ::1 at 2022-05-26 10:15:27 +0200
+Processing by JobsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["remember_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/views/jobs/index.html.erb:3
+  [1m[36mRole Load (0.1ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/user.rb:27:in `set_default_role'
+  [1m[36mJob Load (0.3ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs"[0m
+  ↳ app/views/jobs/index.html.erb:9
+  [1m[36mCompany Load (0.1ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  Rendered collection of jobs/_job_preview.html.erb [1 times] (Duration: 1.3ms | Allocations: 773)
+  Rendered jobs/index.html.erb within layouts/application (Duration: 5.0ms | Allocations: 3429)
+  Rendered application/_flashes.html.erb (Duration: 0.1ms | Allocations: 41)
+  Rendered layout layouts/application.html.erb (Duration: 9.9ms | Allocations: 10743)
+Completed 200 OK in 11ms (Views: 9.6ms | ActiveRecord: 0.7ms | Allocations: 11083)
+
+
+  [1m[36mUser Load (3.6ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mRole Load (0.2ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mRole Load (0.2ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."name" = $1 LIMIT $2[0m  [["name", 2], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "t@gmail.com"], ["id", 4], ["LIMIT", 1]]
+  [1m[36mUser Update (0.5ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = $1, "role_id" = $2 WHERE "users"."id" = $3[0m  [["updated_at", "2022-05-26 08:15:47.364768"], ["role_id", 3], ["id", 4]]
+  [1m[36mTRANSACTION (6.5ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/jobs/new" for ::1 at 2022-05-26 10:15:51 +0200
+Processing by JobsController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["remember_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/controllers/jobs_controller.rb:8:in `new'
+  [1m[36mRole Load (1.5ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/models/user.rb:27:in `set_default_role'
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/new.html.erb within layouts/application
+  [1m[36mCompany Pluck (0.3ms)[0m  [1m[34mSELECT "companies"."name", "companies"."id" FROM "companies"[0m
+  ↳ app/views/jobs/_form.html.erb:12
+  Rendered jobs/_form.html.erb (Duration: 7.6ms | Allocations: 3120)
+  Rendered jobs/new.html.erb within layouts/application (Duration: 7.9ms | Allocations: 3203)
+  Rendered application/_flashes.html.erb (Duration: 0.1ms | Allocations: 27)
+  Rendered layout layouts/application.html.erb (Duration: 20.5ms | Allocations: 10398)
+Completed 200 OK in 39ms (Views: 20.9ms | ActiveRecord: 2.2ms | Allocations: 12322)
+
+
+Started GET "/" for ::1 at 2022-05-26 10:15:56 +0200
+Processing by JobsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["remember_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/views/jobs/index.html.erb:3
+  [1m[36mRole Load (0.3ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/models/user.rb:27:in `set_default_role'
+  [1m[36mJob Load (0.4ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs"[0m
+  ↳ app/views/jobs/index.html.erb:9
+  [1m[36mCompany Load (0.3ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  Rendered collection of jobs/_job_preview.html.erb [1 times] (Duration: 2.9ms | Allocations: 773)
+  Rendered jobs/index.html.erb within layouts/application (Duration: 26.1ms | Allocations: 3409)
+  Rendered application/_flashes.html.erb (Duration: 0.1ms | Allocations: 28)
+  Rendered layout layouts/application.html.erb (Duration: 36.5ms | Allocations: 10609)
+Completed 200 OK in 40ms (Views: 35.8ms | ActiveRecord: 1.6ms | Allocations: 10949)
+
+
+Started GET "/companies/new" for ::1 at 2022-05-26 10:17:29 +0200
+Processing by CompaniesController#new as HTML
+  [1m[36mUser Load (3.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["remember_token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mRole Load (0.1ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/models/user.rb:27:in `set_default_role'
+  Rendering layout layouts/application.html.erb
+  Rendering companies/new.html.erb within layouts/application
+  Rendered companies/_form.html.erb (Duration: 4.8ms | Allocations: 2582)
+  Rendered companies/new.html.erb within layouts/application (Duration: 5.9ms | Allocations: 2901)
+  Rendered application/_flashes.html.erb (Duration: 0.1ms | Allocations: 35)
+  Rendered layout layouts/application.html.erb (Duration: 14.6ms | Allocations: 10387)
+Completed 200 OK in 29ms (Views: 16.2ms | ActiveRecord: 3.9ms | Allocations: 13902)
+
+
+Started POST "/companies" for ::1 at 2022-05-26 10:17:46 +0200
+Processing by CompaniesController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "company"=>{"name"=>"Silimu", "description"=>"<div>Shiping</div>"}, "commit"=>"Create Company"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["remember_token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mRole Load (0.2ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/models/user.rb:27:in `set_default_role'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/companies_controller.rb:14:in `create'
+  [1m[36mCompany Create (4.2ms)[0m  [1m[32mINSERT INTO "companies" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Silimu"], ["created_at", "2022-05-26 08:17:47.013466"], ["updated_at", "2022-05-26 08:17:47.013466"]]
+  ↳ app/controllers/companies_controller.rb:14:in `create'
+  [1m[36mActionText::RichText Create (6.8ms)[0m  [1m[32mINSERT INTO "action_text_rich_texts" ("name", "body", "record_type", "record_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "description"], ["body", "<div>Shiping</div>"], ["record_type", "Company"], ["record_id", 2], ["created_at", "2022-05-26 08:17:47.042794"], ["updated_at", "2022-05-26 08:17:47.042794"]]
+  ↳ app/controllers/companies_controller.rb:14:in `create'
+  [1m[36mActiveStorage::Attachment Load (0.5ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3[0m  [["record_id", 3], ["record_type", "ActionText::RichText"], ["name", "embeds"]]
+  ↳ app/controllers/companies_controller.rb:14:in `create'
+  [1m[36mCompany Update (0.4ms)[0m  [1m[33mUPDATE "companies" SET "updated_at" = $1 WHERE "companies"."id" = $2[0m  [["updated_at", "2022-05-26 08:17:47.051052"], ["id", 2]]
+  ↳ app/controllers/companies_controller.rb:14:in `create'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/companies_controller.rb:14:in `create'
+Redirected to http://localhost:3000/companies/2
+Completed 302 Found in 69ms (ActiveRecord: 25.0ms | Allocations: 31716)
+
+
+Started GET "/companies/2" for ::1 at 2022-05-26 10:17:47 +0200
+Processing by CompaniesController#show as TURBO_STREAM
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["remember_token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mRole Load (0.1ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/models/user.rb:27:in `set_default_role'
+  [1m[36mCompany Load (0.1ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/companies_controller.rb:24:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering companies/show.html.erb within layouts/application
+  [1m[36mActionText::RichText Load (0.3ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = $1 AND "action_text_rich_texts"."record_type" = $2 AND "action_text_rich_texts"."name" = $3 LIMIT $4[0m  [["record_id", 2], ["record_type", "Company"], ["name", "description"], ["LIMIT", 1]]
+  ↳ app/views/companies/show.html.erb:3
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/actiontext-7.0.2.3/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 1.1ms | Allocations: 621)
+  Rendered companies/show.html.erb within layouts/application (Duration: 4.2ms | Allocations: 2451)
+  Rendered application/_flashes.html.erb (Duration: 0.1ms | Allocations: 44)
+  Rendered layout layouts/application.html.erb (Duration: 11.0ms | Allocations: 9968)
+Completed 200 OK in 15ms (Views: 11.0ms | ActiveRecord: 0.7ms | Allocations: 13482)
+
+
+Started GET "/jobs/new" for ::1 at 2022-05-26 10:17:53 +0200
+Processing by JobsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["remember_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/controllers/jobs_controller.rb:8:in `new'
+  [1m[36mRole Load (0.1ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/models/user.rb:27:in `set_default_role'
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/new.html.erb within layouts/application
+  [1m[36mCompany Pluck (0.2ms)[0m  [1m[34mSELECT "companies"."name", "companies"."id" FROM "companies"[0m
+  ↳ app/views/jobs/_form.html.erb:12
+  Rendered jobs/_form.html.erb (Duration: 3.2ms | Allocations: 2250)
+  Rendered jobs/new.html.erb within layouts/application (Duration: 3.4ms | Allocations: 2331)
+  Rendered application/_flashes.html.erb (Duration: 0.1ms | Allocations: 27)
+  Rendered layout layouts/application.html.erb (Duration: 11.3ms | Allocations: 9526)
+Completed 200 OK in 15ms (Views: 11.4ms | ActiveRecord: 0.5ms | Allocations: 11478)
+
+
+Started POST "/jobs" for ::1 at 2022-05-26 10:19:30 +0200
+Processing by JobsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "job"=>{"title"=>"Captain", "application_url"=>"maito:\"\"", "company_id"=>"2", "description"=>"<div>work in goma</div>"}, "commit"=>"Create Job"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/jobs_controller.rb:12:in `create'
+  [1m[36mCompany Load (0.3ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/jobs_controller.rb:12:in `create'
+  [1m[36mJob Create (9.9ms)[0m  [1m[32mINSERT INTO "jobs" ("title", "company_id", "application_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Captain"], ["company_id", 2], ["application_url", "maito:\"\""], ["created_at", "2022-05-26 08:19:30.666029"], ["updated_at", "2022-05-26 08:19:30.666029"]]
+  ↳ app/controllers/jobs_controller.rb:12:in `create'
+  [1m[36mActionText::RichText Create (0.4ms)[0m  [1m[32mINSERT INTO "action_text_rich_texts" ("name", "body", "record_type", "record_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "description"], ["body", "<div>work in goma</div>"], ["record_type", "Job"], ["record_id", 2], ["created_at", "2022-05-26 08:19:30.679880"], ["updated_at", "2022-05-26 08:19:30.679880"]]
+  ↳ app/controllers/jobs_controller.rb:12:in `create'
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3[0m  [["record_id", 4], ["record_type", "ActionText::RichText"], ["name", "embeds"]]
+  ↳ app/controllers/jobs_controller.rb:12:in `create'
+  [1m[36mJob Update (0.2ms)[0m  [1m[33mUPDATE "jobs" SET "updated_at" = $1 WHERE "jobs"."id" = $2[0m  [["updated_at", "2022-05-26 08:19:30.681771"], ["id", 2]]
+  ↳ app/controllers/jobs_controller.rb:12:in `create'
+  [1m[36mTRANSACTION (9.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/jobs_controller.rb:12:in `create'
+Redirected to http://localhost:3000/
+Completed 302 Found in 40ms (ActiveRecord: 21.1ms | Allocations: 7754)
+
+
+Started GET "/" for ::1 at 2022-05-26 10:19:30 +0200
+Processing by JobsController#index as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["remember_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/views/jobs/index.html.erb:3
+  [1m[36mRole Load (0.4ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/models/user.rb:27:in `set_default_role'
+  [1m[36mJob Load (0.2ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs"[0m
+  ↳ app/views/jobs/index.html.erb:9
+  [1m[36mCompany Load (0.2ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  [1m[36mCompany Load (0.1ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  Rendered collection of jobs/_job_preview.html.erb [2 times] (Duration: 2.5ms | Allocations: 1549)
+  Rendered jobs/index.html.erb within layouts/application (Duration: 22.1ms | Allocations: 4232)
+  Rendered application/_flashes.html.erb (Duration: 0.1ms | Allocations: 41)
+  Rendered layout layouts/application.html.erb (Duration: 30.7ms | Allocations: 11581)
+Completed 200 OK in 32ms (Views: 30.0ms | ActiveRecord: 1.3ms | Allocations: 11929)
+
+
+Started GET "/" for ::1 at 2022-05-26 10:19:54 +0200
+Processing by JobsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["remember_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/views/jobs/index.html.erb:3
+  [1m[36mRole Load (0.1ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/models/user.rb:27:in `set_default_role'
+  [1m[36mJob Load (0.3ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs"[0m
+  ↳ app/views/jobs/index.html.erb:9
+  [1m[36mCompany Load (0.2ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  [1m[36mCompany Load (0.1ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  Rendered collection of jobs/_job_preview.html.erb [2 times] (Duration: 4.1ms | Allocations: 1755)
+  Rendered jobs/index.html.erb within layouts/application (Duration: 14.1ms | Allocations: 5078)
+  Rendered application/_flashes.html.erb (Duration: 0.6ms | Allocations: 229)
+  Rendered layout layouts/application.html.erb (Duration: 34.5ms | Allocations: 14962)
+Completed 200 OK in 50ms (Views: 45.2ms | ActiveRecord: 1.1ms | Allocations: 16139)
+
+
+Started GET "/" for ::1 at 2022-05-26 10:20:48 +0200
+Processing by JobsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["remember_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/views/jobs/index.html.erb:3
+  [1m[36mRole Load (0.3ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/models/user.rb:27:in `set_default_role'
+  [1m[36mJob Load (0.3ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs"[0m
+  ↳ app/views/jobs/index.html.erb:9
+  [1m[36mCompany Load (0.1ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  [1m[36mCompany Load (0.1ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  Rendered collection of jobs/_job_preview.html.erb [2 times] (Duration: 2.6ms | Allocations: 1755)
+  Rendered jobs/index.html.erb within layouts/application (Duration: 17.1ms | Allocations: 5048)
+  Rendered application/_flashes.html.erb (Duration: 0.5ms | Allocations: 229)
+  Rendered layout layouts/application.html.erb (Duration: 34.9ms | Allocations: 15478)
+Completed 200 OK in 40ms (Views: 36.2ms | ActiveRecord: 1.3ms | Allocations: 16674)
+
+

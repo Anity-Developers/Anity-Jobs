@@ -1,0 +1,10 @@
+<div class="w-1/2 mx-auto">
+<div>
+<% if current_user%>
+  <%= button_to t('layouts.application.sign_out'), sign_out_path, method: :delete %>
+<%else%>
+  <%= link_to t('layouts.application.sign_in'), sign_in_path %>
+<%end%>
+</div>
+  <%= render partial: '/jobs/job_preview', collection: @jobs, as: :job %>
+</div>
