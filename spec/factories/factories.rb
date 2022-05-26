@@ -26,4 +26,14 @@ FactoryBot.define do
   factory :company do
     name { "test-company" }
   end
+
+  factory :job do
+    id { SecureRandom.uuid }
+    title { "test-job" }
+    application_url { "http://example.com" }
+    description { "test-description" }
+    association :company, factory: :company
+    created_at { Time.now }
+    updated_at { Time.now }
+  end
 end
