@@ -1,27 +1,13 @@
 require 'rails_helper'
 
 RSpec.describe JobPolicy, type: :policy do
-  let(:user) { User.new }
-
-  subject { described_class }
-
-  permissions ".scope" do
-    pending "add some examples to (or delete) #{__FILE__}"
+   context "when as an admin" do
+      subject { JobPolicy.new(create(:user, :admin), create(:job)) }
+      it { is_expected.to permit_action(:create) }
+      it { is_expected.to permit_action(:show) }
+      it { is_expected.to permit_action(:new) }
+      it { is_expected.to permit_action(:update) }
+      it { is_expected.to permit_action(:edit) }
+      it { is_expected.to permit_action(:destroy) }
+    end
   end
-
-  permissions :show? do
-    pending "add some examples to (or delete) #{__FILE__}"
-  end
-
-  permissions :create? do
-    pending "add some examples to (or delete) #{__FILE__}"
-  end
-
-  permissions :update? do
-    pending "add some examples to (or delete) #{__FILE__}"
-  end
-
-  permissions :destroy? do
-    pending "add some examples to (or delete) #{__FILE__}"
-  end
-end

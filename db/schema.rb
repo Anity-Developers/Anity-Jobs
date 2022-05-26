@@ -68,10 +68,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_26_062910) do
   end
 
   create_table "roles", force: :cascade do |t|
-    t.integer "name", default: 0, null: false
+    t.integer "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["name"], name: "index_roles_on_name"
   end
 
   create_table "users", force: :cascade do |t|
