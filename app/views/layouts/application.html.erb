@@ -12,7 +12,8 @@
   </head>
 
   <body>
-    <%= render "flashes" -%>
+  <%= render partial: '/layouts/nav' %>
+  <%= render "flashes" -%>
     <main class="container mx-auto mt-10">
       <%= yield %>
     </main>

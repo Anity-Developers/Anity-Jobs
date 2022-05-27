@@ -11,4 +11,14 @@
 }
 
 */
+
+.trix-content{
+  line-height: 1.5;
+  letter-spacing: 1px;
+}
+
+strong, b{
+  font-weight: 700;
+}
+
 @import 'actiontext.css';
