@@ -1,0 +1,11 @@
+      <div>
+        <p class="font-normal"><%= job.company.name%></p>
+        <div class="flex justify-between py-1">
+          <%= link_to job.title, job, class:"font-bold text-lg" %>
+          <div class="flex">
+            <p><%= job.created_at.strftime("%Y-%m-%d")%></p>
+            <p class="ml-4">Featured</p>
+          </div>
+        </div>
+        <p>Location: Congo🇨🇩</p>
+      </div>
