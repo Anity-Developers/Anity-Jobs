@@ -7634,6 +7634,7 @@ Processing by JobsController#index as HTML
 Completed 200 OK in 24ms (Views: 21.0ms | ActiveRecord: 1.7ms | Allocations: 13603)
 
 
+<<<<<<< HEAD
 Started GET "/" for 127.0.0.1 at 2022-05-28 11:29:29 +0300
   [1m[36mActiveRecord::SchemaMigration Pluck (48.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
 Processing by JobsController#index as HTML
@@ -7669,11 +7670,333 @@ Completed 200 OK in 595ms (Views: 514.8ms | ActiveRecord: 75.1ms | Allocations: 
 
 
 Started GET "/" for 127.0.0.1 at 2022-05-28 11:29:55 +0300
+=======
+DEPRECATION WARNING: 'include Pundit' is deprecated. Please use 'include Pundit::Authorization' instead.
+ (called from <main> at bin/rails:4)
+Started GET "/" for ::1 at 2022-05-28 15:38:40 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by JobsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (1.6ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs"[0m
+  ↳ app/views/jobs/index.html.erb:2
+  [1m[36mCompany Load (0.6ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  [1m[36mCompany Load (0.2ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  [1m[36mCACHE Company Load (0.0ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  Rendered collection of jobs/_job_preview.html.erb [3 times] (Duration: 52.9ms | Allocations: 15170)
+  Rendered jobs/index.html.erb within layouts/application (Duration: 62.6ms | Allocations: 21884)
+  Rendered layouts/_nav.html.erb (Duration: 0.3ms | Allocations: 231)
+  Rendered application/_flashes.html.erb (Duration: 0.3ms | Allocations: 251)
+  Rendered layout layouts/application.html.erb (Duration: 409.8ms | Allocations: 313471)
+Completed 200 OK in 422ms (Views: 398.4ms | ActiveRecord: 14.0ms | Allocations: 324107)
+
+
+Started GET "/admin" for ::1 at 2022-05-28 15:38:43 +0200
+Processing by Admin::RolesController#index as HTML
+  Rendering layout /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/layouts/administrate/application.html.erb
+  Rendering /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/index.html.erb within layouts/administrate/application
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/_index_header.html.erb (Duration: 20.1ms | Allocations: 10871)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/_collection_header_actions.html.erb (Duration: 0.5ms | Allocations: 258)
+  [1m[36mRole Load (0.4ms)[0m  [1m[34mSELECT "roles".* FROM "roles" LIMIT $1 OFFSET $2[0m  [["LIMIT", 20], ["OFFSET", 0]]
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."role_id" IN ($1, $2)[0m  [["role_id", 2], ["role_id", 3]]
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/fields/has_many/_index.html.erb (Duration: 0.5ms | Allocations: 244)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/fields/number/_index.html.erb (Duration: 0.3ms | Allocations: 192)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/fields/select/_index.html.erb (Duration: 0.4ms | Allocations: 168)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/fields/date_time/_index.html.erb (Duration: 0.4ms | Allocations: 350)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/_collection_item_actions.html.erb (Duration: 0.6ms | Allocations: 634)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/fields/has_many/_index.html.erb (Duration: 0.1ms | Allocations: 37)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/fields/number/_index.html.erb (Duration: 0.0ms | Allocations: 24)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/fields/select/_index.html.erb (Duration: 0.0ms | Allocations: 13)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/fields/date_time/_index.html.erb (Duration: 0.1ms | Allocations: 72)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/_collection_item_actions.html.erb (Duration: 0.2ms | Allocations: 346)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/_collection.html.erb (Duration: 30.2ms | Allocations: 26295)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/index.html.erb within layouts/administrate/application (Duration: 53.2ms | Allocations: 39483)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/_stylesheet.html.erb (Duration: 2.4ms | Allocations: 3881)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/_icons.html.erb (Duration: 0.4ms | Allocations: 135)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/_navigation.html.erb (Duration: 4.2ms | Allocations: 3998)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/_flashes.html.erb (Duration: 0.3ms | Allocations: 322)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/_javascript.html.erb (Duration: 2.4ms | Allocations: 4083)
+  Rendered layout /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/layouts/administrate/application.html.erb (Duration: 66.1ms | Allocations: 55144)
+Completed 200 OK in 96ms (Views: 60.2ms | ActiveRecord: 9.2ms | Allocations: 67788)
+
+
+Started GET "/admin/jobs" for ::1 at 2022-05-28 15:38:55 +0200
+Processing by Admin::JobsController#index as HTML
+  Rendering layout /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/layouts/administrate/application.html.erb
+  Rendering /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/index.html.erb within layouts/administrate/application
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/_search.html.erb (Duration: 1.2ms | Allocations: 718)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/_index_header.html.erb (Duration: 3.0ms | Allocations: 2811)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/_collection_header_actions.html.erb (Duration: 0.3ms | Allocations: 233)
+  [1m[36mJob Load (0.2ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" LIMIT $1 OFFSET $2[0m  [["LIMIT", 20], ["OFFSET", 0]]
+  [1m[36mCompany Load (0.8ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" IN ($1, $2)[0m  [["id", 2], ["id", 1]]
+  [1m[36mActionText::RichText Load (4.1ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_type" = $1 AND "action_text_rich_texts"."name" = $2 AND "action_text_rich_texts"."record_id" IN ($3, $4, $5)[0m  [["record_type", "Job"], ["name", "description"], ["record_id", 2], ["record_id", 3], ["record_id", 1]]
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/fields/belongs_to/_index.html.erb (Duration: 0.9ms | Allocations: 697)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/fields/has_one/_index.html.erb (Duration: 4.4ms | Allocations: 4147)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/_collection.html.erb (Duration: 29.7ms | Allocations: 23091)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/index.html.erb within layouts/administrate/application (Duration: 33.1ms | Allocations: 26413)
+  Rendered layout /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/layouts/administrate/application.html.erb (Duration: 33.2ms | Allocations: 26490)
+Completed 500 Internal Server Error in 36ms (ActiveRecord: 7.3ms | Allocations: 28951)
+
+
+  
+ActionView::Template::Error (uninitialized constant ActionText::RichTextDashboard):
+    17: 
+    18: <% if field.linkable? %>
+    19:   <%= link_to(
+    20:     field.display_associated_resource,
+    21:     [namespace, field.data],
+    22:   ) %>
+    23: <% end %>
+  
+activesupport (7.0.3) lib/active_support/inflector/methods.rb:280:in `constantize'
+activesupport (7.0.3) lib/active_support/core_ext/string/inflections.rb:74:in `constantize'
+administrate (0.17.0) lib/administrate/field/associative.rb:37:in `associated_dashboard'
+administrate (0.17.0) lib/administrate/field/associative.rb:23:in `display_associated_resource'
+administrate (0.17.0) app/views/fields/has_one/_index.html.erb:20
+actionview (7.0.3) lib/action_view/base.rb:244:in `public_send'
+actionview (7.0.3) lib/action_view/base.rb:244:in `_run'
+actionview (7.0.3) lib/action_view/template.rb:157:in `block in render'
+activesupport (7.0.3) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.0.3) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (7.0.3) lib/active_support/notifications.rb:206:in `instrument'
+actionview (7.0.3) lib/action_view/template.rb:361:in `instrument_render_template'
+actionview (7.0.3) lib/action_view/template.rb:155:in `render'
+actionview (7.0.3) lib/action_view/renderer/partial_renderer.rb:251:in `block in render_partial_template'
+activesupport (7.0.3) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.0.3) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (7.0.3) lib/active_support/notifications.rb:206:in `instrument'
+actionview (7.0.3) lib/action_view/renderer/partial_renderer.rb:246:in `render_partial_template'
+actionview (7.0.3) lib/action_view/renderer/partial_renderer.rb:237:in `render'
+actionview (7.0.3) lib/action_view/renderer/renderer.rb:81:in `render_partial_to_object'
+actionview (7.0.3) lib/action_view/renderer/renderer.rb:27:in `render_to_object'
+actionview (7.0.3) lib/action_view/renderer/renderer.rb:22:in `render'
+actionview (7.0.3) lib/action_view/helpers/rendering_helper.rb:37:in `block in render'
+actionview (7.0.3) lib/action_view/base.rb:270:in `in_rendering_context'
+actionview (7.0.3) lib/action_view/helpers/rendering_helper.rb:33:in `render'
+administrate (0.17.0) app/helpers/administrate/application_helper.rb:16:in `render_field'
+administrate (0.17.0) app/views/administrate/application/_collection.html.erb:73
+administrate (0.17.0) app/views/administrate/application/_collection.html.erb:66:in `each'
+administrate (0.17.0) app/views/administrate/application/_collection.html.erb:66
+activerecord (7.0.3) lib/active_record/relation/delegation.rb:88:in `each'
+activerecord (7.0.3) lib/active_record/relation/delegation.rb:88:in `each'
+administrate (0.17.0) app/views/administrate/application/_collection.html.erb:60
+actionview (7.0.3) lib/action_view/base.rb:244:in `public_send'
+actionview (7.0.3) lib/action_view/base.rb:244:in `_run'
+actionview (7.0.3) lib/action_view/template.rb:157:in `block in render'
+activesupport (7.0.3) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.0.3) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (7.0.3) lib/active_support/notifications.rb:206:in `instrument'
+actionview (7.0.3) lib/action_view/template.rb:361:in `instrument_render_template'
+actionview (7.0.3) lib/action_view/template.rb:155:in `render'
+actionview (7.0.3) lib/action_view/renderer/partial_renderer.rb:251:in `block in render_partial_template'
+activesupport (7.0.3) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.0.3) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (7.0.3) lib/active_support/notifications.rb:206:in `instrument'
+actionview (7.0.3) lib/action_view/renderer/partial_renderer.rb:246:in `render_partial_template'
+actionview (7.0.3) lib/action_view/renderer/partial_renderer.rb:237:in `render'
+actionview (7.0.3) lib/action_view/renderer/renderer.rb:81:in `render_partial_to_object'
+actionview (7.0.3) lib/action_view/renderer/renderer.rb:53:in `render_partial'
+actionview (7.0.3) lib/action_view/helpers/rendering_helper.rb:44:in `render'
+administrate (0.17.0) app/views/administrate/application/index.html.erb:36
+actionview (7.0.3) lib/action_view/base.rb:244:in `public_send'
+actionview (7.0.3) lib/action_view/base.rb:244:in `_run'
+actionview (7.0.3) lib/action_view/template.rb:157:in `block in render'
+activesupport (7.0.3) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.0.3) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (7.0.3) lib/active_support/notifications.rb:206:in `instrument'
+actionview (7.0.3) lib/action_view/template.rb:361:in `instrument_render_template'
+actionview (7.0.3) lib/action_view/template.rb:155:in `render'
+actionview (7.0.3) lib/action_view/renderer/template_renderer.rb:65:in `block (2 levels) in render_template'
+activesupport (7.0.3) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.0.3) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (7.0.3) lib/active_support/notifications.rb:206:in `instrument'
+actionview (7.0.3) lib/action_view/renderer/template_renderer.rb:60:in `block in render_template'
+actionview (7.0.3) lib/action_view/renderer/template_renderer.rb:75:in `block in render_with_layout'
+activesupport (7.0.3) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.0.3) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (7.0.3) lib/active_support/notifications.rb:206:in `instrument'
+actionview (7.0.3) lib/action_view/renderer/template_renderer.rb:74:in `render_with_layout'
+actionview (7.0.3) lib/action_view/renderer/template_renderer.rb:59:in `render_template'
+actionview (7.0.3) lib/action_view/renderer/template_renderer.rb:11:in `render'
+actionview (7.0.3) lib/action_view/renderer/renderer.rb:61:in `render_template_to_object'
+actionview (7.0.3) lib/action_view/renderer/renderer.rb:29:in `render_to_object'
+actionview (7.0.3) lib/action_view/rendering.rb:117:in `block in _render_template'
+actionview (7.0.3) lib/action_view/base.rb:270:in `in_rendering_context'
+actionview (7.0.3) lib/action_view/rendering.rb:116:in `_render_template'
+actionpack (7.0.3) lib/action_controller/metal/streaming.rb:216:in `_render_template'
+actionview (7.0.3) lib/action_view/rendering.rb:103:in `render_to_body'
+actionpack (7.0.3) lib/action_controller/metal/rendering.rb:46:in `render_to_body'
+actionpack (7.0.3) lib/action_controller/metal/renderers.rb:141:in `render_to_body'
+actionpack (7.0.3) lib/abstract_controller/rendering.rb:25:in `render'
+actionpack (7.0.3) lib/action_controller/metal/rendering.rb:30:in `render'
+actionpack (7.0.3) lib/action_controller/metal/instrumentation.rb:22:in `block (2 levels) in render'
+/Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/3.0.0/benchmark.rb:308:in `realtime'
+activesupport (7.0.3) lib/active_support/core_ext/benchmark.rb:14:in `ms'
+actionpack (7.0.3) lib/action_controller/metal/instrumentation.rb:22:in `block in render'
+actionpack (7.0.3) lib/action_controller/metal/instrumentation.rb:91:in `cleanup_view_runtime'
+activerecord (7.0.3) lib/active_record/railties/controller_runtime.rb:34:in `cleanup_view_runtime'
+actionpack (7.0.3) lib/action_controller/metal/instrumentation.rb:21:in `render'
+administrate (0.17.0) app/controllers/administrate/application_controller.rb:16:in `index'
+actionpack (7.0.3) lib/action_controller/metal/basic_implicit_render.rb:6:in `send_action'
+actionpack (7.0.3) lib/abstract_controller/base.rb:215:in `process_action'
+actionpack (7.0.3) lib/action_controller/metal/rendering.rb:53:in `process_action'
+actionpack (7.0.3) lib/abstract_controller/callbacks.rb:234:in `block in process_action'
+activesupport (7.0.3) lib/active_support/callbacks.rb:118:in `block in run_callbacks'
+actiontext (7.0.3) lib/action_text/rendering.rb:20:in `with_renderer'
+actiontext (7.0.3) lib/action_text/engine.rb:69:in `block (4 levels) in <class:Engine>'
+activesupport (7.0.3) lib/active_support/callbacks.rb:127:in `instance_exec'
+activesupport (7.0.3) lib/active_support/callbacks.rb:127:in `block in run_callbacks'
+activesupport (7.0.3) lib/active_support/callbacks.rb:138:in `run_callbacks'
+actionpack (7.0.3) lib/abstract_controller/callbacks.rb:233:in `process_action'
+actionpack (7.0.3) lib/action_controller/metal/rescue.rb:22:in `process_action'
+actionpack (7.0.3) lib/action_controller/metal/instrumentation.rb:67:in `block in process_action'
+activesupport (7.0.3) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.0.3) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (7.0.3) lib/active_support/notifications.rb:206:in `instrument'
+actionpack (7.0.3) lib/action_controller/metal/instrumentation.rb:66:in `process_action'
+actionpack (7.0.3) lib/action_controller/metal/params_wrapper.rb:259:in `process_action'
+activerecord (7.0.3) lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+actionpack (7.0.3) lib/abstract_controller/base.rb:151:in `process'
+actionview (7.0.3) lib/action_view/rendering.rb:39:in `process'
+actionpack (7.0.3) lib/action_controller/metal.rb:188:in `dispatch'
+actionpack (7.0.3) lib/action_controller/metal.rb:251:in `dispatch'
+actionpack (7.0.3) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.0.3) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.0.3) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (7.0.3) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (7.0.3) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.0.3) lib/action_dispatch/routing/route_set.rb:852:in `call'
+clearance (2.5.0) lib/clearance/rack_session.rb:23:in `call'
+rack (2.2.3) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.3) lib/rack/etag.rb:27:in `call'
+rack (2.2.3) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.3) lib/rack/head.rb:12:in `call'
+actionpack (7.0.3) lib/action_dispatch/http/permissions_policy.rb:38:in `call'
+actionpack (7.0.3) lib/action_dispatch/http/content_security_policy.rb:36:in `call'
+rack (2.2.3) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.3) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (7.0.3) lib/action_dispatch/middleware/cookies.rb:697:in `call'
+activerecord (7.0.3) lib/active_record/migration.rb:603:in `call'
+actionpack (7.0.3) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.3) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.3) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.3) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+web-console (4.2.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.0.3) lib/action_dispatch/middleware/show_exceptions.rb:26:in `call'
+railties (7.0.3) lib/rails/rack/logger.rb:40:in `call_app'
+railties (7.0.3) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.3) lib/active_support/tagged_logging.rb:114:in `block in tagged'
+activesupport (7.0.3) lib/active_support/tagged_logging.rb:38:in `tagged'
+activesupport (7.0.3) lib/active_support/tagged_logging.rb:114:in `tagged'
+railties (7.0.3) lib/rails/rack/logger.rb:25:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.0.3) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.3) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.3) lib/action_dispatch/middleware/server_timing.rb:20:in `call'
+actionpack (7.0.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.3) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.3) lib/action_dispatch/middleware/host_authorization.rb:137:in `call'
+railties (7.0.3) lib/rails/engine.rb:530:in `call'
+puma (5.6.4) lib/puma/configuration.rb:252:in `call'
+puma (5.6.4) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.4) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.4) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.4) lib/puma/server.rb:441:in `process_client'
+puma (5.6.4) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started GET "/admin/users" for ::1 at 2022-05-28 15:39:02 +0200
+Processing by Admin::UsersController#index as HTML
+  Rendering layout /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/layouts/administrate/application.html.erb
+  Rendering /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/index.html.erb within layouts/administrate/application
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/_search.html.erb (Duration: 0.5ms | Allocations: 402)
+  [1m[36mRole Load (0.2ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."name" = $1 LIMIT $2[0m  [["name", 0], ["LIMIT", 1]]
+  ↳ app/models/user.rb:27:in `set_default_role'
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/_index_header.html.erb (Duration: 4.6ms | Allocations: 3396)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/_collection_header_actions.html.erb (Duration: 0.5ms | Allocations: 457)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" LIMIT $1 OFFSET $2[0m  [["LIMIT", 20], ["OFFSET", 0]]
+  [1m[36mRole Load (0.2ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/user.rb:27:in `set_default_role'
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/user.rb:27:in `set_default_role'
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/user.rb:27:in `set_default_role'
+  [1m[36mRole Load (0.6ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/models/user.rb:27:in `set_default_role'
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/fields/belongs_to/_index.html.erb (Duration: 0.5ms | Allocations: 166)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/fields/number/_index.html.erb (Duration: 0.0ms | Allocations: 25)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/fields/date_time/_index.html.erb (Duration: 0.2ms | Allocations: 92)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/fields/date_time/_index.html.erb (Duration: 0.1ms | Allocations: 72)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/_collection_item_actions.html.erb (Duration: 0.8ms | Allocations: 697)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/fields/belongs_to/_index.html.erb (Duration: 0.1ms | Allocations: 158)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/fields/number/_index.html.erb (Duration: 0.0ms | Allocations: 24)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/fields/date_time/_index.html.erb (Duration: 0.1ms | Allocations: 72)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/fields/date_time/_index.html.erb (Duration: 0.2ms | Allocations: 72)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/_collection_item_actions.html.erb (Duration: 0.8ms | Allocations: 682)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/fields/belongs_to/_index.html.erb (Duration: 0.2ms | Allocations: 158)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/fields/number/_index.html.erb (Duration: 0.0ms | Allocations: 24)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/fields/date_time/_index.html.erb (Duration: 0.1ms | Allocations: 72)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/fields/date_time/_index.html.erb (Duration: 0.1ms | Allocations: 72)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/_collection_item_actions.html.erb (Duration: 0.8ms | Allocations: 682)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/fields/belongs_to/_index.html.erb (Duration: 0.1ms | Allocations: 158)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/fields/number/_index.html.erb (Duration: 0.0ms | Allocations: 24)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/fields/date_time/_index.html.erb (Duration: 0.1ms | Allocations: 72)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/fields/date_time/_index.html.erb (Duration: 0.0ms | Allocations: 72)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/_collection_item_actions.html.erb (Duration: 0.6ms | Allocations: 682)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/_collection.html.erb (Duration: 15.3ms | Allocations: 14915)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/index.html.erb within layouts/administrate/application (Duration: 21.3ms | Allocations: 19145)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/_stylesheet.html.erb (Duration: 2.6ms | Allocations: 3679)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/_icons.html.erb (Duration: 0.0ms | Allocations: 13)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/_navigation.html.erb (Duration: 2.4ms | Allocations: 2551)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/_flashes.html.erb (Duration: 0.1ms | Allocations: 35)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/_javascript.html.erb (Duration: 2.5ms | Allocations: 3702)
+  Rendered layout /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/layouts/administrate/application.html.erb (Duration: 30.8ms | Allocations: 30851)
+Completed 200 OK in 49ms (Views: 46.0ms | ActiveRecord: 1.3ms | Allocations: 33128)
+
+
+Started GET "/admin/users/2/edit" for ::1 at 2022-05-28 15:39:05 +0200
+Processing by Admin::UsersController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mRole Load (0.1ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/user.rb:27:in `set_default_role'
+  Rendering layout /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/layouts/administrate/application.html.erb
+  Rendering /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/edit.html.erb within layouts/administrate/application
+  [1m[36mRole Load (0.3ms)[0m  [1m[34mSELECT "roles".* FROM "roles"[0m
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/fields/belongs_to/_form.html.erb (Duration: 4.2ms | Allocations: 3116)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/fields/string/_form.html.erb (Duration: 1.1ms | Allocations: 781)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/fields/string/_form.html.erb (Duration: 0.2ms | Allocations: 324)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/fields/string/_form.html.erb (Duration: 0.1ms | Allocations: 271)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/fields/string/_form.html.erb (Duration: 0.1ms | Allocations: 276)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/_form.html.erb (Duration: 8.0ms | Allocations: 7021)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/edit.html.erb within layouts/administrate/application (Duration: 10.6ms | Allocations: 9189)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/_stylesheet.html.erb (Duration: 2.2ms | Allocations: 3554)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/_icons.html.erb (Duration: 0.0ms | Allocations: 12)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/_navigation.html.erb (Duration: 1.7ms | Allocations: 2591)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/_flashes.html.erb (Duration: 0.0ms | Allocations: 33)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/_javascript.html.erb (Duration: 3.8ms | Allocations: 3604)
+  Rendered layout /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/layouts/administrate/application.html.erb (Duration: 19.1ms | Allocations: 19732)
+Completed 200 OK in 25ms (Views: 20.0ms | ActiveRecord: 0.7ms | Allocations: 22321)
+
+
+Started GET "/" for ::1 at 2022-05-28 15:39:14 +0200
+>>>>>>> 8ebbe12 (install administrate)
 Processing by JobsController#index as HTML
   Rendering layout layouts/application.html.erb
   Rendering jobs/index.html.erb within layouts/application
   [1m[36mJob Load (0.3ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs"[0m
   ↳ app/views/jobs/index.html.erb:2
+<<<<<<< HEAD
   [1m[36mCompany Load (0.4ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
   ↳ app/views/jobs/_job_preview.html.erb:3
   Rendered collection of jobs/_job_preview.html.erb [1 times] (Duration: 5.3ms | Allocations: 855)
@@ -8177,11 +8500,441 @@ Completed 200 OK in 66ms (Views: 54.8ms | ActiveRecord: 1.8ms | Allocations: 128
 
 
 Started GET "/" for 127.0.0.1 at 2022-05-28 11:50:09 +0300
+=======
+  [1m[36mCompany Load (18.5ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  [1m[36mCompany Load (0.2ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  [1m[36mCACHE Company Load (0.0ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  Rendered collection of jobs/_job_preview.html.erb [3 times] (Duration: 26.0ms | Allocations: 2399)
+  Rendered jobs/index.html.erb within layouts/application (Duration: 29.7ms | Allocations: 3228)
+  Rendered layouts/_nav.html.erb (Duration: 0.1ms | Allocations: 62)
+  Rendered application/_flashes.html.erb (Duration: 0.0ms | Allocations: 27)
+  Rendered layout layouts/application.html.erb (Duration: 40.7ms | Allocations: 12598)
+Completed 200 OK in 43ms (Views: 22.5ms | ActiveRecord: 19.0ms | Allocations: 12990)
+
+
+Started GET "/admin" for ::1 at 2022-05-28 15:39:18 +0200
+Processing by Admin::RolesController#index as HTML
+  Rendering layout /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/layouts/administrate/application.html.erb
+  Rendering /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/index.html.erb within layouts/administrate/application
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/_index_header.html.erb (Duration: 1.0ms | Allocations: 1349)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/_collection_header_actions.html.erb (Duration: 0.4ms | Allocations: 119)
+  [1m[36mRole Load (6.1ms)[0m  [1m[34mSELECT "roles".* FROM "roles" LIMIT $1 OFFSET $2[0m  [["LIMIT", 20], ["OFFSET", 0]]
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."role_id" IN ($1, $2)[0m  [["role_id", 2], ["role_id", 3]]
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/fields/has_many/_index.html.erb (Duration: 0.1ms | Allocations: 46)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/fields/number/_index.html.erb (Duration: 0.0ms | Allocations: 24)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/fields/select/_index.html.erb (Duration: 0.0ms | Allocations: 13)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/fields/date_time/_index.html.erb (Duration: 0.1ms | Allocations: 82)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/_collection_item_actions.html.erb (Duration: 0.3ms | Allocations: 347)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/fields/has_many/_index.html.erb (Duration: 0.0ms | Allocations: 37)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/fields/number/_index.html.erb (Duration: 0.0ms | Allocations: 24)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/fields/select/_index.html.erb (Duration: 0.0ms | Allocations: 13)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/fields/date_time/_index.html.erb (Duration: 0.1ms | Allocations: 72)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/_collection_item_actions.html.erb (Duration: 0.2ms | Allocations: 346)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/_collection.html.erb (Duration: 25.1ms | Allocations: 7427)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/index.html.erb within layouts/administrate/application (Duration: 26.4ms | Allocations: 9162)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/_stylesheet.html.erb (Duration: 3.9ms | Allocations: 3544)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/_icons.html.erb (Duration: 0.0ms | Allocations: 12)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/_navigation.html.erb (Duration: 1.8ms | Allocations: 2536)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/_flashes.html.erb (Duration: 0.0ms | Allocations: 27)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/_javascript.html.erb (Duration: 2.8ms | Allocations: 3696)
+  Rendered layout /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/layouts/administrate/application.html.erb (Duration: 35.7ms | Allocations: 20033)
+Completed 200 OK in 40ms (Views: 31.2ms | ActiveRecord: 6.7ms | Allocations: 20770)
+
+
+Started GET "/admin/companies" for ::1 at 2022-05-28 15:39:21 +0200
+Processing by Admin::CompaniesController#index as HTML
+  Rendering layout /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/layouts/administrate/application.html.erb
+  Rendering /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/index.html.erb within layouts/administrate/application
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/_search.html.erb (Duration: 0.3ms | Allocations: 401)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/_index_header.html.erb (Duration: 1.4ms | Allocations: 2360)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/_collection_header_actions.html.erb (Duration: 0.3ms | Allocations: 389)
+  [1m[36mCompany Load (0.2ms)[0m  [1m[34mSELECT "companies".* FROM "companies" LIMIT $1 OFFSET $2[0m  [["LIMIT", 20], ["OFFSET", 0]]
+  [1m[36mActionText::RichText Load (0.4ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_type" = $1 AND "action_text_rich_texts"."name" = $2 AND "action_text_rich_texts"."record_id" IN ($3, $4)[0m  [["record_type", "Company"], ["name", "description"], ["record_id", 1], ["record_id", 2]]
+  [1m[36mJob Load (0.5ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."company_id" IN ($1, $2)[0m  [["company_id", 1], ["company_id", 2]]
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/fields/has_one/_index.html.erb (Duration: 3.6ms | Allocations: 3110)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/_collection.html.erb (Duration: 12.1ms | Allocations: 12147)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/index.html.erb within layouts/administrate/application (Duration: 13.9ms | Allocations: 15025)
+  Rendered layout /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/layouts/administrate/application.html.erb (Duration: 14.0ms | Allocations: 15101)
+Completed 500 Internal Server Error in 17ms (ActiveRecord: 1.1ms | Allocations: 17328)
+
+
+  
+ActionView::Template::Error (uninitialized constant ActionText::RichTextDashboard):
+    17: 
+    18: <% if field.linkable? %>
+    19:   <%= link_to(
+    20:     field.display_associated_resource,
+    21:     [namespace, field.data],
+    22:   ) %>
+    23: <% end %>
+  
+activesupport (7.0.3) lib/active_support/inflector/methods.rb:280:in `constantize'
+activesupport (7.0.3) lib/active_support/core_ext/string/inflections.rb:74:in `constantize'
+administrate (0.17.0) lib/administrate/field/associative.rb:37:in `associated_dashboard'
+administrate (0.17.0) lib/administrate/field/associative.rb:23:in `display_associated_resource'
+administrate (0.17.0) app/views/fields/has_one/_index.html.erb:20
+actionview (7.0.3) lib/action_view/base.rb:244:in `public_send'
+actionview (7.0.3) lib/action_view/base.rb:244:in `_run'
+actionview (7.0.3) lib/action_view/template.rb:157:in `block in render'
+activesupport (7.0.3) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.0.3) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (7.0.3) lib/active_support/notifications.rb:206:in `instrument'
+actionview (7.0.3) lib/action_view/template.rb:361:in `instrument_render_template'
+actionview (7.0.3) lib/action_view/template.rb:155:in `render'
+actionview (7.0.3) lib/action_view/renderer/partial_renderer.rb:251:in `block in render_partial_template'
+activesupport (7.0.3) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.0.3) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (7.0.3) lib/active_support/notifications.rb:206:in `instrument'
+actionview (7.0.3) lib/action_view/renderer/partial_renderer.rb:246:in `render_partial_template'
+actionview (7.0.3) lib/action_view/renderer/partial_renderer.rb:237:in `render'
+actionview (7.0.3) lib/action_view/renderer/renderer.rb:81:in `render_partial_to_object'
+actionview (7.0.3) lib/action_view/renderer/renderer.rb:27:in `render_to_object'
+actionview (7.0.3) lib/action_view/renderer/renderer.rb:22:in `render'
+actionview (7.0.3) lib/action_view/helpers/rendering_helper.rb:37:in `block in render'
+actionview (7.0.3) lib/action_view/base.rb:270:in `in_rendering_context'
+actionview (7.0.3) lib/action_view/helpers/rendering_helper.rb:33:in `render'
+administrate (0.17.0) app/helpers/administrate/application_helper.rb:16:in `render_field'
+administrate (0.17.0) app/views/administrate/application/_collection.html.erb:73
+administrate (0.17.0) app/views/administrate/application/_collection.html.erb:66:in `each'
+administrate (0.17.0) app/views/administrate/application/_collection.html.erb:66
+activerecord (7.0.3) lib/active_record/relation/delegation.rb:88:in `each'
+activerecord (7.0.3) lib/active_record/relation/delegation.rb:88:in `each'
+administrate (0.17.0) app/views/administrate/application/_collection.html.erb:60
+actionview (7.0.3) lib/action_view/base.rb:244:in `public_send'
+actionview (7.0.3) lib/action_view/base.rb:244:in `_run'
+actionview (7.0.3) lib/action_view/template.rb:157:in `block in render'
+activesupport (7.0.3) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.0.3) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (7.0.3) lib/active_support/notifications.rb:206:in `instrument'
+actionview (7.0.3) lib/action_view/template.rb:361:in `instrument_render_template'
+actionview (7.0.3) lib/action_view/template.rb:155:in `render'
+actionview (7.0.3) lib/action_view/renderer/partial_renderer.rb:251:in `block in render_partial_template'
+activesupport (7.0.3) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.0.3) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (7.0.3) lib/active_support/notifications.rb:206:in `instrument'
+actionview (7.0.3) lib/action_view/renderer/partial_renderer.rb:246:in `render_partial_template'
+actionview (7.0.3) lib/action_view/renderer/partial_renderer.rb:237:in `render'
+actionview (7.0.3) lib/action_view/renderer/renderer.rb:81:in `render_partial_to_object'
+actionview (7.0.3) lib/action_view/renderer/renderer.rb:53:in `render_partial'
+actionview (7.0.3) lib/action_view/helpers/rendering_helper.rb:44:in `render'
+administrate (0.17.0) app/views/administrate/application/index.html.erb:36
+actionview (7.0.3) lib/action_view/base.rb:244:in `public_send'
+actionview (7.0.3) lib/action_view/base.rb:244:in `_run'
+actionview (7.0.3) lib/action_view/template.rb:157:in `block in render'
+activesupport (7.0.3) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.0.3) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (7.0.3) lib/active_support/notifications.rb:206:in `instrument'
+actionview (7.0.3) lib/action_view/template.rb:361:in `instrument_render_template'
+actionview (7.0.3) lib/action_view/template.rb:155:in `render'
+actionview (7.0.3) lib/action_view/renderer/template_renderer.rb:65:in `block (2 levels) in render_template'
+activesupport (7.0.3) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.0.3) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (7.0.3) lib/active_support/notifications.rb:206:in `instrument'
+actionview (7.0.3) lib/action_view/renderer/template_renderer.rb:60:in `block in render_template'
+actionview (7.0.3) lib/action_view/renderer/template_renderer.rb:75:in `block in render_with_layout'
+activesupport (7.0.3) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.0.3) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (7.0.3) lib/active_support/notifications.rb:206:in `instrument'
+actionview (7.0.3) lib/action_view/renderer/template_renderer.rb:74:in `render_with_layout'
+actionview (7.0.3) lib/action_view/renderer/template_renderer.rb:59:in `render_template'
+actionview (7.0.3) lib/action_view/renderer/template_renderer.rb:11:in `render'
+actionview (7.0.3) lib/action_view/renderer/renderer.rb:61:in `render_template_to_object'
+actionview (7.0.3) lib/action_view/renderer/renderer.rb:29:in `render_to_object'
+actionview (7.0.3) lib/action_view/rendering.rb:117:in `block in _render_template'
+actionview (7.0.3) lib/action_view/base.rb:270:in `in_rendering_context'
+actionview (7.0.3) lib/action_view/rendering.rb:116:in `_render_template'
+actionpack (7.0.3) lib/action_controller/metal/streaming.rb:216:in `_render_template'
+actionview (7.0.3) lib/action_view/rendering.rb:103:in `render_to_body'
+actionpack (7.0.3) lib/action_controller/metal/rendering.rb:46:in `render_to_body'
+actionpack (7.0.3) lib/action_controller/metal/renderers.rb:141:in `render_to_body'
+actionpack (7.0.3) lib/abstract_controller/rendering.rb:25:in `render'
+actionpack (7.0.3) lib/action_controller/metal/rendering.rb:30:in `render'
+actionpack (7.0.3) lib/action_controller/metal/instrumentation.rb:22:in `block (2 levels) in render'
+/Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/3.0.0/benchmark.rb:308:in `realtime'
+activesupport (7.0.3) lib/active_support/core_ext/benchmark.rb:14:in `ms'
+actionpack (7.0.3) lib/action_controller/metal/instrumentation.rb:22:in `block in render'
+actionpack (7.0.3) lib/action_controller/metal/instrumentation.rb:91:in `cleanup_view_runtime'
+activerecord (7.0.3) lib/active_record/railties/controller_runtime.rb:34:in `cleanup_view_runtime'
+actionpack (7.0.3) lib/action_controller/metal/instrumentation.rb:21:in `render'
+administrate (0.17.0) app/controllers/administrate/application_controller.rb:16:in `index'
+actionpack (7.0.3) lib/action_controller/metal/basic_implicit_render.rb:6:in `send_action'
+actionpack (7.0.3) lib/abstract_controller/base.rb:215:in `process_action'
+actionpack (7.0.3) lib/action_controller/metal/rendering.rb:53:in `process_action'
+actionpack (7.0.3) lib/abstract_controller/callbacks.rb:234:in `block in process_action'
+activesupport (7.0.3) lib/active_support/callbacks.rb:118:in `block in run_callbacks'
+actiontext (7.0.3) lib/action_text/rendering.rb:20:in `with_renderer'
+actiontext (7.0.3) lib/action_text/engine.rb:69:in `block (4 levels) in <class:Engine>'
+activesupport (7.0.3) lib/active_support/callbacks.rb:127:in `instance_exec'
+activesupport (7.0.3) lib/active_support/callbacks.rb:127:in `block in run_callbacks'
+activesupport (7.0.3) lib/active_support/callbacks.rb:138:in `run_callbacks'
+actionpack (7.0.3) lib/abstract_controller/callbacks.rb:233:in `process_action'
+actionpack (7.0.3) lib/action_controller/metal/rescue.rb:22:in `process_action'
+actionpack (7.0.3) lib/action_controller/metal/instrumentation.rb:67:in `block in process_action'
+activesupport (7.0.3) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.0.3) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (7.0.3) lib/active_support/notifications.rb:206:in `instrument'
+actionpack (7.0.3) lib/action_controller/metal/instrumentation.rb:66:in `process_action'
+actionpack (7.0.3) lib/action_controller/metal/params_wrapper.rb:259:in `process_action'
+activerecord (7.0.3) lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+actionpack (7.0.3) lib/abstract_controller/base.rb:151:in `process'
+actionview (7.0.3) lib/action_view/rendering.rb:39:in `process'
+actionpack (7.0.3) lib/action_controller/metal.rb:188:in `dispatch'
+actionpack (7.0.3) lib/action_controller/metal.rb:251:in `dispatch'
+actionpack (7.0.3) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.0.3) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.0.3) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (7.0.3) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (7.0.3) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.0.3) lib/action_dispatch/routing/route_set.rb:852:in `call'
+clearance (2.5.0) lib/clearance/rack_session.rb:23:in `call'
+rack (2.2.3) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.3) lib/rack/etag.rb:27:in `call'
+rack (2.2.3) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.3) lib/rack/head.rb:12:in `call'
+actionpack (7.0.3) lib/action_dispatch/http/permissions_policy.rb:38:in `call'
+actionpack (7.0.3) lib/action_dispatch/http/content_security_policy.rb:36:in `call'
+rack (2.2.3) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.3) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (7.0.3) lib/action_dispatch/middleware/cookies.rb:697:in `call'
+activerecord (7.0.3) lib/active_record/migration.rb:603:in `call'
+actionpack (7.0.3) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.3) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.3) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.3) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+web-console (4.2.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.0.3) lib/action_dispatch/middleware/show_exceptions.rb:26:in `call'
+railties (7.0.3) lib/rails/rack/logger.rb:40:in `call_app'
+railties (7.0.3) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.3) lib/active_support/tagged_logging.rb:114:in `block in tagged'
+activesupport (7.0.3) lib/active_support/tagged_logging.rb:38:in `tagged'
+activesupport (7.0.3) lib/active_support/tagged_logging.rb:114:in `tagged'
+railties (7.0.3) lib/rails/rack/logger.rb:25:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.0.3) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.3) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.3) lib/action_dispatch/middleware/server_timing.rb:20:in `call'
+actionpack (7.0.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.3) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.3) lib/action_dispatch/middleware/host_authorization.rb:137:in `call'
+railties (7.0.3) lib/rails/engine.rb:530:in `call'
+puma (5.6.4) lib/puma/configuration.rb:252:in `call'
+puma (5.6.4) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.4) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.4) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.4) lib/puma/server.rb:441:in `process_client'
+puma (5.6.4) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started GET "/admin/jobs" for ::1 at 2022-05-28 15:39:35 +0200
+Processing by Admin::JobsController#index as HTML
+  Rendering layout /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/layouts/administrate/application.html.erb
+  Rendering /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/index.html.erb within layouts/administrate/application
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/_search.html.erb (Duration: 1.2ms | Allocations: 304)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/_index_header.html.erb (Duration: 3.0ms | Allocations: 1926)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/_collection_header_actions.html.erb (Duration: 0.3ms | Allocations: 231)
+  [1m[36mJob Load (0.3ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" LIMIT $1 OFFSET $2[0m  [["LIMIT", 20], ["OFFSET", 0]]
+  [1m[36mCompany Load (0.2ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" IN ($1, $2)[0m  [["id", 2], ["id", 1]]
+  [1m[36mActionText::RichText Load (0.3ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_type" = $1 AND "action_text_rich_texts"."name" = $2 AND "action_text_rich_texts"."record_id" IN ($3, $4, $5)[0m  [["record_type", "Job"], ["name", "description"], ["record_id", 2], ["record_id", 3], ["record_id", 1]]
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/fields/belongs_to/_index.html.erb (Duration: 0.3ms | Allocations: 355)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/fields/has_one/_index.html.erb (Duration: 3.4ms | Allocations: 3244)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/_collection.html.erb (Duration: 10.2ms | Allocations: 10835)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/index.html.erb within layouts/administrate/application (Duration: 13.5ms | Allocations: 13024)
+  Rendered layout /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/layouts/administrate/application.html.erb (Duration: 13.6ms | Allocations: 13094)
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 0.8ms | Allocations: 13809)
+
+
+  
+ActionView::Template::Error (uninitialized constant ActionText::RichTextDashboard):
+    17: 
+    18: <% if field.linkable? %>
+    19:   <%= link_to(
+    20:     field.display_associated_resource,
+    21:     [namespace, field.data],
+    22:   ) %>
+    23: <% end %>
+  
+activesupport (7.0.3) lib/active_support/inflector/methods.rb:280:in `constantize'
+activesupport (7.0.3) lib/active_support/core_ext/string/inflections.rb:74:in `constantize'
+administrate (0.17.0) lib/administrate/field/associative.rb:37:in `associated_dashboard'
+administrate (0.17.0) lib/administrate/field/associative.rb:23:in `display_associated_resource'
+administrate (0.17.0) app/views/fields/has_one/_index.html.erb:20
+actionview (7.0.3) lib/action_view/base.rb:244:in `public_send'
+actionview (7.0.3) lib/action_view/base.rb:244:in `_run'
+actionview (7.0.3) lib/action_view/template.rb:157:in `block in render'
+activesupport (7.0.3) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.0.3) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (7.0.3) lib/active_support/notifications.rb:206:in `instrument'
+actionview (7.0.3) lib/action_view/template.rb:361:in `instrument_render_template'
+actionview (7.0.3) lib/action_view/template.rb:155:in `render'
+actionview (7.0.3) lib/action_view/renderer/partial_renderer.rb:251:in `block in render_partial_template'
+activesupport (7.0.3) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.0.3) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (7.0.3) lib/active_support/notifications.rb:206:in `instrument'
+actionview (7.0.3) lib/action_view/renderer/partial_renderer.rb:246:in `render_partial_template'
+actionview (7.0.3) lib/action_view/renderer/partial_renderer.rb:237:in `render'
+actionview (7.0.3) lib/action_view/renderer/renderer.rb:81:in `render_partial_to_object'
+actionview (7.0.3) lib/action_view/renderer/renderer.rb:27:in `render_to_object'
+actionview (7.0.3) lib/action_view/renderer/renderer.rb:22:in `render'
+actionview (7.0.3) lib/action_view/helpers/rendering_helper.rb:37:in `block in render'
+actionview (7.0.3) lib/action_view/base.rb:270:in `in_rendering_context'
+actionview (7.0.3) lib/action_view/helpers/rendering_helper.rb:33:in `render'
+administrate (0.17.0) app/helpers/administrate/application_helper.rb:16:in `render_field'
+administrate (0.17.0) app/views/administrate/application/_collection.html.erb:73
+administrate (0.17.0) app/views/administrate/application/_collection.html.erb:66:in `each'
+administrate (0.17.0) app/views/administrate/application/_collection.html.erb:66
+activerecord (7.0.3) lib/active_record/relation/delegation.rb:88:in `each'
+activerecord (7.0.3) lib/active_record/relation/delegation.rb:88:in `each'
+administrate (0.17.0) app/views/administrate/application/_collection.html.erb:60
+actionview (7.0.3) lib/action_view/base.rb:244:in `public_send'
+actionview (7.0.3) lib/action_view/base.rb:244:in `_run'
+actionview (7.0.3) lib/action_view/template.rb:157:in `block in render'
+activesupport (7.0.3) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.0.3) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (7.0.3) lib/active_support/notifications.rb:206:in `instrument'
+actionview (7.0.3) lib/action_view/template.rb:361:in `instrument_render_template'
+actionview (7.0.3) lib/action_view/template.rb:155:in `render'
+actionview (7.0.3) lib/action_view/renderer/partial_renderer.rb:251:in `block in render_partial_template'
+activesupport (7.0.3) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.0.3) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (7.0.3) lib/active_support/notifications.rb:206:in `instrument'
+actionview (7.0.3) lib/action_view/renderer/partial_renderer.rb:246:in `render_partial_template'
+actionview (7.0.3) lib/action_view/renderer/partial_renderer.rb:237:in `render'
+actionview (7.0.3) lib/action_view/renderer/renderer.rb:81:in `render_partial_to_object'
+actionview (7.0.3) lib/action_view/renderer/renderer.rb:53:in `render_partial'
+actionview (7.0.3) lib/action_view/helpers/rendering_helper.rb:44:in `render'
+administrate (0.17.0) app/views/administrate/application/index.html.erb:36
+actionview (7.0.3) lib/action_view/base.rb:244:in `public_send'
+actionview (7.0.3) lib/action_view/base.rb:244:in `_run'
+actionview (7.0.3) lib/action_view/template.rb:157:in `block in render'
+activesupport (7.0.3) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.0.3) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (7.0.3) lib/active_support/notifications.rb:206:in `instrument'
+actionview (7.0.3) lib/action_view/template.rb:361:in `instrument_render_template'
+actionview (7.0.3) lib/action_view/template.rb:155:in `render'
+actionview (7.0.3) lib/action_view/renderer/template_renderer.rb:65:in `block (2 levels) in render_template'
+activesupport (7.0.3) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.0.3) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (7.0.3) lib/active_support/notifications.rb:206:in `instrument'
+actionview (7.0.3) lib/action_view/renderer/template_renderer.rb:60:in `block in render_template'
+actionview (7.0.3) lib/action_view/renderer/template_renderer.rb:75:in `block in render_with_layout'
+activesupport (7.0.3) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.0.3) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (7.0.3) lib/active_support/notifications.rb:206:in `instrument'
+actionview (7.0.3) lib/action_view/renderer/template_renderer.rb:74:in `render_with_layout'
+actionview (7.0.3) lib/action_view/renderer/template_renderer.rb:59:in `render_template'
+actionview (7.0.3) lib/action_view/renderer/template_renderer.rb:11:in `render'
+actionview (7.0.3) lib/action_view/renderer/renderer.rb:61:in `render_template_to_object'
+actionview (7.0.3) lib/action_view/renderer/renderer.rb:29:in `render_to_object'
+actionview (7.0.3) lib/action_view/rendering.rb:117:in `block in _render_template'
+actionview (7.0.3) lib/action_view/base.rb:270:in `in_rendering_context'
+actionview (7.0.3) lib/action_view/rendering.rb:116:in `_render_template'
+actionpack (7.0.3) lib/action_controller/metal/streaming.rb:216:in `_render_template'
+actionview (7.0.3) lib/action_view/rendering.rb:103:in `render_to_body'
+actionpack (7.0.3) lib/action_controller/metal/rendering.rb:46:in `render_to_body'
+actionpack (7.0.3) lib/action_controller/metal/renderers.rb:141:in `render_to_body'
+actionpack (7.0.3) lib/abstract_controller/rendering.rb:25:in `render'
+actionpack (7.0.3) lib/action_controller/metal/rendering.rb:30:in `render'
+actionpack (7.0.3) lib/action_controller/metal/instrumentation.rb:22:in `block (2 levels) in render'
+/Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/3.0.0/benchmark.rb:308:in `realtime'
+activesupport (7.0.3) lib/active_support/core_ext/benchmark.rb:14:in `ms'
+actionpack (7.0.3) lib/action_controller/metal/instrumentation.rb:22:in `block in render'
+actionpack (7.0.3) lib/action_controller/metal/instrumentation.rb:91:in `cleanup_view_runtime'
+activerecord (7.0.3) lib/active_record/railties/controller_runtime.rb:34:in `cleanup_view_runtime'
+actionpack (7.0.3) lib/action_controller/metal/instrumentation.rb:21:in `render'
+administrate (0.17.0) app/controllers/administrate/application_controller.rb:16:in `index'
+actionpack (7.0.3) lib/action_controller/metal/basic_implicit_render.rb:6:in `send_action'
+actionpack (7.0.3) lib/abstract_controller/base.rb:215:in `process_action'
+actionpack (7.0.3) lib/action_controller/metal/rendering.rb:53:in `process_action'
+actionpack (7.0.3) lib/abstract_controller/callbacks.rb:234:in `block in process_action'
+activesupport (7.0.3) lib/active_support/callbacks.rb:118:in `block in run_callbacks'
+actiontext (7.0.3) lib/action_text/rendering.rb:20:in `with_renderer'
+actiontext (7.0.3) lib/action_text/engine.rb:69:in `block (4 levels) in <class:Engine>'
+activesupport (7.0.3) lib/active_support/callbacks.rb:127:in `instance_exec'
+activesupport (7.0.3) lib/active_support/callbacks.rb:127:in `block in run_callbacks'
+activesupport (7.0.3) lib/active_support/callbacks.rb:138:in `run_callbacks'
+actionpack (7.0.3) lib/abstract_controller/callbacks.rb:233:in `process_action'
+actionpack (7.0.3) lib/action_controller/metal/rescue.rb:22:in `process_action'
+actionpack (7.0.3) lib/action_controller/metal/instrumentation.rb:67:in `block in process_action'
+activesupport (7.0.3) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.0.3) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (7.0.3) lib/active_support/notifications.rb:206:in `instrument'
+actionpack (7.0.3) lib/action_controller/metal/instrumentation.rb:66:in `process_action'
+actionpack (7.0.3) lib/action_controller/metal/params_wrapper.rb:259:in `process_action'
+activerecord (7.0.3) lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+actionpack (7.0.3) lib/abstract_controller/base.rb:151:in `process'
+actionview (7.0.3) lib/action_view/rendering.rb:39:in `process'
+actionpack (7.0.3) lib/action_controller/metal.rb:188:in `dispatch'
+actionpack (7.0.3) lib/action_controller/metal.rb:251:in `dispatch'
+actionpack (7.0.3) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.0.3) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.0.3) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (7.0.3) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (7.0.3) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.0.3) lib/action_dispatch/routing/route_set.rb:852:in `call'
+clearance (2.5.0) lib/clearance/rack_session.rb:23:in `call'
+rack (2.2.3) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.3) lib/rack/etag.rb:27:in `call'
+rack (2.2.3) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.3) lib/rack/head.rb:12:in `call'
+actionpack (7.0.3) lib/action_dispatch/http/permissions_policy.rb:38:in `call'
+actionpack (7.0.3) lib/action_dispatch/http/content_security_policy.rb:36:in `call'
+rack (2.2.3) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.3) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (7.0.3) lib/action_dispatch/middleware/cookies.rb:697:in `call'
+activerecord (7.0.3) lib/active_record/migration.rb:603:in `call'
+actionpack (7.0.3) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.3) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.3) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.3) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+web-console (4.2.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.0.3) lib/action_dispatch/middleware/show_exceptions.rb:26:in `call'
+railties (7.0.3) lib/rails/rack/logger.rb:40:in `call_app'
+railties (7.0.3) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.3) lib/active_support/tagged_logging.rb:114:in `block in tagged'
+activesupport (7.0.3) lib/active_support/tagged_logging.rb:38:in `tagged'
+activesupport (7.0.3) lib/active_support/tagged_logging.rb:114:in `tagged'
+railties (7.0.3) lib/rails/rack/logger.rb:25:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.0.3) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.3) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.3) lib/action_dispatch/middleware/server_timing.rb:20:in `call'
+actionpack (7.0.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.3) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.3) lib/action_dispatch/middleware/host_authorization.rb:137:in `call'
+railties (7.0.3) lib/rails/engine.rb:530:in `call'
+puma (5.6.4) lib/puma/configuration.rb:252:in `call'
+puma (5.6.4) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.4) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.4) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.4) lib/puma/server.rb:441:in `process_client'
+puma (5.6.4) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started GET "/" for ::1 at 2022-05-28 15:42:18 +0200
+>>>>>>> 8ebbe12 (install administrate)
 Processing by JobsController#index as HTML
   Rendering layout layouts/application.html.erb
   Rendering jobs/index.html.erb within layouts/application
   [1m[36mJob Load (0.8ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs"[0m
   ↳ app/views/jobs/index.html.erb:2
+<<<<<<< HEAD
   [1m[36mCompany Load (0.5ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
   ↳ app/views/jobs/_job_preview.html.erb:3
   Rendered collection of jobs/_job_preview.html.erb [1 times] (Duration: 3.9ms | Allocations: 775)
@@ -8578,11 +9331,81 @@ Completed 200 OK in 42ms (Views: 32.5ms | ActiveRecord: 1.4ms | Allocations: 120
 
 
 Started GET "/" for 127.0.0.1 at 2022-05-28 12:29:08 +0300
+=======
+  [1m[36mCompany Load (0.2ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  [1m[36mCompany Load (0.1ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  [1m[36mCACHE Company Load (0.0ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  Rendered collection of jobs/_job_preview.html.erb [3 times] (Duration: 10.5ms | Allocations: 8011)
+  Rendered jobs/index.html.erb within layouts/application (Duration: 26.4ms | Allocations: 10766)
+  Rendered layouts/_nav.html.erb (Duration: 0.1ms | Allocations: 67)
+  Rendered application/_flashes.html.erb (Duration: 0.0ms | Allocations: 35)
+  Rendered layout layouts/application.html.erb (Duration: 61.1ms | Allocations: 40968)
+Completed 200 OK in 68ms (Views: 46.7ms | ActiveRecord: 15.7ms | Allocations: 45090)
+
+
+Started GET "/admin" for ::1 at 2022-05-28 15:42:22 +0200
+Processing by Admin::RolesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["remember_token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mRole Load (0.2ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/models/user.rb:27:in `set_default_role'
+  Rendering layout /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/layouts/administrate/application.html.erb
+  Rendering /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/index.html.erb within layouts/administrate/application
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/_index_header.html.erb (Duration: 1.1ms | Allocations: 1525)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/_collection_header_actions.html.erb (Duration: 0.1ms | Allocations: 121)
+  [1m[36mRole Load (0.2ms)[0m  [1m[34mSELECT "roles".* FROM "roles" LIMIT $1 OFFSET $2[0m  [["LIMIT", 20], ["OFFSET", 0]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."role_id" IN ($1, $2)[0m  [["role_id", 2], ["role_id", 3]]
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/fields/has_many/_index.html.erb (Duration: 0.1ms | Allocations: 49)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/fields/number/_index.html.erb (Duration: 0.0ms | Allocations: 25)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/fields/select/_index.html.erb (Duration: 0.0ms | Allocations: 14)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/fields/date_time/_index.html.erb (Duration: 0.1ms | Allocations: 92)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/_collection_item_actions.html.erb (Duration: 0.3ms | Allocations: 361)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/fields/has_many/_index.html.erb (Duration: 0.0ms | Allocations: 37)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/fields/number/_index.html.erb (Duration: 0.0ms | Allocations: 24)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/fields/select/_index.html.erb (Duration: 0.0ms | Allocations: 13)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/fields/date_time/_index.html.erb (Duration: 0.0ms | Allocations: 72)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/_collection_item_actions.html.erb (Duration: 0.2ms | Allocations: 346)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/_collection.html.erb (Duration: 6.3ms | Allocations: 9396)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/index.html.erb within layouts/administrate/application (Duration: 7.9ms | Allocations: 11510)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/_stylesheet.html.erb (Duration: 2.7ms | Allocations: 3677)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/_icons.html.erb (Duration: 0.0ms | Allocations: 13)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/_navigation.html.erb (Duration: 3.5ms | Allocations: 3377)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/_flashes.html.erb (Duration: 0.0ms | Allocations: 41)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/_javascript.html.erb (Duration: 2.2ms | Allocations: 3771)
+  Rendered layout /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/layouts/administrate/application.html.erb (Duration: 17.6ms | Allocations: 23347)
+Completed 200 OK in 43ms (Views: 17.9ms | ActiveRecord: 5.8ms | Allocations: 37672)
+
+
+Started GET "/" for ::1 at 2022-05-28 15:42:28 +0200
+Processing by JobsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (0.3ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs"[0m
+  ↳ app/views/jobs/index.html.erb:2
+  [1m[36mCompany Load (0.1ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  [1m[36mCompany Load (0.1ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  [1m[36mCACHE Company Load (0.0ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  Rendered collection of jobs/_job_preview.html.erb [3 times] (Duration: 2.1ms | Allocations: 2386)
+  Rendered jobs/index.html.erb within layouts/application (Duration: 9.0ms | Allocations: 3207)
+  Rendered layouts/_nav.html.erb (Duration: 0.1ms | Allocations: 62)
+  Rendered application/_flashes.html.erb (Duration: 0.0ms | Allocations: 27)
+  Rendered layout layouts/application.html.erb (Duration: 15.0ms | Allocations: 12479)
+Completed 200 OK in 17ms (Views: 15.1ms | ActiveRecord: 0.5ms | Allocations: 12861)
+
+
+Started GET "/" for ::1 at 2022-05-28 15:42:35 +0200
+>>>>>>> 8ebbe12 (install administrate)
 Processing by JobsController#index as HTML
   Rendering layout layouts/application.html.erb
   Rendering jobs/index.html.erb within layouts/application
   [1m[36mJob Load (0.6ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs"[0m
   ↳ app/views/jobs/index.html.erb:2
+<<<<<<< HEAD
   [1m[36mCompany Load (0.7ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
   ↳ app/views/jobs/_job_preview.html.erb:3
   [1m[36mCompany Load (0.4ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
@@ -9663,5 +10486,824 @@ Processing by JobsController#index as HTML
   Rendered application/_flashes.html.erb (Duration: 0.0ms | Allocations: 27)
   Rendered layout layouts/application.html.erb (Duration: 15.0ms | Allocations: 12578)
 Completed 200 OK in 16ms (Views: 14.3ms | ActiveRecord: 1.1ms | Allocations: 12944)
+=======
+  [1m[36mCompany Load (0.7ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  [1m[36mCompany Load (2.2ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  [1m[36mCACHE Company Load (0.0ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  Rendered collection of jobs/_job_preview.html.erb [3 times] (Duration: 9.6ms | Allocations: 2302)
+  Rendered jobs/index.html.erb within layouts/application (Duration: 18.0ms | Allocations: 3055)
+  Rendered layouts/_nav.html.erb (Duration: 0.1ms | Allocations: 62)
+  Rendered application/_flashes.html.erb (Duration: 0.0ms | Allocations: 27)
+  Rendered layout layouts/application.html.erb (Duration: 28.3ms | Allocations: 12237)
+Completed 200 OK in 29ms (Views: 25.1ms | ActiveRecord: 3.4ms | Allocations: 12582)
+
+
+Started GET "/admin" for ::1 at 2022-05-28 15:43:16 +0200
+Processing by Admin::RolesController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["remember_token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mRole Load (0.2ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/models/user.rb:27:in `set_default_role'
+  Rendering layout /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/layouts/administrate/application.html.erb
+  Rendering /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/index.html.erb within layouts/administrate/application
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/_index_header.html.erb (Duration: 3.0ms | Allocations: 1361)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/_collection_header_actions.html.erb (Duration: 0.2ms | Allocations: 119)
+  [1m[36mRole Load (0.7ms)[0m  [1m[34mSELECT "roles".* FROM "roles" LIMIT $1 OFFSET $2[0m  [["LIMIT", 20], ["OFFSET", 0]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."role_id" IN ($1, $2)[0m  [["role_id", 2], ["role_id", 3]]
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/fields/has_many/_index.html.erb (Duration: 0.1ms | Allocations: 46)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/fields/number/_index.html.erb (Duration: 0.0ms | Allocations: 24)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/fields/select/_index.html.erb (Duration: 0.0ms | Allocations: 13)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/fields/date_time/_index.html.erb (Duration: 0.5ms | Allocations: 79)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/_collection_item_actions.html.erb (Duration: 0.3ms | Allocations: 349)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/fields/has_many/_index.html.erb (Duration: 0.1ms | Allocations: 37)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/fields/number/_index.html.erb (Duration: 0.0ms | Allocations: 24)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/fields/select/_index.html.erb (Duration: 0.0ms | Allocations: 13)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/fields/date_time/_index.html.erb (Duration: 0.1ms | Allocations: 72)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/_collection_item_actions.html.erb (Duration: 0.3ms | Allocations: 346)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/_collection.html.erb (Duration: 11.5ms | Allocations: 7412)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/index.html.erb within layouts/administrate/application (Duration: 15.0ms | Allocations: 9159)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/_stylesheet.html.erb (Duration: 4.2ms | Allocations: 3459)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/_icons.html.erb (Duration: 0.0ms | Allocations: 12)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/_navigation.html.erb (Duration: 2.0ms | Allocations: 2543)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/_flashes.html.erb (Duration: 0.1ms | Allocations: 27)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/_javascript.html.erb (Duration: 2.7ms | Allocations: 3602)
+  Rendered layout /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/layouts/administrate/application.html.erb (Duration: 25.1ms | Allocations: 19665)
+Completed 200 OK in 43ms (Views: 28.6ms | ActiveRecord: 2.0ms | Allocations: 22373)
+
+
+Started GET "/admin/jobs" for ::1 at 2022-05-28 15:43:17 +0200
+Processing by Admin::JobsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["remember_token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mRole Load (0.4ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/models/user.rb:27:in `set_default_role'
+  Rendering layout /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/layouts/administrate/application.html.erb
+  Rendering /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/index.html.erb within layouts/administrate/application
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/_search.html.erb (Duration: 0.5ms | Allocations: 400)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/_index_header.html.erb (Duration: 1.4ms | Allocations: 2143)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/_collection_header_actions.html.erb (Duration: 0.3ms | Allocations: 233)
+  [1m[36mJob Load (1.0ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" LIMIT $1 OFFSET $2[0m  [["LIMIT", 20], ["OFFSET", 0]]
+  [1m[36mCompany Load (0.4ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" IN ($1, $2)[0m  [["id", 2], ["id", 1]]
+  [1m[36mActionText::RichText Load (0.3ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_type" = $1 AND "action_text_rich_texts"."name" = $2 AND "action_text_rich_texts"."record_id" IN ($3, $4, $5)[0m  [["record_type", "Job"], ["name", "description"], ["record_id", 2], ["record_id", 3], ["record_id", 1]]
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/fields/belongs_to/_index.html.erb (Duration: 0.3ms | Allocations: 375)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/fields/has_one/_index.html.erb (Duration: 3.0ms | Allocations: 3112)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/_collection.html.erb (Duration: 11.3ms | Allocations: 11884)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/index.html.erb within layouts/administrate/application (Duration: 12.9ms | Allocations: 14302)
+  Rendered layout /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/layouts/administrate/application.html.erb (Duration: 13.0ms | Allocations: 14378)
+Completed 500 Internal Server Error in 21ms (ActiveRecord: 2.5ms | Allocations: 18671)
+
+
+  
+ActionView::Template::Error (uninitialized constant ActionText::RichTextDashboard):
+    17: 
+    18: <% if field.linkable? %>
+    19:   <%= link_to(
+    20:     field.display_associated_resource,
+    21:     [namespace, field.data],
+    22:   ) %>
+    23: <% end %>
+  
+activesupport (7.0.3) lib/active_support/inflector/methods.rb:280:in `constantize'
+activesupport (7.0.3) lib/active_support/core_ext/string/inflections.rb:74:in `constantize'
+administrate (0.17.0) lib/administrate/field/associative.rb:37:in `associated_dashboard'
+administrate (0.17.0) lib/administrate/field/associative.rb:23:in `display_associated_resource'
+administrate (0.17.0) app/views/fields/has_one/_index.html.erb:20
+actionview (7.0.3) lib/action_view/base.rb:244:in `public_send'
+actionview (7.0.3) lib/action_view/base.rb:244:in `_run'
+actionview (7.0.3) lib/action_view/template.rb:157:in `block in render'
+activesupport (7.0.3) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.0.3) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (7.0.3) lib/active_support/notifications.rb:206:in `instrument'
+actionview (7.0.3) lib/action_view/template.rb:361:in `instrument_render_template'
+actionview (7.0.3) lib/action_view/template.rb:155:in `render'
+actionview (7.0.3) lib/action_view/renderer/partial_renderer.rb:251:in `block in render_partial_template'
+activesupport (7.0.3) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.0.3) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (7.0.3) lib/active_support/notifications.rb:206:in `instrument'
+actionview (7.0.3) lib/action_view/renderer/partial_renderer.rb:246:in `render_partial_template'
+actionview (7.0.3) lib/action_view/renderer/partial_renderer.rb:237:in `render'
+actionview (7.0.3) lib/action_view/renderer/renderer.rb:81:in `render_partial_to_object'
+actionview (7.0.3) lib/action_view/renderer/renderer.rb:27:in `render_to_object'
+actionview (7.0.3) lib/action_view/renderer/renderer.rb:22:in `render'
+actionview (7.0.3) lib/action_view/helpers/rendering_helper.rb:37:in `block in render'
+actionview (7.0.3) lib/action_view/base.rb:270:in `in_rendering_context'
+actionview (7.0.3) lib/action_view/helpers/rendering_helper.rb:33:in `render'
+administrate (0.17.0) app/helpers/administrate/application_helper.rb:16:in `render_field'
+administrate (0.17.0) app/views/administrate/application/_collection.html.erb:73
+administrate (0.17.0) app/views/administrate/application/_collection.html.erb:66:in `each'
+administrate (0.17.0) app/views/administrate/application/_collection.html.erb:66
+activerecord (7.0.3) lib/active_record/relation/delegation.rb:88:in `each'
+activerecord (7.0.3) lib/active_record/relation/delegation.rb:88:in `each'
+administrate (0.17.0) app/views/administrate/application/_collection.html.erb:60
+actionview (7.0.3) lib/action_view/base.rb:244:in `public_send'
+actionview (7.0.3) lib/action_view/base.rb:244:in `_run'
+actionview (7.0.3) lib/action_view/template.rb:157:in `block in render'
+activesupport (7.0.3) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.0.3) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (7.0.3) lib/active_support/notifications.rb:206:in `instrument'
+actionview (7.0.3) lib/action_view/template.rb:361:in `instrument_render_template'
+actionview (7.0.3) lib/action_view/template.rb:155:in `render'
+actionview (7.0.3) lib/action_view/renderer/partial_renderer.rb:251:in `block in render_partial_template'
+activesupport (7.0.3) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.0.3) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (7.0.3) lib/active_support/notifications.rb:206:in `instrument'
+actionview (7.0.3) lib/action_view/renderer/partial_renderer.rb:246:in `render_partial_template'
+actionview (7.0.3) lib/action_view/renderer/partial_renderer.rb:237:in `render'
+actionview (7.0.3) lib/action_view/renderer/renderer.rb:81:in `render_partial_to_object'
+actionview (7.0.3) lib/action_view/renderer/renderer.rb:53:in `render_partial'
+actionview (7.0.3) lib/action_view/helpers/rendering_helper.rb:44:in `render'
+administrate (0.17.0) app/views/administrate/application/index.html.erb:36
+actionview (7.0.3) lib/action_view/base.rb:244:in `public_send'
+actionview (7.0.3) lib/action_view/base.rb:244:in `_run'
+actionview (7.0.3) lib/action_view/template.rb:157:in `block in render'
+activesupport (7.0.3) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.0.3) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (7.0.3) lib/active_support/notifications.rb:206:in `instrument'
+actionview (7.0.3) lib/action_view/template.rb:361:in `instrument_render_template'
+actionview (7.0.3) lib/action_view/template.rb:155:in `render'
+actionview (7.0.3) lib/action_view/renderer/template_renderer.rb:65:in `block (2 levels) in render_template'
+activesupport (7.0.3) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.0.3) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (7.0.3) lib/active_support/notifications.rb:206:in `instrument'
+actionview (7.0.3) lib/action_view/renderer/template_renderer.rb:60:in `block in render_template'
+actionview (7.0.3) lib/action_view/renderer/template_renderer.rb:75:in `block in render_with_layout'
+activesupport (7.0.3) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.0.3) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (7.0.3) lib/active_support/notifications.rb:206:in `instrument'
+actionview (7.0.3) lib/action_view/renderer/template_renderer.rb:74:in `render_with_layout'
+actionview (7.0.3) lib/action_view/renderer/template_renderer.rb:59:in `render_template'
+actionview (7.0.3) lib/action_view/renderer/template_renderer.rb:11:in `render'
+actionview (7.0.3) lib/action_view/renderer/renderer.rb:61:in `render_template_to_object'
+actionview (7.0.3) lib/action_view/renderer/renderer.rb:29:in `render_to_object'
+actionview (7.0.3) lib/action_view/rendering.rb:117:in `block in _render_template'
+actionview (7.0.3) lib/action_view/base.rb:270:in `in_rendering_context'
+actionview (7.0.3) lib/action_view/rendering.rb:116:in `_render_template'
+actionpack (7.0.3) lib/action_controller/metal/streaming.rb:216:in `_render_template'
+actionview (7.0.3) lib/action_view/rendering.rb:103:in `render_to_body'
+actionpack (7.0.3) lib/action_controller/metal/rendering.rb:46:in `render_to_body'
+actionpack (7.0.3) lib/action_controller/metal/renderers.rb:141:in `render_to_body'
+actionpack (7.0.3) lib/abstract_controller/rendering.rb:25:in `render'
+actionpack (7.0.3) lib/action_controller/metal/rendering.rb:30:in `render'
+actionpack (7.0.3) lib/action_controller/metal/instrumentation.rb:22:in `block (2 levels) in render'
+/Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/3.0.0/benchmark.rb:308:in `realtime'
+activesupport (7.0.3) lib/active_support/core_ext/benchmark.rb:14:in `ms'
+actionpack (7.0.3) lib/action_controller/metal/instrumentation.rb:22:in `block in render'
+actionpack (7.0.3) lib/action_controller/metal/instrumentation.rb:91:in `cleanup_view_runtime'
+activerecord (7.0.3) lib/active_record/railties/controller_runtime.rb:34:in `cleanup_view_runtime'
+actionpack (7.0.3) lib/action_controller/metal/instrumentation.rb:21:in `render'
+administrate (0.17.0) app/controllers/administrate/application_controller.rb:16:in `index'
+actionpack (7.0.3) lib/action_controller/metal/basic_implicit_render.rb:6:in `send_action'
+actionpack (7.0.3) lib/abstract_controller/base.rb:215:in `process_action'
+actionpack (7.0.3) lib/action_controller/metal/rendering.rb:53:in `process_action'
+actionpack (7.0.3) lib/abstract_controller/callbacks.rb:234:in `block in process_action'
+activesupport (7.0.3) lib/active_support/callbacks.rb:118:in `block in run_callbacks'
+actiontext (7.0.3) lib/action_text/rendering.rb:20:in `with_renderer'
+actiontext (7.0.3) lib/action_text/engine.rb:69:in `block (4 levels) in <class:Engine>'
+activesupport (7.0.3) lib/active_support/callbacks.rb:127:in `instance_exec'
+activesupport (7.0.3) lib/active_support/callbacks.rb:127:in `block in run_callbacks'
+activesupport (7.0.3) lib/active_support/callbacks.rb:138:in `run_callbacks'
+actionpack (7.0.3) lib/abstract_controller/callbacks.rb:233:in `process_action'
+actionpack (7.0.3) lib/action_controller/metal/rescue.rb:22:in `process_action'
+actionpack (7.0.3) lib/action_controller/metal/instrumentation.rb:67:in `block in process_action'
+activesupport (7.0.3) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.0.3) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (7.0.3) lib/active_support/notifications.rb:206:in `instrument'
+actionpack (7.0.3) lib/action_controller/metal/instrumentation.rb:66:in `process_action'
+actionpack (7.0.3) lib/action_controller/metal/params_wrapper.rb:259:in `process_action'
+activerecord (7.0.3) lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+actionpack (7.0.3) lib/abstract_controller/base.rb:151:in `process'
+actionview (7.0.3) lib/action_view/rendering.rb:39:in `process'
+actionpack (7.0.3) lib/action_controller/metal.rb:188:in `dispatch'
+actionpack (7.0.3) lib/action_controller/metal.rb:251:in `dispatch'
+actionpack (7.0.3) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.0.3) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.0.3) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (7.0.3) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (7.0.3) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.0.3) lib/action_dispatch/routing/route_set.rb:852:in `call'
+clearance (2.5.0) lib/clearance/rack_session.rb:23:in `call'
+rack (2.2.3) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.3) lib/rack/etag.rb:27:in `call'
+rack (2.2.3) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.3) lib/rack/head.rb:12:in `call'
+actionpack (7.0.3) lib/action_dispatch/http/permissions_policy.rb:38:in `call'
+actionpack (7.0.3) lib/action_dispatch/http/content_security_policy.rb:36:in `call'
+rack (2.2.3) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.3) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (7.0.3) lib/action_dispatch/middleware/cookies.rb:697:in `call'
+activerecord (7.0.3) lib/active_record/migration.rb:603:in `call'
+actionpack (7.0.3) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.3) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.3) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.3) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+web-console (4.2.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.0.3) lib/action_dispatch/middleware/show_exceptions.rb:26:in `call'
+railties (7.0.3) lib/rails/rack/logger.rb:40:in `call_app'
+railties (7.0.3) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.3) lib/active_support/tagged_logging.rb:114:in `block in tagged'
+activesupport (7.0.3) lib/active_support/tagged_logging.rb:38:in `tagged'
+activesupport (7.0.3) lib/active_support/tagged_logging.rb:114:in `tagged'
+railties (7.0.3) lib/rails/rack/logger.rb:25:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.0.3) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.3) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.3) lib/action_dispatch/middleware/server_timing.rb:20:in `call'
+actionpack (7.0.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.3) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.3) lib/action_dispatch/middleware/host_authorization.rb:137:in `call'
+railties (7.0.3) lib/rails/engine.rb:530:in `call'
+puma (5.6.4) lib/puma/configuration.rb:252:in `call'
+puma (5.6.4) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.4) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.4) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.4) lib/puma/server.rb:441:in `process_client'
+puma (5.6.4) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started GET "/admin/jobs" for ::1 at 2022-05-28 15:45:22 +0200
+Processing by Admin::JobsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["remember_token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mRole Load (0.1ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/models/user.rb:27:in `set_default_role'
+  Rendering layout /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/layouts/administrate/application.html.erb
+  Rendering /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/index.html.erb within layouts/administrate/application
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/_search.html.erb (Duration: 1.2ms | Allocations: 1230)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/_index_header.html.erb (Duration: 4.8ms | Allocations: 4288)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/_collection_header_actions.html.erb (Duration: 0.2ms | Allocations: 233)
+  [1m[36mJob Load (0.3ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" LIMIT $1 OFFSET $2[0m  [["LIMIT", 20], ["OFFSET", 0]]
+  [1m[36mCompany Load (0.2ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" IN ($1, $2)[0m  [["id", 2], ["id", 1]]
+  [1m[36mActionText::RichText Load (0.2ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = $1 AND "action_text_rich_texts"."record_type" = $2 AND "action_text_rich_texts"."name" = $3 LIMIT $4[0m  [["record_id", 2], ["record_type", "Job"], ["name", "description"], ["LIMIT", 1]]
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/fields/belongs_to/_index.html.erb (Duration: 1.5ms | Allocations: 629)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/actiontext-7.0.3/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 1.1ms | Allocations: 683)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/fields/text/_index.html.erb (Duration: 2.3ms | Allocations: 1363)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/fields/number/_index.html.erb (Duration: 0.0ms | Allocations: 25)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/fields/string/_index.html.erb (Duration: 0.4ms | Allocations: 177)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/_collection_item_actions.html.erb (Duration: 0.6ms | Allocations: 497)
+  [1m[36mActionText::RichText Load (0.4ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = $1 AND "action_text_rich_texts"."record_type" = $2 AND "action_text_rich_texts"."name" = $3 LIMIT $4[0m  [["record_id", 3], ["record_type", "Job"], ["name", "description"], ["LIMIT", 1]]
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/fields/belongs_to/_index.html.erb (Duration: 0.3ms | Allocations: 357)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/actiontext-7.0.3/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 1.5ms | Allocations: 1964)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/fields/text/_index.html.erb (Duration: 1.7ms | Allocations: 2135)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/fields/number/_index.html.erb (Duration: 0.0ms | Allocations: 24)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/fields/string/_index.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/_collection_item_actions.html.erb (Duration: 0.6ms | Allocations: 458)
+  [1m[36mActionText::RichText Load (0.3ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = $1 AND "action_text_rich_texts"."record_type" = $2 AND "action_text_rich_texts"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "Job"], ["name", "description"], ["LIMIT", 1]]
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/fields/belongs_to/_index.html.erb (Duration: 0.3ms | Allocations: 355)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/actiontext-7.0.3/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 0.3ms | Allocations: 286)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/fields/text/_index.html.erb (Duration: 0.6ms | Allocations: 457)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/fields/number/_index.html.erb (Duration: 0.0ms | Allocations: 24)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/fields/string/_index.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/_collection_item_actions.html.erb (Duration: 0.4ms | Allocations: 458)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/_collection.html.erb (Duration: 47.9ms | Allocations: 31732)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/index.html.erb within layouts/administrate/application (Duration: 53.5ms | Allocations: 36601)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/_stylesheet.html.erb (Duration: 2.9ms | Allocations: 3686)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/_icons.html.erb (Duration: 0.0ms | Allocations: 13)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/_navigation.html.erb (Duration: 2.6ms | Allocations: 3135)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/_flashes.html.erb (Duration: 0.1ms | Allocations: 41)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/_javascript.html.erb (Duration: 2.7ms | Allocations: 3787)
+  Rendered layout /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/layouts/administrate/application.html.erb (Duration: 63.7ms | Allocations: 48803)
+Completed 200 OK in 103ms (Views: 60.3ms | ActiveRecord: 13.0ms | Allocations: 67015)
+
+
+Started GET "/admin/jobs/2" for ::1 at 2022-05-28 15:45:30 +0200
+Processing by Admin::JobsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["remember_token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mRole Load (0.1ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/models/user.rb:27:in `set_default_role'
+  [1m[36mJob Load (0.2ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/layouts/administrate/application.html.erb
+  Rendering /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/show.html.erb within layouts/administrate/application
+  [1m[36mCompany Load (0.2ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mActionText::RichText Load (0.4ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = $1 AND "action_text_rich_texts"."record_type" = $2 AND "action_text_rich_texts"."name" = $3 LIMIT $4[0m  [["record_id", 2], ["record_type", "Job"], ["name", "description"], ["LIMIT", 1]]
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/fields/belongs_to/_show.html.erb (Duration: 1.0ms | Allocations: 595)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/actiontext-7.0.3/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 0.3ms | Allocations: 324)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/fields/text/_show.html.erb (Duration: 0.9ms | Allocations: 655)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/fields/number/_show.html.erb (Duration: 0.4ms | Allocations: 185)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/fields/string/_show.html.erb (Duration: 0.2ms | Allocations: 173)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/fields/string/_show.html.erb (Duration: 0.0ms | Allocations: 13)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/fields/date_time/_show.html.erb (Duration: 1.2ms | Allocations: 263)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/fields/date_time/_show.html.erb (Duration: 0.1ms | Allocations: 72)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/fields/number/_show.html.erb (Duration: 0.0ms | Allocations: 24)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/show.html.erb within layouts/administrate/application (Duration: 11.7ms | Allocations: 9981)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/_stylesheet.html.erb (Duration: 5.2ms | Allocations: 3471)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/_icons.html.erb (Duration: 0.0ms | Allocations: 12)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/_navigation.html.erb (Duration: 1.9ms | Allocations: 2571)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/_flashes.html.erb (Duration: 0.0ms | Allocations: 27)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/_javascript.html.erb (Duration: 2.3ms | Allocations: 3602)
+  Rendered layout /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/layouts/administrate/application.html.erb (Duration: 21.8ms | Allocations: 20570)
+Completed 200 OK in 30ms (Views: 22.1ms | ActiveRecord: 1.3ms | Allocations: 24615)
+
+
+Started GET "/admin/jobs/2" for ::1 at 2022-05-28 15:45:37 +0200
+Processing by Admin::JobsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["remember_token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mRole Load (0.2ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/models/user.rb:27:in `set_default_role'
+  [1m[36mJob Load (0.2ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/layouts/administrate/application.html.erb
+  Rendering /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/show.html.erb within layouts/administrate/application
+  [1m[36mCompany Load (0.1ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mActionText::RichText Load (0.2ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = $1 AND "action_text_rich_texts"."record_type" = $2 AND "action_text_rich_texts"."name" = $3 LIMIT $4[0m  [["record_id", 2], ["record_type", "Job"], ["name", "description"], ["LIMIT", 1]]
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/fields/belongs_to/_show.html.erb (Duration: 0.3ms | Allocations: 356)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/actiontext-7.0.3/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 0.4ms | Allocations: 286)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/fields/text/_show.html.erb (Duration: 0.6ms | Allocations: 455)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/fields/number/_show.html.erb (Duration: 0.0ms | Allocations: 24)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/fields/string/_show.html.erb (Duration: 0.0ms | Allocations: 13)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/fields/string/_show.html.erb (Duration: 0.0ms | Allocations: 13)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/fields/date_time/_show.html.erb (Duration: 0.1ms | Allocations: 72)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/fields/date_time/_show.html.erb (Duration: 0.0ms | Allocations: 72)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/fields/number/_show.html.erb (Duration: 0.0ms | Allocations: 24)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/show.html.erb within layouts/administrate/application (Duration: 5.5ms | Allocations: 7017)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/_stylesheet.html.erb (Duration: 2.8ms | Allocations: 3458)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/_icons.html.erb (Duration: 0.0ms | Allocations: 12)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/_navigation.html.erb (Duration: 1.6ms | Allocations: 2566)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/_flashes.html.erb (Duration: 0.0ms | Allocations: 27)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/_javascript.html.erb (Duration: 2.1ms | Allocations: 3602)
+  Rendered layout /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/layouts/administrate/application.html.erb (Duration: 12.7ms | Allocations: 17542)
+Completed 200 OK in 17ms (Views: 12.8ms | ActiveRecord: 1.1ms | Allocations: 20976)
+
+
+Started GET "/admin/jobs/1" for ::1 at 2022-05-28 15:45:44 +0200
+Processing by Admin::JobsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["remember_token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mRole Load (0.1ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/models/user.rb:27:in `set_default_role'
+  [1m[36mJob Load (0.3ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/layouts/administrate/application.html.erb
+  Rendering /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/show.html.erb within layouts/administrate/application
+  [1m[36mCompany Load (0.1ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mActionText::RichText Load (0.2ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = $1 AND "action_text_rich_texts"."record_type" = $2 AND "action_text_rich_texts"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "Job"], ["name", "description"], ["LIMIT", 1]]
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/fields/belongs_to/_show.html.erb (Duration: 0.3ms | Allocations: 356)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/actiontext-7.0.3/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 0.3ms | Allocations: 286)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/fields/text/_show.html.erb (Duration: 0.5ms | Allocations: 455)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/fields/number/_show.html.erb (Duration: 0.0ms | Allocations: 24)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/fields/string/_show.html.erb (Duration: 0.0ms | Allocations: 13)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/fields/string/_show.html.erb (Duration: 0.0ms | Allocations: 13)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/fields/date_time/_show.html.erb (Duration: 0.1ms | Allocations: 72)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/fields/date_time/_show.html.erb (Duration: 0.1ms | Allocations: 72)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/fields/number/_show.html.erb (Duration: 0.0ms | Allocations: 24)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/show.html.erb within layouts/administrate/application (Duration: 5.3ms | Allocations: 7018)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/_stylesheet.html.erb (Duration: 2.3ms | Allocations: 3458)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/_icons.html.erb (Duration: 0.0ms | Allocations: 12)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/_navigation.html.erb (Duration: 1.4ms | Allocations: 2566)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/_flashes.html.erb (Duration: 0.0ms | Allocations: 27)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/_javascript.html.erb (Duration: 2.0ms | Allocations: 3602)
+  Rendered layout /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/layouts/administrate/application.html.erb (Duration: 11.9ms | Allocations: 17543)
+Completed 200 OK in 19ms (Views: 12.0ms | ActiveRecord: 0.9ms | Allocations: 20977)
+
+
+Started GET "/admin/companies/1" for ::1 at 2022-05-28 15:45:55 +0200
+Processing by Admin::CompaniesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["remember_token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mRole Load (0.1ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/models/user.rb:27:in `set_default_role'
+  [1m[36mCompany Load (0.1ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/layouts/administrate/application.html.erb
+  Rendering /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/show.html.erb within layouts/administrate/application
+  [1m[36mActionText::RichText Load (0.2ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = $1 AND "action_text_rich_texts"."record_type" = $2 AND "action_text_rich_texts"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "Company"], ["name", "description"], ["LIMIT", 1]]
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/fields/has_one/_show.html.erb (Duration: 4.8ms | Allocations: 3333)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/show.html.erb within layouts/administrate/application (Duration: 9.2ms | Allocations: 8318)
+  Rendered layout /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/layouts/administrate/application.html.erb (Duration: 9.3ms | Allocations: 8394)
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 0.7ms | Allocations: 12652)
+
+
+  
+ActionView::Template::Error (uninitialized constant ActionText::RichTextDashboard):
+    19:   <fieldset class="attribute--nested">
+    20:     <legend>
+    21:       <%= link_to(
+    22:         field.display_associated_resource,
+    23:         [namespace, field.data],
+    24:       ) %>
+    25:     </legend>
+  
+activesupport (7.0.3) lib/active_support/inflector/methods.rb:280:in `constantize'
+activesupport (7.0.3) lib/active_support/core_ext/string/inflections.rb:74:in `constantize'
+administrate (0.17.0) lib/administrate/field/associative.rb:37:in `associated_dashboard'
+administrate (0.17.0) lib/administrate/field/associative.rb:23:in `display_associated_resource'
+administrate (0.17.0) app/views/fields/has_one/_show.html.erb:22
+actionview (7.0.3) lib/action_view/base.rb:244:in `public_send'
+actionview (7.0.3) lib/action_view/base.rb:244:in `_run'
+actionview (7.0.3) lib/action_view/template.rb:157:in `block in render'
+activesupport (7.0.3) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.0.3) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (7.0.3) lib/active_support/notifications.rb:206:in `instrument'
+actionview (7.0.3) lib/action_view/template.rb:361:in `instrument_render_template'
+actionview (7.0.3) lib/action_view/template.rb:155:in `render'
+actionview (7.0.3) lib/action_view/renderer/partial_renderer.rb:251:in `block in render_partial_template'
+activesupport (7.0.3) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.0.3) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (7.0.3) lib/active_support/notifications.rb:206:in `instrument'
+actionview (7.0.3) lib/action_view/renderer/partial_renderer.rb:246:in `render_partial_template'
+actionview (7.0.3) lib/action_view/renderer/partial_renderer.rb:237:in `render'
+actionview (7.0.3) lib/action_view/renderer/renderer.rb:81:in `render_partial_to_object'
+actionview (7.0.3) lib/action_view/renderer/renderer.rb:27:in `render_to_object'
+actionview (7.0.3) lib/action_view/renderer/renderer.rb:22:in `render'
+actionview (7.0.3) lib/action_view/helpers/rendering_helper.rb:37:in `block in render'
+actionview (7.0.3) lib/action_view/base.rb:270:in `in_rendering_context'
+actionview (7.0.3) lib/action_view/helpers/rendering_helper.rb:33:in `render'
+administrate (0.17.0) app/helpers/administrate/application_helper.rb:16:in `render_field'
+administrate (0.17.0) app/views/administrate/application/show.html.erb:46
+administrate (0.17.0) app/views/administrate/application/show.html.erb:37:in `each'
+administrate (0.17.0) app/views/administrate/application/show.html.erb:37
+actionview (7.0.3) lib/action_view/base.rb:244:in `public_send'
+actionview (7.0.3) lib/action_view/base.rb:244:in `_run'
+actionview (7.0.3) lib/action_view/template.rb:157:in `block in render'
+activesupport (7.0.3) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.0.3) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (7.0.3) lib/active_support/notifications.rb:206:in `instrument'
+actionview (7.0.3) lib/action_view/template.rb:361:in `instrument_render_template'
+actionview (7.0.3) lib/action_view/template.rb:155:in `render'
+actionview (7.0.3) lib/action_view/renderer/template_renderer.rb:65:in `block (2 levels) in render_template'
+activesupport (7.0.3) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.0.3) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (7.0.3) lib/active_support/notifications.rb:206:in `instrument'
+actionview (7.0.3) lib/action_view/renderer/template_renderer.rb:60:in `block in render_template'
+actionview (7.0.3) lib/action_view/renderer/template_renderer.rb:75:in `block in render_with_layout'
+activesupport (7.0.3) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.0.3) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (7.0.3) lib/active_support/notifications.rb:206:in `instrument'
+actionview (7.0.3) lib/action_view/renderer/template_renderer.rb:74:in `render_with_layout'
+actionview (7.0.3) lib/action_view/renderer/template_renderer.rb:59:in `render_template'
+actionview (7.0.3) lib/action_view/renderer/template_renderer.rb:11:in `render'
+actionview (7.0.3) lib/action_view/renderer/renderer.rb:61:in `render_template_to_object'
+actionview (7.0.3) lib/action_view/renderer/renderer.rb:29:in `render_to_object'
+actionview (7.0.3) lib/action_view/rendering.rb:117:in `block in _render_template'
+actionview (7.0.3) lib/action_view/base.rb:270:in `in_rendering_context'
+actionview (7.0.3) lib/action_view/rendering.rb:116:in `_render_template'
+actionpack (7.0.3) lib/action_controller/metal/streaming.rb:216:in `_render_template'
+actionview (7.0.3) lib/action_view/rendering.rb:103:in `render_to_body'
+actionpack (7.0.3) lib/action_controller/metal/rendering.rb:46:in `render_to_body'
+actionpack (7.0.3) lib/action_controller/metal/renderers.rb:141:in `render_to_body'
+actionpack (7.0.3) lib/abstract_controller/rendering.rb:25:in `render'
+actionpack (7.0.3) lib/action_controller/metal/rendering.rb:30:in `render'
+actionpack (7.0.3) lib/action_controller/metal/instrumentation.rb:22:in `block (2 levels) in render'
+/Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/3.0.0/benchmark.rb:308:in `realtime'
+activesupport (7.0.3) lib/active_support/core_ext/benchmark.rb:14:in `ms'
+actionpack (7.0.3) lib/action_controller/metal/instrumentation.rb:22:in `block in render'
+actionpack (7.0.3) lib/action_controller/metal/instrumentation.rb:91:in `cleanup_view_runtime'
+activerecord (7.0.3) lib/active_record/railties/controller_runtime.rb:34:in `cleanup_view_runtime'
+actionpack (7.0.3) lib/action_controller/metal/instrumentation.rb:21:in `render'
+administrate (0.17.0) app/controllers/administrate/application_controller.rb:25:in `show'
+actionpack (7.0.3) lib/action_controller/metal/basic_implicit_render.rb:6:in `send_action'
+actionpack (7.0.3) lib/abstract_controller/base.rb:215:in `process_action'
+actionpack (7.0.3) lib/action_controller/metal/rendering.rb:53:in `process_action'
+actionpack (7.0.3) lib/abstract_controller/callbacks.rb:234:in `block in process_action'
+activesupport (7.0.3) lib/active_support/callbacks.rb:118:in `block in run_callbacks'
+actiontext (7.0.3) lib/action_text/rendering.rb:20:in `with_renderer'
+actiontext (7.0.3) lib/action_text/engine.rb:69:in `block (4 levels) in <class:Engine>'
+activesupport (7.0.3) lib/active_support/callbacks.rb:127:in `instance_exec'
+activesupport (7.0.3) lib/active_support/callbacks.rb:127:in `block in run_callbacks'
+activesupport (7.0.3) lib/active_support/callbacks.rb:138:in `run_callbacks'
+actionpack (7.0.3) lib/abstract_controller/callbacks.rb:233:in `process_action'
+actionpack (7.0.3) lib/action_controller/metal/rescue.rb:22:in `process_action'
+actionpack (7.0.3) lib/action_controller/metal/instrumentation.rb:67:in `block in process_action'
+activesupport (7.0.3) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.0.3) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (7.0.3) lib/active_support/notifications.rb:206:in `instrument'
+actionpack (7.0.3) lib/action_controller/metal/instrumentation.rb:66:in `process_action'
+actionpack (7.0.3) lib/action_controller/metal/params_wrapper.rb:259:in `process_action'
+activerecord (7.0.3) lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+actionpack (7.0.3) lib/abstract_controller/base.rb:151:in `process'
+actionview (7.0.3) lib/action_view/rendering.rb:39:in `process'
+actionpack (7.0.3) lib/action_controller/metal.rb:188:in `dispatch'
+actionpack (7.0.3) lib/action_controller/metal.rb:251:in `dispatch'
+actionpack (7.0.3) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.0.3) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.0.3) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (7.0.3) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (7.0.3) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.0.3) lib/action_dispatch/routing/route_set.rb:852:in `call'
+clearance (2.5.0) lib/clearance/rack_session.rb:23:in `call'
+rack (2.2.3) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.3) lib/rack/etag.rb:27:in `call'
+rack (2.2.3) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.3) lib/rack/head.rb:12:in `call'
+actionpack (7.0.3) lib/action_dispatch/http/permissions_policy.rb:38:in `call'
+actionpack (7.0.3) lib/action_dispatch/http/content_security_policy.rb:36:in `call'
+rack (2.2.3) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.3) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (7.0.3) lib/action_dispatch/middleware/cookies.rb:697:in `call'
+activerecord (7.0.3) lib/active_record/migration.rb:603:in `call'
+actionpack (7.0.3) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.3) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.3) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.3) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+web-console (4.2.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.0.3) lib/action_dispatch/middleware/show_exceptions.rb:26:in `call'
+railties (7.0.3) lib/rails/rack/logger.rb:40:in `call_app'
+railties (7.0.3) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.3) lib/active_support/tagged_logging.rb:114:in `block in tagged'
+activesupport (7.0.3) lib/active_support/tagged_logging.rb:38:in `tagged'
+activesupport (7.0.3) lib/active_support/tagged_logging.rb:114:in `tagged'
+railties (7.0.3) lib/rails/rack/logger.rb:25:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.0.3) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.3) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.3) lib/action_dispatch/middleware/server_timing.rb:20:in `call'
+actionpack (7.0.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.3) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.3) lib/action_dispatch/middleware/host_authorization.rb:137:in `call'
+railties (7.0.3) lib/rails/engine.rb:530:in `call'
+puma (5.6.4) lib/puma/configuration.rb:252:in `call'
+puma (5.6.4) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.4) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.4) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.4) lib/puma/server.rb:441:in `process_client'
+puma (5.6.4) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started GET "/admin/companies/1" for ::1 at 2022-05-28 15:47:26 +0200
+Processing by Admin::CompaniesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["remember_token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mRole Load (0.1ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/models/user.rb:27:in `set_default_role'
+  [1m[36mCompany Load (0.2ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/layouts/administrate/application.html.erb
+  Rendering /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/show.html.erb within layouts/administrate/application
+  [1m[36mActionText::RichText Load (0.1ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = $1 AND "action_text_rich_texts"."record_type" = $2 AND "action_text_rich_texts"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "Company"], ["name", "description"], ["LIMIT", 1]]
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/actiontext-7.0.3/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 0.5ms | Allocations: 413)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/fields/text/_show.html.erb (Duration: 0.9ms | Allocations: 625)
+  [1m[36mJob Exists? (5.6ms)[0m  [1m[34mSELECT 1 AS one FROM "jobs" WHERE "jobs"."company_id" = $1 LIMIT $2 OFFSET $3[0m  [["company_id", 1], ["LIMIT", 1], ["OFFSET", 0]]
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/_collection_header_actions.html.erb (Duration: 0.2ms | Allocations: 236)
+  [1m[36mJob Load (0.2ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."company_id" = $1 LIMIT $2 OFFSET $3[0m  [["company_id", 1], ["LIMIT", 5], ["OFFSET", 0]]
+  [1m[36mActionText::RichText Load (0.2ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = $1 AND "action_text_rich_texts"."record_type" = $2 AND "action_text_rich_texts"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "Job"], ["name", "description"], ["LIMIT", 1]]
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/fields/belongs_to/_index.html.erb (Duration: 0.4ms | Allocations: 360)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/actiontext-7.0.3/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 0.3ms | Allocations: 324)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/fields/text/_index.html.erb (Duration: 0.4ms | Allocations: 524)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/fields/number/_index.html.erb (Duration: 0.0ms | Allocations: 25)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/fields/string/_index.html.erb (Duration: 0.0ms | Allocations: 16)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/_collection_item_actions.html.erb (Duration: 0.4ms | Allocations: 474)
+  [1m[36mActionText::RichText Load (0.2ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = $1 AND "action_text_rich_texts"."record_type" = $2 AND "action_text_rich_texts"."name" = $3 LIMIT $4[0m  [["record_id", 3], ["record_type", "Job"], ["name", "description"], ["LIMIT", 1]]
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/fields/belongs_to/_index.html.erb (Duration: 0.3ms | Allocations: 355)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/actiontext-7.0.3/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 1.1ms | Allocations: 1955)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/fields/text/_index.html.erb (Duration: 1.3ms | Allocations: 2126)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/fields/number/_index.html.erb (Duration: 0.0ms | Allocations: 24)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/fields/string/_index.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/_collection_item_actions.html.erb (Duration: 0.5ms | Allocations: 458)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/_collection.html.erb (Duration: 15.1ms | Allocations: 17851)
+  [1m[36mJob Count (6.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "jobs" WHERE "jobs"."company_id" = $1[0m  [["company_id", 1]]
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/fields/has_many/_show.html.erb (Duration: 38.3ms | Allocations: 23349)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/fields/number/_show.html.erb (Duration: 0.0ms | Allocations: 25)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/fields/string/_show.html.erb (Duration: 0.0ms | Allocations: 14)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/fields/date_time/_show.html.erb (Duration: 0.1ms | Allocations: 96)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/fields/date_time/_show.html.erb (Duration: 0.0ms | Allocations: 72)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/show.html.erb within layouts/administrate/application (Duration: 47.2ms | Allocations: 33231)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/_stylesheet.html.erb (Duration: 3.7ms | Allocations: 3680)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/_icons.html.erb (Duration: 0.0ms | Allocations: 13)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/_navigation.html.erb (Duration: 2.5ms | Allocations: 3180)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/_flashes.html.erb (Duration: 0.0ms | Allocations: 41)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/_javascript.html.erb (Duration: 2.3ms | Allocations: 3787)
+  Rendered layout /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/layouts/administrate/application.html.erb (Duration: 57.3ms | Allocations: 45495)
+Completed 200 OK in 92ms (Views: 43.6ms | ActiveRecord: 26.9ms | Allocations: 64141)
+
+
+Started GET "/admin/companies/1/edit" for ::1 at 2022-05-28 15:47:59 +0200
+Processing by Admin::CompaniesController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["remember_token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mRole Load (0.2ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/models/user.rb:27:in `set_default_role'
+  [1m[36mCompany Load (0.1ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/layouts/administrate/application.html.erb
+  Rendering /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/edit.html.erb within layouts/administrate/application
+  [1m[36mActionText::RichText Load (0.1ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = $1 AND "action_text_rich_texts"."record_type" = $2 AND "action_text_rich_texts"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "Company"], ["name", "description"], ["LIMIT", 1]]
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/actiontext-7.0.3/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 0.3ms | Allocations: 400)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/fields/text/_form.html.erb (Duration: 9.2ms | Allocations: 6580)
+  [1m[36mJob Load (0.3ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs"[0m
+  [1m[36mJob Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "jobs" WHERE "jobs"."company_id" = $1 LIMIT $2[0m  [["company_id", 1], ["LIMIT", 1]]
+  [1m[36mJob Load (0.1ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."company_id" = $1[0m  [["company_id", 1]]
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/fields/has_many/_form.html.erb (Duration: 5.0ms | Allocations: 6623)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/fields/string/_form.html.erb (Duration: 0.2ms | Allocations: 258)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/_form.html.erb (Duration: 17.5ms | Allocations: 16672)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/edit.html.erb within layouts/administrate/application (Duration: 18.4ms | Allocations: 18297)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/_stylesheet.html.erb (Duration: 2.4ms | Allocations: 3553)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/_icons.html.erb (Duration: 0.0ms | Allocations: 12)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/_navigation.html.erb (Duration: 1.7ms | Allocations: 2608)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/_flashes.html.erb (Duration: 0.0ms | Allocations: 33)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/_javascript.html.erb (Duration: 2.1ms | Allocations: 3604)
+  Rendered layout /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/layouts/administrate/application.html.erb (Duration: 25.4ms | Allocations: 28857)
+Completed 200 OK in 33ms (Views: 25.2ms | ActiveRecord: 1.3ms | Allocations: 32624)
+
+
+Started PATCH "/admin/companies/1" for ::1 at 2022-05-28 15:48:20 +0200
+Processing by Admin::CompaniesController#update as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "company"=>{"description"=>"<div class=\"trix-content\">\r\n  <div><strong>Anity is connecting businesses with software engineers, designers, finance experts, product managers, and project managers to their dream job....</strong></div>\r\n</div>\r\n", "job_ids"=>["", "3", "1"], "name"=>"Anity"}, "commit"=>"Update Company", "id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["remember_token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mRole Load (0.1ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/models/user.rb:27:in `set_default_role'
+  [1m[36mCompany Load (0.1ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActionText::RichText Load (0.1ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = $1 AND "action_text_rich_texts"."record_type" = $2 AND "action_text_rich_texts"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "Company"], ["name", "description"], ["LIMIT", 1]]
+  [1m[36mJob Load (0.6ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."id" IN ($1, $2)[0m  [["id", 3], ["id", 1]]
+  [1m[36mJob Load (0.2ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."company_id" = $1[0m  [["company_id", 1]]
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/actiontext-7.0.3/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 0.3ms | Allocations: 345)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/actiontext-7.0.3/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 0.3ms | Allocations: 388)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/actiontext-7.0.3/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 0.2ms | Allocations: 314)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/actiontext-7.0.3/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 0.2ms | Allocations: 382)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/actiontext-7.0.3/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 0.3ms | Allocations: 362)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/actiontext-7.0.3/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 0.2ms | Allocations: 388)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/actiontext-7.0.3/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 0.3ms | Allocations: 314)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/actiontext-7.0.3/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 0.2ms | Allocations: 382)
+  [1m[36mActionText::RichText Update (0.6ms)[0m  [1m[33mUPDATE "action_text_rich_texts" SET "body" = $1, "updated_at" = $2 WHERE "action_text_rich_texts"."id" = $3[0m  [["body", "<div class=\"trix-content\">\r\n  <div><strong>Anity is connecting businesses with software engineers, designers, finance experts, product managers, and project managers to their dream job....</strong></div>\r\n</div>"], ["updated_at", "2022-05-28 13:48:21.029645"], ["id", 1]]
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/actiontext-7.0.3/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 0.2ms | Allocations: 314)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/actiontext-7.0.3/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 0.2ms | Allocations: 382)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/actiontext-7.0.3/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 0.2ms | Allocations: 314)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/actiontext-7.0.3/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 0.2ms | Allocations: 382)
+  [1m[36mActiveStorage::Attachment Load (4.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3[0m  [["record_id", 1], ["record_type", "ActionText::RichText"], ["name", "embeds"]]
+  [1m[36mCompany Update (0.4ms)[0m  [1m[33mUPDATE "companies" SET "updated_at" = $1 WHERE "companies"."id" = $2[0m  [["updated_at", "2022-05-28 13:48:21.034303"], ["id", 1]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/admin/companies/1
+Completed 302 Found in 44ms (ActiveRecord: 10.0ms | Allocations: 38841)
+
+
+Started GET "/admin/companies/1" for ::1 at 2022-05-28 15:48:21 +0200
+Processing by Admin::CompaniesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["remember_token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mRole Load (0.1ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/models/user.rb:27:in `set_default_role'
+  [1m[36mCompany Load (0.1ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/layouts/administrate/application.html.erb
+  Rendering /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/show.html.erb within layouts/administrate/application
+  [1m[36mActionText::RichText Load (0.1ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = $1 AND "action_text_rich_texts"."record_type" = $2 AND "action_text_rich_texts"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "Company"], ["name", "description"], ["LIMIT", 1]]
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/actiontext-7.0.3/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 0.4ms | Allocations: 427)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/fields/text/_show.html.erb (Duration: 0.6ms | Allocations: 600)
+  [1m[36mJob Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "jobs" WHERE "jobs"."company_id" = $1 LIMIT $2 OFFSET $3[0m  [["company_id", 1], ["LIMIT", 1], ["OFFSET", 0]]
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/_collection_header_actions.html.erb (Duration: 2.9ms | Allocations: 231)
+  [1m[36mJob Load (0.4ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."company_id" = $1 LIMIT $2 OFFSET $3[0m  [["company_id", 1], ["LIMIT", 5], ["OFFSET", 0]]
+  [1m[36mActionText::RichText Load (0.2ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = $1 AND "action_text_rich_texts"."record_type" = $2 AND "action_text_rich_texts"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "Job"], ["name", "description"], ["LIMIT", 1]]
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/fields/belongs_to/_index.html.erb (Duration: 0.9ms | Allocations: 355)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/actiontext-7.0.3/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 0.3ms | Allocations: 286)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/fields/text/_index.html.erb (Duration: 3.0ms | Allocations: 459)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/fields/number/_index.html.erb (Duration: 0.0ms | Allocations: 24)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/fields/string/_index.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/_collection_item_actions.html.erb (Duration: 8.1ms | Allocations: 461)
+  [1m[36mActionText::RichText Load (0.3ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = $1 AND "action_text_rich_texts"."record_type" = $2 AND "action_text_rich_texts"."name" = $3 LIMIT $4[0m  [["record_id", 3], ["record_type", "Job"], ["name", "description"], ["LIMIT", 1]]
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/fields/belongs_to/_index.html.erb (Duration: 0.3ms | Allocations: 355)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/actiontext-7.0.3/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 1.2ms | Allocations: 1949)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/fields/text/_index.html.erb (Duration: 1.5ms | Allocations: 2120)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/fields/number/_index.html.erb (Duration: 0.0ms | Allocations: 24)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/fields/string/_index.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/_collection_item_actions.html.erb (Duration: 0.5ms | Allocations: 458)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/_collection.html.erb (Duration: 48.5ms | Allocations: 13599)
+  [1m[36mJob Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "jobs" WHERE "jobs"."company_id" = $1[0m  [["company_id", 1]]
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/fields/has_many/_show.html.erb (Duration: 61.2ms | Allocations: 16725)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/fields/number/_show.html.erb (Duration: 0.0ms | Allocations: 24)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/fields/string/_show.html.erb (Duration: 0.0ms | Allocations: 13)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/fields/date_time/_show.html.erb (Duration: 0.1ms | Allocations: 79)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/fields/date_time/_show.html.erb (Duration: 0.0ms | Allocations: 72)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/show.html.erb within layouts/administrate/application (Duration: 65.7ms | Allocations: 22069)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/_stylesheet.html.erb (Duration: 3.8ms | Allocations: 3633)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/_icons.html.erb (Duration: 0.0ms | Allocations: 12)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/_navigation.html.erb (Duration: 1.8ms | Allocations: 2581)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/_flashes.html.erb (Duration: 0.1ms | Allocations: 37)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/_javascript.html.erb (Duration: 2.3ms | Allocations: 3698)
+  Rendered layout /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/layouts/administrate/application.html.erb (Duration: 74.6ms | Allocations: 32944)
+Completed 200 OK in 78ms (Views: 73.0ms | ActiveRecord: 2.2ms | Allocations: 36464)
+
+
+Started GET "/admin/companies/1/edit" for ::1 at 2022-05-28 15:48:23 +0200
+Processing by Admin::CompaniesController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["remember_token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mRole Load (0.6ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/models/user.rb:27:in `set_default_role'
+  [1m[36mCompany Load (0.2ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/layouts/administrate/application.html.erb
+  Rendering /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/edit.html.erb within layouts/administrate/application
+  [1m[36mActionText::RichText Load (0.1ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = $1 AND "action_text_rich_texts"."record_type" = $2 AND "action_text_rich_texts"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "Company"], ["name", "description"], ["LIMIT", 1]]
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/actiontext-7.0.3/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 0.3ms | Allocations: 382)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/fields/text/_form.html.erb (Duration: 0.6ms | Allocations: 776)
+  [1m[36mJob Load (0.2ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs"[0m
+  [1m[36mJob Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "jobs" WHERE "jobs"."company_id" = $1 LIMIT $2[0m  [["company_id", 1], ["LIMIT", 1]]
+  [1m[36mJob Load (0.1ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."company_id" = $1[0m  [["company_id", 1]]
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/fields/has_many/_form.html.erb (Duration: 3.7ms | Allocations: 5101)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/fields/string/_form.html.erb (Duration: 0.2ms | Allocations: 241)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/_form.html.erb (Duration: 6.9ms | Allocations: 8909)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/edit.html.erb within layouts/administrate/application (Duration: 7.6ms | Allocations: 10384)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/_stylesheet.html.erb (Duration: 2.1ms | Allocations: 3458)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/_icons.html.erb (Duration: 0.0ms | Allocations: 12)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/_navigation.html.erb (Duration: 1.9ms | Allocations: 2578)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/_flashes.html.erb (Duration: 0.0ms | Allocations: 27)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/_javascript.html.erb (Duration: 2.2ms | Allocations: 3680)
+  Rendered layout /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/layouts/administrate/application.html.erb (Duration: 14.6ms | Allocations: 20880)
+Completed 200 OK in 22ms (Views: 14.2ms | ActiveRecord: 1.7ms | Allocations: 24303)
+
+
+Started GET "/admin/jobs" for ::1 at 2022-05-28 15:48:31 +0200
+Processing by Admin::JobsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["remember_token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mRole Load (0.1ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/models/user.rb:27:in `set_default_role'
+  Rendering layout /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/layouts/administrate/application.html.erb
+  Rendering /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/index.html.erb within layouts/administrate/application
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/_search.html.erb (Duration: 0.3ms | Allocations: 400)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/_index_header.html.erb (Duration: 1.2ms | Allocations: 2147)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/_collection_header_actions.html.erb (Duration: 0.3ms | Allocations: 233)
+  [1m[36mJob Load (0.2ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" LIMIT $1 OFFSET $2[0m  [["LIMIT", 20], ["OFFSET", 0]]
+  [1m[36mCompany Load (0.3ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" IN ($1, $2)[0m  [["id", 2], ["id", 1]]
+  [1m[36mActionText::RichText Load (0.1ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = $1 AND "action_text_rich_texts"."record_type" = $2 AND "action_text_rich_texts"."name" = $3 LIMIT $4[0m  [["record_id", 2], ["record_type", "Job"], ["name", "description"], ["LIMIT", 1]]
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/fields/belongs_to/_index.html.erb (Duration: 0.2ms | Allocations: 359)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/actiontext-7.0.3/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 0.2ms | Allocations: 341)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/fields/text/_index.html.erb (Duration: 0.3ms | Allocations: 535)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/fields/number/_index.html.erb (Duration: 0.0ms | Allocations: 25)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/fields/string/_index.html.erb (Duration: 0.1ms | Allocations: 16)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/_collection_item_actions.html.erb (Duration: 0.5ms | Allocations: 468)
+  [1m[36mActionText::RichText Load (0.1ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = $1 AND "action_text_rich_texts"."record_type" = $2 AND "action_text_rich_texts"."name" = $3 LIMIT $4[0m  [["record_id", 3], ["record_type", "Job"], ["name", "description"], ["LIMIT", 1]]
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/fields/belongs_to/_index.html.erb (Duration: 0.2ms | Allocations: 355)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/actiontext-7.0.3/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 1.0ms | Allocations: 1955)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/fields/text/_index.html.erb (Duration: 1.1ms | Allocations: 2126)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/fields/number/_index.html.erb (Duration: 0.0ms | Allocations: 24)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/fields/string/_index.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/_collection_item_actions.html.erb (Duration: 0.5ms | Allocations: 458)
+  [1m[36mActionText::RichText Load (0.1ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = $1 AND "action_text_rich_texts"."record_type" = $2 AND "action_text_rich_texts"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "Job"], ["name", "description"], ["LIMIT", 1]]
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/fields/belongs_to/_index.html.erb (Duration: 0.3ms | Allocations: 355)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/actiontext-7.0.3/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 0.2ms | Allocations: 286)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/fields/text/_index.html.erb (Duration: 0.3ms | Allocations: 457)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/fields/number/_index.html.erb (Duration: 0.0ms | Allocations: 24)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/fields/string/_index.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/_collection_item_actions.html.erb (Duration: 0.5ms | Allocations: 458)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/_collection.html.erb (Duration: 13.1ms | Allocations: 18610)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/index.html.erb within layouts/administrate/application (Duration: 15.0ms | Allocations: 21349)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/_stylesheet.html.erb (Duration: 2.0ms | Allocations: 3593)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/_icons.html.erb (Duration: 0.0ms | Allocations: 13)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/_navigation.html.erb (Duration: 1.7ms | Allocations: 2563)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/_flashes.html.erb (Duration: 0.0ms | Allocations: 35)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/_javascript.html.erb (Duration: 1.9ms | Allocations: 3608)
+  Rendered layout /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/layouts/administrate/application.html.erb (Duration: 21.5ms | Allocations: 32097)
+Completed 200 OK in 25ms (Views: 21.4ms | ActiveRecord: 1.1ms | Allocations: 35688)
+
+
+Started GET "/admin/roles" for ::1 at 2022-05-28 15:48:32 +0200
+Processing by Admin::RolesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["remember_token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mRole Load (0.1ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/models/user.rb:27:in `set_default_role'
+  Rendering layout /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/layouts/administrate/application.html.erb
+  Rendering /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/index.html.erb within layouts/administrate/application
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/_index_header.html.erb (Duration: 0.9ms | Allocations: 1524)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/_collection_header_actions.html.erb (Duration: 0.1ms | Allocations: 121)
+  [1m[36mRole Load (0.4ms)[0m  [1m[34mSELECT "roles".* FROM "roles" LIMIT $1 OFFSET $2[0m  [["LIMIT", 20], ["OFFSET", 0]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."role_id" IN ($1, $2)[0m  [["role_id", 2], ["role_id", 3]]
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/fields/has_many/_index.html.erb (Duration: 0.1ms | Allocations: 49)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/fields/number/_index.html.erb (Duration: 0.0ms | Allocations: 25)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/fields/select/_index.html.erb (Duration: 0.0ms | Allocations: 14)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/fields/date_time/_index.html.erb (Duration: 0.1ms | Allocations: 92)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/_collection_item_actions.html.erb (Duration: 0.4ms | Allocations: 361)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/fields/has_many/_index.html.erb (Duration: 0.0ms | Allocations: 37)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/fields/number/_index.html.erb (Duration: 0.0ms | Allocations: 24)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/fields/select/_index.html.erb (Duration: 0.0ms | Allocations: 13)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/fields/date_time/_index.html.erb (Duration: 0.1ms | Allocations: 72)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/_collection_item_actions.html.erb (Duration: 0.2ms | Allocations: 346)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/_collection.html.erb (Duration: 6.5ms | Allocations: 8592)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/index.html.erb within layouts/administrate/application (Duration: 7.9ms | Allocations: 10703)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/_stylesheet.html.erb (Duration: 2.0ms | Allocations: 3592)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/_icons.html.erb (Duration: 0.0ms | Allocations: 13)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/_navigation.html.erb (Duration: 1.5ms | Allocations: 2563)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/_flashes.html.erb (Duration: 0.0ms | Allocations: 35)
+  Rendered /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/administrate/application/_javascript.html.erb (Duration: 1.7ms | Allocations: 3608)
+  Rendered layout /Users/tresorbireke/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/administrate-0.17.0/app/views/layouts/administrate/application.html.erb (Duration: 14.0ms | Allocations: 21450)
+Completed 200 OK in 18ms (Views: 14.0ms | ActiveRecord: 1.0ms | Allocations: 25772)
+
+
+Started GET "/" for ::1 at 2022-05-28 15:48:33 +0200
+Processing by JobsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (0.3ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs"[0m
+  ↳ app/views/jobs/index.html.erb:2
+  [1m[36mCompany Load (0.2ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  [1m[36mCompany Load (0.1ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  [1m[36mCACHE Company Load (0.0ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  Rendered collection of jobs/_job_preview.html.erb [3 times] (Duration: 3.5ms | Allocations: 3527)
+  Rendered jobs/index.html.erb within layouts/application (Duration: 4.7ms | Allocations: 4390)
+  Rendered layouts/_nav.html.erb (Duration: 0.1ms | Allocations: 67)
+  Rendered application/_flashes.html.erb (Duration: 0.0ms | Allocations: 35)
+  Rendered layout layouts/application.html.erb (Duration: 24.3ms | Allocations: 34584)
+Completed 200 OK in 25ms (Views: 24.4ms | ActiveRecord: 0.6ms | Allocations: 35501)
+>>>>>>> 8ebbe12 (install administrate)
 
 
