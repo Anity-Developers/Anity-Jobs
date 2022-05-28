@@ -6,4 +6,12 @@ class Job < ApplicationRecord
   validates :description, presence: true
   validates :company, presence: true
   validates :application_url, presence: true
+
+  enum status: {
+    pending: 0,
+    published: 1,
+    closed: 2,
+  }
+
+
 end

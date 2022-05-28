@@ -1,6 +1,6 @@
 class JobsController < ApplicationController
   def index
-    @jobs = Job.all
+    @jobs = Job.all.order(created_at: :desc)
   end
 
   def new
@@ -25,6 +25,6 @@ class JobsController < ApplicationController
   private
 
   def job_params
-    params.require(:job).permit(:title, :description, :company_id, :application_url)
+    params.require(:job).permit(:title, :description, :company_id, :application_url, :status)
   end
 end
