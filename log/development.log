@@ -7634,3 +7634,1899 @@ Processing by JobsController#index as HTML
 Completed 200 OK in 24ms (Views: 21.0ms | ActiveRecord: 1.7ms | Allocations: 13603)
 
 
+Started GET "/" for 127.0.0.1 at 2022-05-28 11:29:29 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (48.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by JobsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (141.9ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs"[0m
+  ↳ app/views/jobs/index.html.erb:2
+  [1m[36mCompany Load (70.8ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  Rendered collection of jobs/_job_preview.html.erb [1 times] (Duration: 394.2ms | Allocations: 17522)
+  Rendered jobs/index.html.erb within layouts/application (Duration: 690.1ms | Allocations: 23646)
+  Rendered layouts/_nav.html.erb (Duration: 1.5ms | Allocations: 214)
+  Rendered application/_flashes.html.erb (Duration: 1.3ms | Allocations: 249)
+  Rendered layout layouts/application.html.erb (Duration: 1818.6ms | Allocations: 83205)
+Completed 200 OK in 2262ms (Views: 1536.6ms | ActiveRecord: 297.2ms | Allocations: 93356)
+
+
+Started GET "/jobs/1" for 127.0.0.1 at 2022-05-28 11:29:40 +0300
+Processing by JobsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mJob Load (0.5ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/jobs_controller.rb:22:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/show.html.erb within layouts/application
+  [1m[36mActionText::RichText Load (69.5ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = $1 AND "action_text_rich_texts"."record_type" = $2 AND "action_text_rich_texts"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "Job"], ["name", "description"], ["LIMIT", 1]]
+  ↳ app/views/jobs/show.html.erb:13
+  Rendered /home/victor-barh/.rbenv/versions/3.0.2/lib/ruby/gems/3.0.0/gems/actiontext-7.0.2.3/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 39.2ms | Allocations: 697)
+  Rendered jobs/show.html.erb within layouts/application (Duration: 537.7ms | Allocations: 18025)
+  Rendered layouts/_nav.html.erb (Duration: 0.3ms | Allocations: 69)
+  Rendered application/_flashes.html.erb (Duration: 0.2ms | Allocations: 33)
+  Rendered layout layouts/application.html.erb (Duration: 588.2ms | Allocations: 25743)
+Completed 200 OK in 595ms (Views: 514.8ms | ActiveRecord: 75.1ms | Allocations: 27430)
+
+
+Started GET "/" for 127.0.0.1 at 2022-05-28 11:29:55 +0300
+Processing by JobsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (0.3ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs"[0m
+  ↳ app/views/jobs/index.html.erb:2
+  [1m[36mCompany Load (0.4ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  Rendered collection of jobs/_job_preview.html.erb [1 times] (Duration: 5.3ms | Allocations: 855)
+  Rendered jobs/index.html.erb within layouts/application (Duration: 8.6ms | Allocations: 1610)
+  Rendered layouts/_nav.html.erb (Duration: 0.2ms | Allocations: 44)
+  Rendered application/_flashes.html.erb (Duration: 0.1ms | Allocations: 27)
+  Rendered layout layouts/application.html.erb (Duration: 30.2ms | Allocations: 9138)
+Completed 200 OK in 32ms (Views: 30.7ms | ActiveRecord: 0.7ms | Allocations: 9499)
+
+
+Started GET "/jobs/new" for 127.0.0.1 at 2022-05-28 11:33:46 +0300
+Processing by JobsController#new as HTML
+  [1m[36mUser Load (110.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["remember_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/controllers/jobs_controller.rb:8:in `new'
+  [1m[36mRole Load (96.7ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/user.rb:27:in `set_default_role'
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/new.html.erb within layouts/application
+  [1m[36mCompany Pluck (0.4ms)[0m  [1m[34mSELECT "companies"."name", "companies"."id" FROM "companies"[0m
+  ↳ app/views/jobs/_form.html.erb:12
+  Rendered jobs/_form.html.erb (Duration: 91.3ms | Allocations: 6948)
+  Rendered jobs/new.html.erb within layouts/application (Duration: 92.7ms | Allocations: 7257)
+  Rendered layouts/_nav.html.erb (Duration: 0.3ms | Allocations: 48)
+  Rendered application/_flashes.html.erb (Duration: 0.2ms | Allocations: 33)
+  Rendered layout layouts/application.html.erb (Duration: 112.1ms | Allocations: 14624)
+Completed 200 OK in 856ms (Views: 113.4ms | ActiveRecord: 215.3ms | Allocations: 33592)
+
+
+Started GET "/" for 127.0.0.1 at 2022-05-28 11:34:02 +0300
+Processing by JobsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (0.7ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs"[0m
+  ↳ app/views/jobs/index.html.erb:2
+  [1m[36mCompany Load (0.8ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  Rendered collection of jobs/_job_preview.html.erb [1 times] (Duration: 6.4ms | Allocations: 835)
+  Rendered jobs/index.html.erb within layouts/application (Duration: 13.3ms | Allocations: 1587)
+  Rendered layouts/_nav.html.erb (Duration: 0.2ms | Allocations: 44)
+  Rendered application/_flashes.html.erb (Duration: 0.1ms | Allocations: 27)
+  Rendered layout layouts/application.html.erb (Duration: 36.9ms | Allocations: 9108)
+Completed 200 OK in 39ms (Views: 36.7ms | ActiveRecord: 1.4ms | Allocations: 9484)
+
+
+Started GET "/jobs/new" for 127.0.0.1 at 2022-05-28 11:34:22 +0300
+Processing by JobsController#new as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["remember_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/controllers/jobs_controller.rb:8:in `new'
+  [1m[36mRole Load (0.4ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/user.rb:27:in `set_default_role'
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/new.html.erb within layouts/application
+  [1m[36mCompany Pluck (0.6ms)[0m  [1m[34mSELECT "companies"."name", "companies"."id" FROM "companies"[0m
+  ↳ app/views/jobs/_form.html.erb:12
+  Rendered jobs/_form.html.erb (Duration: 14.2ms | Allocations: 2228)
+  Rendered jobs/new.html.erb within layouts/application (Duration: 15.1ms | Allocations: 2307)
+  Rendered layouts/_nav.html.erb (Duration: 0.3ms | Allocations: 45)
+  Rendered application/_flashes.html.erb (Duration: 0.9ms | Allocations: 27)
+  Rendered layout layouts/application.html.erb (Duration: 39.5ms | Allocations: 9536)
+Completed 200 OK in 51ms (Views: 41.4ms | ActiveRecord: 1.6ms | Allocations: 11389)
+
+
+Started POST "/jobs" for 127.0.0.1 at 2022-05-28 11:44:14 +0300
+Processing by JobsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "job"=>{"title"=>"Full-Stack developer", "application_url"=>"https://www.toptal.com/freelance-jobs/developers/ruby-on-rails/job-description/ruby-on-rails-developer-full-time-3?", "company_id"=>"", "description"=>"<div>Toptal freelancers work with speed and efficiency to deliver the highest quality of work. We are looking for someone who is passionate about their client’s business, and ready to work on exciting projects with Fortune 500 companies and Silicon Valley startups, with great rates and zero hassles. If you are looking for a place to advance your career, enhance your skill set, and build connections around the globe, Toptal is right for you.</div>"}, "commit"=>"Create Job"}
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/new.html.erb within layouts/application
+  [1m[36mCompany Pluck (0.7ms)[0m  [1m[34mSELECT "companies"."name", "companies"."id" FROM "companies"[0m
+  ↳ app/views/jobs/_form.html.erb:12
+  Rendered jobs/_form.html.erb (Duration: 35.3ms | Allocations: 2510)
+  Rendered jobs/new.html.erb within layouts/application (Duration: 35.7ms | Allocations: 2645)
+  Rendered layouts/_nav.html.erb (Duration: 0.2ms | Allocations: 47)
+  Rendered application/_flashes.html.erb (Duration: 0.1ms | Allocations: 33)
+  Rendered layout layouts/application.html.erb (Duration: 54.1ms | Allocations: 9965)
+Completed 200 OK in 143ms (Views: 54.4ms | ActiveRecord: 14.9ms | Allocations: 14996)
+
+
+Started POST "/jobs" for 127.0.0.1 at 2022-05-28 11:44:16 +0300
+Processing by JobsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "job"=>{"title"=>"Full-Stack developer", "application_url"=>"https://www.toptal.com/freelance-jobs/developers/ruby-on-rails/job-description/ruby-on-rails-developer-full-time-3?", "company_id"=>"", "description"=>"<div>Toptal freelancers work with speed and efficiency to deliver the highest quality of work. We are looking for someone who is passionate about their client’s business, and ready to work on exciting projects with Fortune 500 companies and Silicon Valley startups, with great rates and zero hassles. If you are looking for a place to advance your career, enhance your skill set, and build connections around the globe, Toptal is right for you.</div>"}, "commit"=>"Create Job"}
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/new.html.erb within layouts/application
+  [1m[36mCompany Pluck (0.4ms)[0m  [1m[34mSELECT "companies"."name", "companies"."id" FROM "companies"[0m
+  ↳ app/views/jobs/_form.html.erb:12
+  Rendered jobs/_form.html.erb (Duration: 8.7ms | Allocations: 2221)
+  Rendered jobs/new.html.erb within layouts/application (Duration: 9.2ms | Allocations: 2303)
+  Rendered layouts/_nav.html.erb (Duration: 0.3ms | Allocations: 45)
+  Rendered application/_flashes.html.erb (Duration: 0.1ms | Allocations: 27)
+  Rendered layout layouts/application.html.erb (Duration: 23.2ms | Allocations: 9514)
+Completed 200 OK in 31ms (Views: 24.1ms | ActiveRecord: 0.4ms | Allocations: 11585)
+
+
+Started POST "/jobs" for 127.0.0.1 at 2022-05-28 11:44:18 +0300
+Processing by JobsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "job"=>{"title"=>"Full-Stack developer", "application_url"=>"https://www.toptal.com/freelance-jobs/developers/ruby-on-rails/job-description/ruby-on-rails-developer-full-time-3?", "company_id"=>"", "description"=>"<div>Toptal freelancers work with speed and efficiency to deliver the highest quality of work. We are looking for someone who is passionate about their client’s business, and ready to work on exciting projects with Fortune 500 companies and Silicon Valley startups, with great rates and zero hassles. If you are looking for a place to advance your career, enhance your skill set, and build connections around the globe, Toptal is right for you.</div>"}, "commit"=>"Create Job"}
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/new.html.erb within layouts/application
+  [1m[36mCompany Pluck (0.4ms)[0m  [1m[34mSELECT "companies"."name", "companies"."id" FROM "companies"[0m
+  ↳ app/views/jobs/_form.html.erb:12
+  Rendered jobs/_form.html.erb (Duration: 7.6ms | Allocations: 2213)
+  Rendered jobs/new.html.erb within layouts/application (Duration: 8.0ms | Allocations: 2295)
+  Rendered layouts/_nav.html.erb (Duration: 0.2ms | Allocations: 45)
+  Rendered application/_flashes.html.erb (Duration: 0.1ms | Allocations: 27)
+  Rendered layout layouts/application.html.erb (Duration: 25.3ms | Allocations: 9505)
+Completed 200 OK in 32ms (Views: 25.9ms | ActiveRecord: 0.4ms | Allocations: 11560)
+
+
+Started POST "/jobs" for 127.0.0.1 at 2022-05-28 11:44:27 +0300
+Processing by JobsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "job"=>{"title"=>"Full-Stack developer", "application_url"=>"https://www.toptal.com/freelance-jobs/developers/ruby-on-rails/job-description/ruby-on-rails-developer-full-time-3?", "company_id"=>"", "description"=>"<div>Toptal freelancers work with speed and efficiency to deliver the highest quality of work. We are looking for someone who is passionate about their client’s business, and ready to work on exciting projects with Fortune 500 companies and Silicon Valley startups, with great rates and zero hassles. If you are looking for a place to advance your career, enhance your skill set, and build connections around the globe, Toptal is right for you.</div>"}, "commit"=>"Create Job"}
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/new.html.erb within layouts/application
+  [1m[36mCompany Pluck (0.5ms)[0m  [1m[34mSELECT "companies"."name", "companies"."id" FROM "companies"[0m
+  ↳ app/views/jobs/_form.html.erb:12
+  Rendered jobs/_form.html.erb (Duration: 7.7ms | Allocations: 2213)
+  Rendered jobs/new.html.erb within layouts/application (Duration: 8.1ms | Allocations: 2295)
+  Rendered layouts/_nav.html.erb (Duration: 0.3ms | Allocations: 45)
+  Rendered application/_flashes.html.erb (Duration: 0.1ms | Allocations: 27)
+  Rendered layout layouts/application.html.erb (Duration: 25.8ms | Allocations: 9505)
+Completed 200 OK in 31ms (Views: 26.2ms | ActiveRecord: 0.5ms | Allocations: 11567)
+
+
+Started POST "/jobs" for 127.0.0.1 at 2022-05-28 11:44:33 +0300
+Processing by JobsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "job"=>{"title"=>"Full-Stack developer", "application_url"=>"https://www.toptal.com/freelance-jobs/developers/ruby-on-rails/job-description/ruby-on-rails-developer-full-time-3?", "company_id"=>"", "description"=>"<div>Toptal freelancers work with speed and efficiency to deliver the highest quality of work. We are looking for someone who is passionate about their client’s business, and ready to work on exciting projects with Fortune 500 companies and Silicon Valley startups, with great rates and zero hassles. If you are looking for a place to advance your career, enhance your skill set, and build connections around the globe, Toptal is right for you.</div>"}, "commit"=>"Create Job"}
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/new.html.erb within layouts/application
+  [1m[36mCompany Pluck (0.4ms)[0m  [1m[34mSELECT "companies"."name", "companies"."id" FROM "companies"[0m
+  ↳ app/views/jobs/_form.html.erb:12
+  Rendered jobs/_form.html.erb (Duration: 10.1ms | Allocations: 2220)
+  Rendered jobs/new.html.erb within layouts/application (Duration: 10.9ms | Allocations: 2302)
+  Rendered layouts/_nav.html.erb (Duration: 0.2ms | Allocations: 45)
+  Rendered application/_flashes.html.erb (Duration: 0.1ms | Allocations: 27)
+  Rendered layout layouts/application.html.erb (Duration: 29.4ms | Allocations: 9513)
+Completed 200 OK in 37ms (Views: 30.1ms | ActiveRecord: 0.4ms | Allocations: 11586)
+
+
+Started POST "/jobs" for 127.0.0.1 at 2022-05-28 11:44:34 +0300
+Processing by JobsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "job"=>{"title"=>"Full-Stack developer", "application_url"=>"https://www.toptal.com/freelance-jobs/developers/ruby-on-rails/job-description/ruby-on-rails-developer-full-time-3?", "company_id"=>"", "description"=>"<div>Toptal freelancers work with speed and efficiency to deliver the highest quality of work. We are looking for someone who is passionate about their client’s business, and ready to work on exciting projects with Fortune 500 companies and Silicon Valley startups, with great rates and zero hassles. If you are looking for a place to advance your career, enhance your skill set, and build connections around the globe, Toptal is right for you.</div>"}, "commit"=>"Create Job"}
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/new.html.erb within layouts/application
+  [1m[36mCompany Pluck (0.3ms)[0m  [1m[34mSELECT "companies"."name", "companies"."id" FROM "companies"[0m
+  ↳ app/views/jobs/_form.html.erb:12
+  Rendered jobs/_form.html.erb (Duration: 7.7ms | Allocations: 2212)
+  Rendered jobs/new.html.erb within layouts/application (Duration: 8.3ms | Allocations: 2294)
+  Rendered layouts/_nav.html.erb (Duration: 0.2ms | Allocations: 45)
+  Rendered application/_flashes.html.erb (Duration: 0.1ms | Allocations: 27)
+  Rendered layout layouts/application.html.erb (Duration: 27.0ms | Allocations: 9504)
+Completed 200 OK in 33ms (Views: 28.0ms | ActiveRecord: 0.3ms | Allocations: 11557)
+
+
+Started POST "/jobs" for 127.0.0.1 at 2022-05-28 11:44:34 +0300
+Processing by JobsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "job"=>{"title"=>"Full-Stack developer", "application_url"=>"https://www.toptal.com/freelance-jobs/developers/ruby-on-rails/job-description/ruby-on-rails-developer-full-time-3?", "company_id"=>"", "description"=>"<div>Toptal freelancers work with speed and efficiency to deliver the highest quality of work. We are looking for someone who is passionate about their client’s business, and ready to work on exciting projects with Fortune 500 companies and Silicon Valley startups, with great rates and zero hassles. If you are looking for a place to advance your career, enhance your skill set, and build connections around the globe, Toptal is right for you.</div>"}, "commit"=>"Create Job"}
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/new.html.erb within layouts/application
+  [1m[36mCompany Pluck (0.9ms)[0m  [1m[34mSELECT "companies"."name", "companies"."id" FROM "companies"[0m
+  ↳ app/views/jobs/_form.html.erb:12
+  Rendered jobs/_form.html.erb (Duration: 12.3ms | Allocations: 2212)
+  Rendered jobs/new.html.erb within layouts/application (Duration: 13.7ms | Allocations: 2294)
+  Rendered layouts/_nav.html.erb (Duration: 0.2ms | Allocations: 45)
+  Rendered application/_flashes.html.erb (Duration: 0.1ms | Allocations: 27)
+  Rendered layout layouts/application.html.erb (Duration: 32.6ms | Allocations: 9504)
+Completed 200 OK in 40ms (Views: 33.3ms | ActiveRecord: 0.9ms | Allocations: 11553)
+
+
+Started POST "/jobs" for 127.0.0.1 at 2022-05-28 11:44:35 +0300
+Processing by JobsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "job"=>{"title"=>"Full-Stack developer", "application_url"=>"https://www.toptal.com/freelance-jobs/developers/ruby-on-rails/job-description/ruby-on-rails-developer-full-time-3?", "company_id"=>"", "description"=>"<div>Toptal freelancers work with speed and efficiency to deliver the highest quality of work. We are looking for someone who is passionate about their client’s business, and ready to work on exciting projects with Fortune 500 companies and Silicon Valley startups, with great rates and zero hassles. If you are looking for a place to advance your career, enhance your skill set, and build connections around the globe, Toptal is right for you.</div>"}, "commit"=>"Create Job"}
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/new.html.erb within layouts/application
+  [1m[36mCompany Pluck (0.4ms)[0m  [1m[34mSELECT "companies"."name", "companies"."id" FROM "companies"[0m
+  ↳ app/views/jobs/_form.html.erb:12
+  Rendered jobs/_form.html.erb (Duration: 7.6ms | Allocations: 2212)
+  Rendered jobs/new.html.erb within layouts/application (Duration: 8.3ms | Allocations: 2294)
+  Rendered layouts/_nav.html.erb (Duration: 0.3ms | Allocations: 45)
+  Rendered application/_flashes.html.erb (Duration: 0.1ms | Allocations: 27)
+  Rendered layout layouts/application.html.erb (Duration: 26.9ms | Allocations: 9504)
+Completed 200 OK in 33ms (Views: 27.7ms | ActiveRecord: 0.4ms | Allocations: 11555)
+
+
+Started POST "/jobs" for 127.0.0.1 at 2022-05-28 11:44:35 +0300
+Processing by JobsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "job"=>{"title"=>"Full-Stack developer", "application_url"=>"https://www.toptal.com/freelance-jobs/developers/ruby-on-rails/job-description/ruby-on-rails-developer-full-time-3?", "company_id"=>"", "description"=>"<div>Toptal freelancers work with speed and efficiency to deliver the highest quality of work. We are looking for someone who is passionate about their client’s business, and ready to work on exciting projects with Fortune 500 companies and Silicon Valley startups, with great rates and zero hassles. If you are looking for a place to advance your career, enhance your skill set, and build connections around the globe, Toptal is right for you.</div>"}, "commit"=>"Create Job"}
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/new.html.erb within layouts/application
+  [1m[36mCompany Pluck (0.4ms)[0m  [1m[34mSELECT "companies"."name", "companies"."id" FROM "companies"[0m
+  ↳ app/views/jobs/_form.html.erb:12
+  Rendered jobs/_form.html.erb (Duration: 9.1ms | Allocations: 2212)
+  Rendered jobs/new.html.erb within layouts/application (Duration: 9.8ms | Allocations: 2294)
+  Rendered layouts/_nav.html.erb (Duration: 0.2ms | Allocations: 45)
+  Rendered application/_flashes.html.erb (Duration: 0.2ms | Allocations: 27)
+  Rendered layout layouts/application.html.erb (Duration: 28.0ms | Allocations: 9504)
+Completed 200 OK in 35ms (Views: 29.2ms | ActiveRecord: 0.4ms | Allocations: 11565)
+
+
+Started POST "/jobs" for 127.0.0.1 at 2022-05-28 11:44:42 +0300
+Processing by JobsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "job"=>{"title"=>"Full-Stack developer", "application_url"=>"https://www.toptal.com/freelance-jobs/developers/ruby-on-rails/job-description/ruby-on-rails-developer-full-time-3?", "company_id"=>"", "description"=>"<div>Toptal freelancers work with speed and efficiency to deliver the highest quality of work. We are looking for someone who is passionate about their client’s business, and ready to work on exciting projects with Fortune 500 companies and Silicon Valley startups, with great rates and zero hassles. If you are looking for a place to advance your career, enhance your skill set, and build connections around the globe, Toptal is right for you.</div>"}, "commit"=>"Create Job"}
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/new.html.erb within layouts/application
+  [1m[36mCompany Pluck (0.4ms)[0m  [1m[34mSELECT "companies"."name", "companies"."id" FROM "companies"[0m
+  ↳ app/views/jobs/_form.html.erb:12
+  Rendered jobs/_form.html.erb (Duration: 8.1ms | Allocations: 2212)
+  Rendered jobs/new.html.erb within layouts/application (Duration: 8.8ms | Allocations: 2294)
+  Rendered layouts/_nav.html.erb (Duration: 0.3ms | Allocations: 45)
+  Rendered application/_flashes.html.erb (Duration: 0.2ms | Allocations: 27)
+  Rendered layout layouts/application.html.erb (Duration: 28.5ms | Allocations: 9504)
+Completed 200 OK in 34ms (Views: 29.0ms | ActiveRecord: 0.4ms | Allocations: 11555)
+
+
+Started POST "/jobs" for 127.0.0.1 at 2022-05-28 11:44:42 +0300
+Processing by JobsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "job"=>{"title"=>"Full-Stack developer", "application_url"=>"https://www.toptal.com/freelance-jobs/developers/ruby-on-rails/job-description/ruby-on-rails-developer-full-time-3?", "company_id"=>"", "description"=>"<div>Toptal freelancers work with speed and efficiency to deliver the highest quality of work. We are looking for someone who is passionate about their client’s business, and ready to work on exciting projects with Fortune 500 companies and Silicon Valley startups, with great rates and zero hassles. If you are looking for a place to advance your career, enhance your skill set, and build connections around the globe, Toptal is right for you.</div>"}, "commit"=>"Create Job"}
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/new.html.erb within layouts/application
+  [1m[36mCompany Pluck (0.4ms)[0m  [1m[34mSELECT "companies"."name", "companies"."id" FROM "companies"[0m
+  ↳ app/views/jobs/_form.html.erb:12
+  Rendered jobs/_form.html.erb (Duration: 8.8ms | Allocations: 2212)
+  Rendered jobs/new.html.erb within layouts/application (Duration: 9.6ms | Allocations: 2294)
+  Rendered layouts/_nav.html.erb (Duration: 0.3ms | Allocations: 45)
+  Rendered application/_flashes.html.erb (Duration: 0.1ms | Allocations: 27)
+  Rendered layout layouts/application.html.erb (Duration: 29.1ms | Allocations: 9504)
+Completed 200 OK in 36ms (Views: 30.4ms | ActiveRecord: 0.4ms | Allocations: 11549)
+
+
+Started POST "/jobs" for 127.0.0.1 at 2022-05-28 11:44:42 +0300
+Processing by JobsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "job"=>{"title"=>"Full-Stack developer", "application_url"=>"https://www.toptal.com/freelance-jobs/developers/ruby-on-rails/job-description/ruby-on-rails-developer-full-time-3?", "company_id"=>"", "description"=>"<div>Toptal freelancers work with speed and efficiency to deliver the highest quality of work. We are looking for someone who is passionate about their client’s business, and ready to work on exciting projects with Fortune 500 companies and Silicon Valley startups, with great rates and zero hassles. If you are looking for a place to advance your career, enhance your skill set, and build connections around the globe, Toptal is right for you.</div>"}, "commit"=>"Create Job"}
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/new.html.erb within layouts/application
+  [1m[36mCompany Pluck (0.7ms)[0m  [1m[34mSELECT "companies"."name", "companies"."id" FROM "companies"[0m
+  ↳ app/views/jobs/_form.html.erb:12
+  Rendered jobs/_form.html.erb (Duration: 9.8ms | Allocations: 2214)
+  Rendered jobs/new.html.erb within layouts/application (Duration: 10.3ms | Allocations: 2296)
+  Rendered layouts/_nav.html.erb (Duration: 0.2ms | Allocations: 45)
+  Rendered application/_flashes.html.erb (Duration: 0.1ms | Allocations: 27)
+  Rendered layout layouts/application.html.erb (Duration: 29.0ms | Allocations: 9730)
+Completed 200 OK in 50ms (Views: 29.3ms | ActiveRecord: 0.7ms | Allocations: 11792)
+
+
+Started POST "/jobs" for 127.0.0.1 at 2022-05-28 11:44:42 +0300
+Processing by JobsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "job"=>{"title"=>"Full-Stack developer", "application_url"=>"https://www.toptal.com/freelance-jobs/developers/ruby-on-rails/job-description/ruby-on-rails-developer-full-time-3?", "company_id"=>"", "description"=>"<div>Toptal freelancers work with speed and efficiency to deliver the highest quality of work. We are looking for someone who is passionate about their client’s business, and ready to work on exciting projects with Fortune 500 companies and Silicon Valley startups, with great rates and zero hassles. If you are looking for a place to advance your career, enhance your skill set, and build connections around the globe, Toptal is right for you.</div>"}, "commit"=>"Create Job"}
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/new.html.erb within layouts/application
+  [1m[36mCompany Pluck (0.4ms)[0m  [1m[34mSELECT "companies"."name", "companies"."id" FROM "companies"[0m
+  ↳ app/views/jobs/_form.html.erb:12
+  Rendered jobs/_form.html.erb (Duration: 9.1ms | Allocations: 2212)
+  Rendered jobs/new.html.erb within layouts/application (Duration: 9.6ms | Allocations: 2294)
+  Rendered layouts/_nav.html.erb (Duration: 0.2ms | Allocations: 45)
+  Rendered application/_flashes.html.erb (Duration: 0.1ms | Allocations: 27)
+  Rendered layout layouts/application.html.erb (Duration: 28.7ms | Allocations: 9546)
+Completed 200 OK in 35ms (Views: 29.8ms | ActiveRecord: 0.4ms | Allocations: 11598)
+
+
+Started POST "/jobs" for 127.0.0.1 at 2022-05-28 11:44:43 +0300
+Processing by JobsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "job"=>{"title"=>"Full-Stack developer", "application_url"=>"https://www.toptal.com/freelance-jobs/developers/ruby-on-rails/job-description/ruby-on-rails-developer-full-time-3?", "company_id"=>"", "description"=>"<div>Toptal freelancers work with speed and efficiency to deliver the highest quality of work. We are looking for someone who is passionate about their client’s business, and ready to work on exciting projects with Fortune 500 companies and Silicon Valley startups, with great rates and zero hassles. If you are looking for a place to advance your career, enhance your skill set, and build connections around the globe, Toptal is right for you.</div>"}, "commit"=>"Create Job"}
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/new.html.erb within layouts/application
+  [1m[36mCompany Pluck (0.5ms)[0m  [1m[34mSELECT "companies"."name", "companies"."id" FROM "companies"[0m
+  ↳ app/views/jobs/_form.html.erb:12
+  Rendered jobs/_form.html.erb (Duration: 8.7ms | Allocations: 2212)
+  Rendered jobs/new.html.erb within layouts/application (Duration: 10.4ms | Allocations: 2294)
+  Rendered layouts/_nav.html.erb (Duration: 0.2ms | Allocations: 45)
+  Rendered application/_flashes.html.erb (Duration: 0.1ms | Allocations: 27)
+  Rendered layout layouts/application.html.erb (Duration: 31.6ms | Allocations: 9504)
+Completed 200 OK in 38ms (Views: 32.3ms | ActiveRecord: 0.5ms | Allocations: 11553)
+
+
+Started POST "/jobs" for 127.0.0.1 at 2022-05-28 11:44:43 +0300
+Processing by JobsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "job"=>{"title"=>"Full-Stack developer", "application_url"=>"https://www.toptal.com/freelance-jobs/developers/ruby-on-rails/job-description/ruby-on-rails-developer-full-time-3?", "company_id"=>"", "description"=>"<div>Toptal freelancers work with speed and efficiency to deliver the highest quality of work. We are looking for someone who is passionate about their client’s business, and ready to work on exciting projects with Fortune 500 companies and Silicon Valley startups, with great rates and zero hassles. If you are looking for a place to advance your career, enhance your skill set, and build connections around the globe, Toptal is right for you.</div>"}, "commit"=>"Create Job"}
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/new.html.erb within layouts/application
+  [1m[36mCompany Pluck (0.3ms)[0m  [1m[34mSELECT "companies"."name", "companies"."id" FROM "companies"[0m
+  ↳ app/views/jobs/_form.html.erb:12
+  Rendered jobs/_form.html.erb (Duration: 9.1ms | Allocations: 2212)
+  Rendered jobs/new.html.erb within layouts/application (Duration: 9.8ms | Allocations: 2294)
+  Rendered layouts/_nav.html.erb (Duration: 0.2ms | Allocations: 45)
+  Rendered application/_flashes.html.erb (Duration: 0.1ms | Allocations: 27)
+  Rendered layout layouts/application.html.erb (Duration: 30.8ms | Allocations: 9515)
+Completed 200 OK in 40ms (Views: 32.7ms | ActiveRecord: 0.3ms | Allocations: 11562)
+
+
+Started POST "/jobs" for 127.0.0.1 at 2022-05-28 11:44:43 +0300
+Processing by JobsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "job"=>{"title"=>"Full-Stack developer", "application_url"=>"https://www.toptal.com/freelance-jobs/developers/ruby-on-rails/job-description/ruby-on-rails-developer-full-time-3?", "company_id"=>"", "description"=>"<div>Toptal freelancers work with speed and efficiency to deliver the highest quality of work. We are looking for someone who is passionate about their client’s business, and ready to work on exciting projects with Fortune 500 companies and Silicon Valley startups, with great rates and zero hassles. If you are looking for a place to advance your career, enhance your skill set, and build connections around the globe, Toptal is right for you.</div>"}, "commit"=>"Create Job"}
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/new.html.erb within layouts/application
+  [1m[36mCompany Pluck (1.6ms)[0m  [1m[34mSELECT "companies"."name", "companies"."id" FROM "companies"[0m
+  ↳ app/views/jobs/_form.html.erb:12
+  Rendered jobs/_form.html.erb (Duration: 11.5ms | Allocations: 2212)
+  Rendered jobs/new.html.erb within layouts/application (Duration: 12.5ms | Allocations: 2294)
+  Rendered layouts/_nav.html.erb (Duration: 0.2ms | Allocations: 45)
+  Rendered application/_flashes.html.erb (Duration: 0.1ms | Allocations: 27)
+  Rendered layout layouts/application.html.erb (Duration: 34.9ms | Allocations: 9509)
+Completed 200 OK in 43ms (Views: 35.0ms | ActiveRecord: 1.6ms | Allocations: 11568)
+
+
+Started POST "/jobs" for 127.0.0.1 at 2022-05-28 11:44:43 +0300
+Processing by JobsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "job"=>{"title"=>"Full-Stack developer", "application_url"=>"https://www.toptal.com/freelance-jobs/developers/ruby-on-rails/job-description/ruby-on-rails-developer-full-time-3?", "company_id"=>"", "description"=>"<div>Toptal freelancers work with speed and efficiency to deliver the highest quality of work. We are looking for someone who is passionate about their client’s business, and ready to work on exciting projects with Fortune 500 companies and Silicon Valley startups, with great rates and zero hassles. If you are looking for a place to advance your career, enhance your skill set, and build connections around the globe, Toptal is right for you.</div>"}, "commit"=>"Create Job"}
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/new.html.erb within layouts/application
+  [1m[36mCompany Pluck (0.4ms)[0m  [1m[34mSELECT "companies"."name", "companies"."id" FROM "companies"[0m
+  ↳ app/views/jobs/_form.html.erb:12
+  Rendered jobs/_form.html.erb (Duration: 9.0ms | Allocations: 2212)
+  Rendered jobs/new.html.erb within layouts/application (Duration: 10.0ms | Allocations: 2294)
+  Rendered layouts/_nav.html.erb (Duration: 0.2ms | Allocations: 45)
+  Rendered application/_flashes.html.erb (Duration: 0.1ms | Allocations: 27)
+  Rendered layout layouts/application.html.erb (Duration: 30.1ms | Allocations: 9536)
+Completed 200 OK in 36ms (Views: 31.3ms | ActiveRecord: 0.4ms | Allocations: 11597)
+
+
+Started POST "/jobs" for 127.0.0.1 at 2022-05-28 11:45:57 +0300
+Processing by JobsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "job"=>{"title"=>"Full-Stack developer", "application_url"=>"https://www.toptal.com/freelance-jobs/developers/ruby-on-rails/job-description/ruby-on-rails-developer-full-time-3?", "company_id"=>"", "description"=>"<div>Toptal freelancers work with speed and efficiency to deliver the highest quality of work. We are looking for someone who is passionate about their client’s business, and ready to work on exciting projects with Fortune 500 companies and Silicon Valley startups, with great rates and zero hassles. If you are looking for a place to advance your career, enhance your skill set, and build connections around the globe, Toptal is right for you.</div>"}, "commit"=>"Create Job"}
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/new.html.erb within layouts/application
+  [1m[36mCompany Pluck (0.5ms)[0m  [1m[34mSELECT "companies"."name", "companies"."id" FROM "companies"[0m
+  ↳ app/views/jobs/_form.html.erb:12
+  Rendered jobs/_form.html.erb (Duration: 8.9ms | Allocations: 2212)
+  Rendered jobs/new.html.erb within layouts/application (Duration: 9.6ms | Allocations: 2294)
+  Rendered layouts/_nav.html.erb (Duration: 0.2ms | Allocations: 45)
+  Rendered application/_flashes.html.erb (Duration: 0.1ms | Allocations: 27)
+  Rendered layout layouts/application.html.erb (Duration: 29.4ms | Allocations: 9586)
+Completed 200 OK in 36ms (Views: 29.9ms | ActiveRecord: 0.5ms | Allocations: 11637)
+
+
+Started POST "/jobs" for 127.0.0.1 at 2022-05-28 11:45:58 +0300
+Processing by JobsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "job"=>{"title"=>"Full-Stack developer", "application_url"=>"https://www.toptal.com/freelance-jobs/developers/ruby-on-rails/job-description/ruby-on-rails-developer-full-time-3?", "company_id"=>"", "description"=>"<div>Toptal freelancers work with speed and efficiency to deliver the highest quality of work. We are looking for someone who is passionate about their client’s business, and ready to work on exciting projects with Fortune 500 companies and Silicon Valley startups, with great rates and zero hassles. If you are looking for a place to advance your career, enhance your skill set, and build connections around the globe, Toptal is right for you.</div>"}, "commit"=>"Create Job"}
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/new.html.erb within layouts/application
+  [1m[36mCompany Pluck (0.4ms)[0m  [1m[34mSELECT "companies"."name", "companies"."id" FROM "companies"[0m
+  ↳ app/views/jobs/_form.html.erb:12
+  Rendered jobs/_form.html.erb (Duration: 8.9ms | Allocations: 2212)
+  Rendered jobs/new.html.erb within layouts/application (Duration: 9.7ms | Allocations: 2294)
+  Rendered layouts/_nav.html.erb (Duration: 0.2ms | Allocations: 45)
+  Rendered application/_flashes.html.erb (Duration: 0.1ms | Allocations: 27)
+  Rendered layout layouts/application.html.erb (Duration: 29.4ms | Allocations: 9506)
+Completed 200 OK in 37ms (Views: 30.4ms | ActiveRecord: 0.4ms | Allocations: 11559)
+
+
+Started POST "/jobs" for 127.0.0.1 at 2022-05-28 11:45:58 +0300
+Processing by JobsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "job"=>{"title"=>"Full-Stack developer", "application_url"=>"https://www.toptal.com/freelance-jobs/developers/ruby-on-rails/job-description/ruby-on-rails-developer-full-time-3?", "company_id"=>"", "description"=>"<div>Toptal freelancers work with speed and efficiency to deliver the highest quality of work. We are looking for someone who is passionate about their client’s business, and ready to work on exciting projects with Fortune 500 companies and Silicon Valley startups, with great rates and zero hassles. If you are looking for a place to advance your career, enhance your skill set, and build connections around the globe, Toptal is right for you.</div>"}, "commit"=>"Create Job"}
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/new.html.erb within layouts/application
+  [1m[36mCompany Pluck (0.4ms)[0m  [1m[34mSELECT "companies"."name", "companies"."id" FROM "companies"[0m
+  ↳ app/views/jobs/_form.html.erb:12
+  Rendered jobs/_form.html.erb (Duration: 8.7ms | Allocations: 2212)
+  Rendered jobs/new.html.erb within layouts/application (Duration: 9.4ms | Allocations: 2294)
+  Rendered layouts/_nav.html.erb (Duration: 0.2ms | Allocations: 45)
+  Rendered application/_flashes.html.erb (Duration: 0.1ms | Allocations: 27)
+  Rendered layout layouts/application.html.erb (Duration: 29.5ms | Allocations: 9504)
+Completed 200 OK in 36ms (Views: 30.3ms | ActiveRecord: 0.4ms | Allocations: 11559)
+
+
+Started POST "/jobs" for 127.0.0.1 at 2022-05-28 11:45:58 +0300
+Processing by JobsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "job"=>{"title"=>"Full-Stack developer", "application_url"=>"https://www.toptal.com/freelance-jobs/developers/ruby-on-rails/job-description/ruby-on-rails-developer-full-time-3?", "company_id"=>"", "description"=>"<div>Toptal freelancers work with speed and efficiency to deliver the highest quality of work. We are looking for someone who is passionate about their client’s business, and ready to work on exciting projects with Fortune 500 companies and Silicon Valley startups, with great rates and zero hassles. If you are looking for a place to advance your career, enhance your skill set, and build connections around the globe, Toptal is right for you.</div>"}, "commit"=>"Create Job"}
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/new.html.erb within layouts/application
+  [1m[36mCompany Pluck (0.4ms)[0m  [1m[34mSELECT "companies"."name", "companies"."id" FROM "companies"[0m
+  ↳ app/views/jobs/_form.html.erb:12
+  Rendered jobs/_form.html.erb (Duration: 9.0ms | Allocations: 2212)
+  Rendered jobs/new.html.erb within layouts/application (Duration: 9.5ms | Allocations: 2294)
+  Rendered layouts/_nav.html.erb (Duration: 0.2ms | Allocations: 45)
+  Rendered application/_flashes.html.erb (Duration: 0.1ms | Allocations: 27)
+  Rendered layout layouts/application.html.erb (Duration: 27.5ms | Allocations: 9504)
+Completed 200 OK in 34ms (Views: 28.1ms | ActiveRecord: 0.4ms | Allocations: 11557)
+
+
+Started POST "/jobs" for 127.0.0.1 at 2022-05-28 11:45:59 +0300
+Processing by JobsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "job"=>{"title"=>"Full-Stack developer", "application_url"=>"https://www.toptal.com/freelance-jobs/developers/ruby-on-rails/job-description/ruby-on-rails-developer-full-time-3?", "company_id"=>"", "description"=>"<div>Toptal freelancers work with speed and efficiency to deliver the highest quality of work. We are looking for someone who is passionate about their client’s business, and ready to work on exciting projects with Fortune 500 companies and Silicon Valley startups, with great rates and zero hassles. If you are looking for a place to advance your career, enhance your skill set, and build connections around the globe, Toptal is right for you.</div>"}, "commit"=>"Create Job"}
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/new.html.erb within layouts/application
+  [1m[36mCompany Pluck (0.4ms)[0m  [1m[34mSELECT "companies"."name", "companies"."id" FROM "companies"[0m
+  ↳ app/views/jobs/_form.html.erb:12
+  Rendered jobs/_form.html.erb (Duration: 7.5ms | Allocations: 2212)
+  Rendered jobs/new.html.erb within layouts/application (Duration: 7.8ms | Allocations: 2294)
+  Rendered layouts/_nav.html.erb (Duration: 0.2ms | Allocations: 45)
+  Rendered application/_flashes.html.erb (Duration: 1.0ms | Allocations: 27)
+  Rendered layout layouts/application.html.erb (Duration: 30.4ms | Allocations: 9504)
+Completed 200 OK in 37ms (Views: 31.1ms | ActiveRecord: 0.4ms | Allocations: 11563)
+
+
+Started POST "/jobs" for 127.0.0.1 at 2022-05-28 11:45:59 +0300
+Processing by JobsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "job"=>{"title"=>"Full-Stack developer", "application_url"=>"https://www.toptal.com/freelance-jobs/developers/ruby-on-rails/job-description/ruby-on-rails-developer-full-time-3?", "company_id"=>"", "description"=>"<div>Toptal freelancers work with speed and efficiency to deliver the highest quality of work. We are looking for someone who is passionate about their client’s business, and ready to work on exciting projects with Fortune 500 companies and Silicon Valley startups, with great rates and zero hassles. If you are looking for a place to advance your career, enhance your skill set, and build connections around the globe, Toptal is right for you.</div>"}, "commit"=>"Create Job"}
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/new.html.erb within layouts/application
+  [1m[36mCompany Pluck (0.4ms)[0m  [1m[34mSELECT "companies"."name", "companies"."id" FROM "companies"[0m
+  ↳ app/views/jobs/_form.html.erb:12
+  Rendered jobs/_form.html.erb (Duration: 7.9ms | Allocations: 2212)
+  Rendered jobs/new.html.erb within layouts/application (Duration: 8.4ms | Allocations: 2294)
+  Rendered layouts/_nav.html.erb (Duration: 0.2ms | Allocations: 45)
+  Rendered application/_flashes.html.erb (Duration: 0.1ms | Allocations: 27)
+  Rendered layout layouts/application.html.erb (Duration: 27.8ms | Allocations: 9504)
+Completed 200 OK in 34ms (Views: 28.9ms | ActiveRecord: 0.4ms | Allocations: 11559)
+
+
+Started POST "/jobs" for 127.0.0.1 at 2022-05-28 11:45:59 +0300
+Processing by JobsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "job"=>{"title"=>"Full-Stack developer", "application_url"=>"https://www.toptal.com/freelance-jobs/developers/ruby-on-rails/job-description/ruby-on-rails-developer-full-time-3?", "company_id"=>"", "description"=>"<div>Toptal freelancers work with speed and efficiency to deliver the highest quality of work. We are looking for someone who is passionate about their client’s business, and ready to work on exciting projects with Fortune 500 companies and Silicon Valley startups, with great rates and zero hassles. If you are looking for a place to advance your career, enhance your skill set, and build connections around the globe, Toptal is right for you.</div>"}, "commit"=>"Create Job"}
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/new.html.erb within layouts/application
+  [1m[36mCompany Pluck (0.5ms)[0m  [1m[34mSELECT "companies"."name", "companies"."id" FROM "companies"[0m
+  ↳ app/views/jobs/_form.html.erb:12
+  Rendered jobs/_form.html.erb (Duration: 9.0ms | Allocations: 2212)
+  Rendered jobs/new.html.erb within layouts/application (Duration: 9.4ms | Allocations: 2294)
+  Rendered layouts/_nav.html.erb (Duration: 0.3ms | Allocations: 45)
+  Rendered application/_flashes.html.erb (Duration: 0.1ms | Allocations: 27)
+  Rendered layout layouts/application.html.erb (Duration: 30.7ms | Allocations: 9504)
+Completed 200 OK in 36ms (Views: 31.1ms | ActiveRecord: 0.5ms | Allocations: 11559)
+
+
+Started GET "/users" for 127.0.0.1 at 2022-05-28 11:47:49 +0300
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["remember_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/views/users/index.html.erb:10
+  [1m[36mRole Load (0.4ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/user.rb:27:in `set_default_role'
+  Rendered users/index.html.erb within layouts/application (Duration: 12.6ms | Allocations: 2553)
+  Rendered layouts/_nav.html.erb (Duration: 0.2ms | Allocations: 50)
+  Rendered application/_flashes.html.erb (Duration: 0.1ms | Allocations: 35)
+  Rendered layout layouts/application.html.erb (Duration: 30.4ms | Allocations: 10048)
+Completed 200 OK in 35ms (Views: 32.2ms | ActiveRecord: 1.4ms | Allocations: 11081)
+
+
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mRole Load (0.5ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mRole Load (0.5ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mRole Load (0.3ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."name" = $1 LIMIT $2[0m  [["name", 2], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "rails@gmail.com"], ["id", 2], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/companies/new" for 127.0.0.1 at 2022-05-28 11:49:23 +0300
+Processing by CompaniesController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["remember_token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mRole Load (0.4ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/user.rb:27:in `set_default_role'
+  Rendering layout layouts/application.html.erb
+  Rendering companies/new.html.erb within layouts/application
+  Rendered companies/_form.html.erb (Duration: 5.8ms | Allocations: 2549)
+  Rendered companies/new.html.erb within layouts/application (Duration: 7.2ms | Allocations: 2855)
+  Rendered layouts/_nav.html.erb (Duration: 0.2ms | Allocations: 57)
+  Rendered application/_flashes.html.erb (Duration: 0.1ms | Allocations: 35)
+  Rendered layout layouts/application.html.erb (Duration: 21.6ms | Allocations: 10345)
+Completed 200 OK in 111ms (Views: 24.0ms | ActiveRecord: 0.8ms | Allocations: 13610)
+
+
+Started POST "/companies" for 127.0.0.1 at 2022-05-28 11:50:04 +0300
+Processing by CompaniesController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "company"=>{"name"=>"TopTal", "description"=>"<div>Toptal is an exclusive network of top freelancers from around the world. Fortune 500 companies and Silicon Valley startups hire Toptal for their most important projects. Toptal is one of the fastest-growing fully remote networks and empowers freelance software developers, designers, finance experts, product managers, and project managers worldwide to grow and excel in their freelance careers.</div>"}, "commit"=>"Create Company"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["remember_token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mRole Load (0.5ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/user.rb:27:in `set_default_role'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/companies_controller.rb:14:in `create'
+  [1m[36mCompany Create (120.9ms)[0m  [1m[32mINSERT INTO "companies" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "TopTal"], ["created_at", "2022-05-28 08:50:04.893053"], ["updated_at", "2022-05-28 08:50:04.893053"]]
+  ↳ app/controllers/companies_controller.rb:14:in `create'
+  [1m[36mActionText::RichText Create (27.3ms)[0m  [1m[32mINSERT INTO "action_text_rich_texts" ("name", "body", "record_type", "record_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "description"], ["body", "<div>Toptal is an exclusive network of top freelancers from around the world. Fortune 500 companies and Silicon Valley startups hire Toptal for their most important projects. Toptal is one of the fastest-growing fully remote networks and empowers freelance software developers, designers, finance experts, product managers, and project managers worldwide to grow and excel in their freelance careers.</div>"], ["record_type", "Company"], ["record_id", 5], ["created_at", "2022-05-28 08:50:05.401149"], ["updated_at", "2022-05-28 08:50:05.401149"]]
+  ↳ app/controllers/companies_controller.rb:14:in `create'
+  [1m[36mActiveStorage::Attachment Load (63.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3[0m  [["record_id", 6], ["record_type", "ActionText::RichText"], ["name", "embeds"]]
+  ↳ app/controllers/companies_controller.rb:14:in `create'
+  [1m[36mCompany Update (17.1ms)[0m  [1m[33mUPDATE "companies" SET "updated_at" = $1 WHERE "companies"."id" = $2[0m  [["updated_at", "2022-05-28 08:50:05.443262"], ["id", 5]]
+  ↳ app/controllers/companies_controller.rb:14:in `create'
+  [1m[36mTRANSACTION (21.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/companies_controller.rb:14:in `create'
+Redirected to http://localhost:3000/companies/5
+Completed 302 Found in 756ms (ActiveRecord: 256.0ms | Allocations: 29543)
+
+
+Started GET "/companies/5" for 127.0.0.1 at 2022-05-28 11:50:05 +0300
+Processing by CompaniesController#show as TURBO_STREAM
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["remember_token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mRole Load (0.4ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/user.rb:27:in `set_default_role'
+  [1m[36mCompany Load (0.5ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/companies_controller.rb:24:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering companies/show.html.erb within layouts/application
+  [1m[36mActionText::RichText Load (0.4ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = $1 AND "action_text_rich_texts"."record_type" = $2 AND "action_text_rich_texts"."name" = $3 LIMIT $4[0m  [["record_id", 5], ["record_type", "Company"], ["name", "description"], ["LIMIT", 1]]
+  ↳ app/views/companies/show.html.erb:3
+  Rendered /home/victor-barh/.rbenv/versions/3.0.2/lib/ruby/gems/3.0.0/gems/actiontext-7.0.2.3/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 0.7ms | Allocations: 346)
+  Rendered companies/show.html.erb within layouts/application (Duration: 35.2ms | Allocations: 1832)
+  Rendered layouts/_nav.html.erb (Duration: 0.3ms | Allocations: 61)
+  Rendered application/_flashes.html.erb (Duration: 0.2ms | Allocations: 45)
+  Rendered layout layouts/application.html.erb (Duration: 54.1ms | Allocations: 9582)
+Completed 200 OK in 66ms (Views: 54.8ms | ActiveRecord: 1.8ms | Allocations: 12823)
+
+
+Started GET "/" for 127.0.0.1 at 2022-05-28 11:50:09 +0300
+Processing by JobsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (0.8ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs"[0m
+  ↳ app/views/jobs/index.html.erb:2
+  [1m[36mCompany Load (0.5ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  Rendered collection of jobs/_job_preview.html.erb [1 times] (Duration: 3.9ms | Allocations: 775)
+  Rendered jobs/index.html.erb within layouts/application (Duration: 7.5ms | Allocations: 1461)
+  Rendered layouts/_nav.html.erb (Duration: 0.4ms | Allocations: 44)
+  Rendered application/_flashes.html.erb (Duration: 0.1ms | Allocations: 27)
+  Rendered layout layouts/application.html.erb (Duration: 28.5ms | Allocations: 8958)
+Completed 200 OK in 31ms (Views: 28.6ms | ActiveRecord: 1.3ms | Allocations: 9301)
+
+
+Started GET "/jobs/new" for 127.0.0.1 at 2022-05-28 11:50:17 +0300
+Processing by JobsController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["remember_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/controllers/jobs_controller.rb:8:in `new'
+  [1m[36mRole Load (0.4ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/user.rb:27:in `set_default_role'
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/new.html.erb within layouts/application
+  [1m[36mCompany Pluck (0.7ms)[0m  [1m[34mSELECT "companies"."name", "companies"."id" FROM "companies"[0m
+  ↳ app/views/jobs/_form.html.erb:12
+  Rendered jobs/_form.html.erb (Duration: 10.9ms | Allocations: 2269)
+  Rendered jobs/new.html.erb within layouts/application (Duration: 11.6ms | Allocations: 2348)
+  Rendered layouts/_nav.html.erb (Duration: 0.2ms | Allocations: 45)
+  Rendered application/_flashes.html.erb (Duration: 0.1ms | Allocations: 27)
+  Rendered layout layouts/application.html.erb (Duration: 26.0ms | Allocations: 9566)
+Completed 200 OK in 35ms (Views: 26.9ms | ActiveRecord: 1.5ms | Allocations: 11371)
+
+
+Started POST "/jobs" for 127.0.0.1 at 2022-05-28 11:51:50 +0300
+Processing by JobsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "job"=>{"title"=>"Full-Stack developer", "application_url"=>"https://www.toptal.com/freelance-jobs/developers/ruby-on-rails/job-description/ruby-on-rails-developer-full-time-3?", "company_id"=>"5", "description"=>"<div>We are looking for a <strong>Ruby on Rails developer (independent contractor)</strong> responsible for managing the interchange of data between the server and the users. Your primary responsibilities might vary from: (1) design, build, and maintain efficient, reusable, and reliable code, (2) integration of data storage solutions, (3) integration of user-facing elements developed by front-end developers with server side logic, and (4) identify bottlenecks and bugs, and devise solutions to these problems.</div><div><strong>Requirements</strong></div><ul><li>- <strong>3+ years</strong> of professional experience in software development</li><li>- Experience with <strong>Ruby on Rails</strong>, along with other common libraries such as RSpec and Resque</li><li>- Good understanding of the syntax of Ruby and its nuances</li><li>- Solid understanding of object-oriented programming</li><li>- Good understanding of server-side templating languages</li><li>- Good understanding of server-side CSS preprocessors</li><li>- Basic understanding of front-end technologies, such as JavaScript, HTML5, and CSS3</li><li>- Familiarity with concepts of MVC, Mocking, ORM, and RESTful</li><li>- A knack for writing clean, readable Ruby code</li><li>- Ability to integrate multiple data sources and databases into one system</li><li>- Understanding of fundamental design principles behind a scalable application</li><li>- Able to create database schemas that represent and support business processes</li><li>- Able to implement automated testing platforms and unit tests</li><li>- Proficient understanding of code versioning tools</li><li>- Familiarity with development aiding tools</li><li>- Experience with system architecture or leading a software team is a strong advantage</li><li>- <strong>Full-time availability</strong> is a strong advantage</li></ul>"}, "commit"=>"Create Job"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/jobs_controller.rb:12:in `create'
+  [1m[36mCompany Load (0.3ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/jobs_controller.rb:12:in `create'
+  [1m[36mJob Create (210.6ms)[0m  [1m[32mINSERT INTO "jobs" ("title", "company_id", "application_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Full-Stack developer"], ["company_id", 5], ["application_url", "https://www.toptal.com/freelance-jobs/developers/ruby-on-rails/job-description/ruby-on-rails-developer-full-time-3?"], ["created_at", "2022-05-28 08:51:50.354688"], ["updated_at", "2022-05-28 08:51:50.354688"]]
+  ↳ app/controllers/jobs_controller.rb:12:in `create'
+  [1m[36mActionText::RichText Create (0.6ms)[0m  [1m[32mINSERT INTO "action_text_rich_texts" ("name", "body", "record_type", "record_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "description"], ["body", "<div>We are looking for a <strong>Ruby on Rails developer (independent contractor)</strong> responsible for managing the interchange of data between the server and the users. Your primary responsibilities might vary from: (1) design, build, and maintain efficient, reusable, and reliable code, (2) integration of data storage solutions, (3) integration of user-facing elements developed by front-end developers with server side logic, and (4) identify bottlenecks and bugs, and devise solutions to these problems.</div><div><strong>Requirements</strong></div><ul><li>- <strong>3+ years</strong> of professional experience in software development</li><li>- Experience with <strong>Ruby on Rails</strong>, along with other common libraries such as RSpec and Resque</li><li>- Good understanding of the syntax of Ruby and its nuances</li><li>- Solid understanding of object-oriented programming</li><li>- Good understanding of server-side templating languages</li><li>- Good understanding of server-side CSS preprocessors</li><li>- Basic understanding of front-end technologies, such as JavaScript, HTML5, and CSS3</li><li>- Familiarity with concepts of MVC, Mocking, ORM, and RESTful</li><li>- A knack for writing clean, readable Ruby code</li><li>- Ability to integrate multiple data sources and databases into one system</li><li>- Understanding of fundamental design principles behind a scalable application</li><li>- Able to create database schemas that represent and support business processes</li><li>- Able to implement automated testing platforms and unit tests</li><li>- Proficient understanding of code versioning tools</li><li>- Familiarity with development aiding tools</li><li>- Experience with system architecture or leading a software team is a strong advantage</li><li>- <strong>Full-time availability</strong> is a strong advantage</li></ul>"], ["record_type", "Job"], ["record_id", 2], ["created_at", "2022-05-28 08:51:50.571280"], ["updated_at", "2022-05-28 08:51:50.571280"]]
+  ↳ app/controllers/jobs_controller.rb:12:in `create'
+  [1m[36mActiveStorage::Attachment Load (0.4ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3[0m  [["record_id", 7], ["record_type", "ActionText::RichText"], ["name", "embeds"]]
+  ↳ app/controllers/jobs_controller.rb:12:in `create'
+  [1m[36mJob Update (0.6ms)[0m  [1m[33mUPDATE "jobs" SET "updated_at" = $1 WHERE "jobs"."id" = $2[0m  [["updated_at", "2022-05-28 08:51:50.575192"], ["id", 2]]
+  ↳ app/controllers/jobs_controller.rb:12:in `create'
+  [1m[36mTRANSACTION (85.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/jobs_controller.rb:12:in `create'
+Redirected to http://localhost:3000/
+Completed 302 Found in 325ms (ActiveRecord: 298.3ms | Allocations: 7346)
+
+
+Started GET "/" for 127.0.0.1 at 2022-05-28 11:51:50 +0300
+Processing by JobsController#index as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (0.4ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs"[0m
+  ↳ app/views/jobs/index.html.erb:2
+  [1m[36mCompany Load (0.5ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  [1m[36mCompany Load (0.4ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  Rendered collection of jobs/_job_preview.html.erb [2 times] (Duration: 7.0ms | Allocations: 1499)
+  Rendered jobs/index.html.erb within layouts/application (Duration: 10.0ms | Allocations: 2197)
+  Rendered layouts/_nav.html.erb (Duration: 0.2ms | Allocations: 44)
+  Rendered application/_flashes.html.erb (Duration: 0.2ms | Allocations: 42)
+  Rendered layout layouts/application.html.erb (Duration: 26.7ms | Allocations: 9732)
+Completed 200 OK in 29ms (Views: 26.6ms | ActiveRecord: 1.3ms | Allocations: 10076)
+
+
+Started GET "/jobs/2" for 127.0.0.1 at 2022-05-28 11:51:54 +0300
+Processing by JobsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mJob Load (0.3ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/jobs_controller.rb:22:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/show.html.erb within layouts/application
+  [1m[36mActionText::RichText Load (0.5ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = $1 AND "action_text_rich_texts"."record_type" = $2 AND "action_text_rich_texts"."name" = $3 LIMIT $4[0m  [["record_id", 2], ["record_type", "Job"], ["name", "description"], ["LIMIT", 1]]
+  ↳ app/views/jobs/show.html.erb:13
+  Rendered /home/victor-barh/.rbenv/versions/3.0.2/lib/ruby/gems/3.0.0/gems/actiontext-7.0.2.3/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 2.5ms | Allocations: 1351)
+  Rendered jobs/show.html.erb within layouts/application (Duration: 11.2ms | Allocations: 2659)
+  Rendered layouts/_nav.html.erb (Duration: 0.2ms | Allocations: 58)
+  Rendered application/_flashes.html.erb (Duration: 0.1ms | Allocations: 27)
+  Rendered layout layouts/application.html.erb (Duration: 26.4ms | Allocations: 10198)
+Completed 200 OK in 32ms (Views: 27.4ms | ActiveRecord: 0.8ms | Allocations: 11008)
+
+
+Started GET "/jobs/2" for 127.0.0.1 at 2022-05-28 11:53:43 +0300
+Processing by JobsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mJob Load (0.5ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/jobs_controller.rb:22:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/show.html.erb within layouts/application
+  Rendered jobs/show.html.erb within layouts/application (Duration: 98.8ms | Allocations: 8803)
+  Rendered layout layouts/application.html.erb (Duration: 99.3ms | Allocations: 8899)
+Completed 500 Internal Server Error in 108ms (ActiveRecord: 0.5ms | Allocations: 10518)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `path_root' for #<ActionView::Base:0x000000000114e0>
+Did you mean?  path_to_font):
+    1: <div class="w-1/2 mx-auto font-sans text-gray-800 font-light">
+    2: <div>
+    3:   <% link_to path_root, 'back to posts'%>
+    4:   <div class="job-title py-2 mb-4">
+    5:     <p class="text-gray-600">Posted: <%= @job.created_at.strftime("%Y-%m-%d")%></p>
+    6:     <p class="text-3xl font-bold my-2"><%=@job.title%></p>
+  
+app/views/jobs/show.html.erb:3
+Started GET "/jobs/2" for 127.0.0.1 at 2022-05-28 11:54:31 +0300
+Processing by JobsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mJob Load (0.4ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/jobs_controller.rb:22:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/show.html.erb within layouts/application
+  [1m[36mActionText::RichText Load (0.5ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = $1 AND "action_text_rich_texts"."record_type" = $2 AND "action_text_rich_texts"."name" = $3 LIMIT $4[0m  [["record_id", 2], ["record_type", "Job"], ["name", "description"], ["LIMIT", 1]]
+  ↳ app/views/jobs/show.html.erb:14
+  Rendered /home/victor-barh/.rbenv/versions/3.0.2/lib/ruby/gems/3.0.0/gems/actiontext-7.0.2.3/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 4.6ms | Allocations: 1630)
+  Rendered jobs/show.html.erb within layouts/application (Duration: 14.9ms | Allocations: 3747)
+  Rendered layouts/_nav.html.erb (Duration: 1.3ms | Allocations: 193)
+  Rendered application/_flashes.html.erb (Duration: 1.1ms | Allocations: 223)
+  Rendered layout layouts/application.html.erb (Duration: 35.6ms | Allocations: 12506)
+Completed 200 OK in 43ms (Views: 37.6ms | ActiveRecord: 0.9ms | Allocations: 14216)
+
+
+Started GET "/jobs/2" for 127.0.0.1 at 2022-05-28 11:55:27 +0300
+Processing by JobsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mJob Load (0.5ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/jobs_controller.rb:22:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/show.html.erb within layouts/application
+  Rendered jobs/show.html.erb within layouts/application (Duration: 1.8ms | Allocations: 1366)
+  Rendered layout layouts/application.html.erb (Duration: 2.5ms | Allocations: 1450)
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.5ms | Allocations: 3066)
+
+
+  
+ActionView::Template::Error (bad URI(is not URI?): "back to posts"):
+    1: <div class="w-1/2 mx-auto font-sans text-gray-800 font-light">
+    2: <div>
+    3:   <% button_to root_path, 'back to posts'%>
+    4: 
+    5:   <div class="job-title py-2 mb-4">
+    6:     <p class="text-gray-600">Posted: <%= @job.created_at.strftime("%Y-%m-%d")%></p>
+  
+app/views/jobs/show.html.erb:3
+Started GET "/jobs/2" for 127.0.0.1 at 2022-05-28 11:57:39 +0300
+Processing by JobsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mJob Load (0.5ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/jobs_controller.rb:22:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/show.html.erb within layouts/application
+  [1m[36mActionText::RichText Load (0.4ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = $1 AND "action_text_rich_texts"."record_type" = $2 AND "action_text_rich_texts"."name" = $3 LIMIT $4[0m  [["record_id", 2], ["record_type", "Job"], ["name", "description"], ["LIMIT", 1]]
+  ↳ app/views/jobs/show.html.erb:15
+  Rendered /home/victor-barh/.rbenv/versions/3.0.2/lib/ruby/gems/3.0.0/gems/actiontext-7.0.2.3/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 4.6ms | Allocations: 1630)
+  Rendered jobs/show.html.erb within layouts/application (Duration: 14.2ms | Allocations: 4188)
+  Rendered layouts/_nav.html.erb (Duration: 0.7ms | Allocations: 194)
+  Rendered application/_flashes.html.erb (Duration: 0.9ms | Allocations: 223)
+  Rendered layout layouts/application.html.erb (Duration: 33.6ms | Allocations: 12598)
+Completed 200 OK in 41ms (Views: 35.6ms | ActiveRecord: 0.9ms | Allocations: 14298)
+
+
+Started GET "/jobs/2" for 127.0.0.1 at 2022-05-28 11:58:04 +0300
+Processing by JobsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mJob Load (0.7ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/jobs_controller.rb:22:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/show.html.erb within layouts/application
+  [1m[36mActionText::RichText Load (0.4ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = $1 AND "action_text_rich_texts"."record_type" = $2 AND "action_text_rich_texts"."name" = $3 LIMIT $4[0m  [["record_id", 2], ["record_type", "Job"], ["name", "description"], ["LIMIT", 1]]
+  ↳ app/views/jobs/show.html.erb:15
+  Rendered /home/victor-barh/.rbenv/versions/3.0.2/lib/ruby/gems/3.0.0/gems/actiontext-7.0.2.3/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 4.7ms | Allocations: 1630)
+  Rendered jobs/show.html.erb within layouts/application (Duration: 13.6ms | Allocations: 4188)
+  Rendered layouts/_nav.html.erb (Duration: 0.7ms | Allocations: 194)
+  Rendered application/_flashes.html.erb (Duration: 0.7ms | Allocations: 226)
+  Rendered layout layouts/application.html.erb (Duration: 32.4ms | Allocations: 12595)
+Completed 200 OK in 39ms (Views: 34.2ms | ActiveRecord: 1.1ms | Allocations: 14238)
+
+
+Started POST "/" for 127.0.0.1 at 2022-05-28 11:58:06 +0300
+  
+ActionController::RoutingError (No route matches [POST] "/"):
+  
+Started GET "/jobs/2" for 127.0.0.1 at 2022-05-28 11:58:06 +0300
+Processing by JobsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mJob Load (0.2ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/jobs_controller.rb:22:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/show.html.erb within layouts/application
+  [1m[36mActionText::RichText Load (2.4ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = $1 AND "action_text_rich_texts"."record_type" = $2 AND "action_text_rich_texts"."name" = $3 LIMIT $4[0m  [["record_id", 2], ["record_type", "Job"], ["name", "description"], ["LIMIT", 1]]
+  ↳ app/views/jobs/show.html.erb:15
+  Rendered /home/victor-barh/.rbenv/versions/3.0.2/lib/ruby/gems/3.0.0/gems/actiontext-7.0.2.3/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 2.7ms | Allocations: 1389)
+  Rendered jobs/show.html.erb within layouts/application (Duration: 12.4ms | Allocations: 3281)
+  Rendered layouts/_nav.html.erb (Duration: 0.2ms | Allocations: 44)
+  Rendered application/_flashes.html.erb (Duration: 0.1ms | Allocations: 33)
+  Rendered layout layouts/application.html.erb (Duration: 28.6ms | Allocations: 10595)
+Completed 200 OK in 33ms (Views: 26.9ms | ActiveRecord: 2.7ms | Allocations: 11504)
+
+
+Started POST "/" for 127.0.0.1 at 2022-05-28 11:58:07 +0300
+  
+ActionController::RoutingError (No route matches [POST] "/"):
+  
+Started GET "/jobs/2" for 127.0.0.1 at 2022-05-28 11:58:07 +0300
+Processing by JobsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mJob Load (0.3ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/jobs_controller.rb:22:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/show.html.erb within layouts/application
+  [1m[36mActionText::RichText Load (0.8ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = $1 AND "action_text_rich_texts"."record_type" = $2 AND "action_text_rich_texts"."name" = $3 LIMIT $4[0m  [["record_id", 2], ["record_type", "Job"], ["name", "description"], ["LIMIT", 1]]
+  ↳ app/views/jobs/show.html.erb:15
+  Rendered /home/victor-barh/.rbenv/versions/3.0.2/lib/ruby/gems/3.0.0/gems/actiontext-7.0.2.3/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 3.9ms | Allocations: 1351)
+  Rendered jobs/show.html.erb within layouts/application (Duration: 10.4ms | Allocations: 3039)
+  Rendered layouts/_nav.html.erb (Duration: 0.1ms | Allocations: 44)
+  Rendered application/_flashes.html.erb (Duration: 0.1ms | Allocations: 27)
+  Rendered layout layouts/application.html.erb (Duration: 25.5ms | Allocations: 10248)
+Completed 200 OK in 30ms (Views: 25.7ms | ActiveRecord: 1.1ms | Allocations: 11048)
+
+
+Started POST "/" for 127.0.0.1 at 2022-05-28 11:58:08 +0300
+  
+ActionController::RoutingError (No route matches [POST] "/"):
+  
+Started GET "/jobs/2" for 127.0.0.1 at 2022-05-28 11:58:08 +0300
+Processing by JobsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mJob Load (0.2ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/jobs_controller.rb:22:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/show.html.erb within layouts/application
+  [1m[36mActionText::RichText Load (0.5ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = $1 AND "action_text_rich_texts"."record_type" = $2 AND "action_text_rich_texts"."name" = $3 LIMIT $4[0m  [["record_id", 2], ["record_type", "Job"], ["name", "description"], ["LIMIT", 1]]
+  ↳ app/views/jobs/show.html.erb:15
+  Rendered /home/victor-barh/.rbenv/versions/3.0.2/lib/ruby/gems/3.0.0/gems/actiontext-7.0.2.3/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 2.0ms | Allocations: 1351)
+  Rendered jobs/show.html.erb within layouts/application (Duration: 8.8ms | Allocations: 3069)
+  Rendered layouts/_nav.html.erb (Duration: 0.2ms | Allocations: 44)
+  Rendered application/_flashes.html.erb (Duration: 0.1ms | Allocations: 27)
+  Rendered layout layouts/application.html.erb (Duration: 24.0ms | Allocations: 10501)
+Completed 200 OK in 28ms (Views: 24.5ms | ActiveRecord: 0.7ms | Allocations: 11303)
+
+
+Started POST "/" for 127.0.0.1 at 2022-05-28 11:58:09 +0300
+  
+ActionController::RoutingError (No route matches [POST] "/"):
+  
+Started GET "/jobs/2" for 127.0.0.1 at 2022-05-28 11:58:09 +0300
+Processing by JobsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mJob Load (0.4ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/jobs_controller.rb:22:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/show.html.erb within layouts/application
+  [1m[36mActionText::RichText Load (0.3ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = $1 AND "action_text_rich_texts"."record_type" = $2 AND "action_text_rich_texts"."name" = $3 LIMIT $4[0m  [["record_id", 2], ["record_type", "Job"], ["name", "description"], ["LIMIT", 1]]
+  ↳ app/views/jobs/show.html.erb:15
+  Rendered /home/victor-barh/.rbenv/versions/3.0.2/lib/ruby/gems/3.0.0/gems/actiontext-7.0.2.3/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 5.4ms | Allocations: 1351)
+  Rendered jobs/show.html.erb within layouts/application (Duration: 12.6ms | Allocations: 3053)
+  Rendered layouts/_nav.html.erb (Duration: 0.2ms | Allocations: 44)
+  Rendered application/_flashes.html.erb (Duration: 0.1ms | Allocations: 27)
+  Rendered layout layouts/application.html.erb (Duration: 29.0ms | Allocations: 10485)
+Completed 200 OK in 34ms (Views: 29.9ms | ActiveRecord: 0.7ms | Allocations: 11285)
+
+
+Started POST "/" for 127.0.0.1 at 2022-05-28 11:58:09 +0300
+  
+ActionController::RoutingError (No route matches [POST] "/"):
+  
+Started GET "/jobs/2" for 127.0.0.1 at 2022-05-28 11:58:09 +0300
+Processing by JobsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mJob Load (0.3ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/jobs_controller.rb:22:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/show.html.erb within layouts/application
+  [1m[36mActionText::RichText Load (0.3ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = $1 AND "action_text_rich_texts"."record_type" = $2 AND "action_text_rich_texts"."name" = $3 LIMIT $4[0m  [["record_id", 2], ["record_type", "Job"], ["name", "description"], ["LIMIT", 1]]
+  ↳ app/views/jobs/show.html.erb:15
+  Rendered /home/victor-barh/.rbenv/versions/3.0.2/lib/ruby/gems/3.0.0/gems/actiontext-7.0.2.3/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 3.4ms | Allocations: 1351)
+  Rendered jobs/show.html.erb within layouts/application (Duration: 10.9ms | Allocations: 3047)
+  Rendered layouts/_nav.html.erb (Duration: 0.1ms | Allocations: 44)
+  Rendered application/_flashes.html.erb (Duration: 0.1ms | Allocations: 27)
+  Rendered layout layouts/application.html.erb (Duration: 26.7ms | Allocations: 10256)
+Completed 200 OK in 31ms (Views: 27.9ms | ActiveRecord: 0.6ms | Allocations: 11056)
+
+
+Started POST "/" for 127.0.0.1 at 2022-05-28 11:58:10 +0300
+  
+ActionController::RoutingError (No route matches [POST] "/"):
+  
+Started GET "/jobs/2" for 127.0.0.1 at 2022-05-28 11:58:10 +0300
+Processing by JobsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mJob Load (0.3ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/jobs_controller.rb:22:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/show.html.erb within layouts/application
+  [1m[36mActionText::RichText Load (0.3ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = $1 AND "action_text_rich_texts"."record_type" = $2 AND "action_text_rich_texts"."name" = $3 LIMIT $4[0m  [["record_id", 2], ["record_type", "Job"], ["name", "description"], ["LIMIT", 1]]
+  ↳ app/views/jobs/show.html.erb:15
+  Rendered /home/victor-barh/.rbenv/versions/3.0.2/lib/ruby/gems/3.0.0/gems/actiontext-7.0.2.3/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 3.3ms | Allocations: 1351)
+  Rendered jobs/show.html.erb within layouts/application (Duration: 12.4ms | Allocations: 3051)
+  Rendered layouts/_nav.html.erb (Duration: 0.1ms | Allocations: 44)
+  Rendered application/_flashes.html.erb (Duration: 0.1ms | Allocations: 27)
+  Rendered layout layouts/application.html.erb (Duration: 27.0ms | Allocations: 10260)
+Completed 200 OK in 33ms (Views: 28.0ms | ActiveRecord: 0.6ms | Allocations: 11060)
+
+
+Started GET "/" for 127.0.0.1 at 2022-05-28 11:58:22 +0300
+Processing by JobsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (0.4ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs"[0m
+  ↳ app/views/jobs/index.html.erb:2
+  [1m[36mCompany Load (0.6ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  [1m[36mCompany Load (0.3ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  Rendered collection of jobs/_job_preview.html.erb [2 times] (Duration: 10.4ms | Allocations: 1713)
+  Rendered jobs/index.html.erb within layouts/application (Duration: 14.8ms | Allocations: 2591)
+  Rendered layouts/_nav.html.erb (Duration: 0.1ms | Allocations: 44)
+  Rendered application/_flashes.html.erb (Duration: 0.1ms | Allocations: 27)
+  Rendered layout layouts/application.html.erb (Duration: 33.3ms | Allocations: 10091)
+Completed 200 OK in 36ms (Views: 32.8ms | ActiveRecord: 1.4ms | Allocations: 10485)
+
+
+Started GET "/jobs/2" for 127.0.0.1 at 2022-05-28 11:58:28 +0300
+Processing by JobsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mJob Load (0.4ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/jobs_controller.rb:22:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/show.html.erb within layouts/application
+  [1m[36mActionText::RichText Load (0.3ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = $1 AND "action_text_rich_texts"."record_type" = $2 AND "action_text_rich_texts"."name" = $3 LIMIT $4[0m  [["record_id", 2], ["record_type", "Job"], ["name", "description"], ["LIMIT", 1]]
+  ↳ app/views/jobs/show.html.erb:15
+  Rendered /home/victor-barh/.rbenv/versions/3.0.2/lib/ruby/gems/3.0.0/gems/actiontext-7.0.2.3/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 9.8ms | Allocations: 1352)
+  Rendered jobs/show.html.erb within layouts/application (Duration: 16.8ms | Allocations: 3054)
+  Rendered layouts/_nav.html.erb (Duration: 0.2ms | Allocations: 44)
+  Rendered application/_flashes.html.erb (Duration: 0.1ms | Allocations: 27)
+  Rendered layout layouts/application.html.erb (Duration: 33.0ms | Allocations: 10486)
+Completed 200 OK in 43ms (Views: 33.8ms | ActiveRecord: 0.7ms | Allocations: 11293)
+
+
+Started GET "/" for 127.0.0.1 at 2022-05-28 11:58:40 +0300
+Processing by JobsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (1.2ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs"[0m
+  ↳ app/views/jobs/index.html.erb:2
+  [1m[36mCompany Load (0.3ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  [1m[36mCompany Load (0.7ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  Rendered collection of jobs/_job_preview.html.erb [2 times] (Duration: 11.8ms | Allocations: 1842)
+  Rendered jobs/index.html.erb within layouts/application (Duration: 18.5ms | Allocations: 2851)
+  Rendered layouts/_nav.html.erb (Duration: 0.9ms | Allocations: 197)
+  Rendered application/_flashes.html.erb (Duration: 1.0ms | Allocations: 224)
+  Rendered layout layouts/application.html.erb (Duration: 44.0ms | Allocations: 11608)
+Completed 200 OK in 51ms (Views: 47.4ms | ActiveRecord: 2.2ms | Allocations: 12797)
+
+
+Started GET "/" for 127.0.0.1 at 2022-05-28 11:58:51 +0300
+Processing by JobsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (0.7ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs"[0m
+  ↳ app/views/jobs/index.html.erb:2
+  [1m[36mCompany Load (0.4ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  [1m[36mCompany Load (0.3ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  Rendered collection of jobs/_job_preview.html.erb [2 times] (Duration: 8.5ms | Allocations: 1498)
+  Rendered jobs/index.html.erb within layouts/application (Duration: 12.2ms | Allocations: 2192)
+  Rendered layouts/_nav.html.erb (Duration: 0.2ms | Allocations: 44)
+  Rendered application/_flashes.html.erb (Duration: 0.1ms | Allocations: 27)
+  Rendered layout layouts/application.html.erb (Duration: 31.0ms | Allocations: 9704)
+Completed 200 OK in 33ms (Views: 30.4ms | ActiveRecord: 1.4ms | Allocations: 10062)
+
+
+Started GET "/jobs/new" for 127.0.0.1 at 2022-05-28 12:04:06 +0300
+Processing by JobsController#new as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["remember_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/controllers/jobs_controller.rb:8:in `new'
+  [1m[36mRole Load (0.4ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/user.rb:27:in `set_default_role'
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/new.html.erb within layouts/application
+  [1m[36mCompany Pluck (0.6ms)[0m  [1m[34mSELECT "companies"."name", "companies"."id" FROM "companies"[0m
+  ↳ app/views/jobs/_form.html.erb:12
+  Rendered jobs/_form.html.erb (Duration: 13.4ms | Allocations: 2661)
+  Rendered jobs/new.html.erb within layouts/application (Duration: 15.0ms | Allocations: 2912)
+  Rendered layouts/_nav.html.erb (Duration: 0.2ms | Allocations: 45)
+  Rendered application/_flashes.html.erb (Duration: 0.1ms | Allocations: 27)
+  Rendered layout layouts/application.html.erb (Duration: 32.1ms | Allocations: 10130)
+Completed 200 OK in 42ms (Views: 32.5ms | ActiveRecord: 1.4ms | Allocations: 12015)
+
+
+Started GET "/" for 127.0.0.1 at 2022-05-28 12:29:08 +0300
+Processing by JobsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (0.6ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs"[0m
+  ↳ app/views/jobs/index.html.erb:2
+  [1m[36mCompany Load (0.7ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  [1m[36mCompany Load (0.4ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  Rendered collection of jobs/_job_preview.html.erb [2 times] (Duration: 85.1ms | Allocations: 1532)
+  Rendered jobs/index.html.erb within layouts/application (Duration: 346.7ms | Allocations: 4591)
+  Rendered layouts/_nav.html.erb (Duration: 0.2ms | Allocations: 44)
+  Rendered application/_flashes.html.erb (Duration: 0.1ms | Allocations: 27)
+  Rendered layout layouts/application.html.erb (Duration: 1126.1ms | Allocations: 12330)
+Completed 200 OK in 1128ms (Views: 1127.3ms | ActiveRecord: 159.6ms | Allocations: 12668)
+
+
+Started GET "/" for 127.0.0.1 at 2022-05-28 12:30:04 +0300
+Processing by JobsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (27.9ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" ORDER BY "jobs"."created_at" DESC[0m
+  ↳ app/views/jobs/index.html.erb:2
+  [1m[36mCompany Load (0.4ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  [1m[36mCompany Load (0.4ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  Rendered collection of jobs/_job_preview.html.erb [2 times] (Duration: 52.2ms | Allocations: 7146)
+  Rendered jobs/index.html.erb within layouts/application (Duration: 93.0ms | Allocations: 9237)
+  Rendered layouts/_nav.html.erb (Duration: 0.2ms | Allocations: 49)
+  Rendered application/_flashes.html.erb (Duration: 0.1ms | Allocations: 35)
+  Rendered layout layouts/application.html.erb (Duration: 396.7ms | Allocations: 32907)
+Completed 200 OK in 567ms (Views: 368.1ms | ActiveRecord: 47.1ms | Allocations: 37299)
+
+
+  [1m[35m (66.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(4306644712149207435)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddStatusToJobs (20220528093205)
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (140.3ms)[0m  [1m[35mALTER TABLE "job" ADD "status" character varying[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(4306644712149207435)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT pg_try_advisory_lock(4306644712149207435)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddStatusToJobs (20220528093205)
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (157.1ms)[0m  [1m[35mALTER TABLE "jobs" ADD "status" character varying[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220528093205"]]
+  [1m[36mTRANSACTION (85.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (77.7ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(4306644712149207435)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 127.0.0.1 at 2022-05-28 12:38:39 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by JobsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (1.2ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" ORDER BY "jobs"."created_at" DESC[0m
+  ↳ app/views/jobs/index.html.erb:2
+  [1m[36mCompany Load (0.4ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  [1m[36mCompany Load (0.4ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  Rendered collection of jobs/_job_preview.html.erb [2 times] (Duration: 18.4ms | Allocations: 7215)
+  Rendered jobs/index.html.erb within layouts/application (Duration: 30.6ms | Allocations: 9400)
+  Rendered layouts/_nav.html.erb (Duration: 34.1ms | Allocations: 198)
+  Rendered application/_flashes.html.erb (Duration: 12.3ms | Allocations: 258)
+  Rendered layout layouts/application.html.erb (Duration: 157.2ms | Allocations: 34211)
+Completed 200 OK in 168ms (Views: 156.8ms | ActiveRecord: 2.3ms | Allocations: 38627)
+
+
+Started GET "/jobs/new" for 127.0.0.1 at 2022-05-28 12:41:23 +0300
+Processing by JobsController#new as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["remember_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/controllers/jobs_controller.rb:8:in `new'
+  [1m[36mRole Load (0.5ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/user.rb:27:in `set_default_role'
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/new.html.erb within layouts/application
+  [1m[36mCompany Pluck (0.4ms)[0m  [1m[34mSELECT "companies"."name", "companies"."id" FROM "companies"[0m
+  ↳ app/views/jobs/_form.html.erb:18
+  Rendered jobs/_form.html.erb (Duration: 17.3ms | Allocations: 6923)
+  Rendered jobs/new.html.erb within layouts/application (Duration: 173.7ms | Allocations: 7214)
+  Rendered layouts/_nav.html.erb (Duration: 0.9ms | Allocations: 206)
+  Rendered application/_flashes.html.erb (Duration: 0.8ms | Allocations: 226)
+  Rendered layout layouts/application.html.erb (Duration: 210.3ms | Allocations: 31647)
+Completed 200 OK in 724ms (Views: 213.9ms | ActiveRecord: 16.0ms | Allocations: 50610)
+
+
+Started POST "/jobs" for 127.0.0.1 at 2022-05-28 12:42:37 +0300
+Processing by JobsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "job"=>{"title"=>"Executive-recruiter", "application_url"=>"https://www.toptal.com/careers/executive-recruiter", "status"=>"new", "company_id"=>"", "description"=>"<div>We take the best elements of virtual teams and combine them with a support structure that encourages innovation, social interaction, and fun. We see no borders, move at a fast pace, and are never afraid to break the mold.</div>"}, "commit"=>"Create Job"}
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/new.html.erb within layouts/application
+  [1m[36mCompany Pluck (0.3ms)[0m  [1m[34mSELECT "companies"."name", "companies"."id" FROM "companies"[0m
+  ↳ app/views/jobs/_form.html.erb:18
+  Rendered jobs/_form.html.erb (Duration: 7.8ms | Allocations: 2509)
+  Rendered jobs/new.html.erb within layouts/application (Duration: 8.2ms | Allocations: 2638)
+  Rendered layouts/_nav.html.erb (Duration: 0.2ms | Allocations: 45)
+  Rendered application/_flashes.html.erb (Duration: 0.1ms | Allocations: 27)
+  Rendered layout layouts/application.html.erb (Duration: 28.7ms | Allocations: 9849)
+Completed 200 OK in 35ms (Views: 29.2ms | ActiveRecord: 0.3ms | Allocations: 12625)
+
+
+Started POST "/jobs" for 127.0.0.1 at 2022-05-28 12:42:47 +0300
+Processing by JobsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "job"=>{"title"=>"Executive-recruiter", "application_url"=>"https://www.toptal.com/careers/executive-recruiter", "status"=>"new", "company_id"=>"5", "description"=>"<div>We take the best elements of virtual teams and combine them with a support structure that encourages innovation, social interaction, and fun. We see no borders, move at a fast pace, and are never afraid to break the mold.</div>"}, "commit"=>"Create Job"}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/jobs_controller.rb:12:in `create'
+  [1m[36mCompany Load (0.4ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/jobs_controller.rb:12:in `create'
+  [1m[36mJob Create (56.4ms)[0m  [1m[32mINSERT INTO "jobs" ("title", "company_id", "application_url", "created_at", "updated_at", "status") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "Executive-recruiter"], ["company_id", 5], ["application_url", "https://www.toptal.com/careers/executive-recruiter"], ["created_at", "2022-05-28 09:42:47.887209"], ["updated_at", "2022-05-28 09:42:47.887209"], ["status", "new"]]
+  ↳ app/controllers/jobs_controller.rb:12:in `create'
+  [1m[36mActionText::RichText Create (0.9ms)[0m  [1m[32mINSERT INTO "action_text_rich_texts" ("name", "body", "record_type", "record_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "description"], ["body", "<div>We take the best elements of virtual teams and combine them with a support structure that encourages innovation, social interaction, and fun. We see no borders, move at a fast pace, and are never afraid to break the mold.</div>"], ["record_type", "Job"], ["record_id", 3], ["created_at", "2022-05-28 09:42:48.144104"], ["updated_at", "2022-05-28 09:42:48.144104"]]
+  ↳ app/controllers/jobs_controller.rb:12:in `create'
+  [1m[36mActiveStorage::Attachment Load (0.6ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3[0m  [["record_id", 8], ["record_type", "ActionText::RichText"], ["name", "embeds"]]
+  ↳ app/controllers/jobs_controller.rb:12:in `create'
+  [1m[36mJob Update (0.8ms)[0m  [1m[33mUPDATE "jobs" SET "updated_at" = $1 WHERE "jobs"."id" = $2[0m  [["updated_at", "2022-05-28 09:42:48.148656"], ["id", 3]]
+  ↳ app/controllers/jobs_controller.rb:12:in `create'
+  [1m[36mTRANSACTION (56.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/jobs_controller.rb:12:in `create'
+Redirected to http://localhost:3000/
+Completed 302 Found in 343ms (ActiveRecord: 118.0ms | Allocations: 20418)
+
+
+Started GET "/" for 127.0.0.1 at 2022-05-28 12:42:48 +0300
+Processing by JobsController#index as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (0.4ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" ORDER BY "jobs"."created_at" DESC[0m
+  ↳ app/views/jobs/index.html.erb:2
+  [1m[36mCompany Load (0.4ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  [1m[36mCACHE Company Load (0.0ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  [1m[36mCompany Load (0.6ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  Rendered collection of jobs/_job_preview.html.erb [3 times] (Duration: 9.4ms | Allocations: 2453)
+  Rendered jobs/index.html.erb within layouts/application (Duration: 12.9ms | Allocations: 3443)
+  Rendered layouts/_nav.html.erb (Duration: 0.2ms | Allocations: 44)
+  Rendered application/_flashes.html.erb (Duration: 0.2ms | Allocations: 43)
+  Rendered layout layouts/application.html.erb (Duration: 28.9ms | Allocations: 11124)
+Completed 200 OK in 31ms (Views: 28.4ms | ActiveRecord: 1.4ms | Allocations: 11682)
+
+
+Started GET "/jobs/new" for 127.0.0.1 at 2022-05-28 12:43:21 +0300
+Processing by JobsController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."remember_token" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["remember_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/controllers/jobs_controller.rb:8:in `new'
+  [1m[36mRole Load (0.3ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/user.rb:27:in `set_default_role'
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/new.html.erb within layouts/application
+  [1m[36mCompany Pluck (0.4ms)[0m  [1m[34mSELECT "companies"."name", "companies"."id" FROM "companies"[0m
+  ↳ app/views/jobs/_form.html.erb:12
+  Rendered jobs/_form.html.erb (Duration: 10.2ms | Allocations: 2897)
+  Rendered jobs/new.html.erb within layouts/application (Duration: 12.6ms | Allocations: 3187)
+  Rendered layouts/_nav.html.erb (Duration: 1.2ms | Allocations: 206)
+  Rendered application/_flashes.html.erb (Duration: 1.3ms | Allocations: 224)
+  Rendered layout layouts/application.html.erb (Duration: 31.3ms | Allocations: 11615)
+Completed 200 OK in 45ms (Views: 35.5ms | ActiveRecord: 1.1ms | Allocations: 14274)
+
+
+Started GET "/" for 127.0.0.1 at 2022-05-28 12:43:25 +0300
+Processing by JobsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (0.5ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" ORDER BY "jobs"."created_at" DESC[0m
+  ↳ app/views/jobs/index.html.erb:2
+  [1m[36mCompany Load (0.5ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  [1m[36mCACHE Company Load (0.0ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  [1m[36mCompany Load (0.4ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  Rendered collection of jobs/_job_preview.html.erb [3 times] (Duration: 12.0ms | Allocations: 2422)
+  Rendered jobs/index.html.erb within layouts/application (Duration: 16.7ms | Allocations: 3322)
+  Rendered layouts/_nav.html.erb (Duration: 0.2ms | Allocations: 44)
+  Rendered application/_flashes.html.erb (Duration: 0.1ms | Allocations: 27)
+  Rendered layout layouts/application.html.erb (Duration: 33.6ms | Allocations: 11058)
+Completed 200 OK in 36ms (Views: 32.9ms | ActiveRecord: 1.4ms | Allocations: 11506)
+
+
+Started GET "/" for 127.0.0.1 at 2022-05-28 12:44:12 +0300
+Processing by JobsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (0.6ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" ORDER BY "jobs"."created_at" DESC[0m
+  ↳ app/views/jobs/index.html.erb:2
+  [1m[36mCompany Load (0.4ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  [1m[36mCACHE Company Load (0.0ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  [1m[36mCompany Load (0.4ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  Rendered collection of jobs/_job_preview.html.erb [3 times] (Duration: 11.6ms | Allocations: 2538)
+  Rendered jobs/index.html.erb within layouts/application (Duration: 16.8ms | Allocations: 3555)
+  Rendered layouts/_nav.html.erb (Duration: 0.7ms | Allocations: 197)
+  Rendered application/_flashes.html.erb (Duration: 1.1ms | Allocations: 224)
+  Rendered layout layouts/application.html.erb (Duration: 36.9ms | Allocations: 12095)
+Completed 200 OK in 42ms (Views: 38.6ms | ActiveRecord: 1.4ms | Allocations: 13282)
+
+
+Started GET "/" for 127.0.0.1 at 2022-05-28 12:45:26 +0300
+Processing by JobsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (0.7ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" ORDER BY "jobs"."created_at" DESC[0m
+  ↳ app/views/jobs/index.html.erb:2
+  [1m[36mCompany Load (0.3ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  [1m[36mCACHE Company Load (0.0ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  [1m[36mCompany Load (0.3ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  Rendered collection of jobs/_job_preview.html.erb [3 times] (Duration: 15.3ms | Allocations: 2538)
+  Rendered jobs/index.html.erb within layouts/application (Duration: 21.4ms | Allocations: 3554)
+  Rendered layouts/_nav.html.erb (Duration: 0.8ms | Allocations: 197)
+  Rendered application/_flashes.html.erb (Duration: 1.0ms | Allocations: 224)
+  Rendered layout layouts/application.html.erb (Duration: 42.2ms | Allocations: 12104)
+Completed 200 OK in 48ms (Views: 44.4ms | ActiveRecord: 1.4ms | Allocations: 13323)
+
+
+Started GET "/" for 127.0.0.1 at 2022-05-28 12:47:01 +0300
+Processing by JobsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (0.5ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" ORDER BY "jobs"."created_at" DESC[0m
+  ↳ app/views/jobs/index.html.erb:2
+  [1m[36mCompany Load (0.4ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  [1m[36mCACHE Company Load (0.0ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  [1m[36mCompany Load (0.4ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  Rendered collection of jobs/_job_preview.html.erb [3 times] (Duration: 16.0ms | Allocations: 2537)
+  Rendered jobs/index.html.erb within layouts/application (Duration: 21.7ms | Allocations: 3553)
+  Rendered layouts/_nav.html.erb (Duration: 0.9ms | Allocations: 197)
+  Rendered application/_flashes.html.erb (Duration: 0.8ms | Allocations: 224)
+  Rendered layout layouts/application.html.erb (Duration: 49.2ms | Allocations: 12303)
+Completed 200 OK in 62ms (Views: 58.4ms | ActiveRecord: 1.3ms | Allocations: 13522)
+
+
+Started GET "/" for 127.0.0.1 at 2022-05-28 12:48:14 +0300
+Processing by JobsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (0.5ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" ORDER BY "jobs"."created_at" DESC[0m
+  ↳ app/views/jobs/index.html.erb:2
+  [1m[36mCompany Load (0.3ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  [1m[36mCACHE Company Load (0.0ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  [1m[36mCompany Load (0.4ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  Rendered collection of jobs/_job_preview.html.erb [3 times] (Duration: 14.7ms | Allocations: 2538)
+  Rendered jobs/index.html.erb within layouts/application (Duration: 18.6ms | Allocations: 3554)
+  Rendered layouts/_nav.html.erb (Duration: 0.6ms | Allocations: 197)
+  Rendered application/_flashes.html.erb (Duration: 1.1ms | Allocations: 224)
+  Rendered layout layouts/application.html.erb (Duration: 38.8ms | Allocations: 12113)
+Completed 200 OK in 43ms (Views: 39.8ms | ActiveRecord: 1.3ms | Allocations: 13333)
+
+
+Started GET "/" for 127.0.0.1 at 2022-05-28 12:49:12 +0300
+Processing by JobsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (0.8ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" ORDER BY "jobs"."created_at" DESC[0m
+  ↳ app/views/jobs/index.html.erb:2
+  Rendered collection of jobs/_job_preview.html.erb [3 times] (Duration: 1.6ms | Allocations: 1482)
+  Rendered jobs/index.html.erb within layouts/application (Duration: 7.0ms | Allocations: 2498)
+  Rendered layout layouts/application.html.erb (Duration: 8.1ms | Allocations: 2583)
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 0.8ms | Allocations: 3775)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <%= link_to(job) do %>
+  <div class = "job-prev bg-amber-100 py-4 px-8 mt-2">
+    <p class="font-normal"><%=job.company.name%></p>
+    <div class="flex justify-between py-1">
+      <p class="font-bold"><%=job.title%></p>
+      <div class="flex">
+        <p><%= job.created_at.strftime("%Y-%m-%d")%></p>
+        <p class="ml-4"><%= job.status, style="color":red %></p>
+        <p class="ml-4">Featured</p>
+      </div>
+    </div>
+    <p>Location: Congo🇨🇩</p>
+  </div>
+<%end%>
+):
+1:    <%= link_to(job) do %>
+2:      <div class = "job-prev bg-amber-100 py-4 px-8 mt-2">
+3:        <p class="font-normal"><%=job.company.name%></p>
+4:        <div class="flex justify-between py-1">
+5:          <p class="font-bold"><%=job.title%></p>
+6:          <div class="flex">
+7:            <p><%= job.created_at.strftime("%Y-%m-%d")%></p>
+8:            <p class="ml-4"><%= job.status, style="color":red %></p>
+9:            <p class="ml-4">Featured</p>
+10:          </div>
+11:        </div>
+12:        <p>Location: Congo🇨🇩</p>
+13:      </div>
+14:    <%end%>
+  
+app/views/jobs/_job_preview.html.erb:8: syntax error, unexpected ':', expecting ')'
+app/views/jobs/_job_preview.html.erb:8: syntax error, unexpected ':', expecting ')'
+app/views/jobs/_job_preview.html.erb:8: syntax error, unexpected ':', expecting ')'
+app/views/jobs/_job_preview.html.erb:8: syntax error, unexpected ':', expecting ')'
+app/views/jobs/_job_preview.html.erb:8: syntax error, unexpected ':', expecting ')'
+app/views/jobs/_job_preview.html.erb:8: syntax error, unexpected ':', expecting ')'
+app/views/jobs/index.html.erb:2
+Started GET "/" for 127.0.0.1 at 2022-05-28 12:49:38 +0300
+Processing by JobsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (0.7ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" ORDER BY "jobs"."created_at" DESC[0m
+  ↳ app/views/jobs/index.html.erb:2
+  Rendered collection of jobs/_job_preview.html.erb [3 times] (Duration: 2.5ms | Allocations: 1470)
+  Rendered jobs/index.html.erb within layouts/application (Duration: 8.9ms | Allocations: 2486)
+  Rendered layout layouts/application.html.erb (Duration: 9.4ms | Allocations: 2571)
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 0.7ms | Allocations: 3749)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <%= link_to(job) do %>
+  <div class = "job-prev bg-amber-100 py-4 px-8 mt-2">
+    <p class="font-normal"><%=job.company.name%></p>
+    <div class="flex justify-between py-1">
+      <p class="font-bold"><%=job.title%></p>
+      <div class="flex">
+        <p><%= job.created_at.strftime("%Y-%m-%d")%></p>
+        <p class="ml-4"><%= job.status, :style="color":red %></p>
+        <p class="ml-4">Featured</p>
+      </div>
+    </div>
+    <p>Location: Congo🇨🇩</p>
+  </div>
+<%end%>
+):
+1:    <%= link_to(job) do %>
+2:      <div class = "job-prev bg-amber-100 py-4 px-8 mt-2">
+3:        <p class="font-normal"><%=job.company.name%></p>
+4:        <div class="flex justify-between py-1">
+5:          <p class="font-bold"><%=job.title%></p>
+6:          <div class="flex">
+7:            <p><%= job.created_at.strftime("%Y-%m-%d")%></p>
+8:            <p class="ml-4"><%= job.status, :style="color":red %></p>
+9:            <p class="ml-4">Featured</p>
+10:          </div>
+11:        </div>
+12:        <p>Location: Congo🇨🇩</p>
+13:      </div>
+14:    <%end%>
+  
+app/views/jobs/_job_preview.html.erb:8: syntax error, unexpected string literal, expecting '.' or &. or :: or '['
+app/views/jobs/_job_preview.html.erb:8: syntax error, unexpected ':', expecting ')'
+app/views/jobs/_job_preview.html.erb:8: syntax error, unexpected string literal, expecting '.' or &. or :: or '['
+app/views/jobs/_job_preview.html.erb:8: syntax error, unexpected ':', expecting ')'
+app/views/jobs/_job_preview.html.erb:8: syntax error, unexpected string literal, expecting '.' or &. or :: or '['
+app/views/jobs/_job_preview.html.erb:8: syntax error, unexpected ':', expecting ')'
+app/views/jobs/_job_preview.html.erb:8: syntax error, unexpected string literal, expecting '.' or &. or :: or '['
+app/views/jobs/_job_preview.html.erb:8: syntax error, unexpected ':', expecting ')'
+app/views/jobs/_job_preview.html.erb:8: syntax error, unexpected string literal, expecting '.' or &. or :: or '['
+app/views/jobs/_job_preview.html.erb:8: syntax error, unexpected ':', expecting ')'
+app/views/jobs/_job_preview.html.erb:8: syntax error, unexpected string literal, expecting '.' or &. or :: or '['
+app/views/jobs/_job_preview.html.erb:8: syntax error, unexpected ':', expecting ')'
+app/views/jobs/index.html.erb:2
+Started GET "/" for 127.0.0.1 at 2022-05-28 13:02:11 +0300
+Processing by JobsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (2.5ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" ORDER BY "jobs"."created_at" DESC[0m
+  ↳ app/views/jobs/index.html.erb:2
+  [1m[36mCompany Load (0.6ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  [1m[36mCACHE Company Load (0.0ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  [1m[36mCompany Load (0.4ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  Rendered collection of jobs/_job_preview.html.erb [3 times] (Duration: 35.1ms | Allocations: 2571)
+  Rendered jobs/index.html.erb within layouts/application (Duration: 42.6ms | Allocations: 3659)
+  Rendered layouts/_nav.html.erb (Duration: 0.8ms | Allocations: 197)
+  Rendered application/_flashes.html.erb (Duration: 2.0ms | Allocations: 224)
+  Rendered layout layouts/application.html.erb (Duration: 479.1ms | Allocations: 12435)
+Completed 200 OK in 667ms (Views: 523.6ms | ActiveRecord: 75.2ms | Allocations: 15949)
+
+
+Started GET "/" for 127.0.0.1 at 2022-05-28 13:05:48 +0300
+Processing by JobsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (1.0ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" ORDER BY "jobs"."created_at" DESC[0m
+  ↳ app/views/jobs/index.html.erb:2
+  [1m[36mCompany Load (1.0ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  [1m[36mCACHE Company Load (0.0ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  [1m[36mCompany Load (0.4ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  Rendered collection of jobs/_job_preview.html.erb [3 times] (Duration: 13.9ms | Allocations: 2538)
+  Rendered jobs/index.html.erb within layouts/application (Duration: 20.4ms | Allocations: 3558)
+  Rendered layouts/_nav.html.erb (Duration: 1.0ms | Allocations: 197)
+  Rendered application/_flashes.html.erb (Duration: 1.4ms | Allocations: 224)
+  Rendered layout layouts/application.html.erb (Duration: 48.2ms | Allocations: 12317)
+Completed 200 OK in 54ms (Views: 49.8ms | ActiveRecord: 2.4ms | Allocations: 13537)
+
+
+Started GET "/" for 127.0.0.1 at 2022-05-28 13:05:53 +0300
+Processing by JobsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (0.6ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" ORDER BY "jobs"."created_at" DESC[0m
+  ↳ app/views/jobs/index.html.erb:2
+  [1m[36mCompany Load (0.5ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  [1m[36mCACHE Company Load (0.1ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  [1m[36mCompany Load (0.8ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  Rendered collection of jobs/_job_preview.html.erb [3 times] (Duration: 17.6ms | Allocations: 2176)
+  Rendered jobs/index.html.erb within layouts/application (Duration: 21.7ms | Allocations: 2884)
+  Rendered layouts/_nav.html.erb (Duration: 0.2ms | Allocations: 44)
+  Rendered application/_flashes.html.erb (Duration: 0.1ms | Allocations: 27)
+  Rendered layout layouts/application.html.erb (Duration: 45.1ms | Allocations: 10383)
+Completed 200 OK in 48ms (Views: 45.0ms | ActiveRecord: 2.0ms | Allocations: 10780)
+
+
+Started GET "/" for 127.0.0.1 at 2022-05-28 13:06:08 +0300
+Processing by JobsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (0.6ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" ORDER BY "jobs"."created_at" DESC[0m
+  ↳ app/views/jobs/index.html.erb:2
+  [1m[36mCompany Load (0.3ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  [1m[36mCACHE Company Load (0.0ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  [1m[36mCompany Load (0.5ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  Rendered collection of jobs/_job_preview.html.erb [3 times] (Duration: 25.8ms | Allocations: 2538)
+  Rendered jobs/index.html.erb within layouts/application (Duration: 33.7ms | Allocations: 3554)
+  Rendered layouts/_nav.html.erb (Duration: 0.8ms | Allocations: 197)
+  Rendered application/_flashes.html.erb (Duration: 0.9ms | Allocations: 224)
+  Rendered layout layouts/application.html.erb (Duration: 54.4ms | Allocations: 12094)
+Completed 200 OK in 65ms (Views: 59.1ms | ActiveRecord: 1.4ms | Allocations: 13280)
+
+
+Started GET "/jobs/3" for 127.0.0.1 at 2022-05-28 13:06:12 +0300
+Processing by JobsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mJob Load (0.4ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/jobs_controller.rb:22:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/show.html.erb within layouts/application
+  [1m[36mActionText::RichText Load (0.6ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = $1 AND "action_text_rich_texts"."record_type" = $2 AND "action_text_rich_texts"."name" = $3 LIMIT $4[0m  [["record_id", 3], ["record_type", "Job"], ["name", "description"], ["LIMIT", 1]]
+  ↳ app/views/jobs/show.html.erb:13
+  Rendered /home/victor-barh/.rbenv/versions/3.0.2/lib/ruby/gems/3.0.0/gems/actiontext-7.0.2.3/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 41.7ms | Allocations: 566)
+  Rendered jobs/show.html.erb within layouts/application (Duration: 346.2ms | Allocations: 2362)
+  Rendered layouts/_nav.html.erb (Duration: 0.3ms | Allocations: 58)
+  Rendered application/_flashes.html.erb (Duration: 0.1ms | Allocations: 27)
+  Rendered layout layouts/application.html.erb (Duration: 362.3ms | Allocations: 9856)
+Completed 200 OK in 371ms (Views: 362.6ms | ActiveRecord: 1.0ms | Allocations: 11320)
+
+
+Started GET "/" for 127.0.0.1 at 2022-05-28 13:07:15 +0300
+Processing by JobsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (0.7ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" ORDER BY "jobs"."created_at" DESC[0m
+  ↳ app/views/jobs/index.html.erb:2
+  [1m[36mCompany Load (0.4ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  [1m[36mCACHE Company Load (0.0ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  [1m[36mCompany Load (0.4ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  Rendered collection of jobs/_job_preview.html.erb [3 times] (Duration: 14.2ms | Allocations: 2538)
+  Rendered jobs/index.html.erb within layouts/application (Duration: 21.7ms | Allocations: 3554)
+  Rendered layouts/_nav.html.erb (Duration: 0.9ms | Allocations: 197)
+  Rendered application/_flashes.html.erb (Duration: 1.0ms | Allocations: 224)
+  Rendered layout layouts/application.html.erb (Duration: 50.2ms | Allocations: 12108)
+Completed 200 OK in 58ms (Views: 54.0ms | ActiveRecord: 1.5ms | Allocations: 13304)
+
+
+Started GET "/" for 127.0.0.1 at 2022-05-28 13:08:43 +0300
+Processing by JobsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (0.6ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" ORDER BY "jobs"."created_at" DESC[0m
+  ↳ app/views/jobs/index.html.erb:2
+  [1m[36mCompany Load (0.5ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  [1m[36mCACHE Company Load (0.0ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  [1m[36mCompany Load (0.5ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  Rendered collection of jobs/_job_preview.html.erb [3 times] (Duration: 13.1ms | Allocations: 2538)
+  Rendered jobs/index.html.erb within layouts/application (Duration: 17.5ms | Allocations: 3554)
+  Rendered layouts/_nav.html.erb (Duration: 0.7ms | Allocations: 197)
+  Rendered application/_flashes.html.erb (Duration: 0.8ms | Allocations: 224)
+  Rendered layout layouts/application.html.erb (Duration: 41.4ms | Allocations: 12104)
+Completed 200 OK in 48ms (Views: 43.8ms | ActiveRecord: 1.5ms | Allocations: 13323)
+
+
+Started GET "/" for 127.0.0.1 at 2022-05-28 13:09:32 +0300
+Processing by JobsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (0.5ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" ORDER BY "jobs"."created_at" DESC[0m
+  ↳ app/views/jobs/index.html.erb:2
+  [1m[36mCompany Load (0.3ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  [1m[36mCACHE Company Load (0.0ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  [1m[36mCompany Load (0.4ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  Rendered collection of jobs/_job_preview.html.erb [3 times] (Duration: 14.6ms | Allocations: 2538)
+  Rendered jobs/index.html.erb within layouts/application (Duration: 19.0ms | Allocations: 3554)
+  Rendered layouts/_nav.html.erb (Duration: 1.1ms | Allocations: 197)
+  Rendered application/_flashes.html.erb (Duration: 2.5ms | Allocations: 225)
+  Rendered layout layouts/application.html.erb (Duration: 52.8ms | Allocations: 12106)
+Completed 200 OK in 59ms (Views: 55.2ms | ActiveRecord: 1.2ms | Allocations: 13326)
+
+
+Started GET "/" for 127.0.0.1 at 2022-05-28 13:09:53 +0300
+Processing by JobsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (1.1ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" ORDER BY "jobs"."created_at" DESC[0m
+  ↳ app/views/jobs/index.html.erb:2
+  [1m[36mCompany Load (0.5ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  [1m[36mCACHE Company Load (0.0ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  [1m[36mCompany Load (0.4ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  Rendered collection of jobs/_job_preview.html.erb [3 times] (Duration: 13.0ms | Allocations: 2176)
+  Rendered jobs/index.html.erb within layouts/application (Duration: 19.0ms | Allocations: 2884)
+  Rendered layouts/_nav.html.erb (Duration: 0.2ms | Allocations: 44)
+  Rendered application/_flashes.html.erb (Duration: 0.1ms | Allocations: 27)
+  Rendered layout layouts/application.html.erb (Duration: 43.5ms | Allocations: 10410)
+Completed 200 OK in 51ms (Views: 46.0ms | ActiveRecord: 2.0ms | Allocations: 10807)
+
+
+Started GET "/" for 127.0.0.1 at 2022-05-28 13:10:13 +0300
+Processing by JobsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (1.5ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" ORDER BY "jobs"."created_at" DESC[0m
+  ↳ app/views/jobs/index.html.erb:2
+  [1m[36mCompany Load (0.8ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  [1m[36mCACHE Company Load (0.0ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  [1m[36mCompany Load (1.1ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  Rendered collection of jobs/_job_preview.html.erb [3 times] (Duration: 14.3ms | Allocations: 2537)
+  Rendered jobs/index.html.erb within layouts/application (Duration: 19.5ms | Allocations: 3553)
+  Rendered layouts/_nav.html.erb (Duration: 1.5ms | Allocations: 197)
+  Rendered application/_flashes.html.erb (Duration: 1.3ms | Allocations: 224)
+  Rendered layout layouts/application.html.erb (Duration: 51.8ms | Allocations: 12335)
+Completed 200 OK in 63ms (Views: 55.3ms | ActiveRecord: 3.4ms | Allocations: 13522)
+
+
+Started GET "/" for 127.0.0.1 at 2022-05-28 13:10:20 +0300
+Processing by JobsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (0.5ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" ORDER BY "jobs"."created_at" DESC[0m
+  ↳ app/views/jobs/index.html.erb:2
+  [1m[36mCompany Load (0.3ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  [1m[36mCACHE Company Load (0.0ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  [1m[36mCompany Load (0.4ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  Rendered collection of jobs/_job_preview.html.erb [3 times] (Duration: 11.7ms | Allocations: 2176)
+  Rendered jobs/index.html.erb within layouts/application (Duration: 15.4ms | Allocations: 2885)
+  Rendered layouts/_nav.html.erb (Duration: 0.2ms | Allocations: 44)
+  Rendered application/_flashes.html.erb (Duration: 0.1ms | Allocations: 27)
+  Rendered layout layouts/application.html.erb (Duration: 34.9ms | Allocations: 10382)
+Completed 200 OK in 38ms (Views: 35.7ms | ActiveRecord: 1.2ms | Allocations: 10779)
+
+
+Started GET "/" for 127.0.0.1 at 2022-05-28 13:11:03 +0300
+Processing by JobsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (0.5ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" ORDER BY "jobs"."created_at" DESC[0m
+  ↳ app/views/jobs/index.html.erb:2
+  [1m[36mCompany Load (0.3ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  [1m[36mCACHE Company Load (0.1ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  [1m[36mCompany Load (0.4ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  Rendered collection of jobs/_job_preview.html.erb [3 times] (Duration: 16.4ms | Allocations: 2538)
+  Rendered jobs/index.html.erb within layouts/application (Duration: 22.1ms | Allocations: 3555)
+  Rendered layouts/_nav.html.erb (Duration: 1.1ms | Allocations: 197)
+  Rendered application/_flashes.html.erb (Duration: 0.8ms | Allocations: 224)
+  Rendered layout layouts/application.html.erb (Duration: 45.7ms | Allocations: 12314)
+Completed 200 OK in 54ms (Views: 47.9ms | ActiveRecord: 1.3ms | Allocations: 13501)
+
+
+Started GET "/" for 127.0.0.1 at 2022-05-28 13:11:05 +0300
+Processing by JobsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (0.6ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" ORDER BY "jobs"."created_at" DESC[0m
+  ↳ app/views/jobs/index.html.erb:2
+  [1m[36mCompany Load (0.7ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  [1m[36mCACHE Company Load (0.0ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  [1m[36mCompany Load (0.4ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  Rendered collection of jobs/_job_preview.html.erb [3 times] (Duration: 12.3ms | Allocations: 2176)
+  Rendered jobs/index.html.erb within layouts/application (Duration: 18.0ms | Allocations: 2884)
+  Rendered layouts/_nav.html.erb (Duration: 0.2ms | Allocations: 44)
+  Rendered application/_flashes.html.erb (Duration: 0.1ms | Allocations: 27)
+  Rendered layout layouts/application.html.erb (Duration: 41.3ms | Allocations: 10376)
+Completed 200 OK in 44ms (Views: 40.9ms | ActiveRecord: 1.7ms | Allocations: 10773)
+
+
+Started GET "/" for 127.0.0.1 at 2022-05-28 13:13:28 +0300
+Processing by JobsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (0.6ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" ORDER BY "jobs"."created_at" DESC[0m
+  ↳ app/views/jobs/index.html.erb:2
+  [1m[36mCompany Load (0.4ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  [1m[36mCACHE Company Load (0.0ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  [1m[36mCompany Load (0.3ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  Rendered collection of jobs/_job_preview.html.erb [3 times] (Duration: 14.1ms | Allocations: 2538)
+  Rendered jobs/index.html.erb within layouts/application (Duration: 18.2ms | Allocations: 3554)
+  Rendered layouts/_nav.html.erb (Duration: 0.7ms | Allocations: 197)
+  Rendered application/_flashes.html.erb (Duration: 0.8ms | Allocations: 224)
+  Rendered layout layouts/application.html.erb (Duration: 1033.6ms | Allocations: 15034)
+Completed 200 OK in 1038ms (Views: 1034.5ms | ActiveRecord: 1.3ms | Allocations: 16220)
+
+
+Started GET "/" for 127.0.0.1 at 2022-05-28 13:13:44 +0300
+Processing by JobsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (0.8ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" ORDER BY "jobs"."created_at" DESC[0m
+  ↳ app/views/jobs/index.html.erb:2
+  [1m[36mCompany Load (1.0ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  [1m[36mCACHE Company Load (0.0ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  [1m[36mCompany Load (0.3ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/jobs/_job_preview.html.erb:3
+  Rendered collection of jobs/_job_preview.html.erb [3 times] (Duration: 15.8ms | Allocations: 2538)
+  Rendered jobs/index.html.erb within layouts/application (Duration: 21.1ms | Allocations: 3554)
+  Rendered layouts/_nav.html.erb (Duration: 1.9ms | Allocations: 197)
+  Rendered application/_flashes.html.erb (Duration: 1.3ms | Allocations: 224)
+  Rendered layout layouts/application.html.erb (Duration: 45.7ms | Allocations: 12094)
+Completed 200 OK in 52ms (Views: 46.7ms | ActiveRecord: 2.0ms | Allocations: 13313)
+
+
+Started GET "/jobs/3" for 127.0.0.1 at 2022-05-28 13:39:08 +0300
+Processing by JobsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mJob Load (0.6ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/jobs_controller.rb:22:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering jobs/show.html.erb within layouts/application
+  [1m[36mActionText::RichText Load (0.5ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = $1 AND "action_text_rich_texts"."record_type" = $2 AND "action_text_rich_texts"."name" = $3 LIMIT $4[0m  [["record_id", 3], ["record_type", "Job"], ["name", "description"], ["LIMIT", 1]]
+  ↳ app/views/jobs/show.html.erb:13
+  Rendered /home/victor-barh/.rbenv/versions/3.0.2/lib/ruby/gems/3.0.0/gems/actiontext-7.0.2.3/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 299.0ms | Allocations: 567)
+  Rendered jobs/show.html.erb within layouts/application (Duration: 1079.0ms | Allocations: 2368)
+  Rendered layouts/_nav.html.erb (Duration: 0.3ms | Allocations: 58)
+  Rendered application/_flashes.html.erb (Duration: 0.1ms | Allocations: 27)
+  Rendered layout layouts/application.html.erb (Duration: 2477.2ms | Allocations: 9967)
+Completed 200 OK in 3812ms (Views: 2477.6ms | ActiveRecord: 424.1ms | Allocations: 13258)
+
+
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(4306644712149207435)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (19.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateStatuses (20220528110428)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (738.4ms)[0m  [1m[35mCREATE TABLE "status" ("id" bigserial primary key, "new" boolean DEFAULT TRUE, "jobs_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_22e846d53d"
+FOREIGN KEY ("jobs_id")
+  REFERENCES "jobs" ("id")
+)[0m
+  [1m[35m (72.4ms)[0m  [1m[35mCREATE INDEX "index_status_on_jobs_id" ON "status" ("jobs_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220528110428"]]
+  [1m[36mTRANSACTION (32.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT pg_advisory_unlock(4306644712149207435)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (642.0ms)[0m  [1m[35mDROP DATABASE IF EXISTS "Anity_Jobs_development"[0m
+  [1m[35m (435.8ms)[0m  [1m[35mDROP DATABASE IF EXISTS "Anity_Jobs_test"[0m
+  [1m[35m (2099.8ms)[0m  [1m[35mCREATE DATABASE "Anity_Jobs_development" ENCODING = 'unicode'[0m
+  [1m[35m (979.0ms)[0m  [1m[35mCREATE DATABASE "Anity_Jobs_test" ENCODING = 'unicode'[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "action_text_rich_texts" CASCADE[0m
+  [1m[35m (155.0ms)[0m  [1m[35mCREATE TABLE "action_text_rich_texts" ("id" bigserial primary key, "name" character varying NOT NULL, "body" text, "record_type" character varying NOT NULL, "record_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (75.3ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_action_text_rich_texts_uniqueness" ON "action_text_rich_texts" ("record_type", "record_id", "name")[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "active_storage_attachments" CASCADE[0m
+  [1m[35m (172.8ms)[0m  [1m[35mCREATE TABLE "active_storage_attachments" ("id" bigserial primary key, "name" character varying NOT NULL, "record_type" character varying NOT NULL, "record_id" bigint NOT NULL, "blob_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (87.5ms)[0m  [1m[35mCREATE INDEX "index_active_storage_attachments_on_blob_id" ON "active_storage_attachments" ("blob_id")[0m
+  [1m[35m (87.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_attachments_uniqueness" ON "active_storage_attachments" ("record_type", "record_id", "name", "blob_id")[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "active_storage_blobs" CASCADE[0m
+  [1m[35m (161.8ms)[0m  [1m[35mCREATE TABLE "active_storage_blobs" ("id" bigserial primary key, "key" character varying NOT NULL, "filename" character varying NOT NULL, "content_type" character varying, "metadata" text, "service_name" character varying NOT NULL, "byte_size" bigint NOT NULL, "checksum" character varying, "created_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (108.9ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_blobs_on_key" ON "active_storage_blobs" ("key")[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "active_storage_variant_records" CASCADE[0m
+  [1m[35m (185.4ms)[0m  [1m[35mCREATE TABLE "active_storage_variant_records" ("id" bigserial primary key, "blob_id" bigint NOT NULL, "variation_digest" character varying NOT NULL)[0m
+  [1m[35m (86.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_variant_records_uniqueness" ON "active_storage_variant_records" ("blob_id", "variation_digest")[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "companies" CASCADE[0m
+  [1m[35m (118.0ms)[0m  [1m[35mCREATE TABLE "companies" ("id" bigserial primary key, "name" character varying NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "jobs" CASCADE[0m
+  [1m[35m (118.7ms)[0m  [1m[35mCREATE TABLE "jobs" ("id" bigserial primary key, "title" character varying, "company_id" bigint, "application_url" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, "status" character varying)[0m
+  [1m[35m (75.8ms)[0m  [1m[35mCREATE INDEX "index_jobs_on_company_id" ON "jobs" ("company_id")[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "roles" CASCADE[0m
+  [1m[35m (73.0ms)[0m  [1m[35mCREATE TABLE "roles" ("id" bigserial primary key, "name" integer NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "status" CASCADE[0m
+  [1m[35m (94.7ms)[0m  [1m[35mCREATE TABLE "status" ("id" bigserial primary key, "new" boolean DEFAULT TRUE, "jobs_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (87.1ms)[0m  [1m[35mCREATE INDEX "index_status_on_jobs_id" ON "status" ("jobs_id")[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (117.6ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, "email" character varying NOT NULL, "encrypted_password" character varying(128) NOT NULL, "confirmation_token" character varying(128), "remember_token" character varying(128) NOT NULL, "role_id" bigint)[0m
+  [1m[35m (75.8ms)[0m  [1m[35mCREATE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (76.4ms)[0m  [1m[35mCREATE INDEX "index_users_on_remember_token" ON "users" ("remember_token")[0m
+  [1m[35m (65.1ms)[0m  [1m[35mCREATE INDEX "index_users_on_role_id" ON "users" ("role_id")[0m
+  [1m[35m (54.2ms)[0m  [1m[35mALTER TABLE "active_storage_attachments" ADD CONSTRAINT "fk_rails_c3b3935057"
+FOREIGN KEY ("blob_id")
+  REFERENCES "active_storage_blobs" ("id")
+[0m
+  [1m[35m (9.4ms)[0m  [1m[35mALTER TABLE "active_storage_variant_records" ADD CONSTRAINT "fk_rails_993965df05"
+FOREIGN KEY ("blob_id")
+  REFERENCES "active_storage_blobs" ("id")
+[0m
+  [1m[35m (9.8ms)[0m  [1m[35mALTER TABLE "jobs" ADD CONSTRAINT "fk_rails_b34da78090"
+FOREIGN KEY ("company_id")
+  REFERENCES "companies" ("id")
+[0m
+  [1m[35m (9.0ms)[0m  [1m[35mALTER TABLE "status" ADD CONSTRAINT "fk_rails_22e846d53d"
+FOREIGN KEY ("jobs_id")
+  REFERENCES "jobs" ("id")
+[0m
+  [1m[35m (9.0ms)[0m  [1m[35mALTER TABLE "users" ADD CONSTRAINT "fk_rails_642f17018b"
+FOREIGN KEY ("role_id")
+  REFERENCES "roles" ("id")
+[0m
+  [1m[35m (119.6ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (15.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20220528110428)[0m
+  [1m[35m (9.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20220416125241),
+(20220506095706),
+(20220506102840),
+(20220506105011),
+(20220506105012),
+(20220507073241),
+(20220526062910);
+
+[0m
+  [1m[35m (129.8ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (1.0ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-05-28 11:10:03.852446"], ["updated_at", "2022-05-28 11:10:03.852446"]]
+  [1m[36mTRANSACTION (12.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "771bc24c57cbf1214534521857f775058d3db19d"], ["created_at", "2022-05-28 11:10:03.882163"], ["updated_at", "2022-05-28 11:10:03.882163"]]
+  [1m[36mTRANSACTION (8.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "action_text_rich_texts" CASCADE[0m
+  [1m[35m (163.3ms)[0m  [1m[35mCREATE TABLE "action_text_rich_texts" ("id" bigserial primary key, "name" character varying NOT NULL, "body" text, "record_type" character varying NOT NULL, "record_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (86.4ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_action_text_rich_texts_uniqueness" ON "action_text_rich_texts" ("record_type", "record_id", "name")[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "active_storage_attachments" CASCADE[0m
+  [1m[35m (130.3ms)[0m  [1m[35mCREATE TABLE "active_storage_attachments" ("id" bigserial primary key, "name" character varying NOT NULL, "record_type" character varying NOT NULL, "record_id" bigint NOT NULL, "blob_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (175.5ms)[0m  [1m[35mCREATE INDEX "index_active_storage_attachments_on_blob_id" ON "active_storage_attachments" ("blob_id")[0m
+  [1m[35m (76.4ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_attachments_uniqueness" ON "active_storage_attachments" ("record_type", "record_id", "name", "blob_id")[0m
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "active_storage_blobs" CASCADE[0m
+  [1m[35m (172.6ms)[0m  [1m[35mCREATE TABLE "active_storage_blobs" ("id" bigserial primary key, "key" character varying NOT NULL, "filename" character varying NOT NULL, "content_type" character varying, "metadata" text, "service_name" character varying NOT NULL, "byte_size" bigint NOT NULL, "checksum" character varying, "created_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (87.5ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_blobs_on_key" ON "active_storage_blobs" ("key")[0m
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "active_storage_variant_records" CASCADE[0m
+  [1m[35m (118.1ms)[0m  [1m[35mCREATE TABLE "active_storage_variant_records" ("id" bigserial primary key, "blob_id" bigint NOT NULL, "variation_digest" character varying NOT NULL)[0m
+  [1m[35m (75.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_variant_records_uniqueness" ON "active_storage_variant_records" ("blob_id", "variation_digest")[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "companies" CASCADE[0m
+  [1m[35m (117.8ms)[0m  [1m[35mCREATE TABLE "companies" ("id" bigserial primary key, "name" character varying NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "jobs" CASCADE[0m
+  [1m[35m (287.2ms)[0m  [1m[35mCREATE TABLE "jobs" ("id" bigserial primary key, "title" character varying, "company_id" bigint, "application_url" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, "status" character varying)[0m
+  [1m[35m (154.3ms)[0m  [1m[35mCREATE INDEX "index_jobs_on_company_id" ON "jobs" ("company_id")[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "roles" CASCADE[0m
+  [1m[35m (262.7ms)[0m  [1m[35mCREATE TABLE "roles" ("id" bigserial primary key, "name" integer NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "status" CASCADE[0m
+  [1m[35m (209.8ms)[0m  [1m[35mCREATE TABLE "status" ("id" bigserial primary key, "new" boolean DEFAULT TRUE, "jobs_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (207.2ms)[0m  [1m[35mCREATE INDEX "index_status_on_jobs_id" ON "status" ("jobs_id")[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (152.4ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, "email" character varying NOT NULL, "encrypted_password" character varying(128) NOT NULL, "confirmation_token" character varying(128), "remember_token" character varying(128) NOT NULL, "role_id" bigint)[0m
+  [1m[35m (75.7ms)[0m  [1m[35mCREATE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (75.7ms)[0m  [1m[35mCREATE INDEX "index_users_on_remember_token" ON "users" ("remember_token")[0m
+  [1m[35m (75.7ms)[0m  [1m[35mCREATE INDEX "index_users_on_role_id" ON "users" ("role_id")[0m
+  [1m[35m (9.1ms)[0m  [1m[35mALTER TABLE "active_storage_attachments" ADD CONSTRAINT "fk_rails_c3b3935057"
+FOREIGN KEY ("blob_id")
+  REFERENCES "active_storage_blobs" ("id")
+[0m
+  [1m[35m (9.5ms)[0m  [1m[35mALTER TABLE "active_storage_variant_records" ADD CONSTRAINT "fk_rails_993965df05"
+FOREIGN KEY ("blob_id")
+  REFERENCES "active_storage_blobs" ("id")
+[0m
+  [1m[35m (9.3ms)[0m  [1m[35mALTER TABLE "jobs" ADD CONSTRAINT "fk_rails_b34da78090"
+FOREIGN KEY ("company_id")
+  REFERENCES "companies" ("id")
+[0m
+  [1m[35m (9.2ms)[0m  [1m[35mALTER TABLE "status" ADD CONSTRAINT "fk_rails_22e846d53d"
+FOREIGN KEY ("jobs_id")
+  REFERENCES "jobs" ("id")
+[0m
+  [1m[35m (9.7ms)[0m  [1m[35mALTER TABLE "users" ADD CONSTRAINT "fk_rails_642f17018b"
+FOREIGN KEY ("role_id")
+  REFERENCES "roles" ("id")
+[0m
+  [1m[35m (129.9ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (5.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20220528110428)[0m
+  [1m[35m (10.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20220416125241),
+(20220506095706),
+(20220506102840),
+(20220506105011),
+(20220506105012),
+(20220507073241),
+(20220526062910);
+
+[0m
+  [1m[35m (119.7ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.6ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-05-28 11:10:07.024055"], ["updated_at", "2022-05-28 11:10:07.024055"]]
+  [1m[36mTRANSACTION (9.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Update (0.3ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = $1, "updated_at" = $2 WHERE "ar_internal_metadata"."key" = $3[0m  [["value", "test"], ["updated_at", "2022-05-28 11:10:07.044832"], ["key", "environment"]]
+  [1m[36mTRANSACTION (11.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.6ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "771bc24c57cbf1214534521857f775058d3db19d"], ["created_at", "2022-05-28 11:10:07.065103"], ["updated_at", "2022-05-28 11:10:07.065103"]]
+  [1m[36mTRANSACTION (10.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_try_advisory_lock(4306644712149207435)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(4306644712149207435)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(4306644712149207435)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (26.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddStatusToJobs (20220528112605)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (119.4ms)[0m  [1m[35mALTER TABLE "jobs" ADD "status" integer DEFAULT 0[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(4306644712149207435)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.8ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (1166.1ms)[0m  [1m[35mDROP DATABASE IF EXISTS "Anity_Jobs_development"[0m
+  [1m[35m (389.8ms)[0m  [1m[35mDROP DATABASE IF EXISTS "Anity_Jobs_test"[0m
+  [1m[35m (1957.0ms)[0m  [1m[35mCREATE DATABASE "Anity_Jobs_development" ENCODING = 'unicode'[0m
+  [1m[35m (1766.2ms)[0m  [1m[35mCREATE DATABASE "Anity_Jobs_test" ENCODING = 'unicode'[0m
+  [1m[35m (241.3ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (128.8ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_try_advisory_lock(4306644712149207435)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUsers (20220416125241)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (109.4ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, "email" character varying NOT NULL, "encrypted_password" character varying(128) NOT NULL, "confirmation_token" character varying(128), "remember_token" character varying(128) NOT NULL)[0m
+  [1m[35m (53.3ms)[0m  [1m[35mCREATE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (54.1ms)[0m  [1m[35mCREATE INDEX "index_users_on_remember_token" ON "users" ("remember_token")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220416125241"]]
+  [1m[36mTRANSACTION (34.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateRoles (20220506095706)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (54.4ms)[0m  [1m[35mCREATE TABLE "roles" ("id" bigserial primary key, "name" integer DEFAULT 0 NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (54.1ms)[0m  [1m[35mCREATE INDEX "index_roles_on_name" ON "roles" ("name")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220506095706"]]
+  [1m[36mTRANSACTION (22.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateCompanies (20220506102840)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (122.8ms)[0m  [1m[35mCREATE TABLE "companies" ("id" bigserial primary key, "name" character varying NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220506102840"]]
+  [1m[36mTRANSACTION (21.1ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateActiveStorageTables (20220506105011)
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (111.1ms)[0m  [1m[35mCREATE TABLE "active_storage_blobs" ("id" bigserial primary key, "key" character varying NOT NULL, "filename" character varying NOT NULL, "content_type" character varying, "metadata" text, "service_name" character varying NOT NULL, "byte_size" bigint NOT NULL, "checksum" character varying, "created_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (42.4ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_blobs_on_key" ON "active_storage_blobs" ("key")[0m
+  [1m[35m (180.2ms)[0m  [1m[35mCREATE TABLE "active_storage_attachments" ("id" bigserial primary key, "name" character varying NOT NULL, "record_type" character varying NOT NULL, "record_id" bigint NOT NULL, "blob_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_c3b3935057"
+FOREIGN KEY ("blob_id")
+  REFERENCES "active_storage_blobs" ("id")
+)[0m
+  [1m[35m (60.6ms)[0m  [1m[35mCREATE INDEX "index_active_storage_attachments_on_blob_id" ON "active_storage_attachments" ("blob_id")[0m
+  [1m[35m (120.9ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_attachments_uniqueness" ON "active_storage_attachments" ("record_type", "record_id", "name", "blob_id")[0m
+  [1m[35m (98.6ms)[0m  [1m[35mCREATE TABLE "active_storage_variant_records" ("id" bigserial primary key, "blob_id" bigint NOT NULL, "variation_digest" character varying NOT NULL, CONSTRAINT "fk_rails_993965df05"
+FOREIGN KEY ("blob_id")
+  REFERENCES "active_storage_blobs" ("id")
+)[0m
+  [1m[35m (75.7ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_variant_records_uniqueness" ON "active_storage_variant_records" ("blob_id", "variation_digest")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220506105011"]]
+  [1m[36mTRANSACTION (60.2ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateActionTextTables (20220506105012)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (107.6ms)[0m  [1m[35mCREATE TABLE "action_text_rich_texts" ("id" bigserial primary key, "name" character varying NOT NULL, "body" text, "record_type" character varying NOT NULL, "record_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (65.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_action_text_rich_texts_uniqueness" ON "action_text_rich_texts" ("record_type", "record_id", "name")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220506105012"]]
+  [1m[36mTRANSACTION (24.8ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddRoleReferenceToUser (20220507073241)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.7ms)[0m  [1m[35mALTER TABLE "users" ADD "role_id" bigint[0m
+  [1m[35m (51.6ms)[0m  [1m[35mCREATE INDEX "index_users_on_role_id" ON "users" ("role_id")[0m
+  [1m[35m (2.0ms)[0m  [1m[35mALTER TABLE "users" ADD CONSTRAINT "fk_rails_642f17018b"
+FOREIGN KEY ("role_id")
+  REFERENCES "roles" ("id")
+[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220507073241"]]
+  [1m[36mTRANSACTION (21.7ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateJobs (20220526062910)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (133.8ms)[0m  [1m[35mCREATE TABLE "jobs" ("id" bigserial primary key, "title" character varying, "company_id" bigint, "application_url" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_b34da78090"
+FOREIGN KEY ("company_id")
+  REFERENCES "companies" ("id")
+)[0m
+  [1m[35m (86.5ms)[0m  [1m[35mCREATE INDEX "index_jobs_on_company_id" ON "jobs" ("company_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220526062910"]]
+  [1m[36mTRANSACTION (27.8ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddStatusToJobs (20220528112605)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "jobs" ADD "status" integer DEFAULT 0[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220528112605"]]
+  [1m[36mTRANSACTION (10.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (1.9ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-05-28 11:28:22.488423"], ["updated_at", "2022-05-28 11:28:22.488423"]]
+  [1m[36mTRANSACTION (5.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(4306644712149207435)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
