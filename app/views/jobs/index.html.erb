@@ -1,3 +1,9 @@
 <div class="w-2/3 mx-auto">
   <%= render partial: '/jobs/job_preview', collection: @jobs, as: :job %>
 <div>
+
+<% if current_user %>
+  <%= button_to 'Sign out', sign_out_path , method: :delete %>
+<% else %>
+  <%= link_to 'Sign in', sign_in_path %>
+<% end %>
