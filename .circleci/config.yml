@@ -47,6 +47,9 @@ jobs:
             bundle exec rake db:create
             bundle exec rake db:test:load
       - run:
+          name: Compile assets
+          command: bundle exec rake assets:precompile
+      - run:
           name: Parallel RSpec
           command: bin/rake spec
       # - run:
