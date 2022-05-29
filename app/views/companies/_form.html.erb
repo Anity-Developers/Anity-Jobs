@@ -1,13 +1,13 @@
 <%= form_with model: @company do |form| %>
   <div class="field">
-    <%= form.label :name %>
+    <%= form.label :name, t("companies.new.labels.name") %>
     <%= form.text_field :name %>
   </div>
   <div class="field">
-    <%= form.label :description %>
+    <%= form.label :description, t("companies.new.labels.description") %>
     <%= form.rich_text_area :description %>
   </div>
   <div class="field my-2">
-    <%= form.submit class:"bg-blue-300 rounded p-2 font-bold"%>
+    <%= form.submit t("companies.new.labels.create_company"), class:"bg-blue-300 rounded p-2 font-bold"%>
   </div>
 <% end %>

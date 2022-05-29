@@ -5,9 +5,9 @@
       <p class="font-bold"><%=job.title%></p>
       <div class="flex">
         <p><%= job.created_at.strftime("%Y-%m-%d")%></p>
-        <p class="ml-4">Featured</p>
+        <p class="ml-4"><%= t("jobs.index.preview.featured") %></p>
       </div>
     </div>
-    <p>Location: Congo🇨🇩</p>
+    <p><%= t("jobs.index.preview.location") %></p>
   </div>
 <%end%>
