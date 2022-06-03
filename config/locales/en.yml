@@ -32,7 +32,7 @@
 en:
   jobs:
     details:
-      apply: 'Apply for this position...'
+      apply: 'Apply for this position'
     index:
       preview:
         featured: 'Featured'
@@ -46,6 +46,8 @@ en:
         select_company: 'Select Company'
         description: 'Description'
         get_in_touch: 'Get in touch'
+        location: 'Location'
+        create: 'Create Job'
   navigation:
     anity_logo: 'Anity'
     all_jobs: 'All jobs'
@@ -60,4 +62,3 @@ en:
         create_company: 'Create Company'
 
 
-  

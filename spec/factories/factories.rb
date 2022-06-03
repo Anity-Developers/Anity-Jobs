@@ -23,8 +23,13 @@ FactoryBot.define do
     end
   end
 
+  factory :location do
+    name { "congo" }
+  end
+
   factory :company do
     name { "test-company" }
+    association :location, factory: :location
   end
 
   factory :job do
@@ -32,5 +37,6 @@ FactoryBot.define do
     application_url { "http://example.com" }
     description { "test-description" }
     association :company, factory: :company
+    association :location, factory: :location
   end
 end

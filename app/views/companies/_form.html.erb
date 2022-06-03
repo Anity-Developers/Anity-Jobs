@@ -1,13 +1,17 @@
 <%= form_with model: @company do |form| %>
-  <div class="field">
-    <%= form.label :name, t("companies.new.labels.name") %>
+  <div class="field field flex flex-col w-1/2 my-2">
+    <%= form.label :name, t("companies.new.labels.name"), class:"font-bold" %>
     <%= form.text_field :name %>
   </div>
-  <div class="field">
-    <%= form.label :description, t("companies.new.labels.description") %>
+  <div class="field field flex flex-col w-1/2 my-2">
+    <%= form.label :description, t("companies.new.labels.description"), class:"font-bold" %>
     <%= form.rich_text_area :description %>
   </div>
-  <div class="field my-2">
+  <div class="field field flex flex-col w-1/2 my-2">
+    <%= form.label :location_id, t("jobs.new.labels.location"), class:"font-bold"%>
+    <%= form.select :location_id, [["select Location",nil]]+Location.pluck(:name,:id), {}, class: "multiple" %>
+  </div>
+  <div class="field field flex flex-col w-1/2 my-2">
     <%= form.submit t("companies.new.labels.create_company"), class:"bg-blue-300 rounded p-2 font-bold"%>
   </div>
 <% end %>
