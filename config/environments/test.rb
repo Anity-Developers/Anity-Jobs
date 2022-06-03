@@ -54,6 +54,8 @@ Rails.application.configure do
 
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
 
+  config.assets.css_compressor = nil
+
   # Raises error for missing translations.
   # config.i18n.raise_on_missing_translations = true
 

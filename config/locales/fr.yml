@@ -1,0 +1,29 @@
+fr:
+  jobs:
+    details:
+      apply: 'Postulez pour cet emploi...'
+    index:
+      preview:
+        featured: 'Mis en exergue'
+        location: 'Lieu: Congo🇨🇩'
+    new:
+      create_job: 'Créer un emploi'
+      title: 'Titre'
+      application_url: 'Application url'
+      company: 'Société'
+      select_company: "Sélectionner l'entreprise"
+      description: 'Description'
+      get_in_touch: 'Entrer en contact'
+  navigation:
+    anity: 'Anity'
+    all_jobs: 'Tous les emplois'
+    community: 'Communauté'
+    get_in_touch: 'Entrer en contact'
+  companies:
+    new:
+      create_company: "Créer votre entreprise"
+      labels:
+        name: 'Nom'
+        description: 'Description'
+        create_company: 'Créer votre entreprise'
+        

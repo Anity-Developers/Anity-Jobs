@@ -1,10 +1,10 @@
 <div class="nav-container flex justify-between items-center shadow px-8 py-6 sticky top-0 bg-white">
   <div class="logo font-bold text-3xl">
-    <%= link_to 'Anity', root_path %>
+    <%= link_to t("navigation.anity_logo"), root_path %>
   </div>
   <div class="links">
-    <%= link_to 'All Jobs', root_path %>
-    <a href="https://twitter.com/AnityDevelopers" class="ml-2">Community</a>
-    <a href="mailto:anitydevs@gmail.com" class="ml-2 bg-red-500 text-white p-3 font-semibold">Get In Touch</a>
+    <%= link_to t("navigation.all_jobs"), root_path %>
+    <a href="https://twitter.com/AnityDevelopers" class="ml-2"><%= t("navigation.community") %></a>
+    <a href="mailto:anitydevs@gmail.com" class="ml-2 bg-red-500 text-white p-3 font-semibold"><%= t("navigation.get_in_touch") %></a>
   </div>
 </div>
