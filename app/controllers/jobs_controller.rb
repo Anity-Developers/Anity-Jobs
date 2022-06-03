@@ -10,6 +10,7 @@ class JobsController < ApplicationController
 
   def create
     @job = Job.create(job_params)
+    @job.location_id = @job.company.location_id if job_params[:location_id].blank?
     if @job.save
       flash[:notice] = "Job created successfully."
       redirect_to root_path
@@ -25,6 +26,6 @@ class JobsController < ApplicationController
   private
 
   def job_params
-    params.require(:job).permit(:title, :description, :company_id, :application_url, :status)
+    params.require(:job).permit(:title, :description, :company_id, :application_url, :status, :location_id)
   end
 end

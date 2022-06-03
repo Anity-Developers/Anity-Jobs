@@ -46,6 +46,8 @@ en:
         select_company: 'Select Company'
         description: 'Description'
         get_in_touch: 'Get in touch'
+        apply: 'Apply for this position'
+        location: 'Location'
   navigation:
     anity_logo: 'Anity'
     all_jobs: 'All jobs'
@@ -60,4 +62,3 @@ en:
         create_company: 'Create Company'
 
 
-  

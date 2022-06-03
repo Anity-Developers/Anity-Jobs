@@ -14,5 +14,4 @@ class Job < ApplicationRecord
     closed: 2,
   }
 
-
 end
