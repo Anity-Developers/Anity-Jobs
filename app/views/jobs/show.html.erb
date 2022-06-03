@@ -7,9 +7,7 @@
       <p class="text-3xl font-bold my-2"><%=@job.title%></p>
       <p class="mb-2">Location: <%=@job.location.name%></p>
       <div class="flex">
-        <span class="text-gray-600 underline mr-2">Skills</span>
-        <span class="text-gray-600 underline mr-2">Skills</span>
-        <span class="text-gray-600 underline">Skills</span>
+        <span class="bg-amber-100 rounded font-bold text-black p-1 mr-2"><%= @job.category.name%></span>
       </div>
     </div>
     <%= @job.description%>

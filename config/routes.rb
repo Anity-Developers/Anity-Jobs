@@ -5,6 +5,7 @@ Rails.application.routes.draw do
       resources :companies
       resources :users
       resources :locations
+      resources :categories
 
       root to: "roles#index"
     end

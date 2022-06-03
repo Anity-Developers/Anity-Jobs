@@ -1,6 +1,8 @@
 class Job < ApplicationRecord
   belongs_to :company
   belongs_to :location
+  belongs_to :category
+
   has_rich_text :description
 
   validates :title, presence: true

@@ -36,13 +36,15 @@ en:
     index:
       preview:
         featured: 'Featured'
-        location: 'Location: Congo🇨🇩'
+        new: 'New'
     new:
       page_title: 'Create Job'
       labels:
         title: 'Title'
         application_url: 'Application url'
         company: 'Company'
+        category: 'Category'
+        location: 'Location'
         select_company: 'Select Company'
         description: 'Description'
         get_in_touch: 'Get in touch'

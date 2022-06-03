@@ -5,7 +5,9 @@
       <p class="font-bold group-hover:underline decoration-red-500 decoration-2 underline-offset-2"><%=job.title%></p>
       <div class="flex items-center">
         <p><%= job.created_at.strftime("%Y-%m-%d")%></p>
-        <p class="ml-4 bg-amber-400 py-1/2 px-1 rounded"><%= t("jobs.index.preview.featured") %></p>
+        <%if new_job?(job)%>
+        <p class="ml-4 bg-amber-400 py-1/2 px-1 rounded"><%= t("jobs.index.preview.new") %></p>
+        <%end%>
       </div>
     </div>
     <p><%= job.location.name %></p>
