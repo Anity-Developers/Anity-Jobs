@@ -50,6 +50,10 @@ en:
         get_in_touch: 'Get in touch'
         location: 'Location'
         create: 'Create Job'
+    show:
+      location: 'Location'
+      posted: 'Posted'
+      apply: 'Apply for this position'
   navigation:
     anity_logo: 'Anity'
     all_jobs: 'All jobs'
