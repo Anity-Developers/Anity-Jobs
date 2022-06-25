@@ -31,8 +31,6 @@
 
 en:
   jobs:
-    details:
-      apply: 'Apply for this position'
     index:
       preview:
         featured: 'Featured'
@@ -54,6 +52,7 @@ en:
       location: 'Location'
       posted: 'Posted'
       apply: 'Apply for this position'
+      category: 'Category'
   navigation:
     anity_logo: 'Anity'
     all_jobs: 'All jobs'
