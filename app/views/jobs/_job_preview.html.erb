@@ -1,11 +1,13 @@
 <%= link_to(job) do %>
-  <div class = "job-prev group bg-white drop-shadow hover:drop-shadow-md rounded py-4 px-8 mb-6">
+  <div class = "job-prev group bg-white drop-shadow hover:drop-shadow-md rounded py-2 sm:py-4 px-2 sm:px-8 sm:mb-6 mb-6 whitespace-nowrap text-sm md:text-base">
     <p class="font-normal"><%=job.company.name%></p>
     <div class="flex justify-between py-1">
-      <p class="font-bold group-hover:underline decoration-red-500 decoration-2 underline-offset-2"><%=job.title%></p>
+      <p class="font-bold group-hover:underline decoration-red-500 decoration-2 mr-2 underline-offset-2 truncate"><%=job.title%></p>
       <div class="flex items-center">
-        <p><%= job.created_at.strftime("%Y-%m-%d")%></p>
-        <p class="ml-4 bg-amber-400 py-1/2 px-1 rounded"><%= t("jobs.index.preview.featured") %></p>
+        <p class="mr-4"><%= format_date(job)%></p>
+        <%if new_job?(job)%>
+        <p class=" bg-amber-400 py-1/2 px-1 mr-2 rounded font-semibold"><%= t("jobs.index.preview.new") %></p>
+        <%end%>
       </div>
     </div>
     <p><%= job.location.name %></p>

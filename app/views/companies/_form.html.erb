@@ -12,6 +12,6 @@
     <%= form.select :location_id, [["select Location",nil]]+Location.pluck(:name,:id), {}, class: "multiple" %>
   </div>
   <div class="field field flex flex-col w-1/2 my-2">
-    <%= form.submit t("companies.new.labels.create_company"), class:"bg-blue-300 rounded p-2 font-bold"%>
+    <%= form.submit t("companies.new.labels.create_company"), class:"bg-red-500 text-white rounded p-2 font-bold"%>
   </div>
 <% end %>
