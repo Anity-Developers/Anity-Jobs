@@ -1,7 +1,7 @@
 <div class="w-11/12 md:w-1/2 mx-auto">
   <%= render partial: '/jobs/job_preview', collection: @jobs, as: :job %>
 <div>
-
+<%= request.location.country %>
 <% if current_user %>
   <%= button_to 'Sign out', sign_out_path , method: :delete %>
 <% else %>

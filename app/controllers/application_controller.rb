@@ -1,7 +1,8 @@
 class ApplicationController < ActionController::Base
   include Clearance::Controller
   include Pundit::Authorization
-  before_action :se_locale
+  include ApplicationHelper
+  before_action :set_locale
 
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
@@ -12,7 +13,12 @@ class ApplicationController < ActionController::Base
     redirect_back(fallback_location: root_path)
   end
 
-  def se_locale
-    I18n.locale = params[:locale] || I18n.default_locale
+  def set_locale
+    locale = country_to_language(request.location.country.to_s.downcase)
+    # puts "===========the locale is #{locale}==========="
+    # puts "===========the locale is #{I18n.available_locales.include?(locale.to_sym)}==========="
+    I18n.locale = I18n.available_locales.include?(locale.to_sym) ?
+        locale :
+        I18n.default_locale
   end
 end

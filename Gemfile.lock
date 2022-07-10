@@ -126,6 +126,7 @@ GEM
     ffi-compiler (1.0.1)
       ffi (>= 1.0.0)
       rake
+    geocoder (1.8.0)
     globalid (1.0.0)
       activesupport (>= 5.0)
     i18n (1.10.0)
@@ -328,6 +329,7 @@ DEPENDENCIES
   clearance
   debug
   factory_bot_rails
+  geocoder
   image_processing (~> 1.2)
   importmap-rails
   jbuilder
