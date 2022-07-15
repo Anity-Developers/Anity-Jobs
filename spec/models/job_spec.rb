@@ -34,4 +34,9 @@ RSpec.describe Job, type: :model do
     it { is_expected.not_to be_valid }
   end
 
+  describe "when application url is not present" do
+    before { @job = Job.new(application_url: "") }
+    it { is_expected.not_to be_valid }
+  end
+
 end
