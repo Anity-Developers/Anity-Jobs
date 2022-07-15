@@ -23,6 +23,10 @@ FactoryBot.define do
     end
   end
 
+  factory :category do
+    name { "software development" }
+  end
+
   factory :location do
     name { "congo" }
   end
@@ -38,5 +42,6 @@ FactoryBot.define do
     description { "test-description" }
     association :company, factory: :company
     association :location, factory: :location
+    association :category, factory: :category
   end
 end
