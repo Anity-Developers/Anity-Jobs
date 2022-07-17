@@ -4,6 +4,13 @@ module ApplicationHelper
     return country if ['en','fr'].include?(country)
     country_languages = LANGUAGES[country]
     country_languages.sort.first
+    if country_languages.include?('en')
+      return 'en'
+    elsif country_languages.include?('fr')
+      return 'fr'
+    else
+      return I18n.default_locale
+    end
   end
 
   LANGUAGES = {
