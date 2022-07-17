@@ -1,3 +1,9 @@
+<div class="search-form">
+  <%= form_with url: search_path, method: :get, local: true do |f| %>
+    <%= f.text_field :keyword, value: @keyword %>
+    <%= f.submit "Search" %>
+  <% end %>
+</div>
 <div class="w-11/12 md:w-1/2 mx-auto">
   <%= render partial: '/jobs/job_preview', collection: @jobs, as: :job %>
 <div>

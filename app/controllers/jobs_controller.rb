@@ -1,6 +1,6 @@
 class JobsController < ApplicationController
   def index
-    @jobs = Job.all.order(created_at: :desc)
+    @jobs = Job.all
   end
 
   def new
@@ -23,9 +23,24 @@ class JobsController < ApplicationController
     @job = Job.find(params[:id])
   end
 
+  def search
+    @jobs = Job.search(search_params[:keyword])
+    @keywords = search_params[:keyword]
+    if @jobs.blank?
+      flash[:notice] = "There aren’t any jobs that match your search."
+      redirect_to root_path
+    else
+    render :index
+    end
+  end
+
   private
 
   def job_params
     params.require(:job).permit(:title, :description, :company_id, :application_url, :status, :location_id, :category_id)
+  end
+
+  def search_params
+    params.permit(:keyword, :page, :per_page, :status)
   end
 end

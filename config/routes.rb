@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   resources :users, only: [:index]
   resources :companies
   resources :jobs
+  get 'search' => 'jobs#search'
   # Defines the root path route ("/")
   root "jobs#index"
 end
