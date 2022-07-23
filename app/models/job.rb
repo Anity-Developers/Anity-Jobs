@@ -23,4 +23,8 @@ class Job < ApplicationRecord
   end
 
   Job.reindex
+
+  def self.published
+    where(status: 1)
+  end
 end

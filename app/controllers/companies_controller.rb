@@ -3,6 +3,7 @@ class CompaniesController < ApplicationController
 
   def index
     @companies = Company.all
+    @country = request.location.country.to_s.upcase
   end
 
   def new

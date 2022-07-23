@@ -35,6 +35,9 @@ en:
       preview:
         featured: 'Featured'
         new: 'New'
+      search:
+        placeholder: 'Search job by title, location, company...'
+        title: 'Search jobs'
     new:
       page_title: 'Create Job'
       labels:

@@ -1,5 +1,5 @@
 <% if flash.any? %>
-  <div class="flashes">
+  <div class="flashes text-center drop-shadow rounded py-2 sm:py-4 px-2 sm:px-8 sm:mb-6 mb-6 whitespace-nowrap text-sm md:text-base w-11/12 md:w-1/2 mx-auto">
     <% user_facing_flashes.each do |key, value| -%>
       <div class="flash-<%= key %>"><%= value %></div>
     <% end -%>

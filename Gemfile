@@ -20,6 +20,8 @@ gem "importmap-rails"
 
 gem "administrate"
 
+gem 'administrate-field-enum'
+
 gem "algoliasearch-rails"
 
 # Hotwire's SPA-like page accelerator [https://turbo.hotwired.dev]
