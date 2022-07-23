@@ -1,6 +1,8 @@
 class Job < ApplicationRecord
   include AlgoliaSearch
 
+  default_scope { order(created_at: :desc) }
+
   belongs_to :company
   belongs_to :location
   belongs_to :category
