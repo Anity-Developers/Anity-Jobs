@@ -1,6 +1,6 @@
 <div class=" search-form w-11/12 md:w-1/2 mx-auto bg-amber-200 drop-shadow rounded py-2 sm:py-4 px-2 sm:px-8 sm:mb-6 mb-6 text-sm md:text-base">
   <h1 class="font-bold pb-2">Anity Jobs</h1>
-  <p class="">Anity Jobs help you easly find a job in <%= @country%> or any where in Africa.<p>
+  <p class="">Anity Jobs help you easly find a job any where in Africa.<p>
   <%= form_with url: search_path, method: :get, local: true, class:"flex rounded w-full" do |f| %>
     <%= f.text_field :keyword, value: @keyword, class:"rounded border-0 w-full", placeholder: "Search job by title, location, company..." %>
     <%= f.submit "Search", class:"bg-amber-400 px-4 cursor-pointer rounded cursor font-bold" %>
