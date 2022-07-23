@@ -1,6 +1,7 @@
 class JobsController < ApplicationController
   def index
     @jobs = job_scope
+    @location = request.location.country
   end
 
   def new
