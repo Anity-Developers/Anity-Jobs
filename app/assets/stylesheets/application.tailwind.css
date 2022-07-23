@@ -21,4 +21,25 @@ strong, b{
   font-weight: 700;
 }
 
+.search-form form #keyword{
+  font-weight: 700;
+  color: #333;
+}
+
+.search-form form input:focus{
+  outline: none !important;
+}
+
+.flash-notice{
+  background-color: rgb(187 247 208);
+}
+
+.flash-warning{
+  background-color: rgb(253 230 138);
+}
+
+.flash-alert{
+  background-color: rgb(255 204 204);
+}
+
 @import 'actiontext.css';

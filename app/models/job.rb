@@ -1,4 +1,6 @@
 class Job < ApplicationRecord
+  include AlgoliaSearch
+
   belongs_to :company
   belongs_to :location
   belongs_to :category
@@ -16,4 +18,13 @@ class Job < ApplicationRecord
     closed: 2,
   }
 
+  algoliasearch do
+    attributes :title, :location, :category
+  end
+
+  Job.reindex
+
+  def self.published
+    where(status: 1)
+  end
 end
