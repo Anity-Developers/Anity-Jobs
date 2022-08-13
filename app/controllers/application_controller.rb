@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
   private
 
   def user_not_authorized
-    flash[:alert] = "You are not authorized to perform this action."
+    flash[:alert] = t("flash.pundit.unauthorized")
     redirect_back(fallback_location: root_path)
   end
 
@@ -17,6 +17,7 @@ class ApplicationController < ActionController::Base
     locale = country_to_language(request.location.country.to_s.downcase)
     # puts "===========the locale is #{locale}==========="
     # puts "===========the locale is #{I18n.available_locales.include?(locale.to_sym)}==========="
+    # locale = :fr
     I18n.locale = I18n.available_locales.include?(locale.to_sym) ?
         locale :
         I18n.default_locale

@@ -1,11 +1,19 @@
 fr:
+  flash:
+    jobs:
+      no_results: "Aucun emploi ne correspond à votre recherche."
+    pundit:
+      unauthorized: "Vous n'êtes pas autorisé à effectuer cette action."
   jobs:
-    details:
-      apply: 'Postulez pour cet emploi...'
     index:
+      description: 'Anity Jobs vous aide à trouver rapidement un emploi partout en Afrique.'
       preview:
-        featured: 'Mis en exergue'
-        location: 'Lieu: Congo🇨🇩'
+        featured: 'En vedette'
+        new: 'Nouveau'
+      search:
+        placeholder: 'Recherchez un emploi par titre, lieu, entreprise...'
+        title: "Recherche d'emplois"
+        search_button: 'Recherche'
     new:
       create_job: 'Créer un emploi'
       title: 'Titre'
@@ -14,11 +22,16 @@ fr:
       select_company: "Sélectionner l'entreprise"
       description: 'Description'
       get_in_touch: 'Entrer en contact'
+    show:
+      location: 'Lieu'
+      apply: 'Postulez pour cet emploi'
+      posted: 'Publié le'
+      category: 'Category'
   navigation:
-    anity: 'Anity'
+    anity_logo: 'Anity'
     all_jobs: 'Tous les emplois'
     community: 'Communauté'
-    get_in_touch: 'Entrer en contact'
+    get_in_touch: 'Contactez-nous'
   companies:
     new:
       create_company: "Créer votre entreprise"
@@ -26,4 +39,3 @@ fr:
         name: 'Nom'
         description: 'Description'
         create_company: 'Créer votre entreprise'
-        

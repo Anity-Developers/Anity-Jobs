@@ -30,14 +30,21 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
+  flash:
+    jobs:
+      no_results: "No jobs match your search."
+    pundit:
+      unauthorized: "You are not authorized to perform this action."
   jobs:
     index:
+      description: 'Anity Jobs helps you quickly find a job anywhere in Africa.'
       preview:
         featured: 'Featured'
         new: 'New'
       search:
         placeholder: 'Search job by title, location, company...'
         title: 'Search jobs'
+        search_button: 'Search'
     new:
       page_title: 'Create Job'
       labels:
@@ -53,7 +60,7 @@ en:
         create: 'Create Job'
     show:
       location: 'Location'
-      posted: 'Posted'
+      posted: 'Posted on'
       apply: 'Apply for this position'
       category: 'Category'
   navigation:

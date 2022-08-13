@@ -28,7 +28,7 @@ class JobsController < ApplicationController
     @jobs = job_scope.search(search_params[:keyword])
     @keywords = search_params[:keyword]
     if @jobs.blank?
-      flash[:alert] = "There aren’t any jobs that match your search."
+      flash[:alert] = t("flash.jobs.no_results")
       redirect_to root_path
     else
     render :index
