@@ -5,6 +5,9 @@ class User < ApplicationRecord
 
   after_initialize :set_default_role
 
+  validates :email, presence: true, uniqueness: true
+  validates :password, presence: true, on: :create
+
   def admin?
     self.role.name == 'admin'
   end

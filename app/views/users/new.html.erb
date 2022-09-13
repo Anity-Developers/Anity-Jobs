@@ -1,15 +1,16 @@
-<div id="clearance" class="sign-up">
+<div id="clearance" class="sign-up w-11/12 md:w-1/2 mx-auto">
   <h2><%= t(".title") %></h2>
 
   <%= form_for @user do |form| %>
     <%= render partial: '/users/form', object: form %>
 
-    <div class="submit-field">
-      <%= form.submit %>
-    </div>
+  <div class="submit-field flex flex-col w-1/2 my-2">
+    <%= form.submit "Sing up", class:"bg-red-500 cursor-pointer text-white rounded p-2 font-bold" %>
+  </div>
 
-    <div class="other-links">
-      <%= link_to t(".sign_in"), sign_in_path %>
-    </div>
+  <div class="other-links flex flex-col w-1/2 my-2">
+    <%= link_to t(".sign_in"), sign_in_path, class:"underline font-bold mb-2" %>
+    <%= link_to t(".forgot_password"), new_password_path %>
+  </div>
   <% end %>
 </div>

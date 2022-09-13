@@ -21,7 +21,7 @@ class Job < ApplicationRecord
   }
 
   algoliasearch do
-    attributes :title, :location, :category
+    attributes :title, :location, :category ,:company
   end
 
   Job.reindex

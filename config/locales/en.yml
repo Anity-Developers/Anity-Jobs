@@ -35,6 +35,12 @@ en:
       no_results: "No jobs match your search."
     pundit:
       unauthorized: "You are not authorized to perform this action."
+  session:
+    new:
+      title: "Sign in"
+      sign_in: "Sign in"
+      sign_up: "Sign up"
+      forgot_password: "Forgot password?"
   jobs:
     index:
       description: 'Anity Jobs helps you quickly find a job anywhere in Africa.'
