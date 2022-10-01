@@ -29,6 +29,8 @@ gem "turbo-rails"
 
 gem "pundit"
 
+gem 'friendly_id', '~> 5.4.0'
+
 # Hotwire's modest JavaScript framework [https://stimulus.hotwired.dev]
 gem "stimulus-rails"
 

@@ -4,10 +4,10 @@
   <%= render partial: '/jobs/job_preview', collection: @jobs, as: :job %>
 <div>
 
-<div class="">
+<div class="hidden">
 <% if current_user %>
-  <%= button_to 'Sign out', sign_out_path , method: :delete %>
+  <%= button_to t("layouts.application.sign_out"), sign_out_path , method: :delete %>
 <% else %>
-  <%= link_to 'Sign in', sign_in_path %>
+  <%= link_to t("layouts.application.sign_in"), sign_in_path %>
 <% end %>
 </div>
