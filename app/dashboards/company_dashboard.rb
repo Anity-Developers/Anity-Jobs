@@ -46,10 +46,9 @@ class CompanyDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = %i[
+    name
     location
     description
-    jobs
-    name
   ].freeze
 
   # COLLECTION_FILTERS
@@ -67,7 +66,7 @@ class CompanyDashboard < Administrate::BaseDashboard
   # Overwrite this method to customize how companies are displayed
   # across all pages of the admin dashboard.
   #
-  # def display_resource(company)
-  #   "Company ##{company.id}"
-  # end
+  def display_resource(company)
+    company.name
+  end
 end

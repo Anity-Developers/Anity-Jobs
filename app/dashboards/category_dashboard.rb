@@ -41,7 +41,6 @@ class CategoryDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = %i[
-    jobs
     name
   ].freeze
 
@@ -60,7 +59,7 @@ class CategoryDashboard < Administrate::BaseDashboard
   # Overwrite this method to customize how categories are displayed
   # across all pages of the admin dashboard.
   #
-  # def display_resource(category)
-  #   "Category ##{category.id}"
-  # end
+  def display_resource(category)
+    category.name
+  end
 end
