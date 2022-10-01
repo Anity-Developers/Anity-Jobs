@@ -77,7 +77,7 @@ class JobDashboard < Administrate::BaseDashboard
   # Overwrite this method to customize how jobs are displayed
   # across all pages of the admin dashboard.
   #
-  # def display_resource(job)
-  #   "Job ##{job.id}"
-  # end
+  def display_resource(job)
+    job.title
+  end
 end
