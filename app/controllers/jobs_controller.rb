@@ -44,6 +44,7 @@ class JobsController < ApplicationController
 
   def country_name(job)
     job.location.name.split("")[0...-2].join("").downcase
+  end
 
   def job_params
     params.require(:job).permit(:title, :description, :company_id, :application_url, :status, :location_id, :category_id)
