@@ -1,7 +1,8 @@
 class JobsController < ApplicationController
   def index
     @jobs = job_scope
-    @location = request.location.country
+    @location = request.location.country.to_s.downcase
+    @jobs = @jobs.sort_by { |job| country_name(job) == @location ? 0 : 1 }
   end
 
   def new
@@ -40,6 +41,9 @@ class JobsController < ApplicationController
   def job_scope
     Job.all.where(status: 1)
   end
+
+  def country_name(job)
+    job.location.name.split("")[0...-2].join("").downcase
 
   def job_params
     params.require(:job).permit(:title, :description, :company_id, :application_url, :status, :location_id, :category_id)
