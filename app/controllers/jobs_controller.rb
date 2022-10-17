@@ -2,6 +2,7 @@ class JobsController < ApplicationController
   def index
     @jobs = job_scope
     @location = request.location.country.to_s.downcase
+    puts "================#{request.location}================"
     @jobs = @jobs.sort_by { |job| country_name(job) == @location ? 0 : 1 }
   end
 
