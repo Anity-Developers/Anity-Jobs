@@ -55,7 +55,7 @@ gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 gem "bootsnap", require: false
 
 gem 'rails-i18n'
-
+gem 'meta-tags'
 gem 'geocoder'
 # Use Sass to process CSS
 # gem "sassc-rails"
