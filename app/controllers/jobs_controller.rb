@@ -2,6 +2,10 @@ class JobsController < ApplicationController
   def index
     @jobs = job_scope
     @location = request.location.country.to_s.downcase
+
+    puts "================#{@location}================"
+    puts ISO3166::Country["🇨🇩"]
+    # binding.pry
     @jobs = @jobs.sort_by { |job| country_name(job) == @location ? 0 : 1 }
     #TODO: Add RSS feed
   end
@@ -36,7 +40,7 @@ class JobsController < ApplicationController
       flash[:alert] = t("flash.jobs.no_results")
       redirect_to root_path
     else
-    render :index
+      render :index
     end
   end
 

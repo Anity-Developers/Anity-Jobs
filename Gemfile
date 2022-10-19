@@ -90,3 +90,5 @@ group :test do
 end
 
 gem "tailwindcss-rails", "~> 2.0"
+
+gem "countries", "~> 5.1"
