@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>AnityJobs</title>
+    <title><%= t("title.page_title") %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="description" content="The job posting for africa Anityjob posting.">
-    <link rel="icon" href="%PUBLIC_URL%/assets/images/Anity_logo.ico" />
-    <%= favicon_link_tag asset_path('Anity_logo.ico') %> 
+    <meta name="description" content= <%= t("title.page_description") %> >
+    <%= favicon_link_tag asset_path('Anity_logo.png') %>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
