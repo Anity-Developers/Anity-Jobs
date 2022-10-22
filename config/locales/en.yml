@@ -30,6 +30,9 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
+  title:
+    page_title: "Anity Jobs - Find your dream job in Africa"
+    page_description: "Anity Jobs is a job board that connects job seekers with employers in Africa. Find your dream job in Africa."
   flash:
     jobs:
       no_results: "No jobs match your search."
