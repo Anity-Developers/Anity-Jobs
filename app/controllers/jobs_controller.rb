@@ -3,6 +3,7 @@ class JobsController < ApplicationController
     @jobs = job_scope
     @location = request.location.country.to_s.downcase
     @jobs = @jobs.sort_by { |job| country_name(job) == @location ? 0 : 1 }
+    #TODO: Add RSS feed
   end
 
   def new
