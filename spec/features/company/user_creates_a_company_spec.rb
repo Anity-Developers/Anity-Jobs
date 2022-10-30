@@ -1,16 +1,18 @@
-require "rails_helper"
-require "support/features/clearance_helpers"
+# frozen_string_literal: true
 
-RSpec.feature "User creates a company" do
-  context "as a non-admin user" do
-    scenario "they cannot create a company" do
+require 'rails_helper'
+require 'support/features/clearance_helpers'
+
+RSpec.feature 'User creates a company' do
+  context 'as a non-admin user' do
+    scenario 'they cannot create a company' do
       user = create(:user)
       sign_in(user)
 
       visit new_company_path
 
       expect(current_path).to eq root_path
-      expect(page).to have_content "You are not authorized to perform this action."
+      expect(page).to have_content 'You are not authorized to perform this action.'
     end
   end
 
