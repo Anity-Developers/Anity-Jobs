@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe 'UserVisitHomePage', type: :feature do
   it 'displays the search bar' do
     visit root_path
-    expect(page).to have_content('Anity Jobs helps you quickly find a job anywhere in Africa.')
+    expect(page).to have_content(I18n.t("jobs.index.description"))
   end
 
   it 'displays all jobs' do
@@ -31,13 +31,13 @@ RSpec.describe 'UserVisitHomePage', type: :feature do
     expect(page).to have_content('Community')
   end
 
-  it 'the search bar has an input field' do
-    visit root_path
-    expect(page).to have_selector('input')
-    expect(page).to have_selector("input[type='text']")
-    expect(page).to have_selector("input[type='text'][placeholder='Search job by title, location, company...']")
-    expect(page).to have_button('Search')
-  end
+    it 'the search bar has an input field' do
+      visit root_path
+      expect(page).to have_selector('input')
+      expect(page).to have_selector("input[type='text'][placeholder='#{ I18n.t("jobs.index.search.placeholder")}']")
+      expect(page).to have_button('Search')
+    end
+
 
   it 'displays the navbar' do
     visit root_path
