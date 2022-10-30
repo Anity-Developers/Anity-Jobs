@@ -1,5 +1,6 @@
-FactoryBot.define do
+# frozen_string_literal: true
 
+FactoryBot.define do
   factory :role do
     name { Role.names.keys.sample }
 
@@ -14,7 +15,7 @@ FactoryBot.define do
       "person#{n}@example.com"
     end
 
-    password { "password" }
+    password { 'password' }
 
     association :role, factory: :role, name: 'user'
 
@@ -24,22 +25,34 @@ FactoryBot.define do
   end
 
   factory :category do
-    name { "software development" }
+    sequence :name do |n|
+      "Category #{n}"
+    end
   end
 
   factory :location do
-    name { "congo" }
+    sequence :name do |n|
+      "Location #{n}"
+    end
   end
 
   factory :company do
-    name { "test-company" }
+    sequence :name do |n|
+      "company#{n}"
+    end
     association :location, factory: :location
   end
 
   factory :job do
-    title { "test-job" }
-    application_url { "http://example.com" }
-    description { "test-description" }
+    sequence :title do |n|
+      "job#{n}"
+    end
+    trait :published do
+      status { :published }
+    end
+
+    application_url { 'http://example.com' }
+    description { 'test-description' }
     association :company, factory: :company
     association :location, factory: :location
     association :category, factory: :category
