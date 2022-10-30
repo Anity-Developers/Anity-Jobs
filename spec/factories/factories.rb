@@ -24,11 +24,15 @@ FactoryBot.define do
   end
 
   factory :category do
-    name { "software development" }
+    sequence :name do |n|
+      "Category #{n}"
+    end
   end
 
   factory :location do
-    name { "congo" }
+    sequence :name do |n|
+      "Location #{n}"
+    end
   end
 
   factory :company do
@@ -37,7 +41,9 @@ FactoryBot.define do
   end
 
   factory :job do
-    title { "test-job" }
+    sequence :title do |n|
+      "Job #{n}"
+    end
     application_url { "http://example.com" }
     description { "test-description" }
     association :company, factory: :company
