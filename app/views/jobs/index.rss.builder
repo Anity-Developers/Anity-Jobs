@@ -13,6 +13,5 @@ xml.rss :version => "2.0" do
                 xml.pubDate job.created_at
             end
         end
-
     end
 end
