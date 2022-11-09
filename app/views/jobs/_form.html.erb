@@ -9,15 +9,15 @@
   </div>
   <div class="field flex flex-col w-1/2 my-2">
     <%= form.label :company_id, t("jobs.new.labels.company"), class:"font-bold"%>
-    <%= form.select :company_id, [["select Company",nil]]+Company.pluck(:name,:id), {}, class: "multiple" %>
+    <%= form.select :company_id, [["select Company",nil]]+@companies, {}, class: "multiple" %>
   </div>
   <div class="field flex flex-col w-1/2 my-2">
     <%= form.label :category_id, t("jobs.new.labels.category"), class:"font-bold"%>
-    <%= form.select :category_id, [["select Category",nil]]+Category.pluck(:name,:id), {}, class: "multiple" %>
+    <%= form.select :category_id, [["select Category",nil]]+@categories, {}, class: "multiple" %>
   </div>
   <div class="field flex flex-col w-1/2 my-2">
     <%= form.label :location_id, t("jobs.new.labels.location"), class:"font-bold"%>
-    <%= form.select :location_id, [["select Location",nil]]+Location.pluck(:name,:id), {}, class: "multiple" %>
+    <%= form.select :location_id, [["select Location",nil]]+@locations, {}, class: "multiple" %>
   </div>
   <div class="field flex flex-col w-1/2 my-2">
     <%= form.label :description, t("jobs.new.labels.description"), class: "font-bold" %>

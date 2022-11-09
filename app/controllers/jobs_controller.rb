@@ -8,6 +8,9 @@ class JobsController < ApplicationController
 
   def new
     @job = Job.new
+    @companies = Company.pluck(:name, :id).sort_by { |company| company[0] }
+    @locations = Location.pluck(:name, :id).sort_by { |location| location[0] }
+    @categories = Category.pluck(:name, :id).sort_by { |category| category[0] }
     authorize @job
   end
 
