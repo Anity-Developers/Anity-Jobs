@@ -4,13 +4,6 @@
       <%= link_to t("navigation.anity_logo"), root_path %>
     </div>
     <div class="links hidden md:block ">
-    <div>
-      <% if current_user%>
-        <%= button_to t('layouts.application.sign_out'), sign_out_path, method: :delete, class: "inline" %>
-      <%else%>
-        <%= link_to t('layouts.application.sign_in'), sign_in_path %>
-      <%end%>
-    </div>
       <%= link_to t("navigation.all_jobs"), root_path %>
       <a href="https://twitter.com/AnityDevelopers" class="md:ml-2"><%= t("navigation.community") %></a>
       <a href="mailto:anitydevs@gmail.com" class="md:ml-2 bg-red-500 rounded text-white p-1 md:p-3 font-semibold"><%= t("navigation.get_in_touch") %></a>
