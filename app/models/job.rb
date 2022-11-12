@@ -2,6 +2,8 @@ class Job < ApplicationRecord
   include AlgoliaSearch
   extend FriendlyId
 
+  belongs_to :author, class_name: "User", foreign_key: "user_id"
+
   default_scope { order(created_at: :desc) }
 
   friendly_id :title, use: :slugged
