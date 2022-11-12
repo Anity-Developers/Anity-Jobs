@@ -40,6 +40,7 @@ FactoryBot.define do
     title { "test-job" }
     application_url { "http://example.com" }
     description { "test-description" }
+    association :author, factory: :user
     association :company, factory: :company
     association :location, factory: :location
     association :category, factory: :category
