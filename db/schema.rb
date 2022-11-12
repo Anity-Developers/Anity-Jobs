@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_01_153956) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_12_091756) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -87,10 +87,12 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_01_153956) do
     t.bigint "location_id", null: false
     t.bigint "category_id", null: false
     t.string "slug"
+    t.bigint "user_id", null: false
     t.index ["category_id"], name: "index_jobs_on_category_id"
     t.index ["company_id"], name: "index_jobs_on_company_id"
     t.index ["location_id"], name: "index_jobs_on_location_id"
     t.index ["slug"], name: "index_jobs_on_slug", unique: true
+    t.index ["user_id"], name: "index_jobs_on_user_id"
   end
 
   create_table "locations", force: :cascade do |t|
@@ -125,5 +127,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_01_153956) do
   add_foreign_key "jobs", "categories"
   add_foreign_key "jobs", "companies"
   add_foreign_key "jobs", "locations"
+  add_foreign_key "jobs", "users"
   add_foreign_key "users", "roles"
 end

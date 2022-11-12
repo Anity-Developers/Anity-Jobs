@@ -7,7 +7,7 @@ class JobsController < ApplicationController
   end
 
   def new
-    @job = Job.new
+    @job = current_user.jobs.build
     @companies = Company.pluck(:name, :id).sort_by { |company| company[0] }
     @locations = Location.pluck(:name, :id).sort_by { |location| location[0] }
     @categories = Category.pluck(:name, :id).sort_by { |category| category[0] }
@@ -15,7 +15,7 @@ class JobsController < ApplicationController
   end
 
   def create
-    @job = Job.create(job_params)
+    @job = current_user.jobs.create(job_params)
     @job.location_id = @job.company.location_id if job_params[:location_id].blank?
     if @job.save
       flash[:notice] = "Job created successfully."

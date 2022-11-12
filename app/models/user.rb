@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   include Clearance::User
 
+  has_many :jobs
   belongs_to :role
 
   after_initialize :set_default_role
