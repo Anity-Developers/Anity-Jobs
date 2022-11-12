@@ -5,3 +5,21 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+role = Role.find_or_create_by!(name: 'admin')
+user = User.last
+location = Location.find_or_create_by!(name: "Rwanda🇷🇼")
+company = Company.find_or_create_by!(name: "Rwanda Development Board", location: location)
+category = Category.find_or_create_by!(name: "Tourism")
+50.times do |i|
+  job = Job.new(
+    title: "Job #{i}",
+    location: location,
+    application_url: "https://www.google.com",
+    company: company,
+    category: category
+  )
+  job.description = description = ActionText::RichText.new(record_type:Job,record_id:job.id,body:"Job description #{i}")
+  job.save!
+end
+
+
