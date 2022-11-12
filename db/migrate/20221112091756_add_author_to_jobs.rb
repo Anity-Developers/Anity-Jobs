@@ -6,7 +6,6 @@ class AddAuthorToJobs < ActiveRecord::Migration[7.0]
       dir.up do
         first_user = User.first
         Job.update_all(user_id: first_user.id)
-        end
       end
     end
 
