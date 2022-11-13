@@ -1,4 +1,5 @@
 class JobsController < ApplicationController
+  before_action :require_login, only: [:new, :create]
   def index
     @jobs = job_scope
     @location = request.location.country.to_s.downcase

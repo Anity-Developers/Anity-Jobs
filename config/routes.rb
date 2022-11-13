@@ -16,4 +16,7 @@ Rails.application.routes.draw do
   get 'search' => 'jobs#search'
   # Defines the root path route ("/")
   root "jobs#index"
+
+  # route for all actions in the dashboard controller
+  get 'dashboard' => 'dashboard#index'
 end
