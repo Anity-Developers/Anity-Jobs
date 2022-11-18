@@ -1,0 +1,14 @@
+<h1> Hey <%= current_user.name %> !</h1>
+    <h3> Congrats, you have created  <%= current_user.jobs.count %> jobs for this week! </h3>
+
+<% @jobs_week.each do |job| %>
+    <div class="job-card flex flex-col rounded p-2 w-100">
+    <p> <%= job.title %> </p>
+    <p> <%= job.description %> </p>
+    <p> <%= job.application_url %> </p>
+    <p> <%= job.location.name %> </p>
+    <p> <%= job.category.name %> </p>
+    <p> <%= job.company.name %> </p>
+    </div>
+
+<% end %>
