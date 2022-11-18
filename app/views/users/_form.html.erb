@@ -1,4 +1,9 @@
 <%= form_with model: @user do |form| %>
+<div class="text-field field flex flex-col w-11/12 md:w-1/2 my-2">
+    <%= form.label :username, class: "font-bold" %>
+    <%= form.text_field :username, type: 'username' %>
+  </div>
+
   <div class="text-field field flex flex-col w-11/12 md:w-1/2 my-2">
     <%= form.label :email, class: "font-bold" %>
     <%= form.text_field :email, type: 'email' %>
