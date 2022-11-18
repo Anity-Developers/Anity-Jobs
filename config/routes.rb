@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   resources :companies
   resources :jobs
   get 'search' => 'jobs#search'
+  get 'weekly_jobs' => 'dashboard#weekly'
   # Defines the root path route ("/")
   root "jobs#index"
 
