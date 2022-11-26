@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 role = Role.find_or_create_by!(name: 'admin')
-user = User.create(email: "test@gmail.com", password: "password", role_id: role.id)
+user = User.create(name: "Test", email: "test@gmail.com", password: "password", role_id: role.id)
 # user = User.first || User.find_or_create_by!(email: "test@gmail.com", password: "password", role_id: role.id)
 location = Location.find_or_create_by!(name: "Rwanda🇷🇼")
 company = Company.find_or_create_by!(name: "Rwanda Development Board", location: location)

@@ -14,10 +14,11 @@ Rails.application.routes.draw do
   resources :companies
   resources :jobs
   get 'search' => 'jobs#search'
-  get 'weekly_jobs' => 'dashboard#weekly'
   # Defines the root path route ("/")
   root "jobs#index"
-
+  
   # route for all actions in the dashboard controller
-  get 'dashboard' => 'dashboard#index'
+  get 'dashboard' => 'dashboard#index' do
+  get 'weekly_jobs' => 'dashboard#weekly'
+  end
 end
