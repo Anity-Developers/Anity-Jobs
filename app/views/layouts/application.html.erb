@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= t("title.page_title") %></title>
+    <title><%= yield(:title) %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="description" content= <%= t("title.page_description") %> >
     <%= favicon_link_tag asset_path('Anity_logo.png') %>
