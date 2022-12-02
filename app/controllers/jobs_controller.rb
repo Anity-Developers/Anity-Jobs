@@ -1,13 +1,9 @@
 class JobsController < ApplicationController
+  before_action :require_login , except: [:index, :show, :search]
+
   def index
     @jobs = job_scope
-    @location = request.location.country.to_s.downcase
-
-    puts "================#{@location}================"
-    puts ISO3166::Country["🇨🇩"]
-    # binding.pry
-    @jobs = @jobs.sort_by { |job| country_name(job) == @location ? 0 : 1 }
-    #TODO: Add RSS feed
+    @jobs = @jobs.sort_by { |job| country_name(job) == user_location ? 0 : 1 }
   end
 
   def new
@@ -47,11 +43,16 @@ class JobsController < ApplicationController
   private
 
   def job_scope
-    Job.all.where(status: 1)
+    Job.all.where(status: 1).includes(:company, :location, :category)
   end
 
   def country_name(job)
-    job.location.name.split("")[0...-2].join("").downcase
+    job.location.name.split('').last(2).join('')
+  end
+
+  def user_location
+    country = request.location.country || "cd"
+    ISO3166::Country(country.to_s.downcase).emoji_flag
   end
 
   def job_params
