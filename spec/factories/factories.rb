@@ -24,20 +24,28 @@ FactoryBot.define do
   end
 
   factory :category do
-    name { "software development" }
+    sequence :name do |n|
+      "category-name-#{n}"
+    end
   end
 
   factory :location do
-    name { "congo" }
+    sequence :name do |n|
+      "location-name-#{n}"
+    end
   end
 
   factory :company do
-    name { "test-company" }
+    sequence :name do |n|
+      "company-name-#{n}"
+    end
     association :location, factory: :location
   end
 
   factory :job do
-    title { "test-job" }
+    sequence :title do |n|
+      "job-title-#{n}"
+    end
     application_url { "http://example.com" }
     description { "test-description" }
     association :author, factory: :user
