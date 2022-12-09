@@ -90,3 +90,6 @@ group :test do
 end
 
 gem "tailwindcss-rails", "~> 2.0"
+gem "aws-sdk-s3", require: false
+gem "figaro"
+gem 'administrate-field-active_storage', "0.1.8"

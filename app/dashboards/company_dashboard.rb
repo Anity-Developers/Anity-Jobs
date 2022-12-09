@@ -13,6 +13,7 @@ class CompanyDashboard < Administrate::BaseDashboard
     jobs: Field::HasMany,
     id: Field::Number,
     name: Field::String,
+    logo: Field::ActiveStorage,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
   }.freeze
@@ -28,16 +29,18 @@ class CompanyDashboard < Administrate::BaseDashboard
     jobs
     id
     name
+    logo
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = %i[
+    logo
+    name
     location
     description
     jobs
     id
-    name
     created_at
     updated_at
   ].freeze
@@ -47,6 +50,7 @@ class CompanyDashboard < Administrate::BaseDashboard
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = %i[
     name
+    logo
     location
     description
   ].freeze

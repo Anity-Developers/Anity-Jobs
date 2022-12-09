@@ -21,6 +21,7 @@ class AdminDashboardService
     companies = Company.pluck(:name, :id).sort_by { |company| company[0] }
     locations = Location.pluck(:name, :id).sort_by { |location| location[0] }
     categories = Category.pluck(:name, :id).sort_by { |category| category[0] }
+    #binding.pry
     OpenStruct.new(job: job, companies: companies, locations: locations, categories: categories)
   end
 end

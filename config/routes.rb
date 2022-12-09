@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   resources :users, only: [:index]
-  resources :companies, only: [:index, :show]
+  resources :companies
   resources :jobs, only: [:index, :show]
   get 'search' => 'jobs#search'
   # Defines the root path route ("/")
