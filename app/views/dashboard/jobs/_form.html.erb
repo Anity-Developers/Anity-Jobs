@@ -1,29 +1,29 @@
-<%= form_with model: @job do |form| %>
-  <div class="field flex flex-col w-1/2 my-2">
+<%= form_with scope: Job.new, url: dashboard_jobs_path, method: :post do |form| %>
+  <div class="field flex flex-col my-2">
     <%= form.label :title, t("jobs.new.labels.title"), class: "font-bold" %>
     <%= form.text_field :title %>
   </div>
-  <div class="field flex flex-col w-1/2 my-2">
+  <div class="field flex flex-col  my-2">
     <%= form.label :application_url, t("jobs.new.labels.url"), class: "font-bold" %>
     <%= form.text_field :application_url, class: "w" %>
   </div>
-  <div class="field flex flex-col w-1/2 my-2">
+  <div class="field flex flex-col  my-2">
     <%= form.label :company_id, t("jobs.new.labels.company"), class:"font-bold"%>
-    <%= form.select :company_id, [["select Company",nil]]+@companies, {}, class: "multiple" %>
+    <%= form.select :company_id, [["select Company",nil]]+@admin.companies, {}, class: "multiple" %>
   </div>
-  <div class="field flex flex-col w-1/2 my-2">
+  <div class="field flex flex-col  my-2">
     <%= form.label :category_id, t("jobs.new.labels.category"), class:"font-bold"%>
-    <%= form.select :category_id, [["select Category",nil]]+@categories, {}, class: "multiple" %>
+    <%= form.select :category_id, [["select Category",nil]]+@admin.categories, {}, class: "multiple" %>
   </div>
-  <div class="field flex flex-col w-1/2 my-2">
+  <div class="field flex flex-col  my-2">
     <%= form.label :location_id, t("jobs.new.labels.location"), class:"font-bold"%>
-    <%= form.select :location_id, [["select Location",nil]]+@locations, {}, class: "multiple" %>
+    <%= form.select :location_id, [["select Location",nil]]+@admin.locations, {}, class: "multiple" %>
   </div>
-  <div class="field flex flex-col w-1/2 my-2">
+  <div class="field flex flex-col  my-2">
     <%= form.label :description, t("jobs.new.labels.description"), class: "font-bold" %>
     <%= form.rich_text_area :description %>
   </div>
-  <div class="field flex flex-col w-1/2 my-2 cursor-pointer">
+  <div class="field flex flex-col  my-2 cursor-pointer">
     <%= form.submit t("jobs.new.labels.create"),class:"bg-red-500 text-white rounded p-2 font-bold"%>
   </div>
 <% end %>

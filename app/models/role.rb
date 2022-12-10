@@ -8,6 +8,7 @@ class Role < ApplicationRecord
         show: true,
         create: true,
         update: true,
+        destroy: true,
       }
     },
     'admin' => {
@@ -19,6 +20,13 @@ class Role < ApplicationRecord
         destroy: true,
       },
       job: {
+        index: true,
+        show: true,
+        create: true,
+        update: true,
+        destroy: true,
+      },
+      dashboard: {
         index: true,
         show: true,
         create: true,

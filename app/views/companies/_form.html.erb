@@ -4,6 +4,10 @@
     <%= form.text_field :name %>
   </div>
   <div class="field field flex flex-col w-1/2 my-2">
+    <%= form.label :logo, t("companies.new.labels.name"), class:"font-bold" %>
+    <%= form.file_field :logo %>
+  </div>
+  <div class="field field flex flex-col w-1/2 my-2">
     <%= form.label :description, t("companies.new.labels.description"), class:"font-bold" %>
     <%= form.rich_text_area :description %>
   </div>

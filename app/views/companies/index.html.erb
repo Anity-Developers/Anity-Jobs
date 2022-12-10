@@ -1,4 +1,5 @@
 <div>
+<%= link_to 'New_company', new_company_path %>
   <%@companies.each do |company|%>
   <div>
     <%= link_to company.name, company %>
