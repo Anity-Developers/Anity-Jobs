@@ -1,0 +1,3 @@
+<%= turbo_stream.append "jobs" do %>
+  <%= render partial: '/shared/job_preview', collection: @jobs, as: :job %>
+<% end %>
