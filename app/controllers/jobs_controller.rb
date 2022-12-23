@@ -1,26 +1,20 @@
 class JobsController < ApplicationController
   before_action :require_login, only: [:new, :create]
   def index
-    @jobs = job_scope
-    @location = request.location.country.to_s.downcase
-    @jobs = @jobs.sort_by { |job| country_name(job) == @location ? 0 : 1 }
-    #TODO: Add RSS feed
+    @page = page_params
+    @keywords = search_params[:keyword]
+    @jobs = @keywords.present? ? job_scope.search(@keywords) : job_scope.limit(page_params*20)
+    flash[:alert] = t("flash.jobs.no_results") if @jobs.empty? && @keywords.present?
+    respond_to do |format|
+      format.html
+      format.turbo_stream
+    end
   end
 
   def show
     @job = Job.friendly.find(params[:id])
   end
 
-  def search
-    @jobs = job_scope.search(search_params[:keyword])
-    @keywords = search_params[:keyword]
-    if @jobs.blank?
-      flash[:alert] = t("flash.jobs.no_results")
-      redirect_to root_path
-    else
-    render :index
-    end
-  end
 
   private
 
@@ -34,5 +28,9 @@ class JobsController < ApplicationController
 
   def search_params
     params.permit(:keyword, :page, :per_page, :status)
+  end
+
+  def page_params
+    (params[:page] || 1).to_i
   end
 end
