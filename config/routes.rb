@@ -24,4 +24,7 @@ Rails.application.routes.draw do
     resources :companies, only: [:index, :show, :edit, :update]
     resources :jobs
   end
+
+  post '/track_time', to: 'tracking#send_notification'
+
 end
