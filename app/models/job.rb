@@ -34,4 +34,9 @@ class Job < ApplicationRecord
   def self.published
     where(status: 1)
   end
+
+  def increment_view
+    self.view += 1
+    self.save
+  end
 end
