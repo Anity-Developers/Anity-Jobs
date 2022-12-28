@@ -36,7 +36,7 @@ class Job < ApplicationRecord
   end
 
   def increment_view
-    self.view += 1
+    self.views += 1
     self.save
   end
 end

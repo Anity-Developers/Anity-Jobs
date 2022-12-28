@@ -14,6 +14,9 @@ Rails.application.routes.draw do
   resources :companies
   resources :jobs, only: [:index, :show]
   get 'search' => 'jobs#search'
+
+  require 'sidekiq/web'
+  mount Sidekiq::Web => '/sidekiq'
   # Defines the root path route ("/")
   root "jobs#index"
   get "/load_more/:page", to: "jobs#load_more"
@@ -25,6 +28,6 @@ Rails.application.routes.draw do
     resources :jobs
   end
 
-  post '/track_time', to: 'tracking#send_notification'
+  post '/track_time/:job_id', to: 'tracking#send_notification'
 
 end
