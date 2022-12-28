@@ -1,3 +1,4 @@
+require 'sidekiq/web'
 Rails.application.routes.draw do
   namespace :admin do
       resources :roles
@@ -15,7 +16,6 @@ Rails.application.routes.draw do
   resources :jobs, only: [:index, :show]
   get 'search' => 'jobs#search'
 
-  require 'sidekiq/web'
   mount Sidekiq::Web => '/sidekiq'
   # Defines the root path route ("/")
   root "jobs#index"

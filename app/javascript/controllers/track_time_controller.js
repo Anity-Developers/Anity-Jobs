@@ -14,7 +14,7 @@ export default class extends Controller {
     console.log(this.elapsedTimeTarget.textContent);
 
     var elapsedTime = this.elapsedTimeTarget.textContent;
-    if (elapsedTime > 3 ) {
+    if (elapsedTime > 10 ) {
       console.log("you have spend 15 seconds on this page");
       var xhr = new XMLHttpRequest();
       xhr.open('POST', `/track_time/${job_id}`, true);
