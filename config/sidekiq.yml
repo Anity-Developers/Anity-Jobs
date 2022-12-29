@@ -1,0 +1,5 @@
+:schedule:
+  job_views:
+    cron: "* * * * *"
+    class: "TrackerTimeScheduler"
+    queue: "default"

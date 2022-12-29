@@ -1,28 +1,32 @@
-<% content_for :title, "Anity Jobs | #{@job.title}" %>
+<body data-controller="track-time">
+  <% content_for :title, "Anity Jobs | #{@job.title}" %> 
+  <div class="hidden" data-target="track-time.elapsedTime"></div>
 
-<div class="w-11/12 md:w-1/2 mx-auto font-sans text-gray-800 font-light">
-  <div>
-    <div class="nav-links text-sm">
-      <%= link_to root_path do %>
-      <span class="flex items-center text-red-500 underline">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-          </svg>
-          <span> <%=t("navigation.all_jobs")%> </span>
-      </span>
-      <% end %>
-    </div>
-    <div class="job-title py-2 mb-4">
-      <p class="text-gray-600">
-        <%= t(".posted") %> : <%= @job.created_at.strftime("%Y-%m-%d")%>
-      </p>
-      <p class="text-3xl font-bold my-2"><%=@job.title%></p>
-      <%= link_to @job.category.name, search_path(:keyword => @job.category.name) , class: "underline font-bold text-black py-1" %>
-      <p class="mb-2"><%= t(".location") %> : <%=@job.location.name%></p>
-    </div>
-    <%= @job.description%>
-    <div class="apply-button my-4 py-4">
-      <%= link_to t(".apply"), @job.application_url, target: :_blank, class:"bg-red-500 text-white p-3 font-semibold" %>
+  <div class="w-11/12 md:w-1/2 mx-auto font-sans text-gray-800 font-light">
+    <div>
+      <div class="nav-links text-sm">
+        <%= link_to root_path do %>
+        <span class="flex items-center text-red-500 underline">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+            </svg>
+            <span> <%=t("navigation.all_jobs")%> </span>
+        </span>
+        <% end %>
+      </div>
+      <div class="job-title py-2 mb-4">
+        <p class="text-gray-600">
+          <%= t(".posted") %> : <%= @job.created_at.strftime("%Y-%m-%d")%>
+        </p>
+        <p class="text-3xl font-bold my-2"><%=@job.title%></p>
+        <%= link_to @job.category.name, search_path(:keyword => @job.category.name) , class: "underline font-bold text-black py-1" %>
+        <p class="mb-2"><%= t(".location") %> : <%=@job.location.name%></p>
+      </div>
+      <%= @job.description%>
+      <div class="apply-button my-4 py-4">
+        <%= link_to t(".apply"), @job.application_url, target: :_blank, class:"bg-red-500 text-white p-3 font-semibold" %>
+      </div>
     </div>
   </div>
-</div>
+</body>
+
