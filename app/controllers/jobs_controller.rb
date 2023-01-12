@@ -19,7 +19,7 @@ class JobsController < ApplicationController
   private
 
   def job_scope
-    Job.all.where(status: 1)
+    Job.all.where(status: 1).includes(:location).order(created_at: :desc).includes(:company)
   end
 
   def country_name(job)

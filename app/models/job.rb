@@ -29,7 +29,7 @@ class Job < ApplicationRecord
     attributes :title, :location, :category ,:company
   end
 
-  Job.reindex
+  Job.includes([:company]).includes([:location]).includes([:category]).reindex
 
   def self.published
     where(status: 1)
