@@ -68,7 +68,6 @@ group :development, :test do
   gem 'rspec-rails', '~> 5.1'
   gem 'factory_bot_rails'
   gem 'pry-rails'
-  gem 'bullet'
 end
 
 group :development do
@@ -97,4 +96,3 @@ gem 'administrate-field-active_storage', "0.1.8"
 gem 'sidekiq'
 gem 'sidekiq-cron'
 gem "sidekiq-scheduler", "~> 4.0"
-
