@@ -13,7 +13,9 @@ Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   resources :users, only: [:index]
   resources :companies
-  resources :jobs, only: [:index, :show]
+  resources :jobs, only: [:index, :show] do
+    post :index, on: :collection
+  end
   get 'search' => 'jobs#search'
 
   mount Sidekiq::Web => '/sidekiq'

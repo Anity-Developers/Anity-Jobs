@@ -2,6 +2,8 @@ class ApplicationController < ActionController::Base
   include Clearance::Controller
   include Pundit::Authorization
   include ApplicationHelper
+  include Pagy::Backend
+
   before_action :set_locale
 
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
