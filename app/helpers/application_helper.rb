@@ -1,4 +1,6 @@
 module ApplicationHelper
+  include Pagy::Frontend
+
   def country_to_language(country)
     return 'en' unless country.present?
     return country if ['en','fr'].include?(country)
