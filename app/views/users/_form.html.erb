@@ -1,8 +1,4 @@
 <%= form_with model: @user do |form| %>
-<div class="text-field field flex flex-col w-11/12 md:w-1/2 my-2">
-    <%= form.label :username, class: "font-bold" %>
-    <%= form.text_field :username, type: 'username' %>
-  </div>
 
   <div class="text-field field flex flex-col w-11/12 md:w-1/2 my-2">
     <%= form.label :email, class: "font-bold" %>
@@ -12,5 +8,9 @@
   <div class="password-field field flex flex-col w-11/12 md:w-1/2 my-2">
     <%= form.label :password, class: "font-bold" %>
     <%= form.password_field :password %>
+  </div>
+
+  <div class="submit-field flex flex-col w-11/12 md:w-1/2 my-2">
+    <%= form.submit "Sign Up", class:"bg-red-500 cursor-pointer text-white rounded p-2 font-bold" %>
   </div>
 <% end %>
