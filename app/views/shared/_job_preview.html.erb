@@ -11,7 +11,7 @@
       <div class="flex items-center">
         <p class="mr-4"><%= format_date(job)%></p>
         <%if new_job?(job)%>
-        <p class=" bg-amber-400 py-1/2 px-1 mr-2 rounded font-semibold"><%= t("jobs.index.preview.new") %></p>
+        <p class="<%= job_status(job)[:classes] %> py-1/2 px-1 mr-2 rounded font-semibold"><%= job_status(job)[:status]%></p>
         <%end%>
       </div>
     </div>

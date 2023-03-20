@@ -8,5 +8,22 @@ module JobsHelper
   def format_date(job)
     job.created_at.strftime("%b %d")
   end
-
+  def job_status(job)
+    if job.published?
+      {
+        status: "new",
+        classes: "bg-amber-400"
+      }
+    elsif job.pending?
+      {
+        status: "Unpublished",
+        classes: "bg-stone-400"
+      }
+    else job.closed?
+      {
+        status: "Closed",
+        classes: "bg-rose-400"
+      }
+    end
+  end
 end
