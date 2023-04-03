@@ -1,7 +1,7 @@
 class DeleteOldJobsJob < ApplicationJob
-  queue_as :default
+    queue_as :default
 
-  def perform(*args)
-    # Do something later
+    def perform
+      Job.where("created_at < ?", 3.months.ago).delete_all
+    end
   end
-end
