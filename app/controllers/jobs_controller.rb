@@ -3,7 +3,10 @@ class JobsController < ApplicationController
   def index
     @page = page_params
     @keywords = search_params[:keyword]
-    @pagy, @jobs = pagy_countless(@keywords.present? ? job_scope.search(@keywords) : list_jobs)
+    # @pagy, @jobs = pagy_countless(@keywords.present? ? job_scope.search(@keywords) : list_jobs)
+    @pagy, @jobs = pagy_countless(list_jobs)
+    @jobs = job_scope.search(@keywords) if @keywords.present?
+    
     flash[:alert] = t("flash.jobs.no_results") if @keywords.present? && @jobs.empty?
     respond_to do |format|
       format.html
