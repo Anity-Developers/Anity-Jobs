@@ -3,8 +3,8 @@
 <% end %>
 
 <%= turbo_stream.update "next_link" do %>
-  <% if @pagy.next.present? %>
-      <%= button_to jobs_path(page: @pagy.next) do %>
+  <% if @pagy.first.next.present? %>
+      <%= button_to jobs_path(page: @pagy.first.next) do %>
         <p>
           see more Jobs
         </p>
