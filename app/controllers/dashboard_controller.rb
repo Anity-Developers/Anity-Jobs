@@ -6,7 +6,7 @@ class DashboardController < ApplicationController
     @jobs = current_user.jobs
     @top_categories = Category.joins(:jobs).group(:id).order("COUNT(jobs.id) DESC").limit(3)
     @top_locations = Location.joins(:jobs).group(:id).order("COUNT(jobs.id) DESC").limit(3)
-    @unpublished_jobs = current_user.jobs.where(status: :pending).last('5')
+    @unpublished_jobs = current_user.jobs.where(status: :pending)
   end
 
   def weekly
