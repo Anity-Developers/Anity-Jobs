@@ -16,5 +16,9 @@
       </div>
     </div>
     <p><%= job.location.name %></p>
+    <%if job_not_published?(job)%>
+      <%= button_to('Publish Job', '/dashboard/jobs/publish', remote: true, params: { id: job.id }, class: "bg-amber-400 font-bold py-2 px-4 rounded",
+          data: { confirm: 'Do you want to publish this job?', disable_with: 'loading...' }) %>
+    <%end%>
   </div>
 <%end%>

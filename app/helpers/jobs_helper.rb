@@ -8,6 +8,11 @@ module JobsHelper
   def format_date(job)
     job.created_at.strftime("%b %d")
   end
+
+  def job_not_published?(job)
+    current_user&.admin? && current_user&.jobs&.include?(job) && job.pending?
+  end
+
   def job_status(job)
     if job.published?
       {

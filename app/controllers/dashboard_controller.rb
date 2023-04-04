@@ -13,6 +13,12 @@ class DashboardController < ApplicationController
     @jobs_week = current_user.jobs.where("created_at > ?", 1.week.ago)
   end
 
+  def publish
+    @job = Job.find(params[:id])
+    @job.published!
+    redirect_to dashboard_path
+  end
+
   private
 
   def require_admin

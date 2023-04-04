@@ -27,7 +27,11 @@ Rails.application.routes.draw do
   get 'dashboard' => 'dashboard#index'
   namespace :dashboard do
     resources :companies, only: [:index, :show, :edit, :update]
-    resources :jobs
+    resources :jobs do
+      member do
+        post :publish
+      end
+    end
   end
 
   post '/track_time/:job_id', to: 'tracking#send_notification'
