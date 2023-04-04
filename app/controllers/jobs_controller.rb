@@ -23,9 +23,9 @@ class JobsController < ApplicationController
 
   def list_jobs
     if request_method == "get"
-      job_scope.limit(page_params*20)
+      job_scope.limit(page_params*40)
     else
-      job_scope.offset(page_params*20).limit(20)
+      job_scope.offset(page_params*40).limit(40)
     end
   end
 
