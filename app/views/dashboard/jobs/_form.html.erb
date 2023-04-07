@@ -1,4 +1,4 @@
-<%= form_with scope: Job.new, url: dashboard_jobs_path, method: :post do |form| %>
+<%= form_with scope: @job, url: url, method: method do |form| %>
   <div class="field flex flex-col my-2">
     <%= form.label :title, t("jobs.new.labels.title"), class: "font-bold" %>
     <%= form.text_field :title %>

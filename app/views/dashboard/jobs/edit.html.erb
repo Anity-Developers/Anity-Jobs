@@ -2,6 +2,6 @@
   <%= render partial: '/dashboard/left_bar' %>
   <div class="w-6/12">
     <h1><%= t(".page_title") %></h1>
-    <%= render partial: '/dashboard/jobs/form', locals: { url: dashboard_jobs_path, method: :post}%>
+    <%= render partial: '/dashboard/jobs/form', locals: { url: dashboard_job_path(@job), method: :put}%>
   </div>
 </div>
