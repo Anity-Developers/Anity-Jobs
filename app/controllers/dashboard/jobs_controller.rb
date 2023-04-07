@@ -1,5 +1,21 @@
 module Dashboard
   class JobsController < DashboardController
+
+    def index
+      @jobs = current_user.jobs
+    end
+
+    def edit
+      @job = Job.find_by(slug: params[:id])
+      @admin = AdminDashboardService.new(current_user).new_job
+    end
+
+    def update
+      @job = Job.find_by(slug: params[:id])
+      @job.update!(job_params)
+      redirect_to dashboard_jobs_path
+    end
+
     def new
       @admin = AdminDashboardService.new(current_user).new_job
       @job = current_user.jobs.build

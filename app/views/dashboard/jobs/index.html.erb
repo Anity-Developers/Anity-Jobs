@@ -1,0 +1,6 @@
+<div class="flex w-full">
+  <%= render partial: '/dashboard/left_bar' %>
+  <div class="w-11/12 md:w-1/2 mx-auto" id="jobs">
+    <%= render partial: '/dashboard/jobs/job_preview', collection: @jobs, as: :job %>
+  </div>
+</div>
