@@ -1,6 +1,6 @@
-require 'rails_helper'
+require "rails_helper"
 
-RSpec.describe CompanyPolicy , type: :policy do
+RSpec.describe CompanyPolicy, type: :policy do
   context "when as an admin" do
     subject { CompanyPolicy.new(create(:user, :admin), create(:company)) }
     it { is_expected.to permit_action(:show) }

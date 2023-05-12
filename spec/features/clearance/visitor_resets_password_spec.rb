@@ -40,7 +40,7 @@ RSpec.feature "Visitor resets password" do
     expect_mailer_to_have_delivery(
       user.email,
       "password",
-      user.confirmation_token,
+      user.confirmation_token
     )
   end
 

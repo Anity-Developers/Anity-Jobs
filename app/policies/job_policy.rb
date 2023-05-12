@@ -22,7 +22,7 @@ class JobPolicy < ApplicationPolicy
   def destroy?
     user.has_permission?(:destroy, :job)
   end
-  
+
   class Scope < Scope
     # NOTE: Be explicit about which records you allow access to!
     # def resolve

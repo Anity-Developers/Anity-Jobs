@@ -1,4 +1,4 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe Location, type: :model do
   it { is_expected.to have_many(:jobs) }
@@ -20,5 +20,4 @@ RSpec.describe Location, type: :model do
     before { @job = Job.new(location: @location) }
     it { is_expected.not_to be_valid }
   end
-  
 end

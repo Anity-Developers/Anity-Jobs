@@ -2,38 +2,38 @@ class Role < ApplicationRecord
   has_many :users
 
   PERMISSIONS = {
-    'superadmin' => {
+    "superadmin" => {
       all: {
         index: true,
         show: true,
         create: true,
         update: true,
-        destroy: true,
+        destroy: true
       }
     },
-    'admin' => {
-      company: {
+    "admin" => {
+      :company => {
         index: true,
         show: true,
         create: true,
         update: true,
-        destroy: true,
+        destroy: true
       },
-      job: {
+      :job => {
         index: true,
         show: true,
         create: true,
         update: true,
-        destroy: true,
+        destroy: true
       },
-      dashboard: {
+      :dashboard => {
         index: true,
         show: true,
         create: true,
         update: true,
-        destroy: true,
+        destroy: true
       },
-      'manager' => {
+      "manager" => {
         company: {
           index: true,
           show: true,
@@ -45,7 +45,7 @@ class Role < ApplicationRecord
           show: true,
           create: true,
           update: true,
-          destroy: true,
+          destroy: true
         }
       }
     }
@@ -60,7 +60,7 @@ class Role < ApplicationRecord
 
   def has_permission?(action, resource)
     PERMISSIONS.dig(name, resource, action) ||
-    PERMISSIONS.dig(name, :all, action)
+      PERMISSIONS.dig(name, :all, action)
   end
 
   validates :name, presence: true, uniqueness: true

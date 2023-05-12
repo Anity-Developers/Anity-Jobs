@@ -5,7 +5,7 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
-role = Role.find_or_create_by!(name: 'admin')
+role = Role.find_or_create_by!(name: "admin")
 user = User.create(name: "Test", email: "test@gmail.com", password: "password", role_id: role.id)
 # user = User.first || User.find_or_create_by!(email: "test@gmail.com", password: "password", role_id: role.id)
 location = Location.find_or_create_by!(name: "Rwanda🇷🇼")
@@ -20,9 +20,8 @@ category = Category.find_or_create_by!(name: "Tourism")
     company: company,
     category: category
   )
-  job.description = description = ActionText::RichText.new(record_type:Job,record_id:job.id,body:"Job description #{i}")
+  job.description = description = ActionText::RichText.new(record_type: Job, record_id: job.id, body: "Job description #{i}")
   job.save!
 end
 
 Job.update_all(status: 1)
-

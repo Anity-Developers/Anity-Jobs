@@ -1,6 +1,5 @@
 module Dashboard
   class JobsController < DashboardController
-
     def index
       @jobs = current_user.jobs
     end

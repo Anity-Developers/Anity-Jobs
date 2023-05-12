@@ -15,7 +15,7 @@ class CompanyDashboard < Administrate::BaseDashboard
     name: Field::String,
     logo: Field::ActiveStorage,
     created_at: Field::DateTime,
-    updated_at: Field::DateTime,
+    updated_at: Field::DateTime
   }.freeze
 
   # COLLECTION_ATTRIBUTES

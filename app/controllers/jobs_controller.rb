@@ -18,14 +18,13 @@ class JobsController < ApplicationController
     @job = Job.friendly.find(params[:id])
   end
 
-
   private
 
   def list_jobs
     if request_method == "get"
-      job_scope.limit(page_params*40)
+      job_scope.limit(page_params * 40)
     else
-      job_scope.offset(page_params*40).limit(40)
+      job_scope.offset(page_params * 40).limit(40)
     end
   end
 
@@ -38,7 +37,7 @@ class JobsController < ApplicationController
   end
 
   def country_name(job)
-    job.location.name.split("")[0...-2].join("").downcase
+    job.location.name[0...-2].chars.join("").downcase
   end
 
   def search_params

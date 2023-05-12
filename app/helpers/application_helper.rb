@@ -2,16 +2,16 @@ module ApplicationHelper
   include Pagy::Frontend
 
   def country_to_language(country)
-    return 'en' unless country.present?
-    return country if ['en','fr'].include?(country)
+    return "en" unless country.present?
+    return country if ["en", "fr"].include?(country)
     country_languages = LANGUAGES[country]
-    country_languages.sort.first
-    if country_languages.include?('en')
-      return 'en'
-    elsif country_languages.include?('fr')
-      return 'fr'
+    country_languages.min
+    if country_languages.include?("en")
+      "en"
+    elsif country_languages.include?("fr")
+      "fr"
     else
-      return I18n.default_locale
+      I18n.default_locale
     end
   end
 

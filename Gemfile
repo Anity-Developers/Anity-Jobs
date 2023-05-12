@@ -20,7 +20,7 @@ gem "importmap-rails"
 
 gem "administrate"
 
-gem 'administrate-field-enum'
+gem "administrate-field-enum"
 
 gem "algoliasearch-rails"
 
@@ -29,7 +29,7 @@ gem "turbo-rails"
 
 gem "pundit"
 
-gem 'friendly_id', '~> 5.4.0'
+gem "friendly_id", "~> 5.4.0"
 
 # Hotwire's modest JavaScript framework [https://stimulus.hotwired.dev]
 gem "stimulus-rails"
@@ -49,13 +49,13 @@ gem "clearance"
 # gem "bcrypt", "~> 3.1.7"
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
+gem "tzinfo-data", platforms: %i[mingw mswin x64_mingw jruby]
 
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
 
-gem 'rails-i18n'
-gem 'geocoder'
+gem "rails-i18n"
+gem "geocoder"
 # Use Sass to process CSS
 # gem "sassc-rails"
 
@@ -64,10 +64,10 @@ gem "image_processing", "~> 1.2"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
-  gem "debug", platforms: %i[ mri mingw x64_mingw ]
-  gem 'rspec-rails', '~> 5.1'
-  gem 'factory_bot_rails'
-  gem 'pry-rails'
+  gem "debug", platforms: %i[mri mingw x64_mingw]
+  gem "rspec-rails", "~> 5.1"
+  gem "factory_bot_rails"
+  gem "pry-rails"
 end
 
 group :development do
@@ -78,7 +78,7 @@ group :development do
 
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
-  gem 'bullet'
+  gem "bullet"
 end
 
 group :test do
@@ -86,16 +86,16 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
   gem "webdrivers"
-  gem 'shoulda-matchers', '~> 5.0'
-  gem 'pundit-matchers', '~> 1.7.0'
+  gem "shoulda-matchers", "~> 5.0"
+  gem "pundit-matchers", "~> 1.7.0"
 end
 
 gem "tailwindcss-rails", "~> 2.0"
 gem "aws-sdk-s3", require: false
 gem "figaro"
-gem 'administrate-field-active_storage', "0.1.8"
-gem 'sidekiq'
-gem 'sidekiq-cron'
+gem "administrate-field-active_storage", "0.1.8"
+gem "sidekiq"
+gem "sidekiq-cron"
 gem "sidekiq-scheduler", "~> 4.0"
 
 gem "pagy", "~> 6.0"

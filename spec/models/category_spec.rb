@@ -1,4 +1,4 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe Category, type: :model do
   it { is_expected.to have_many(:jobs) }
@@ -14,5 +14,4 @@ RSpec.describe Category, type: :model do
     before { @category2 = Category.new(name: "Category") }
     it { is_expected.not_to be_valid }
   end
-
 end

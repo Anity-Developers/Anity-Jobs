@@ -15,7 +15,7 @@ class UserDashboard < Administrate::BaseDashboard
     email: Field::String,
     encrypted_password: Field::String,
     confirmation_token: Field::String,
-    remember_token: Field::String,
+    remember_token: Field::String
   }.freeze
 
   # COLLECTION_ATTRIBUTES

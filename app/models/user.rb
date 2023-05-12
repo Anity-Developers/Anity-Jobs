@@ -10,7 +10,7 @@ class User < ApplicationRecord
   validates :password, presence: true, on: :create
 
   def admin?
-    self.role.name == 'admin'
+    role.name == "admin"
   end
 
   def has_permission?(action, resource)
@@ -23,11 +23,12 @@ class User < ApplicationRecord
 
   def update_role!(role_name)
     self.role = Role.find_or_create_by(name: role_name)
-    self.save!
+    save!
   end
 
   private
+
   def set_default_role
-    self.role = Role.find_or_create_by(name: 'user') if self.role.nil?
+    self.role = Role.find_or_create_by(name: "user") if role.nil?
   end
 end

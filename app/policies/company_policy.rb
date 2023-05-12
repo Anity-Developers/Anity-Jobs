@@ -1,5 +1,4 @@
 class CompanyPolicy < ApplicationPolicy
-
   def index?
     user.has_permission?(:index, :company)
   end

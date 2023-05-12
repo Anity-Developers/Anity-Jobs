@@ -1,4 +1,4 @@
-require 'rails_helper'
+require "rails_helper"
 require "support/features/clearance_helpers"
 
 RSpec.describe "Companies", type: :request do
@@ -8,7 +8,7 @@ RSpec.describe "Companies", type: :request do
     # let!(:user) { create(:user, :admin) }
     # let!(:location) { create(:location) }
     # let!(:company) { create(:company, location: location) }
-    
+
     # before do
     #   sign_in(FactoryBot.create(:user, :admin))
     # end
@@ -19,10 +19,5 @@ RSpec.describe "Companies", type: :request do
     #     expect(response).to have_http_status(200)
     #   end
     # end
-     
   end
-  
-    
- 
-
 end

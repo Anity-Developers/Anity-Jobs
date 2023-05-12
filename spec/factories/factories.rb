@@ -1,5 +1,4 @@
 FactoryBot.define do
-
   factory :role do
     name { Role.names.keys.sample }
 
@@ -16,10 +15,10 @@ FactoryBot.define do
 
     password { "password" }
 
-    association :role, factory: :role, name: 'user'
+    association :role, factory: :role, name: "user"
 
     trait :admin do
-      association :role, factory: :role, name: 'admin'
+      association :role, factory: :role, name: "admin"
     end
   end
 

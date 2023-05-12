@@ -22,11 +22,11 @@ class Job < ApplicationRecord
   enum status: {
     pending: 0,
     published: 1,
-    closed: 2,
+    closed: 2
   }
 
   algoliasearch do
-    attributes :title, :location, :category ,:company
+    attributes :title, :location, :category, :company
   end
 
   Job.reindex
@@ -37,6 +37,6 @@ class Job < ApplicationRecord
 
   def increment_view
     self.views += 1
-    self.save
+    save
   end
 end
