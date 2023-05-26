@@ -15,6 +15,11 @@ class TranslatePostJob
       new_job.title = "French Translation of #{job.title}"
     end
     puts '=='*20
-    new_job.save!
+    if new_job.save!
+      puts "New Job Saved"
+    else
+      puts "New Job NOT Saved"
+      puts new_job.errors.full_messages
+    end
   end
 end
