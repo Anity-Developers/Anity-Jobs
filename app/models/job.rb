@@ -25,6 +25,12 @@ class Job < ApplicationRecord
     closed: 2,
   }
 
+  enum translation: {
+    no_translation: 0,
+    en: 1,
+    fr: 2
+  }
+
   algoliasearch do
     attributes :title, :location, :category ,:company
   end

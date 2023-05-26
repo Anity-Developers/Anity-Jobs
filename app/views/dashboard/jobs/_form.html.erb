@@ -20,6 +20,10 @@
     <%= form.select :location_id, [["select Location",nil]]+@admin.locations, {}, class: "multiple" %>
   </div>
   <div class="field flex flex-col  my-2">
+    <%= form.label :translation, "Translate Job", class:"font-bold"%>
+    <%= form.select :translation, [["Translate to",nil],["fr","fr"]], {}, class: "multiple" %>
+  </div>
+  <div class="field flex flex-col  my-2">
     <%= form.label :description, t("jobs.new.labels.description"), class: "font-bold" %>
     <%= form.rich_text_area :description %>
   </div>
