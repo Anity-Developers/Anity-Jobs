@@ -7,7 +7,6 @@ module Dashboard
 
     def edit
       @job = Job.find_by(slug: params[:id])
-      TranslatePostJob.perform_async(@job.id)
       @admin = AdminDashboardService.new(current_user).new_job
     end
 
@@ -26,6 +25,7 @@ module Dashboard
       @job = current_user.jobs.create(job_params)
       @job.location_id = current_user.company.location_id if job_params[:location_id].blank?
       if @job.save!
+        TranslatePostJob.perform_async(@job.id)
         flash[:notice] = "Job created successfully."
         redirect_to dashboard_path
       else
