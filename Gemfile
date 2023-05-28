@@ -56,6 +56,8 @@ gem "bootsnap", require: false
 
 gem 'rails-i18n'
 gem 'geocoder'
+
+gem "ruby-openai"
 # Use Sass to process CSS
 # gem "sassc-rails"
 
