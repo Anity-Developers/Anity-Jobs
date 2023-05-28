@@ -9,9 +9,8 @@ class TranslatePostJob
     # duplicate the job
     new_title = OpenAiService.new(job.title).translate_tile
     new_description = OpenAiService.new(job.description.body).translate_body
-    # binding.pry
     puts "-"*20
-    if job.update!(title: new_title)
+    if job.update!(title: new_title) && job.description.update!(body: new_description.to_s)
       puts "New Job Saved"
     else
       puts "New Job NOT Saved"
