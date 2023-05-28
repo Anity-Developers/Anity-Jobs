@@ -56,6 +56,8 @@ gem "bootsnap", require: false
 
 gem 'rails-i18n'
 gem 'geocoder'
+
+gem "ruby-openai"
 # Use Sass to process CSS
 # gem "sassc-rails"
 
@@ -68,6 +70,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 5.1'
   gem 'factory_bot_rails'
   gem 'pry-rails'
+  gem "solargraph"
 end
 
 group :development do
@@ -79,6 +82,7 @@ group :development do
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
   gem 'bullet'
+  
 end
 
 group :test do
@@ -99,3 +103,5 @@ gem 'sidekiq-cron'
 gem "sidekiq-scheduler", "~> 4.0"
 
 gem "pagy", "~> 6.0"
+gem "foreman"
+gem 'async', '~> 2.5', '>= 2.5.1'

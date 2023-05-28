@@ -7,15 +7,10 @@ class TranslatePostJob
     puts "TranslatePostJob"
     job = Job.find(job_id)
     # duplicate the job
-    new_job = job.clone
-    new_job.status = 'pending'
-    if new_job.translation == 'en'
-      new_job.title = "English Translation of #{job.title}"
-    elsif new_job.translation == 'fr'
-      new_job.title = "French Translation of #{job.title}"
-    end
-    puts '=='*20
-    if new_job.save!
+    new_title = OpenAiService.new(job.title).translate_tile
+    new_description = OpenAiService.new(job.description.body).translate_body
+    puts "-"*20
+    if job.update!(title: new_title) && job.description.update!(body: new_description.to_s)
       puts "New Job Saved"
     else
       puts "New Job NOT Saved"
