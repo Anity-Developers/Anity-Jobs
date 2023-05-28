@@ -1,5 +1,5 @@
 class Job < ApplicationRecord
-  # include AlgoliaSearch
+  include AlgoliaSearch
   extend FriendlyId
 
   belongs_to :author, class_name: "User", foreign_key: "user_id"
@@ -22,14 +22,20 @@ class Job < ApplicationRecord
   enum status: {
     pending: 0,
     published: 1,
-    closed: 2
+    closed: 2,
   }
 
-  # algoliasearch do
-  #   attributes :title, :location, :category, :company
-  # end
+  enum translation: {
+    no_translation: 0,
+    en: 1,
+    fr: 2
+  }
 
-  # Job.reindex
+  algoliasearch do
+    attributes :title, :location, :category ,:company
+  end
+
+  Job.reindex
 
   def self.published
     where(status: 1)
@@ -37,6 +43,6 @@ class Job < ApplicationRecord
 
   def increment_view
     self.views += 1
-    save
+    self.save
   end
 end

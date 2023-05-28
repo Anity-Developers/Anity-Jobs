@@ -89,6 +89,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_21_070354) do
     t.string "slug"
     t.bigint "user_id", null: false
     t.integer "views", default: 0
+    t.integer "translation", default: 0
     t.index ["category_id"], name: "index_jobs_on_category_id"
     t.index ["company_id"], name: "index_jobs_on_company_id"
     t.index ["location_id"], name: "index_jobs_on_location_id"

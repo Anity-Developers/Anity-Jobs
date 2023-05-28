@@ -82,4 +82,5 @@ production:
   <<: *default
   database: Anity_Jobs_production
   username: Anity_Jobs
+  url: <%= ENV['DATABASE_URL'] %>
   password: <%= ENV["ANITY_JOBS_DATABASE_PASSWORD"] %>
