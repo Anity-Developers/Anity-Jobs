@@ -97,5 +97,6 @@ gem "administrate-field-active_storage", "0.1.8"
 gem "sidekiq"
 gem "sidekiq-cron"
 gem "sidekiq-scheduler", "~> 4.0"
+gem "stripe"
 
 gem "pagy", "~> 6.0"

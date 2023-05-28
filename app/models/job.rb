@@ -1,5 +1,5 @@
 class Job < ApplicationRecord
-  include AlgoliaSearch
+  # include AlgoliaSearch
   extend FriendlyId
 
   belongs_to :author, class_name: "User", foreign_key: "user_id"
@@ -25,11 +25,11 @@ class Job < ApplicationRecord
     closed: 2
   }
 
-  algoliasearch do
-    attributes :title, :location, :category, :company
-  end
+  # algoliasearch do
+  #   attributes :title, :location, :category, :company
+  # end
 
-  Job.reindex
+  # Job.reindex
 
   def self.published
     where(status: 1)

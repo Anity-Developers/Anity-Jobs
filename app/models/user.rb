@@ -2,6 +2,7 @@ class User < ApplicationRecord
   include Clearance::User
 
   has_many :jobs
+  has_many :companies
   belongs_to :role
 
   after_initialize :set_default_role

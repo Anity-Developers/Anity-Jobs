@@ -9,7 +9,8 @@ module JobsHelper
   end
 
   def job_not_published?(job)
-    current_user&.admin? && current_user&.jobs&.include?(job) && job.pending?
+    # current_user&.admin? && current_user&.jobs&.include?(job) && job.pending?
+    current_user&.admin?  && job.pending?
   end
 
   def job_status(job)

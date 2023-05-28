@@ -26,7 +26,7 @@ Rails.application.routes.draw do
   # route for all actions in the dashboard controller
   get "dashboard" => "dashboard#index"
   namespace :dashboard do
-    resources :companies, only: [:index, :show, :edit, :update]
+    resources :companies
     resources :jobs do
       member do
         post :publish

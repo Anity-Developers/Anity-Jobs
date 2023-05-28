@@ -1,0 +1,15 @@
+<h1>Create a new company</h1>
+
+<%= form_for @company do |f| %>
+ <div>
+  <%= Location.first.to_json %>
+    <%= f.label :location_id %>
+ </div>
+ 
+ <div>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  </div>
+
+  <%= f.submit %>
+<% end %>

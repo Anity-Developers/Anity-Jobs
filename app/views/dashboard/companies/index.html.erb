@@ -1,0 +1,9 @@
+<h1> Your Companies </h1>
+
+<% @companies.each do |company| %>
+  <div class="company">
+    <h2><%= company.name %></h2>
+  </div>
+<% end %>
+
+<%= link_to "Create a new company", new_dashboard_company_path %>
