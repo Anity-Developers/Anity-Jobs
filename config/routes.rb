@@ -33,6 +33,6 @@ Rails.application.routes.draw do
       end
     end
   end
-
+  post 'checkout/create' => 'checkout#create'
   post "/track_time/:job_id", to: "tracking#send_notification"
 end
