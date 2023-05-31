@@ -1,8 +1,9 @@
 class User < ApplicationRecord
   include Clearance::User
 
-  has_many :jobs
-  has_many :companies
+  has_many :jobs, dependent: :destroy
+  has_many :companies, dependent: :destroy
+  has_one :customer, dependent: :destroy
   belongs_to :role
 
   after_initialize :set_default_role
@@ -12,6 +13,10 @@ class User < ApplicationRecord
 
   def admin?
     role.name == "admin"
+  end
+
+  def manager?
+    role.name == "manager"
   end
 
   def has_permission?(action, resource)

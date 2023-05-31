@@ -1,5 +1,6 @@
 class Company < ApplicationRecord
   has_many :jobs
+  has_one :customer
   belongs_to :location
   belongs_to :package
   has_one_attached :logo
