@@ -70,6 +70,7 @@ class UserDashboard < Administrate::BaseDashboard
   # across all pages of the admin dashboard.
   #
   def display_resource(user)
+    Customer::AnityCustomer.call(user) if user.manager?
     user.email
   end
 end
