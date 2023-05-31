@@ -22,7 +22,7 @@ class DashboardController < ApplicationController
   private
 
   def require_admin
-    unless current_user.admin?
+    unless current_user.admin? || current_user.manager?
       flash[:alert] = "You must be an admin to access this page."
       redirect_to root_path
     end
