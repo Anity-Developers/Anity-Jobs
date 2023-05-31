@@ -2,7 +2,6 @@ class User < ApplicationRecord
   include Clearance::User
 
   has_many :jobs, dependent: :destroy
-  has_many :companies, dependent: :destroy
   has_one :customer, dependent: :destroy
   belongs_to :role
 
