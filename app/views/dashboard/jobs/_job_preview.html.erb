@@ -20,7 +20,7 @@
   <%= link_to('Edit Job', edit_dashboard_job_path(job), class: "bg-sky-400 font-bold py-2 px-4 rounded" ) %>
   <%if job_not_published?(job)%>
     <%= button_to('Pay and publish Job', checkout_create_path, params: {id: job.id}, remote: true, class: "bg-green-400 font-bold py-2 mx-4 px-4 rounded",
-        data: { confirm: 'Do you want to publish this job?', disable_with: 'loading...' }) %>
+        data: { confirm: 'Do you want to publish this job?', disable_with: 'loading...', turbo: false }) %>
   <%else%>
         <%= button_to('Close Job', "/dashboard/jobs/#{job.id}/close", class: "bg-red-400 font-bold py-2 mx-4 px-4 rounded",
         data: { confirm: 'Do you want to publish this job?', disable_with: 'loading...' }) %>
