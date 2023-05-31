@@ -34,5 +34,7 @@ Rails.application.routes.draw do
     end
   end
   post 'checkout/create' => 'checkout#create'
+  get "success", to: "checkout#success"
+  get "cancel", to: "checkout#cancel"
   post "/track_time/:job_id", to: "tracking#send_notification"
 end
