@@ -6,7 +6,7 @@ class CheckoutController < ApplicationController
                                         payment_method_types: ['card'],
                                         line_items: [{
                                                 name: job.title,
-                                                amount: 100,
+                                                amount: caculate_price(job),
                                                 currency: 'usd',
                                                 quantity: 1,
                                                   }],
@@ -33,6 +33,19 @@ class CheckoutController < ApplicationController
     #   end
     else
       redirect_to cancel_path, alert: 'Transaction was cancelled'
+    end
+  end
+
+  protected
+
+  def caculate_price(job)
+    case job.company.package.package_type
+    when "basic"
+      100
+    when "premium"
+      200
+    when "ultimate"
+      300
     end
   end
 
