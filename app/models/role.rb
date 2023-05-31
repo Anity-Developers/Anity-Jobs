@@ -63,5 +63,5 @@ class Role < ApplicationRecord
       PERMISSIONS.dig(name, :all, action)
   end
 
-  validates :name, presence: true, uniqueness: true
+  validates :name, presence: true
 end
