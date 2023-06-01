@@ -41,12 +41,10 @@ category = Category.find_or_create_by!(name: "Tourism")
     company: company,
     category: category
   )
-  job.description = description = ActionText::RichText.new(record_type: Job, record_id: job.id, body: "Job description #{i}")
+  job.description = ActionText::RichText.new(record_type: Job, record_id: job.id, body: "Job description #{i}")
   job.save!
 end
 
 Job.update_all(status: 1)
-
-
 
 puts "Seeding done!"

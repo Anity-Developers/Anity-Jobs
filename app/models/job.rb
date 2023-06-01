@@ -22,7 +22,7 @@ class Job < ApplicationRecord
   enum status: {
     pending: 0,
     published: 1,
-    closed: 2,
+    closed: 2
   }
 
   enum translation: {
@@ -43,6 +43,6 @@ class Job < ApplicationRecord
 
   def increment_view
     self.views += 1
-    self.save
+    save
   end
 end
