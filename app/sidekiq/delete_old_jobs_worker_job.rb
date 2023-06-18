@@ -1,7 +1,7 @@
-class DeleteOldJobsWorkerJob
-  include Sidekiq::Job
+class DeleteOldJobsWorker
+  include Sidekiq::Worker
 
-  def perform(*args)
+  def perform
     Job.where("created_at < ?", 1.month.ago).destroy_all
   end
 end
