@@ -103,6 +103,7 @@ gem "sidekiq"
 gem "sidekiq-cron"
 gem "sidekiq-scheduler", "~> 4.0"
 gem "tailwindcss-rails", "~> 2.0"
+gem 'whenever', require: false
 
 gem "foreman"
 gem "pagy", "~> 6.0"
