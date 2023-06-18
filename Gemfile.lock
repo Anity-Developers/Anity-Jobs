@@ -129,6 +129,7 @@ GEM
       regexp_parser (>= 1.5, < 3.0)
       xpath (~> 3.2)
     childprocess (4.1.0)
+    chronic (0.10.2)
     clearance (2.6.1)
       actionmailer (>= 5.0)
       activemodel (>= 5.0)
@@ -444,6 +445,8 @@ GEM
     websocket-driver (0.7.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
+    whenever (1.0.0)
+      chronic (>= 0.6.3)
     xpath (3.2.0)
       nokogiri (~> 1.8)
     yard (0.9.34)
@@ -498,9 +501,10 @@ DEPENDENCIES
   tzinfo-data
   web-console
   webdrivers
+  whenever
 
 RUBY VERSION
-   ruby 3.1.2p20
+   ruby 3.0.1p64
 
 BUNDLED WITH
-   2.3.24
+   2.3.17
