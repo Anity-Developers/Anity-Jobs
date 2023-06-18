@@ -1,5 +1,6 @@
 class OpenAiService
   attr_accessor :prompt, :client
+
   def initialize(prompt)
     @client = OpenAI::Client.new
     @prompt = prompt
@@ -8,7 +9,7 @@ class OpenAiService
   def translate_body
     params = {
       model: "gpt-3.5-turbo", # Required.
-      messages: [{role: "user", content: "Translate this HTML to french and return only the new HTML: #{@prompt}"}], # Required.
+      messages: [{ role: "user", content: "Translate this HTML to french and return only the new HTML: #{@prompt}" }], # Required.
       temperature: 0.7
     }
     response = client.chat(parameters: params)
@@ -18,7 +19,7 @@ class OpenAiService
   def translate_tile
     params = {
       model: "gpt-3.5-turbo", # Required.
-      messages: [{role: "user", content: "Translate this job title to french and return only the new title #{@prompt}"}], # Required.
+      messages: [{ role: "user", content: "Translate this job title to french and return only the new title #{@prompt}" }], # Required.
       temperature: 0.7
     }
     response = client.chat(parameters: params)

@@ -35,7 +35,8 @@ module Dashboard
     private
 
     def job_params
-      params.require(:job).permit(:title, :description, :company_id, :application_url, :status, :location_id, :category_id, :translation)
+      params.require(:job).permit(:title, :description, :company_id, :application_url, :status, :location_id,
+                                  :category_id, :translation)
     end
   end
 end

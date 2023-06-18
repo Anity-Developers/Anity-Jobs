@@ -4,6 +4,7 @@ module ApplicationHelper
   def country_to_language(country)
     return "en" unless country.present?
     return country if ["en", "fr"].include?(country)
+
     country_languages = LANGUAGES[country]
     country_languages.min
     if country_languages.include?("en")
