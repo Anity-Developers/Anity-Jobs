@@ -1,6 +1,6 @@
 # Anity Jobs
 
-Anity is a job posting platform specifically designed for the African market. It helps job seekers find employment opportunities in Africa, and it also assists employers in finding qualified candidates for their open positions. With its user-friendly interface and extensive database of job listings, Anity makes it easy for job seekers to find the right job in their field, and for employers to connect with top talent. Whether you are looking for a new job or seeking to hire qualified professionals, Anity is the go-to platform for finding employment opportunities in Africa.
+Anity Job is a job posting platform specifically designed for the African market. It helps job seekers find employment opportunities in Africa, and it also assists employers in finding qualified candidates for their open positions. With its user-friendly interface and extensive database of job listings, Anity makes it easy for job seekers to find the right job in their field, and for employers to connect with top talent. Whether you are looking for a new job or seeking to hire qualified professionals, Anity is the go-to platform for finding employment opportunities in Africa.
 
 ## Getting Started
 
