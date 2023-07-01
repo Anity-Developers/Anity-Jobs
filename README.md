@@ -1,6 +1,6 @@
 # Anity Jobs
 
-Anity Job is a job posting platform specifically designed for the African market. It helps job seekers find employment opportunities in Africa, and it also assists employers in finding qualified candidates for their open positions. With its user-friendly interface and extensive database of job listings, Anity makes it easy for job seekers to find the right job in their field, and for employers to connect with top talent. Whether you are looking for a new job or seeking to hire qualified professionals, Anity is the go-to platform for finding employment opportunities in Africa.
+Anity Job is a job posting platform specifically designed for the African market. It helps job seekers find employment opportunities in Africa, and it also assists employers in finding qualified candidates for their open positions. With its user-friendly interface and extensive database of job listings, Anity makes it easy for job seekers to find the right job in their field and for employers to connect with top talent. Whether you are looking for a new job or seeking to hire qualified professionals, Anity is the go-to platform for finding employment opportunities in Africa.
 
 ## Getting Started
 
@@ -44,31 +44,4 @@ to both `.sample.env` and `app.json`, providing either **public** default
 values or brief instructions on where secret values may be found.
 
 Do not commit the `.env` file to the git repo.
-
-## Running the Application
-
-```sh
-heroku local
-```
-
-Once the server is started the application is reachable at
-`http://localhost:3000`.
-
-
-## Profiler
-
-
-The [rack-mini-profiler] gem can be enabled by setting
-`RACK_MINI_PROFILER=1` in the environment. This will display a speed
-badge on every page.
-
-[rack-mini-profiler]: https://github.com/MiniProfiler/rack-mini-profiler
-
-## Deploying
-
-If you have previously run the `./bin/setup` script,
-you can deploy to staging and production with:
-
-    % ./bin/deploy staging
-    % ./bin/deploy production
 
