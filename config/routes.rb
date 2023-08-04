@@ -30,6 +30,8 @@ Rails.application.routes.draw do
     resources :jobs do
       member do
         post :publish
+        post :close
+        post :delete_job
       end
     end
   end

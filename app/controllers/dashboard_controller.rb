@@ -19,7 +19,23 @@ class DashboardController < ApplicationController
     redirect_to dashboard_path
   end
 
+  def close
+    @job = Job.find(params[:id])
+    @job.closed!
+    redirect_to dashboard_path
+  end
+
+  def delete_job
+    @job = Job.find(params[:id])
+    soft_delete_job(@job)
+    redirect_to dashboard_path
+  end
+
   private
+
+  def soft_delete_job(job)
+    job.update(deleted_at: Time.now)
+  end
 
   def require_admin
     unless current_user.admin?
