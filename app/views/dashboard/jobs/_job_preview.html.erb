@@ -25,5 +25,7 @@
         <%= button_to('Close Job', "/dashboard/jobs/#{job.id}/close", class: "bg-red-400 font-bold py-2 mx-4 px-4 rounded",
         data: { confirm: 'Do you want to publish this job?', disable_with: 'loading...' }) %>
   <%end%>
+  <%= button_to('Delete Job', "/dashboard/jobs/#{job.id}/delete_job", class: "bg-red-400 font-bold py-2 mx-4 px-4 rounded",
+        data: { confirm: 'Do you want to publish this job?', disable_with: 'loading...' }) %>
   </div>
 </div>

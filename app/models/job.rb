@@ -4,7 +4,7 @@ class Job < ApplicationRecord
 
   belongs_to :author, class_name: "User", foreign_key: "user_id"
 
-  default_scope { order(created_at: :desc) }
+  default_scope { where(deleted_at: nil).order(created_at: :desc) }
 
   friendly_id :title, use: :slugged
 
