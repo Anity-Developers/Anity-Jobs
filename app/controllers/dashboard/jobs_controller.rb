@@ -26,7 +26,7 @@ module Dashboard
       @job.location_id = current_user.company.location_id if job_params[:location_id].blank?
       if @job.save!
         if @job.translation == "fr"
-          TranslatePostJob.perform_async(@job.id)
+          # TranslatePostJob.perform_async(@job.id)
         end
         flash[:notice] = "Job created successfully."
         redirect_to dashboard_path
