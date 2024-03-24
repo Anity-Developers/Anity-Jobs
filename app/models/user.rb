@@ -3,6 +3,7 @@ class User < ApplicationRecord
 
   has_many :jobs
   belongs_to :role
+  has_many :companies, foreign_key: :admin_id
 
   after_initialize :set_default_role
 
