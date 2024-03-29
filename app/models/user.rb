@@ -14,6 +14,10 @@ class User < ApplicationRecord
     self.role.name == 'admin'
   end
 
+  def current_company
+    companies.first
+  end
+
   def has_permission?(action, resource)
     if !!role
       role.has_permission?(action, resource)

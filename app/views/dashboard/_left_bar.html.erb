@@ -6,7 +6,7 @@
     <%= link_to dashboard_jobs_path, class: "pb-4 mb-1 font-semibold rounded hover:bg-yellow-500 py-4 p-2" do%>
       <span>My Jobs</span>
     <%end%>
-    <%= link_to dashboard_company_path(@company), class: "pb-4 mb-1 rounded font-semibold hover:bg-yellow-500 py-4 p-2" do%>
+    <%= link_to dashboard_company_path(current_user.current_company), class: "pb-4 mb-1 rounded font-semibold hover:bg-yellow-500 py-4 p-2" do%>
       <span>My Company</span>
     <%end%>
   </div>
