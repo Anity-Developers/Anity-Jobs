@@ -34,7 +34,7 @@ root of the project. In that file provide the environment variables listed in
 `.sample.env`. The `bin/setup` script does this for you, but be careful about
 overwriting your existing `.env` file.
 
-`app.json` also contains a list of environment variables that are required for
+`app.json` also contains a list of environment variables required for
 the application. The `.sample.env` file provides either non-secret vars that
 can be copied directly into your own `.env` file or instructions on where to
 obtain secret values.
