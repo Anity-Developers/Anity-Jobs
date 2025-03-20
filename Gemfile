@@ -106,4 +106,4 @@ gem "pagy", "~> 6.0"
 gem "foreman"
 gem 'async', '~> 2.5', '>= 2.5.1'
 
-gem "font-awesome-rails"
+gem "heroicon"
