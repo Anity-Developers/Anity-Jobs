@@ -172,12 +172,15 @@ GEM
       faraday (~> 2.5)
       net-http-persistent (~> 4.0)
     ffi (1.15.5)
+    ffi (1.15.5-x64-mingw-ucrt)
     ffi-compiler (1.0.1)
       ffi (>= 1.0.0)
       rake
     fiber-local (1.0.0)
     figaro (1.2.0)
       thor (>= 0.14.0, < 2)
+    font-awesome-rails (4.7.0.9)
+      railties (>= 3.2, < 9.0)
     foreman (0.87.2)
     friendly_id (5.4.2)
       activerecord (>= 4.0.0)
@@ -252,6 +255,8 @@ GEM
     nio4r (2.5.8)
     nokogiri (1.13.9-arm64-darwin)
       racc (~> 1.4)
+    nokogiri (1.13.9-x64-mingw-ucrt)
+      racc (~> 1.4)
     nokogiri (1.13.9-x86_64-linux)
       racc (~> 1.4)
     pagy (6.0.2)
@@ -259,6 +264,7 @@ GEM
     parser (3.2.2.1)
       ast (~> 2.4.1)
     pg (1.4.4)
+    pg (1.4.4-x64-mingw-ucrt)
     pry (0.14.1)
       coderay (~> 1.1)
       method_source (~> 1.0)
@@ -409,6 +415,8 @@ GEM
       railties (>= 6.0.0)
     tailwindcss-rails (2.0.15-arm64-darwin)
       railties (>= 6.0.0)
+    tailwindcss-rails (2.0.15-x64-mingw-ucrt)
+      railties (>= 6.0.0)
     tailwindcss-rails (2.0.15-x86_64-linux)
       railties (>= 6.0.0)
     thor (1.2.1)
@@ -421,6 +429,8 @@ GEM
       railties (>= 6.0.0)
     tzinfo (2.0.5)
       concurrent-ruby (~> 1.0)
+    tzinfo-data (1.2025.1)
+      tzinfo (>= 1.0.0)
     unicode-display_width (2.4.2)
     uniform_notifier (1.16.0)
     web-console (4.2.0)
@@ -444,6 +454,7 @@ GEM
 PLATFORMS
   arm64-darwin-21
   arm64-darwin-22
+  x64-mingw-ucrt
   x86_64-linux
 
 DEPENDENCIES
@@ -460,6 +471,7 @@ DEPENDENCIES
   debug
   factory_bot_rails
   figaro
+  font-awesome-rails
   foreman
   friendly_id (~> 5.4.0)
   geocoder
