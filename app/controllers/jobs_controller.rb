@@ -4,7 +4,7 @@ class JobsController < ApplicationController
     @page = page_params
     @keywords = search_params[:keyword]
     @jobs = @keywords.present? ? job_scope.search(@keywords) : list_jobs
-    @pagy = pagy_countless(list_jobs)
+    @pagy = pagy_countless(job_scope)
     # @jobs = job_scope.search(@keywords) if @keywords.present?
 
     flash[:alert] = t("flash.jobs.no_results") if @keywords.present? && @jobs.empty?
